@@ -22,7 +22,7 @@
 					<li :class="showGenderForm ? 'active' : ''">
 						<a href=""><span>2</span></a>
 					</li>
-					<li>
+					<li :class="showQualificationForm ? 'active' : ''">
 						<a href=""><span>3</span></a>
 					</li>
 					<li>
@@ -178,11 +178,11 @@
 										</div>
 									</div>
 									<div class="text-center">
-										<button type="button" class="btn btn-primary">Submit</button>
+										<button type="button" class="btn btn-primary" @click="validateGender">Submit</button>
 									</div>
 								</div>
 							</div><!--/.card-->
-							<div class="card" style="display: none">
+							<div class="card" v-if="showQualificationForm">
 								<div>
 									<h6>What is the highest level of qualification you hold?</h6>
 									<div class="check_radio mt-4 mb-5">
@@ -308,14 +308,19 @@ import Layout from '../Layouts/Layout'
         data(){
             return{
                 showPersonalInformationForm: true,
-                showGenderForm: false
+                showGenderForm: false,
+                showQualificationForm: false
             }
         },
         methods: {
             validatePersonalInformation: function(){
-                console.log('here');
+
                 this.showPersonalInformationForm = false;
                 this.showGenderForm = true;
+            },
+            validateGender: function(){
+                this.showGenderForm = false;
+                this.showQualificationForm = true;
             }
         }
     }
