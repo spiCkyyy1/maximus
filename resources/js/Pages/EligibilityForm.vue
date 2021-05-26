@@ -16,10 +16,10 @@
 		<div class="content-box">
 			<div class="feature-foreground wow fadeInRight">
 				<ul class="process-steps-1">
-					<li class="active">
+					<li :class="showPersonalInformationForm ? 'active' : ''">
 						<a href=""><span>1</span></a>
 					</li>
-					<li>
+					<li :class="showGenderForm ? 'active' : ''">
 						<a href=""><span>2</span></a>
 					</li>
 					<li>
@@ -87,7 +87,7 @@
 									</p>
 								</div>
 							</div>
-							<div class="card form-dark">
+							<div class="card form-dark" id="personalInformation" v-if="showPersonalInformationForm">
 								<div>
 									<h6 class="mb-5">Personal Information</h6>
 									<div class="form-row">
@@ -159,11 +159,11 @@
 										<input type="date" class="form-control">
 									</div>
 									<div class="text-center mt-5">
-										<button type="button" class="btn btn-primary">Submit</button>
+										<button type="button" class="btn btn-primary" @click="validatePersonalInformation">Submit</button>
 									</div>
 								</div>
 							</div>
-							<div class="card" style="display: none">
+							<div class="card" v-if="showGenderForm">
 								<div>
 									<h6>What's your Gender?</h6>
 
@@ -304,6 +304,19 @@ import Layout from '../Layouts/Layout'
     export default {
         components: {
             Layout
+        },
+        data(){
+            return{
+                showPersonalInformationForm: true,
+                showGenderForm: false
+            }
+        },
+        methods: {
+            validatePersonalInformation: function(){
+                console.log('here');
+                this.showPersonalInformationForm = false;
+                this.showGenderForm = true;
+            }
         }
     }
 </script>
