@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
+use App\Mail\JobSeekerEmail;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,25 @@ Route::get('/', [FrontendController::class, 'landing'])->name('landing');
 
 Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
 
+Route::post('/employer-form', [FrontendController::class, 'employerForm'])->name('employerForm');
+
+Route::post('/save-personal-information', [FrontendController::class, 'savePersonalInformation'])->name('savePersonalInformation');
+
+Route::post('/save-gender', [FrontendController::class, 'saveGender'])->name('saveGender');
+
+Route::post('/save-qualification', [FrontendController::class, 'saveQualification'])->name('saveQualification');
+
+Route::post('/save-employment', [FrontendController::class, 'saveEmployment'])->name('saveEmployment');
+
+Route::post('/save-jobTraining', [FrontendController::class, 'saveJobTraining'])->name('saveJobTraining');
+
+Route::post('/save-social', [FrontendController::class, 'saveSocial'])->name('saveSocial');
+
+Route::post('/save-unemployment', [FrontendController::class, 'saveUnemployment'])->name('saveUnemployment');
+
+Route::get('/assessment-test/{id}', [FrontendController::class, 'assessmentTest'])->name('assessmentTest');
+
+Route::post('/save-readiness', [FrontendController::class, 'saveReadiness'])->name('saveReadiness');
 
 Route::get('/admin/login', [AuthController::class, 'login'])->name('login');
 
@@ -34,7 +56,11 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
-
+Route::get('/test', function(){
+    // return view('emails.jobseekeremail', ['id' => 1]);
+    // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
+    return 'done';
+});
 
 // Route::inertia('/eligibility-form', 'EligibilityForm')->name('jobSeeker');
 // return Inertia::render('Welcome', [

@@ -11,7 +11,7 @@
                                 <img src="/images/logo-white.png" class="img-fluid" alt="...">
 							</div>
 							<h1 class="white-text">
-								OJT program is designed to support <span class="th-text">Job seekers</span> with a <span class="th-text">360 degree solution</span>.
+                                Join <span class="th-text">On The Job Training (OJT) </span> program to enhance your skills.
 							</h1>
 							<div class="btn-action mt-5">
 								<a href="index.php#employer" class="btn btn-primary">Apply Now<span class="icon"><i class="icon-arrow-right"></i></span></a>
@@ -95,7 +95,7 @@
 					<div class="col-md-6">
 						<div class="info-block">
 							<div class="sec-title">
-								<p class="sub-title">OJT About Us</p>
+								<p class="sub-title">About Us</p>
 								<h1 class="title">OJT program is designed to support Job seekers</h1>
 							</div>
 							<p class="font-md">
@@ -163,10 +163,11 @@
 										<img src="/images/icons/job-seeker.png" alt="" class="img-fluid">
 									</div>
 									<div class="text-center">
-										<button type="button" class="btn btn-secondary">Job Seeker</button>
+                                        <InertiaLink :href="route('jobSeeker')" as="buton" class="btn btn-primary">Job Seeker</InertiaLink>
+										<!-- <button type="button" class="btn btn-primary">Job Seeker</button> -->
 									</div>
 									<p class="mb-0">
-									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam error sit voluptatem error sit.
+                                        OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to apply.
 									</p>
 								</div>
 							</div>
@@ -176,10 +177,10 @@
 										<img src="/images/icons/boss.png" alt="" class="img-fluid">
 									</div>
 									<div class="text-center">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#employer-form-modal">Get in Touch</button>
+										<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#employer-form-modal">Employer</button>
 									</div>
 									<p class="mb-0">
-										Contact Us for Partnership Opportunity, Register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 20203.
+                                        Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2023.
 									</p>
 								</div>
 							</div>

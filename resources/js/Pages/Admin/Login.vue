@@ -87,7 +87,6 @@ import AdminLayout from '../../Layouts/AdminLayout'
                     }))
                     .post(this.route('verifyLogin'), {
                         onFinish: () => this.form.reset('password'),
-                        onSuccess: () => console.log(this.form.success),
                     })
             }
         }
