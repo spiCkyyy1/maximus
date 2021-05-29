@@ -1,0 +1,21 @@
+.ag-date-time-list-page-title-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.ag-date-time-list-page-column-labels-row,
+.ag-date-time-list-page-entries-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.ag-date-time-list-page-column-label,
+.ag-date-time-list-page-entry {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
+
+.ag-date-time-list-page-entry {
+  cursor: pointer; }

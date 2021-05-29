@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobSeeker;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +58,10 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-        return Inertia::render('Admin/Dashboard');
+        $jobSeekers = JobSeeker::with('readinessAssessment')->get();
+        // return $jobSeekers;
+        return Inertia::render('Admin/Dashboard', [
+            'jobSeekers' => $jobSeekers
+        ]);
     }
 }

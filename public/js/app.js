@@ -17549,7 +17549,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AdminLayout: _Layouts_AdminLayout__WEBPACK_IMPORTED_MODULE_0__.default
-  }
+  },
+  props: {
+    jobSeekers: Object
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -20242,21 +20246,200 @@ var _hoisted_1 = {
   "class": "wrap"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", {
-  "class": "main-footer hide"
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  id: "mcqs-modal",
+  "class": "modal fade",
+  tabindex: "-1",
+  role: "dialog",
+  "data-backdrop": "static",
+  "data-keyboard": "false"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "logo"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: "#",
-  "class": "logo-img"
+  "class": "modal-dialog modal-dialog-centered modal-lg",
+  role: "document"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "modal-content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  type: "button",
+  "class": "close",
+  "data-dismiss": "modal",
+  "aria-label": "Close"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "icon-close"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "modal-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "modal-title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "icon-note"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Assessment Test ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", {
+  "class": "accordion mcqs-list th-list number drag-drop",
+  id: "faqs-list"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+  "class": "card mb-3 correct"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "card-header"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "row align-items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "col"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "title"
+}, " Est sit amet facilisis magna etiam? ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "col-auto"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "drag-cursor"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(".card-header"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  id: "card-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "card-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2 mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r1",
+  name: "radio1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r1"
+}, "One")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2 mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r2",
+  name: "radio1",
+  checked: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r2"
+}, "Two")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r3",
+  name: "radio1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r3"
+}, "Two")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+  "class": "card mb-3 incorrect"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "card-header"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "row align-items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "col"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "title"
+}, " Est sit amet facilisis magna etiam? ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "col-auto"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "drag-cursor"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(".card-header"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  id: "card-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "card-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2 mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r1a",
+  name: "radio2",
+  checked: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r1a"
+}, "One")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2 mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r2a",
+  name: "radio2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r2a"
+}, "Two")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "check_radio style-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "radio"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  type: "radio",
+  id: "cr-r3a",
+  name: "radio2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label",
+  "for": "cr-r3a"
+}, "Two")])])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.modal-content ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.modal-dialog ")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "ux-module main-dashboard style-1"
+};
+var _hoisted_4 = {
+  "class": "ux-module-holder"
+};
+var _hoisted_5 = {
+  id: "aside-left",
+  "class": "left"
+};
+var _hoisted_6 = {
+  "class": "aside-header"
+};
+var _hoisted_7 = {
+  "class": "logo"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "left-aside-toggle"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "btn-toggle"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "icon-close fa-2x"
+})])])], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"aside-body\"><ul class=\"sec-holder\"><li class=\"heading\">Dashboard</li><li><a href=\"&lt;?php echo $base_url; ?&gt;index.php\"><span><i class=\"icon-speedometer\"></i></span>Dashboard</a></li><li class=\"heading\">Candidates</li><li><a href=\"&lt;?php echo $base_url; ?&gt;phonebook.php\"><span><i class=\"icon-user\"></i></span>All Candidates</a></li><li><a href=\"&lt;?php echo $base_url; ?&gt;trash.php\"><span><i class=\"icon-user-following\"></i></span>Selected Candidates</a></li><li><a href=\"&lt;?php echo $base_url; ?&gt;faqs.php\"><span><i class=\"icon-user-unfollow\"></i></span>Rejected Candidates</a></li><li class=\"heading\">Account</li><li><a href=\"&lt;?php echo $base_url; ?&gt;profile-settings.php\"><span><i class=\"icon-settings\"></i></span>Profile</a></li><li><a href=\"&lt;?php echo $base_url; ?&gt;login.php\"><span><i class=\"icon-logout\"></i></span>Logout</a></li><!--Dropdown 1--><li class=\"sub-menu\"><a class=\"collapsed\" data-toggle=\"collapse\" href=\"#dropdown1\"><span><i class=\"icon-settings\"></i></span>Dropdown</a><ul class=\"collapse\" data-parent=\"#aside-left\" id=\"dropdown1\"><li><a href=\"\">...</a></li><li><a href=\"\">...</a></li><!--Dropdown 2--><li class=\"sub-menu\"><a class=\"collapsed\" data-toggle=\"collapse\" href=\"#dropdown2\">Dropdown</a><ul class=\"collapse\" id=\"dropdown2\"><li><a href=\"\">...</a></li><li><a href=\"\">...</a></li><li><a href=\"\">...</a></li></ul></li></ul></li></ul></div>", 1);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"main-header\"><div class=\"container\"><nav class=\"navbar row p-0\"><div class=\"col-auto left-aside-toggle\"><div class=\"btn-toggle\"><i class=\"icon-menu\"></i></div></div><div class=\"col hide\"><form><div class=\"searchbar input-group input-group-merge input-group-flush d-none d-sm-flex\"><input type=\"search\" class=\"form-control form-control-prepended\" placeholder=\"Search\"><div class=\"input-group-prepend\"><div class=\"input-group-text\"><i class=\"icon-magnifier fa-lg\"></i></div></div></div></form></div><div class=\"col-auto\"><ul class=\"nav-menu\"><!--NOTIFICATIONS DROPDOWN--><li class=\"nav-item dropdown dropdown-lg notifications-dropdown arrow-hide hide\"><a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\"><div class=\"notifications-icon\"><i class=\"fas fa-bell fa-2x\"></i><span>08</span></div></a><div class=\"dropdown-menu dropdown-menu-right\"><!--Header--><div class=\"header\"><div class=\"banner\"><div class=\"meta\"><h2 class=\"heading\">Notifications</h2><p class=\"description mt-1 mb-0\">You have <span class=\"strong\">21</span> unread notifications.</p></div></div><ul class=\"nav nav-pills nav-justified p-2 d-none\"><li class=\"nav-item\"><a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-1\"><i class=\"icon-bubble fa-lg fa-r\"></i>Messages<span class=\"strong ml-1\">10</span></a></li></ul></div><!--Body--><div><div class=\"tab-content\"><div class=\"tab-pane active\" id=\"tab-1\"><div class=\"body th-scrollbar\"><div class=\"notification-box flag\"><div class=\"row align-items-center\"><div class=\"col\"><a href=\"\" class=\"media\"><div class=\"media-object pr-3\"><div class=\"avatar avatar-sm\"><img src=\"/admin/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body align-self-center\"><div class=\"meta\"><div class=\"heading\">Jhon Doe</div><p class=\"sec-text mt-1 mb-0\"> Ref::SALESREP7887 - Laboris nisi ut aliquip ex ea commodo consequat. </p></div></div></a></div><div class=\"col-auto\"><div class=\"time-date small text-muted\">6:25 PM</div><div class=\"controller\"><div class=\"dropdown dropdown-ellipses\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"icon-options-vertical\"></i></a><div class=\"dropdown-menu dropdown-menu-right\"><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope\"></i>Mark as Read </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope-open\"></i>Mark as Unread </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-flag\"></i>Mark as Flagged </a><a href=\"#delete-modal\" class=\"dropdown-item\" data-toggle=\"modal\"><i class=\"icon-trash\"></i>Delete </a></div></div></div></div></div></div><div class=\"notification-box unread\"><div class=\"row align-items-center\"><div class=\"col\"><a href=\"\" class=\"media\"><div class=\"media-object pr-3\"><div class=\"avatar avatar-sm\"><img src=\"/admin/img/icons/avatar-fm.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body align-self-center\"><div class=\"meta\"><div class=\"heading\">Jane Doe</div><p class=\"sec-text mt-1 mb-0\"> Ref::SALESREP7887 - Laboris nisi ut aliquip ex ea commodo consequat. </p></div></div></a></div><div class=\"col-auto\"><div class=\"time-date small text-muted\">6:25 PM</div><div class=\"controller\"><div class=\"dropdown dropdown-ellipses\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"icon-options-vertical\"></i></a><div class=\"dropdown-menu dropdown-menu-right\"><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope\"></i>Mark as Read </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope-open\"></i>Mark as Unread </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-flag\"></i>Mark as Flagged </a><a href=\"#delete-modal\" class=\"dropdown-item\" data-toggle=\"modal\"><i class=\"icon-trash\"></i>Delete </a></div></div></div></div></div></div><div class=\"notification-box\"><div class=\"row align-items-center\"><div class=\"col\"><a href=\"\" class=\"media\"><div class=\"media-object pr-3\"><div class=\"avatar avatar-sm\"><img src=\"/admin/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body align-self-center\"><div class=\"meta\"><div class=\"heading\">Jhon Doe</div><p class=\"sec-text mt-1 mb-0\"> Ref::SALESREP7887 - Laboris nisi ut aliquip ex ea commodo consequat. </p></div></div></a></div><div class=\"col-auto\"><div class=\"time-date small text-muted\">6:25 PM</div><div class=\"controller\"><div class=\"dropdown dropdown-ellipses\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"icon-options-vertical\"></i></a><div class=\"dropdown-menu dropdown-menu-right\"><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope\"></i>Mark as Read </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope-open\"></i>Mark as Unread </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-flag\"></i>Mark as Flagged </a><a href=\"#delete-modal\" class=\"dropdown-item\" data-toggle=\"modal\"><i class=\"icon-trash\"></i>Delete </a></div></div></div></div></div></div><div class=\"notification-box\"><div class=\"row align-items-center\"><div class=\"col\"><a href=\"\" class=\"media\"><div class=\"media-object pr-3\"><div class=\"avatar avatar-sm\"><img src=\"/admin/img/icons/avatar-fm.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body align-self-center\"><div class=\"meta\"><div class=\"heading\">Jane Doe</div><p class=\"sec-text mt-1 mb-0\"> Ref::SALESREP7887 - Laboris nisi ut aliquip ex ea commodo consequat. </p></div></div></a></div><div class=\"col-auto\"><div class=\"time-date small text-muted\">6:25 PM</div><div class=\"controller\"><div class=\"dropdown dropdown-ellipses\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"icon-options-vertical\"></i></a><div class=\"dropdown-menu dropdown-menu-right\"><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope\"></i>Mark as Read </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope-open\"></i>Mark as Unread </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-flag\"></i>Mark as Flagged </a><a href=\"#delete-modal\" class=\"dropdown-item\" data-toggle=\"modal\"><i class=\"icon-trash\"></i>Delete </a></div></div></div></div></div></div><div class=\"notification-box\"><div class=\"row align-items-center\"><div class=\"col\"><a href=\"\" class=\"media\"><div class=\"media-object pr-3\"><div class=\"avatar avatar-sm\"><img src=\"/admin/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body align-self-center\"><div class=\"meta\"><div class=\"heading\">Jhon Doe</div><p class=\"sec-text mt-1 mb-0\"> Ref::SALESREP7887 - Laboris nisi ut aliquip ex ea commodo consequat. </p></div></div></a></div><div class=\"col-auto\"><div class=\"time-date small text-muted\">6:25 PM</div><div class=\"controller\"><div class=\"dropdown dropdown-ellipses\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"icon-options-vertical\"></i></a><div class=\"dropdown-menu dropdown-menu-right\"><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope\"></i>Mark as Read </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-envelope-open\"></i>Mark as Unread </a><a href=\"&lt;?php echo $base_url; ?&gt;#\" class=\"dropdown-item\"><i class=\"icon-flag\"></i>Mark as Flagged </a><a href=\"#delete-modal\" class=\"dropdown-item\" data-toggle=\"modal\"><i class=\"icon-trash\"></i>Delete </a></div></div></div></div></div></div></div><div class=\"footer\"><a href=\"&lt;?php echo $base_url; ?&gt;notifications-messages.php\">View all</a></div></div></div></div></div></li><!--USER PROFILE--><li class=\"nav-item dropdown dropdown-lg user-profile arrow-xs-hide\"><a class=\"nav-link dropdown-toggle d-flex align-items-center hide\" data-toggle=\"dropdown\"><div class=\"media align-items-center\"><div class=\"media-object\"><div class=\"avatar avatar-sm avatar-online\"><img src=\"/admin/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></div><div class=\"media-body pl-3 d-sm-block d-none\"><div class=\"strong\">Rizwan Akram</div><div class=\"small text-muted\">Admin</div></div></div></a><div class=\"dropdown-menu dropdown-menu-right\"><!--Header--><div class=\"header\"><div class=\"banner\"><div class=\"author mx-auto p-3 position-relative\"><div class=\"avatar avatar-xxl avatar-online\"><img src=\"/admin/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div><div class=\"meta mt-3\"><h2 class=\"heading mb-1\">Jhon Doe</h2><p class=\"description mb-3\">Lahore, Pakistan</p></div></div></div></div><!--Body--><div class=\"body\"><ul class=\"d-flex nav-justified\"><li class=\"nav-item\"><h5 class=\"mb-1\">Service</h5><div class=\"text-muted\">Active</div></li><li class=\"nav-item\"><h5 class=\"mb-1\">Package</h5><div class=\"text-muted\">Premium</div></li><li class=\"nav-item\"><h5 class=\"mb-1\">Expiry</h5><div class=\"text-muted\">29-Nov-2019</div></li></ul></div><!--Footer--><div class=\"footer\"><div class=\"btn-group w-100\"><a href=\"&lt;?php echo $base_url; ?&gt;profile.php\" class=\"btn btn-default p-3 w-100 rounded-0 border-bottom-0 border-left-0\"><i class=\"icon-user fa-r fa-lg\"></i>Profile </a><a href=\"&lt;?php echo $base_url; ?&gt;login.php\" class=\"btn btn-default p-3 w-100 rounded-0 border-bottom-0 border-right-0\"><i class=\"icon-logout fa-r fa-lg\"></i>Logout </a></div></div></div></li></ul></div></nav></div></header>", 1);
+
+var _hoisted_11 = {
+  "class": "main-footer hide"
+};
+var _hoisted_12 = {
+  "class": "logo"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "copyright"
-}, " Copyrights 2019. All Right Reserved. ")], -1
+}, " Copyrights 2019. All Right Reserved. ", -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN FOOTER "), _hoisted_2])]);
+  var _component_inertiaLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertiaLink");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("MAXIMUS MODALS"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("MCQ's"), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Add 'style-n' class here for different looks"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("UX MODULE HOLDER"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("aside", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("ASIDE HEADER"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+    href: _ctx.route('dashboard'),
+    "class": "logo-img"
+  }, null, 8
+  /* PROPS */
+  , ["href"])]), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("ASIDE BODY"), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("ASIDE FOOTER")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", null, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" MAIN FOOTER "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+    href: _ctx.route('dashboard'),
+    "class": "logo-img"
+  }, null, 8
+  /* PROPS */
+  , ["href"])]), _hoisted_13])])])])]);
 }
 
 /***/ }),
@@ -21848,7 +22031,119 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log Out");
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-1\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-people\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">All Candidates</p><div class=\"title\">20</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-2\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-user-following\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Selected Candidates</p><div class=\"title\">10</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-4\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-user-unfollow\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Rejected Candidates</p><div class=\"title\">7</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-5\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-note\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Assessment Test</p><div class=\"title\">13</div></div></div></div><!--/.th-box--></div></div><div class=\"row mt-4\"><div class=\"col-12\"><ul class=\"nav nav-tabs nav-tabs-2 nav-overflow\"><li class=\"nav-item\"><a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-1a\">All Candidates</a></li><li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-2a\">Selected Candidates</a></li><li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-3a\">Rejected Candidates</a></li></ul><div class=\"card\"><div class=\"card-body pb-0\"><div class=\"form-row\"><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Gender</label><div class=\"select-picker\"><select class=\"form-control\"><option>Male</option><option>Female</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Qualification</label><div class=\"select-picker\"><select class=\"form-control\"><option>School</option><option>Bachelor&#39;s Degree</option><option>Master&#39;s Degree</option><option>Doctoral Degree</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Full-Time Employment</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">On-TheJob Training</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Active Social Beneficiary</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Unemployed</label><div class=\"select-picker\"><select class=\"form-control\"><option>Never worked</option><option>Less Than 3 Months</option><option>More than 3 months</option></select></div></div></div></div></div></div><div class=\"tab-content\"><div class=\"tab-pane active\" id=\"tab-1a\"><div class=\"card table-card\"><div class=\"card-header\"><div class=\"row align-items-center\"><div class=\"col\"><div class=\"title\"><i class=\"icon-people\"></i>All Candidates</div></div><div class=\"col-auto\"><a href=\"\" class=\"btn btn-default\">View All</a></div></div></div><!--.card-header--><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-hover\"><thead><tr><th width=\"55px\">#</th><th class=\"text-center\" width=\"50px\"><i class=\"icon-user fa-lg\"></i></th><th width=\"150px\">Name</th><th>Gender</th><th>Qualification</th><th class=\"text-center\">Full-Time Employment</th><th class=\"text-center\">On-TheJob Training</th><th class=\"text-center\">Active Social Beneficiary</th><th class=\"text-center\">Assessment Test</th><th>Unemployed</th></tr></thead><tbody><tr><td>1</td><td class=\"text-center\"><div class=\"avatar avatar-sm\"><img src=\"&lt;?php echo $base_url; ?&gt;assets/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></td><td class=\"strong\">Jhon Doe</td><td><span class=\"badge badge-soft-info\">Male</span></td><td>Master&#39;s Degree</td><td class=\"text-center\">Yes</td><td class=\"text-center\">No</td><td class=\"text-center\">Yes</td><td class=\"text-center strong\"><a href data-toggle=\"modal\" data-target=\"#mcqs-modal\">80%</a></td><td>Less Than 3 Months</td></tr><tr><td>2</td><td class=\"text-center\"><div class=\"avatar avatar-sm\"><img src=\"&lt;?php echo $base_url; ?&gt;assets/img/icons/avatar-fm.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></td><td class=\"strong\">Jane Doe</td><td><span class=\"badge badge-soft-danger\">Female</span></td><td>Master&#39;s Degree</td><td class=\"text-center\">Yes</td><td class=\"text-center\">No</td><td class=\"text-center\">Yes</td><td class=\"text-center strong\"><a href data-toggle=\"modal\" data-target=\"#mcqs-modal\">92%</a></td><td>Never worked</td></tr><tr><td>3</td><td class=\"text-center\"><div class=\"avatar avatar-sm\"><img src=\"&lt;?php echo $base_url; ?&gt;assets/img/icons/avatar-fm.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></td><td class=\"strong\">Jane Doe</td><td><span class=\"badge badge-soft-danger\">Female</span></td><td>Master&#39;s Degree</td><td class=\"text-center\">Yes</td><td class=\"text-center\">No</td><td class=\"text-center\">Yes</td><td class=\"text-center strong\"><a href data-toggle=\"modal\" data-target=\"#mcqs-modal\">88%</a></td><td>Never worked</td></tr><tr><td>4</td><td class=\"text-center\"><div class=\"avatar avatar-sm\"><img src=\"&lt;?php echo $base_url; ?&gt;assets/img/icons/avatar.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></td><td class=\"strong\">Jhon Doe</td><td><span class=\"badge badge-soft-info\">Male</span></td><td>Master&#39;s Degree</td><td class=\"text-center\">Yes</td><td class=\"text-center\">No</td><td class=\"text-center\">Yes</td><td class=\"text-center strong\"><a href data-toggle=\"modal\" data-target=\"#mcqs-modal\">95%</a></td><td>Less Than 3 Months</td></tr><tr><td>5</td><td class=\"text-center\"><div class=\"avatar avatar-sm\"><img src=\"&lt;?php echo $base_url; ?&gt;assets/img/icons/avatar-fm.png\" class=\"avatar-img rounded-circle\" alt=\"...\"></div></td><td class=\"strong\">Jane Doe</td><td><span class=\"badge badge-soft-danger\">Female</span></td><td>Master&#39;s Degree</td><td class=\"text-center\">Yes</td><td class=\"text-center\">No</td><td class=\"text-center\">Yes</td><td class=\"text-center strong\"><a href data-toggle=\"modal\" data-target=\"#mcqs-modal\">100%</a></td><td>Never worked</td></tr></tbody></table></div><!--/.table-responsive---></div><!--.card-body--></div></div><div class=\"tab-pane fade\" id=\"tab-2a\"></div><div class=\"tab-pane fade\" id=\"tab-3a\"></div><div class=\"tab-pane fade\" id=\"tab-4a\"></div><div class=\"tab-pane fade\" id=\"tab-5a\"></div><div class=\"tab-pane fade\" id=\"tab-6a\"></div></div></div></div>", 2);
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-1\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-people\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">All Candidates</p><div class=\"title\">20</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-2\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-user-following\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Selected Candidates</p><div class=\"title\">10</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-4\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-user-unfollow\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Rejected Candidates</p><div class=\"title\">7</div></div></div></div><!--/.th-box--></div><div class=\"col-lg-3 col-sm-6 mb-4\"><div class=\"th-box-7 bgc-5\"><div class=\"media\"><div class=\"media-object\"><div class=\"icon\"><i class=\"icon-note\"></i></div></div><div class=\"media-body align-self-center\"><p class=\"description\">Assessment Test</p><div class=\"title\">13</div></div></div></div><!--/.th-box--></div></div>", 1);
+
+var _hoisted_12 = {
+  "class": "row mt-4"
+};
+var _hoisted_13 = {
+  "class": "col-12"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"nav nav-tabs nav-tabs-2 nav-overflow\"><li class=\"nav-item\"><a class=\"nav-link active\" data-toggle=\"tab\" href=\"#tab-1a\">All Candidates</a></li><li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-2a\">Selected Candidates</a></li><li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#tab-3a\">Rejected Candidates</a></li></ul><div class=\"card\"><div class=\"card-body pb-0\"><div class=\"form-row\"><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Gender</label><div class=\"select-picker\"><select class=\"form-control\"><option>Male</option><option>Female</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Qualification</label><div class=\"select-picker\"><select class=\"form-control\"><option>School</option><option>Bachelor&#39;s Degree</option><option>Master&#39;s Degree</option><option>Doctoral Degree</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Full-Time Employment</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">On-TheJob Training</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Active Social Beneficiary</label><div class=\"select-picker\"><select class=\"form-control\"><option>Yes</option><option>No</option></select></div></div></div><div class=\"col-sm-6 col-md-4\"><div class=\"form-group\"><label class=\"custom-label\">Unemployed</label><div class=\"select-picker\"><select class=\"form-control\"><option>Never worked</option><option>Less Than 3 Months</option><option>More than 3 months</option></select></div></div></div></div></div></div>", 2);
+
+var _hoisted_16 = {
+  "class": "tab-content"
+};
+var _hoisted_17 = {
+  "class": "tab-pane active",
+  id: "tab-1a"
+};
+var _hoisted_18 = {
+  "class": "card table-card"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"card-header\"><div class=\"row align-items-center\"><div class=\"col\"><div class=\"title\"><i class=\"icon-people\"></i>Job Seekers</div></div><div class=\"col-auto\"><a href=\"\" class=\"btn btn-default\">View All</a></div></div></div>", 1);
+
+var _hoisted_20 = {
+  "class": "card-body"
+};
+var _hoisted_21 = {
+  "class": "table-responsive"
+};
+var _hoisted_22 = {
+  "class": "table table-hover"
+};
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  width: "55px"
+}, "#"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  "class": "text-center",
+  width: "50px"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "icon-user fa-lg"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  width: "150px"
+}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", null, "Gender"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", null, "Qualification"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  "class": "text-center"
+}, "Full-Time Employment"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  "class": "text-center"
+}, "On-TheJob Training"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  "class": "text-center"
+}, "Active Social Beneficiary"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+  "class": "text-center"
+}, "Assessment Test"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", null, "Unemployed")])], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "avatar avatar-sm"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: "/admin/img/icons/avatar.png",
+  "class": "avatar-img rounded-circle",
+  alt: "..."
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "strong"
+};
+var _hoisted_26 = {
+  "class": "badge badge-soft-info"
+};
+var _hoisted_27 = {
+  key: 0
+};
+var _hoisted_28 = {
+  key: 1
+};
+var _hoisted_29 = {
+  key: 2
+};
+var _hoisted_30 = {
+  key: 3
+};
+var _hoisted_31 = {
+  "class": "text-center"
+};
+var _hoisted_32 = {
+  "class": "text-center"
+};
+var _hoisted_33 = {
+  "class": "text-center"
+};
+var _hoisted_34 = {
+  "class": "text-center strong"
+};
+var _hoisted_35 = {
+  href: "",
+  "data-toggle": "modal",
+  "data-target": "#mcqs-modal"
+};
+var _hoisted_36 = {
+  key: 4
+};
+var _hoisted_37 = {
+  key: 5
+};
+var _hoisted_38 = {
+  key: 6
+};
+
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"tab-pane fade\" id=\"tab-2a\"></div><div class=\"tab-pane fade\" id=\"tab-3a\"></div><div class=\"tab-pane fade\" id=\"tab-4a\"></div><div class=\"tab-pane fade\" id=\"tab-5a\"></div><div class=\"tab-pane fade\" id=\"tab-6a\"></div>", 5);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_InertiaLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InertiaLink");
@@ -21869,7 +22164,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])])])]), _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.col-12 ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.row ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.container ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("main-body")], 2112
+  , ["href"])])])]), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(".card-header"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("table", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.jobSeekers, function (jobSeeker, k) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("tr", {
+      key: k
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.id), 1
+    /* TEXT */
+    ), _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.first_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.middle_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.last_name), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.gender), 1
+    /* TEXT */
+    )]), jobSeeker.qualification == 'school' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_27, "School")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'bachelors' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_28, "Bachelor's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'masters' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_29, "Master's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'doctoral' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_30, "Doctoral Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.full_time_employment), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.on_job_training), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.social_benficiary), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.weighted_score) + "%", 1
+    /* TEXT */
+    )]), jobSeeker.unemployed == 'never_worked' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_36, "Never Worked")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'less_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_37, "Less Than 3 Months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'more_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_38, "More than 3 months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("/.table-responsive-")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(".card-body")])]), _hoisted_39])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.col-12 ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.row ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.container ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("main-body")], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }

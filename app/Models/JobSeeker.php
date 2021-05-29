@@ -14,7 +14,25 @@ class JobSeeker extends Model
     'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
     'unemployed'];
 
+    protected $appends = ['weighted_score'];
+
     public function readinessAssessment(){
-        return $this->hasOne(ReadinessAssessment::class);
+        return $this->hasMany(ReadinessAssessment::class);
+    }
+
+    public function getFullTimeEmploymentAttribute($value){
+        return ucfirst($value);
+    }
+
+    public function getObJobTrainingAttribute($value){
+        return ucfirst($value);
+    }
+
+    public function getSocialBenficiaryAttribute($value){
+        return ucfirst($value);
+    }
+
+    public function getWeightedScoreAttribute(){
+        return $this->readinessAssessment()->sum('weighted_score');
     }
 }

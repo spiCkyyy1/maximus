@@ -44,17 +44,22 @@ Route::get('/assessment-test/{id}', [FrontendController::class, 'assessmentTest'
 
 Route::post('/save-readiness', [FrontendController::class, 'saveReadiness'])->name('saveReadiness');
 
-Route::get('/admin/login', [AuthController::class, 'login'])->name('login');
+
+Route::middleware('auth')->group(function () {
+
+    Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
+});
+
+Route::get('/admin/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 
 Route::post('/admin/login', [AuthController::class, 'verifyLogin'])->name('verifyLogin');
 
 Route::get('/admin/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
-
-Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);

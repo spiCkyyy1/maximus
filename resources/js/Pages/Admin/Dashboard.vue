@@ -177,7 +177,7 @@
 										<div class="card-header">
 											<div class="row align-items-center">
 												<div class="col">
-													<div class="title"><i class="icon-people"></i>All Candidates</div>
+													<div class="title"><i class="icon-people"></i>Job Seekers</div>
 												</div>
 												<div class="col-auto">
 													<a href="" class="btn btn-default">View All</a>
@@ -202,85 +202,26 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr>
-															<td>1</td>
+														<tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
+															<td>{{jobSeeker.id}}</td>
 															<td class="text-center">
 																<div class="avatar avatar-sm">
-																	<img src="<?php echo $base_url; ?>assets/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
-															<td class="strong">Jhon Doe</td>
-															<td><span class="badge badge-soft-info">Male</span></td>
-															<td>Master's Degree</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center">No</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">80%</a></td>
-															<td>Less Than 3 Months</td>
-														</tr>
-														<tr>
-															<td>2</td>
-															<td class="text-center">
-																<div class="avatar avatar-sm">
-																	<img src="<?php echo $base_url; ?>assets/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
-																</div>
-															</td>
-															<td class="strong">Jane Doe</td>
-															<td><span class="badge badge-soft-danger">Female</span></td>
-															<td>Master's Degree</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center">No</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">92%</a></td>
-															<td>Never worked</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td class="text-center">
-																<div class="avatar avatar-sm">
-																	<img src="<?php echo $base_url; ?>assets/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
-																</div>
-															</td>
-															<td class="strong">Jane Doe</td>
-															<td><span class="badge badge-soft-danger">Female</span></td>
-															<td>Master's Degree</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center">No</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">88%</a></td>
-															<td>Never worked</td>
-														</tr>
-														<tr>
-															<td>4</td>
-															<td class="text-center">
-																<div class="avatar avatar-sm">
-																	<img src="<?php echo $base_url; ?>assets/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
-																</div>
-															</td>
-															<td class="strong">Jhon Doe</td>
-															<td><span class="badge badge-soft-info">Male</span></td>
-															<td>Master's Degree</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center">No</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">95%</a></td>
-															<td>Less Than 3 Months</td>
-														</tr>
-														<tr>
-															<td>5</td>
-															<td class="text-center">
-																<div class="avatar avatar-sm">
-																	<img src="<?php echo $base_url; ?>assets/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
-																</div>
-															</td>
-															<td class="strong">Jane Doe</td>
-															<td><span class="badge badge-soft-danger">Female</span></td>
-															<td>Master's Degree</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center">No</td>
-															<td class="text-center">Yes</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">100%</a></td>
-															<td>Never worked</td>
+															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
+                                                            <td v-if="jobSeeker.qualification == 'school'">School</td>
+															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
+															<td class="text-center">{{jobSeeker.on_job_training}}</td>
+															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
+															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.weighted_score}}%</a></td>
+															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
+                                                            <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
+                                                            <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
 														</tr>
 													</tbody>
 												</table>
@@ -309,7 +250,12 @@ import AdminLayout from '../../Layouts/AdminLayout'
 export default {
     components:{
         AdminLayout
-    }
+    },
+    props: {
+        jobSeekers: Object
+    },
+    methods: {
 
+    }
 }
 </script>

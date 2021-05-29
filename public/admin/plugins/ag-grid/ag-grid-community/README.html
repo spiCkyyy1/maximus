@@ -1,0 +1,92 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <p><img src="./github-banner.png" alt="alt text" title="Logo Title Text 1"></p>
+<p><a href="https://cdnjs.com/libraries/ag-grid"><img src="https://img.shields.io/cdnjs/v/ag-grid.svg" alt="CDNJS"></a>
+<a href="https://www.npmjs.com/package/ag-grid"><img src="https://img.shields.io/npm/dm/ag-grid.svg" alt="npm"></a>
+<a href="https://www.npmjs.com/package/ag-grid"><img src="https://img.shields.io/npm/dt/ag-grid.svg" alt="npm"></a></p>
+<h2 id="ag-grid">ag-Grid</h2>
+<p>ag-Grid is a fully-featured and highly customizable JavaScript data grid.
+It delivers <a href="https://www.ag-grid.com/example.php?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github#/performance/1">outstanding performance</a>, has no 3rd party dependencies and <a href="https://www.ag-grid.com/javascript-grid-getting-started?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">integrates smoothly with all major JavaScript frameworks</a>. Here&#39;s how our grid looks like with multiple filters and grouping enabled:</p>
+<p><img src="./github-grid-demo.jpg" alt="alt text" title="Logo Title Text 1"></p>
+<h2 id="features">Features</h2>
+<p>Besides the standard set of features you&#39;d expect from any grid:</p>
+<ul>
+<li>Column Interactions (resize, reorder, and pin columns)</li>
+<li>Pagination</li>
+<li>Sorting</li>
+<li>Row Selection</li>
+</ul>
+<p>Here are some of the features that make ag-Grid stand out:</p>
+<ul>
+<li>Grouping / Aggregation*</li>
+<li>Custom Filtering</li>
+<li>In-place Cell Editing</li>
+<li>Records Lazy Loading *</li>
+<li>Server-Side Records Operations *</li>
+<li>Live Stream Updates</li>
+<li>Hierarchical Data Support &amp; Tree View *</li>
+<li>Customizable Appearance</li>
+<li>Customizable Cell Contents</li>
+<li>Excel-like Pivoting *</li>
+<li>State Persistence</li>
+<li>Keyboard navigation</li>
+<li>Data Export to CSV</li>
+<li>Data Export to Excel *</li>
+<li>Row Reordering</li>
+<li>Copy / Paste </li>
+<li>Column Spanning</li>
+<li>Pinned Rows</li>
+<li>Full Width Rows</li>
+</ul>
+<p>* The features marked with an asterisk are available in the <a href="https://www.ag-grid.com/license-pricing.php?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">enterprise version</a> only.</p>
+<p>Check out <a href="https://www.ag-grid.com/documentation-main/documentation.php?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">developers documentation</a> for a complete list of features or visit <a href="https://www.ag-grid.com/features-overview?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">our official docs</a> for tutorials and feature demos. </p>
+<h2 id="looking-for-a-framework-specific-solution-">Looking for a framework specific solution?</h2>
+<ul>
+<li><a href="https://www.ag-grid.com/angular-grid?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">Get Started with AngularJS</a></li>
+<li><a href="https://www.ag-grid.com/angular-grid?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">Get Started with Angular</a></li>
+<li><a href="https://www.ag-grid.com/react-grid?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">Get Started with React</a></li>
+<li><a href="https://www.ag-grid.com/vue-getting-started?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">Get Started with Vue</a></li>
+<li><a href="https://www.ag-grid.com/best-web-component-data-grid?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">Get Started with WebComponents</a></li>
+</ul>
+<h2 id="usage-overview">Usage Overview</h2>
+<h4 id="install-dependencies">Install dependencies</h4>
+<pre><code>$ npm i --save ag-grid
+</code></pre><h3 id="add-a-placeholder-to-html">Add a placeholder to HTML</h3>
+<pre><code>&lt;div id=&quot;myGrid&quot; style=&quot;height: 150px;width: 600px&quot; class=&quot;ag-theme-balham&quot;&gt;&lt;/div&gt;
+</code></pre><h4 id="import-the-grid-and-styles">Import the grid and styles</h4>
+<pre><code>import {Grid} from &quot;ag-grid-community&quot;;
+
+import &quot;ag-grid-community/dist/styles/ag-grid.css&quot;;
+import &quot;ag-grid-community/dist/styles/ag-theme-balham.css&quot;;
+</code></pre><h3 id="set-configuration">Set configuration</h3>
+<pre><code>const gridOptions = {
+    columnDefs: [
+        {headerName: &#39;Make&#39;, field: &#39;make&#39;},
+        {headerName: &#39;Model&#39;, field: &#39;model&#39;},
+        {headerName: &#39;Price&#39;, field: &#39;price&#39;}
+    ],
+    rowData: [
+        {make: &#39;Toyota&#39;, model: &#39;Celica&#39;, price: 35000},
+        {make: &#39;Ford&#39;, model: &#39;Mondeo&#39;, price: 32000},
+        {make: &#39;Porsche&#39;, model: &#39;Boxter&#39;, price: 72000}
+    ]
+};
+</code></pre><h3 id="initialize-the-grid">Initialize the grid</h3>
+<pre><code>let eGridDiv = document.querySelector(&#39;#myGrid&#39;);
+new Grid(eGridDiv, this.gridOptions);
+</code></pre><p>For more information on how to integrate the grid into your project see <a href="https://www.ag-grid.com/ag-grid-typescript-webpack-2?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">TypeScript - Building with Webpack 2</a>.</p>
+<h2 id="issue-reporting">Issue Reporting</h2>
+<p>If you have found a bug, please report them at this repository <code>issues</code> section. If you&#39;re using Enterprise version please use the private ticketing system to do that. For more information on support check out our <a href="https://www.ag-grid.com/support.php?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">dedicated page</a>.</p>
+<h2 id="asking-questions">Asking Questions</h2>
+<p>Look for similar problems on <a href="https://stackoverflow.com/questions/tagged/ag-grid">StackOverflow</a> using the <code>ag-grid</code> tag. If nothing seems related, post a new message there. Do not use GitHub issues to ask questions.</p>
+<h2 id="contributing">Contributing</h2>
+<p>ag-Grid is developed by a team of co-located developers in London. If you want to join the team check out our <a href="https://www.ag-grid.com/ag-grid-jobs-board?utm_source=ag-grid-readme&amp;utm_medium=repository&amp;utm_campaign=github">jobs listing</a> or send your application to <a href="mailto:info@ag-grid.com">info@ag-grid.com</a>.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT license. See the <a href="./LICENSE.txt">LICENSE file</a> for more info.</p>
+
+      </body>
+    </html>
