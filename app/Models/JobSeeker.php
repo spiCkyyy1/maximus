@@ -33,6 +33,10 @@ class JobSeeker extends Model
     }
 
     public function getWeightedScoreAttribute(){
-        return $this->readinessAssessment()->sum('weighted_score');
+        if($this->readinessAssessment()->exists()){
+            return $this->readinessAssessment()->sum('weighted_score');
+        }
+        return 0;
+
     }
 }
