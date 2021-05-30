@@ -12,9 +12,9 @@ class JobSeeker extends Model
 
     protected $fillable = ['first_name', 'middle_name', 'last_name', 'mobile', 'email', 'city',
     'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
-    'unemployed'];
+    'unemployed', 'reviewed', 'status'];
 
-    protected $appends = ['weighted_score'];
+    protected $appends = ['readiness_weighted_score', 'evaluation_weighted_score'];
 
     public function readinessAssessment(){
         return $this->hasMany(ReadinessAssessment::class);
@@ -24,7 +24,7 @@ class JobSeeker extends Model
         return ucfirst($value);
     }
 
-    public function getObJobTrainingAttribute($value){
+    public function getOnJobTrainingAttribute($value){
         return ucfirst($value);
     }
 
@@ -32,11 +32,17 @@ class JobSeeker extends Model
         return ucfirst($value);
     }
 
-    public function getWeightedScoreAttribute(){
+    public function getReadinessWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
-            return $this->readinessAssessment()->sum('weighted_score');
+            return $this->readinessAssessment()->where('competencies', 'readiness')->sum('weighted_score');
         }
         return 0;
+    }
 
+    public function getEvaluationWeightedScoreAttribute(){
+        if($this->readinessAssessment()->exists()){
+            return $this->readinessAssessment()->where('competencies', 'evaluation')->sum('weighted_score');
+        }
+        return 0;
     }
 }

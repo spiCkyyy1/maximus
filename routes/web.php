@@ -44,12 +44,28 @@ Route::get('/assessment-test/{id}', [FrontendController::class, 'assessmentTest'
 
 Route::post('/save-readiness', [FrontendController::class, 'saveReadiness'])->name('saveReadiness');
 
+Route::post('/save-evaluation', [FrontendController::class, 'saveEvaluation'])->name('saveEvaluation');
+
+Route::post('/save-competencies', [FrontendController::class, 'saveCompetencies'])->name('saveCompetencies');
+
 
 Route::middleware('auth')->group(function () {
 
     Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/admin/all-candidates', [AuthController::class, 'allCandidates'])->name('allCandidates');
+
+    Route::get('/admin/selected-candidates', [AuthController::class, 'selectedCandidates'])->name('selectedCandidates');
+
+    Route::get('/admin/rejected-candidates', [AuthController::class, 'rejectedCandidates'])->name('rejectedCandidates');
+
+    Route::get('/admin/review/jobseeker/{id}/{review}', [AuthController::class, 'reviewJobSeeker'])->name('reviewJobSeeker');
+
+    Route::get('/admin/status/jobseeker/{id}/{status}', [AuthController::class, 'changeStatus'])->name('changeStatus');
+
+    Route::get('/admin/download/excel', [AuthController::class, 'downloadExcel'])->name('downloadExcel');
 
 });
 

@@ -1,4 +1,5 @@
 <template>
+<admin-layout>
     	<!--MAIN BODY-->
 	<div class="main-body">
 
@@ -19,9 +20,6 @@
 									<p class="sub-title">Sociis natoque penatibus et magnis.</p>
 								</div>
 							</div>
-                            <div class="col float-right">
-                                <InertiaLink :href="route('logout')" method="post" as="button" style="margin-left: 91%"><i class="icon-logout"></i> Log Out</InertiaLink>
-                            </div>
 						</div>
 					</div>
 
@@ -35,7 +33,7 @@
 									</div>
 									<div class="media-body align-self-center">
 										<p class="description">All Candidates</p>
-										<div class="title">20</div>
+										<div class="title">{{jobSeekersCount}}</div>
 									</div>
 								</div>
 							</div><!--/.th-box-->
@@ -48,7 +46,7 @@
 									</div>
 									<div class="media-body align-self-center">
 										<p class="description">Selected Candidates</p>
-										<div class="title">10</div>
+										<div class="title">{{selectedJobSeekers}}</div>
 									</div>
 								</div>
 							</div><!--/.th-box-->
@@ -61,7 +59,7 @@
 									</div>
 									<div class="media-body align-self-center">
 										<p class="description">Rejected Candidates</p>
-										<div class="title">7</div>
+										<div class="title">{{rejectedJobSeekers}}</div>
 									</div>
 								</div>
 							</div><!--/.th-box-->
@@ -74,7 +72,7 @@
 									</div>
 									<div class="media-body align-self-center">
 										<p class="description">Assessment Test</p>
-										<div class="title">13</div>
+										<div class="title">{{jobSeekersWithAssessmentCount}}</div>
 									</div>
 								</div>
 							</div><!--/.th-box-->
@@ -181,6 +179,7 @@
 												</div>
 												<div class="col-auto">
 													<a href="" class="btn btn-default">View All</a>
+                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
 										</div><!--.card-header-->
@@ -197,8 +196,10 @@
 															<th class="text-center">Full-Time Employment</th>
 															<th class="text-center">On-TheJob Training</th>
 															<th class="text-center">Active Social Beneficiary</th>
-															<th class="text-center">Assessment Test</th>
+															<th class="text-center">Readiness Assessment Test</th>
+                                                            <th class="text-center">Evaluation Assessment Test</th>
 															<th>Unemployed</th>
+                                                            <th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -218,22 +219,163 @@
 															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
 															<td class="text-center">{{jobSeeker.on_job_training}}</td>
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
-															<td class="text-center strong"><a href data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.weighted_score}}%</a></td>
+															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td>
+                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                &nbsp;
+                                                                <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                            </td>
 														</tr>
 													</tbody>
 												</table>
-											</div> <!--/.table-responsive--->
-										</div><!--.card-body-->
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="tab-pane fade" id="tab-2a"></div>
-								<div class="tab-pane fade" id="tab-3a"></div>
-								<div class="tab-pane fade" id="tab-4a"></div>
-								<div class="tab-pane fade" id="tab-5a"></div>
-								<div class="tab-pane fade" id="tab-6a"></div>
+								<div class="tab-pane fade" id="tab-2a">
+                                    <div class="card table-card" v-if="selectedCandidates.length > 0">
+										<div class="card-header">
+											<div class="row align-items-center">
+												<div class="col">
+													<div class="title"><i class="icon-people"></i>Job Seekers</div>
+												</div>
+												<div class="col-auto">
+													<a href="" class="btn btn-default">View All</a>
+                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
+												</div>
+											</div>
+										</div><!--.card-header-->
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover">
+													<thead>
+														<tr>
+															<th width="55px">#</th>
+															<th class="text-center" width="50px"><i class="icon-user fa-lg"></i></th>
+															<th width="150px">Name</th>
+															<th>Gender</th>
+															<th>Qualification</th>
+															<th class="text-center">Full-Time Employment</th>
+															<th class="text-center">On-TheJob Training</th>
+															<th class="text-center">Active Social Beneficiary</th>
+															<th class="text-center">Readiness Assessment Test</th>
+                                                            <th class="text-center">Evaluation Assessment Test</th>
+															<th>Unemployed</th>
+                                                            <th>Actions</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr v-for="(jobSeeker, k) in selectedCandidates" :key="k">
+															<td>{{jobSeeker.id}}</td>
+															<td class="text-center">
+																<div class="avatar avatar-sm">
+																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																</div>
+															</td>
+															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
+                                                            <td v-if="jobSeeker.qualification == 'school'">School</td>
+															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
+															<td class="text-center">{{jobSeeker.on_job_training}}</td>
+															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
+															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
+                                                            <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
+                                                            <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td>
+                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                &nbsp;
+                                                                <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+                                    <div v-else class="d-flex justify-content-center"><h3>Sorry, no candidate found.</h3></div>
+                                </div>
+								<div class="tab-pane fade" id="tab-3a">
+                                    <div class="card table-card" v-if="rejectedCandidates.length > 0">
+										<div class="card-header">
+											<div class="row align-items-center">
+												<div class="col">
+													<div class="title"><i class="icon-people"></i>Job Seekers</div>
+												</div>
+												<div class="col-auto">
+													<a href="" class="btn btn-default">View All</a>
+                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
+												</div>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table table-hover">
+													<thead>
+														<tr>
+															<th width="55px">#</th>
+															<th class="text-center" width="50px"><i class="icon-user fa-lg"></i></th>
+															<th width="150px">Name</th>
+															<th>Gender</th>
+															<th>Qualification</th>
+															<th class="text-center">Full-Time Employment</th>
+															<th class="text-center">On-TheJob Training</th>
+															<th class="text-center">Active Social Beneficiary</th>
+															<th class="text-center">Readiness Assessment Test</th>
+                                                            <th class="text-center">Evaluation Assessment Test</th>
+															<th>Unemployed</th>
+                                                            <th>Actions</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr v-for="(jobSeeker, k) in rejectedCandidates" :key="k">
+															<td>{{jobSeeker.id}}</td>
+															<td class="text-center">
+																<div class="avatar avatar-sm">
+																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																</div>
+															</td>
+															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
+                                                            <td v-if="jobSeeker.qualification == 'school'">School</td>
+															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
+                                                            <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
+															<td class="text-center">{{jobSeeker.on_job_training}}</td>
+															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
+															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
+                                                            <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
+                                                            <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td>
+                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                &nbsp;
+                                                                <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+                                    <div v-else class="d-flex justify-content-center"><h3>Sorry, no candidate found.</h3></div>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -243,6 +385,7 @@
 		</div><!-- /.container -->
 
 	</div><!--main-body-->
+</admin-layout>
 </template>
 
 <script>
@@ -252,10 +395,26 @@ export default {
         AdminLayout
     },
     props: {
-        jobSeekers: Object
+        jobSeekers: Object,
+        selectedCandidates: Object,
+        rejectedCandidates: Object,
+        jobSeekersCount: Number,
+        jobSeekersWithAssessmentCount: Number,
+        selectedJobSeekers: Number,
+        rejectedJobSeekers: Number
     },
     methods: {
-
+        excelDownload: function(){
+            axios.get('/admin/download/excel', {responseType:'blob'}).
+            then(result => {
+                const url = window.URL.createObjectURL(new Blob([result.data], {type:'application/vnd.ms-excel'}));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'job-seekers.xlsx');
+                    document.body.appendChild(link);
+                    link.click();
+            });
+        }
     }
 }
 </script>

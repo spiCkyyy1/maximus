@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\JobSeekersExport;
 use App\Models\JobSeeker;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 use Redirect;
 
@@ -57,11 +59,71 @@ class AuthController extends Controller
 
     }
 
-    public function dashboard(){
+    private function getjobSeeker(){
         $jobSeekers = JobSeeker::with('readinessAssessment')->get();
-        // return $jobSeekers;
+        return $jobSeekers;
+    }
+
+    public function dashboard(){
+        $jobSeekers = $this->getjobSeeker();
+
+        $selectedCandidates = JobSeeker::where('status', 1)->get();
+
+        $rejectedCandidates = JobSeeker::where('status', 0)->get();
+
+        $jobSeekersCount = JobSeeker::count();
+
+        $jobSeekersWithAssessmentCount = JobSeeker::with('readinessAssessment')->count();
+
+        $selectedJobSeekers = JobSeeker::where('status', 1)->count();
+
+        $rejectedJobSeekers = JobSeeker::where('status', 0)->count();
+
         return Inertia::render('Admin/Dashboard', [
-            'jobSeekers' => $jobSeekers
+            'jobSeekers' => $jobSeekers,
+            'jobSeekersCount' => $jobSeekersCount,
+            'jobSeekersWithAssessmentCount' => $jobSeekersWithAssessmentCount,
+            'selectedJobSeekers' => $selectedJobSeekers,
+            'rejectedJobSeekers' => $rejectedJobSeekers,
+            'selectedCandidates' => $selectedCandidates,
+            'rejectedCandidates' => $rejectedCandidates
         ]);
+    }
+
+    public function allCandidates(){
+        return Inertia('Admin/Candidates',[
+            'jobSeekers' => JobSeeker::get()
+        ]);
+    }
+
+    public function selectedCandidates(){
+        return Inertia('Admin/Candidates',[
+            'jobSeekers' => JobSeeker::where('status', 1)->get()
+        ]);
+    }
+
+    public function rejectedCandidates(){
+        return Inertia('Admin/Candidates',[
+            'jobSeekers' => JobSeeker::where('status', 0)->get()
+        ]);
+    }
+
+    public function reviewJobSeeker($id, $review){
+        $jobSeeker = JobSeeker::find($id);
+        $jobSeeker->reviewed = $review;
+        $jobSeeker->save();
+        return redirect()->back();
+        // return Redirect::route('dashboard');
+    }
+
+    public function changeStatus($id, $status){
+        $jobSeeker = JobSeeker::find($id);
+        $jobSeeker->status = $status;
+        $jobSeeker->save();
+        return redirect()->back();
+    }
+
+    public function downloadExcel(){
+        return Excel::download(new JobSeekersExport(), 'job-seekers.xlsx');
     }
 }

@@ -331,12 +331,12 @@ import Layout from '../Layouts/Layout'
                     region: '',
                     nin: '',
                     dob: '',
-                    gender: 'female',
-                    qualification: 'bachelors',
-                    employment: 'yes',
-                    jobTraining: 'yes',
-                    socialBeneficiary: 'yes',
-                    beenUnemployed: 'never_worked'
+                    gender: '',
+                    qualification: '',
+                    employment: '',
+                    jobTraining: '',
+                    socialBeneficiary: '',
+                    beenUnemployed: ''
                 },
                 errors: {}
             }
@@ -379,7 +379,11 @@ import Layout from '../Layouts/Layout'
 
             },
             saveQualification: function(){
-                if(this.personalInformation.qualification == 'bachelors' || this.personalInformation.qualification == 'doctoral'){
+                if(this.personalInformation.qualification == 'school'){
+                            this.showQualificationForm = false;
+                            this.applicationRejected = true;
+
+                }else{
                     axios.post('/save-qualification', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
@@ -387,9 +391,6 @@ import Layout from '../Layouts/Layout'
                             this.showEmploymentForm = true;
                         }
                     });
-                }else{
-                    this.showQualificationForm = false;
-                    this.applicationRejected = true;
                 }
             },
             saveEmployment: function(){
@@ -420,7 +421,7 @@ import Layout from '../Layouts/Layout'
                     });
             },
             saveUnemploymentForm: function(){
-                if(this.personalInformation.beenUnemployed == 'more_than_3_months'){
+                if(this.personalInformation.beenUnemployed == 'less_than_3_months'){
                     this.showUnemployedForm = false;
                     this.applicationRejected = true;
 

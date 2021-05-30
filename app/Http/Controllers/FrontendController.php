@@ -138,19 +138,49 @@ class FrontendController extends Controller
 
     public function saveReadiness(Request $request){
 
+        foreach($request->readinessAssessment as $data){
+            ReadinessAssessment::create([
+                'job_seeker_id' => $request->jobSeekerId,
+                'question' => $data['question'],
+                'answer' => $data['answer'],
+                'weighted_score' => $data['weightedScore'],
+                'competencies' => $data['competency']
+            ]);
+        }
+
+        return response()->json(['success' => 'Readiness Assessment Submitted.']);
+
+    }
+
+    public function saveEvaluation(Request $request){
 
         foreach($request->readinessAssessment as $data){
             ReadinessAssessment::create([
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => $data['weightedScore']
+                'weighted_score' => $data['weightedScore'],
+                'competencies' => $data['competency']
             ]);
         }
 
+        return response()->json(['success' => 'Self Evaluation Assessment Submitted.']);
 
+    }
 
-        return response()->json(['success' => 'Readiness Assessment Submitted.']);
+    public function saveCompetencies(Request $request){
+
+        foreach($request->readinessAssessment as $data){
+            ReadinessAssessment::create([
+                'job_seeker_id' => $request->jobSeekerId,
+                'question' => $data['question'],
+                'answer' => $data['answer'],
+                'weighted_score' => $data['weightedScore'],
+                'competencies' => $data['competency']
+            ]);
+        }
+
+        return response()->json(['success' => 'Competencies Submitted.']);
 
     }
 }

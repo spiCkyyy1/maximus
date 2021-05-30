@@ -114,31 +114,14 @@
          <div class="aside-body">
             <ul class="sec-holder">
                <li class="heading">Dashboard</li>
-               <li><a href="<?php echo $base_url; ?>index.php"><span><i class="icon-speedometer"></i></span>Dashboard</a></li>
+               <li :class="route().current() == 'dashboard' ? 'active' : ''"><inertiaLink :href="route('dashboard')"><span><i class="icon-speedometer"></i></span>Dashboard</inertiaLink></li>
                <li class="heading">Candidates</li>
-               <li><a href="<?php echo $base_url; ?>phonebook.php"><span><i class="icon-user"></i></span>All Candidates</a></li>
-               <li><a href="<?php echo $base_url; ?>trash.php"><span><i class="icon-user-following"></i></span>Selected Candidates</a></li>
-               <li><a href="<?php echo $base_url; ?>faqs.php"><span><i class="icon-user-unfollow"></i></span>Rejected Candidates</a></li>
+               <li :class="route().current() == 'allCandidates' ? 'active' : ''"><inertiaLink :href="route('allCandidates')"><span><i class="icon-user"></i></span>All Candidates</inertiaLink></li>
+               <li :class="route().current() == 'selectedCandidates' ? 'active' : ''"><inertiaLink :href="route('selectedCandidates')"><span><i class="icon-user-following"></i></span>Selected Candidates</inertiaLink></li>
+               <li :class="route().current() == 'rejectedCandidates' ? 'active' : ''"><inertiaLink :href="route('rejectedCandidates')"><span><i class="icon-user-unfollow"></i></span>Rejected Candidates</inertiaLink></li>
                <li class="heading">Account</li>
-               <li><a href="<?php echo $base_url; ?>profile-settings.php"><span><i class="icon-settings"></i></span>Profile</a></li>
-               <li><a href="<?php echo $base_url; ?>login.php"><span><i class="icon-logout"></i></span>Logout</a></li>
-               <!--Dropdown 1-->
-               <li class="sub-menu">
-                  <a class="collapsed" data-toggle="collapse" href="#dropdown1"><span><i class="icon-settings"></i></span>Dropdown</a>
-                  <ul class="collapse" data-parent="#aside-left" id="dropdown1">
-                     <li><a href="">...</a></li>
-                     <li><a href="">...</a></li>
-                     <!--Dropdown 2-->
-                     <li class="sub-menu">
-                        <a class="collapsed" data-toggle="collapse" href="#dropdown2">Dropdown</a>
-                        <ul class="collapse" id="dropdown2">
-                           <li><a href="">...</a></li>
-                           <li><a href="">...</a></li>
-                           <li><a href="">...</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </li>
+               <li><InertiaLink :href="route('logout')" method="post"><span><i class="icon-logout"></i></span> Logout</InertiaLink></li>
+
             </ul>
          </div>
          <!--ASIDE FOOTER-->
@@ -477,9 +460,9 @@
                                     <a href="<?php echo $base_url; ?>profile.php" class="btn btn-default p-3 w-100 rounded-0 border-bottom-0 border-left-0">
                                     <i class="icon-user fa-r fa-lg"></i>Profile
                                     </a>
-                                    <a href="<?php echo $base_url; ?>login.php" class="btn btn-default p-3 w-100 rounded-0 border-bottom-0 border-right-0">
-                                    <i class="icon-logout fa-r fa-lg"></i>Logout
-                                    </a>
+                                    <InertiaLink :href="route('logout')" method="post"
+                                    class="btn btn-default p-3 w-100 rounded-0 border-bottom-0 border-right-0"><span><i
+                                    class="icon-logout fa-r fa-lg"></i></span> Logout</InertiaLink>
                                  </div>
                               </div>
                            </div>
@@ -505,3 +488,12 @@
    </div>
 </template>
 
+<script>
+export default {
+    computed: {
+        currentRouteName() {
+            return this.$route.name;
+    }
+}
+}
+</script>
