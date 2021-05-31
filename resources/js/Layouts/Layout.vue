@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label class="custom-label">Your Name</label>
                             <input type="text" class="form-control" v-model="form.name">
-                            <div style="color: white; fone-wight: bold" v-if="errors.name">{{ errors.name }}</div>
+                            <div class="form-text small text-danger" v-if="errors.name">{{ errors.name }}</div>
                         </div>
                         <div class="form-group">
                             <label class="custom-label">Region</label>
@@ -33,27 +33,27 @@
                                     <option value="india">India</option>
                                     <option value="japan">Japan</option>
                                 </select>
-                                <div style="color: white; fone-wight: bold" v-if="errors.region">{{ errors.region }}</div>
+                                <div class="form-text small text-danger" v-if="errors.region">{{ errors.region }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="custom-label">Company Name</label>
                             <input type="text" class="form-control" v-model="form.companyName">
-                            <div style="color: white; fone-wight: bold" v-if="errors.companyName">{{ errors.companyName }}</div>
+                            <div class="form-text small text-danger" v-if="errors.companyName">{{ errors.companyName }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="custom-label">Email</label>
                                     <input type="email" class="form-control" v-model="form.email">
-                                    <div style="color: white; fone-wight: bold" v-if="errors.email">{{ errors.email }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.email">{{ errors.email }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="custom-label">Mobile #</label>
                                     <input type="text" class="form-control" v-model="form.mobileNumber">
-                                    <div style="color: white; fone-wight: bold" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label class="custom-label">Employment Sector</label>
                                     <input type="text" class="form-control" v-model="form.employmentSector">
-                                    <div style="color: white; fone-wight: bold" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -70,7 +70,7 @@
                                     <label class="custom-label">Head Quater (HQ) Location</label>
                                     <input type="text" class="form-control" v-model="form.hqLocation">
 
-                                    <div style="color: white; fone-wight: bold" v-if="errors.hqLocation">{{ errors.hqLocation }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.hqLocation">{{ errors.hqLocation }}</div>
                                 </div>
 
                             </div>
@@ -81,14 +81,14 @@
                                 <div class="form-group">
                                     <label class="custom-label">City</label>
                                     <input type="text" class="form-control" v-model="form.city">
-                                    <div style="color: white; fone-wight: bold" v-if="errors.city">{{ errors.city }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.city">{{ errors.city }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="custom-label">No. of expected Vacancies</label>
                                     <input type="text" class="form-control" v-model="form.expectedVacancies">
-                                    <div style="color: white; fone-wight: bold" v-if="errors.expectedVacancies">{{ errors.expectedVacancies }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ errors.expectedVacancies }}</div>
                                 </div>
                             </div>
                         </div>
@@ -103,8 +103,7 @@
 		</div>
 	</div>
 </div>
-
-<header id="header" class="header">
+<header id="header" class="header" v-if="route().current() == 'landing'">
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -119,11 +118,9 @@
 									<a class="icon-lang" href="?lang=arb">
 										<span>AR</span>Lang
 									</a>
-
 									<!-- <a class="icon-lang" href="?lang=eng">
 										<span>EN</span>Lang
 									</a> -->
-
 							</li>
 						</ul>
 					</div>
@@ -153,17 +150,70 @@
 		</div>
 	</div>
 </header>
+<header id="header" class="header header-static" v-else>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<nav class="navbar navbar-expand-lg">
+					<div class="p-rel">
+						<inertiaLink :href="route('landing')" class="navbar-brand">
+							<img src="/images/logo.png" class="img-fluid" alt="">
+						</inertiaLink>
+						<ul class="lang-rtl">
+							<li class="lang_switcher">
+
+									<a class="icon-lang" href="?lang=arb">
+										<span>AR</span>Lang
+									</a>
+									<!-- <a class="icon-lang" href="?lang=eng">
+										<span>EN</span>Lang
+									</a> -->
+							</li>
+						</ul>
+					</div>
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-menu"></span>
+					</button>
+
+					<div class="collapse navbar-collapse justify-content-end" id="navbarToggle">
+						<ul class="navbar-nav align-items-center">
+							<li class="nav-item active">
+                                <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="index.php#about-us">About</a>
+							</li>
+							<li class="nav-item mr-0">
+                                <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nav-btn btn-secondary active" href="#employer">Employer</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
 <main>
 
 <slot></slot>
 
 
-				<footer class="section section-auto section-footer" id="footer">
+				<footer id="footer">
 					<div class="content-box p-0">
-						<div class="footer-bottom">
+						<div class="container-fluid">
 							<div class="row align-items-center">
 								<div class="col-sm">
-									© Copyright 2020 <a href="index.php" class="th-text">Maximus</a> Company.
+									<ul class="links">
+										<li><a href="">About Maximus</a></li>
+										<li><a href="">Careers</a></li>
+										<li><inertiaLink :href="route('privacyPolicy')">Privacy Policy</inertiaLink></li>
+									</ul>
+									<p class="mb-0">Copyright © Maximus 2021. All right reserved.</p>
 								</div>
 								<div class="col-sm-auto">
 									<ul class="social-icons">

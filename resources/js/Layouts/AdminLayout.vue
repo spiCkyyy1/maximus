@@ -487,13 +487,3 @@
    </div>
    </div>
 </template>
-
-<script>
-export default {
-    computed: {
-        currentRouteName() {
-            return this.$route.name;
-    }
-}
-}
-</script>

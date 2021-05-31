@@ -2,7 +2,6 @@
 <layout>
     <div>
     OJT Landing Page Privacy Statement & Terms & Conditions
-
 Privacy Statement:
 Our Commitment to Privacy
 Maximus, Inc. (together with its affiliates, "Maximus") respects your privacy and we have developed the following statement to demonstrate our commitment to you. This privacy statement applies to personal information we collect about you on the Maximus website located at maximus.com (the “Site”) and describes the types of information collected, how that information is used, and the choices users have about collection and use of this information. This privacy statement does not govern privacy practices associated with offline activities, websites other than this Site, or products and services not available or enabled via this Site, except as expressly set forth in this Privacy Statement. Effective January 1, 2020.

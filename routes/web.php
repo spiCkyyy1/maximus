@@ -2,12 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
-use App\Mail\JobSeekerEmail;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +16,8 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', [FrontendController::class, 'landing'])->name('landing');
+
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
 
 Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
 
@@ -54,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
+    Route::post('/filter-candidates', [AuthController::class, 'filterCandidates'])->name('filterCandidates');
 
     Route::get('/admin/all-candidates', [AuthController::class, 'allCandidates'])->name('allCandidates');
 

@@ -100,9 +100,10 @@
 											<div class="form-group">
 												<label class="custom-label">Gender</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>Male</option>
-														<option>Female</option>
+													<select class="form-control" v-model="filter.gender" @change="filterCandidates">
+														<option value="" disabled>---</option>
+                                                        <option value="male">Male</option>
+														<option value="female">Female</option>
 													</select>
 												</div>
 											</div>
@@ -111,11 +112,12 @@
 											<div class="form-group">
 												<label class="custom-label">Qualification</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>School</option>
-														<option>Bachelor's Degree</option>
-														<option>Master's Degree</option>
-														<option>Doctoral Degree</option>
+													<select class="form-control" v-model="filter.qualification" @change="filterCandidates">
+														<option value="" disabled>---</option>
+                                                        <option value="school">School</option>
+														<option value="bachelors">Bachelor's Degree</option>
+														<option value="masters">Master's Degree</option>
+														<option value="doctoral">Doctoral Degree</option>
 													</select>
 												</div>
 											</div>
@@ -124,9 +126,10 @@
 											<div class="form-group">
 												<label class="custom-label">Full-Time Employment</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>Yes</option>
-														<option>No</option>
+													<select class="form-control" v-model="filter.fullTimeEmployment" @change="filterCandidates">
+                                                        <option value="" disabled>---</option>
+														<option value="yes">Yes</option>
+														<option value="no">No</option>
 													</select>
 												</div>
 											</div>
@@ -135,9 +138,10 @@
 											<div class="form-group">
 												<label class="custom-label">On-TheJob Training</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>Yes</option>
-														<option>No</option>
+													<select class="form-control" v-model="filter.JobTraining" @change="filterCandidates">
+                                                        <option value="" disabled>---</option>
+														<option value="yes">Yes</option>
+														<option value="no">No</option>
 													</select>
 												</div>
 											</div>
@@ -146,9 +150,10 @@
 											<div class="form-group">
 												<label class="custom-label">Active Social Beneficiary</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>Yes</option>
-														<option>No</option>
+													<select class="form-control" v-model="filter.socialBeneficiary" @change="filterCandidates">
+                                                        <option value="" disabled>---</option>
+														<option value="yes">Yes</option>
+														<option value="no">No</option>
 													</select>
 												</div>
 											</div>
@@ -157,15 +162,17 @@
 											<div class="form-group">
 												<label class="custom-label">Unemployed</label>
 												<div class="select-picker">
-													<select class="form-control">
-														<option>Never worked</option>
-														<option>Less Than 3 Months</option>
-														<option>More than 3 months</option>
+													<select class="form-control" v-model="filter.unEmployed" @change="filterCandidates">
+                                                        <option value="" disabled>---</option>
+														<option value="never_worked">Never worked</option>
+														<option value="less_than_3_months">Less Than 3 Months</option>
+														<option value="more_than_3_months">More than 3 months</option>
 													</select>
 												</div>
 											</div>
 										</div>
 									</div>
+                                    <button class="btn btn-sm" title="Reset Filter" style="color: green" @click="resetFilter"><i class="fas fa-sync"></i></button>
 								</div>
 							</div>
 
@@ -178,7 +185,7 @@
 													<div class="title"><i class="icon-people"></i>Job Seekers</div>
 												</div>
 												<div class="col-auto">
-													<a href="" class="btn btn-default">View All</a>
+													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
                                                     <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
@@ -198,6 +205,8 @@
 															<th class="text-center">Active Social Beneficiary</th>
 															<th class="text-center">Readiness Assessment Test</th>
                                                             <th class="text-center">Evaluation Assessment Test</th>
+                                                            <th class="text-center">Best Competency</th>
+                                                            <th class="text-center">Worst Competency</th>
 															<th>Unemployed</th>
                                                             <th>Actions</th>
 														</tr>
@@ -221,6 +230,8 @@
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
 															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                                             <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
@@ -246,7 +257,7 @@
 													<div class="title"><i class="icon-people"></i>Job Seekers</div>
 												</div>
 												<div class="col-auto">
-													<a href="" class="btn btn-default">View All</a>
+													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
                                                     <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
@@ -266,6 +277,8 @@
 															<th class="text-center">Active Social Beneficiary</th>
 															<th class="text-center">Readiness Assessment Test</th>
                                                             <th class="text-center">Evaluation Assessment Test</th>
+                                                            <th class="text-center">Best Competency</th>
+                                                            <th class="text-center">Worst Competency</th>
 															<th>Unemployed</th>
                                                             <th>Actions</th>
 														</tr>
@@ -289,6 +302,8 @@
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
 															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                                             <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
@@ -315,7 +330,7 @@
 													<div class="title"><i class="icon-people"></i>Job Seekers</div>
 												</div>
 												<div class="col-auto">
-													<a href="" class="btn btn-default">View All</a>
+													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
                                                     <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
@@ -380,11 +395,11 @@
 						</div>
 					</div>
 
-				</div><!-- /.col-12 -->
-			</div><!-- /.row -->
-		</div><!-- /.container -->
+				</div>
+			</div>
+		</div>
 
-	</div><!--main-body-->
+	</div>
 </admin-layout>
 </template>
 
@@ -403,6 +418,18 @@ export default {
         selectedJobSeekers: Number,
         rejectedJobSeekers: Number
     },
+    data(){
+        return{
+            filter: {
+                gender: '',
+                qualification: '',
+                fullTimeEmployment: '',
+                JobTraining: '',
+                socialBeneficiary: '',
+                unEmployed: ''
+            }
+        }
+    },
     methods: {
         excelDownload: function(){
             axios.get('/admin/download/excel', {responseType:'blob'}).
@@ -414,6 +441,27 @@ export default {
                     document.body.appendChild(link);
                     link.click();
             });
+        },
+        filterCandidates: function(){
+            // axios.post('/filter-candidates', this.filter)
+            // .then(response => {
+            //     console.log(response);
+            //     if(response.data.success){
+            //         this.jobSeekers = response.data.success;
+            //     }
+            // }).catch(error => {
+            //     console.log(error);
+            // });
+        },
+        resetFilter: function(){
+            this.filter =  {
+                gender: '',
+                qualification: '',
+                fullTimeEmployment: '',
+                JobTraining: '',
+                socialBeneficiary: '',
+                unEmployed: ''
+            };
         }
     }
 }

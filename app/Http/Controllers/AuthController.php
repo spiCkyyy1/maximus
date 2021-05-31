@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Exports\JobSeekersExport;
 use App\Models\JobSeeker;
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +37,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
 
             return Redirect::route('dashboard');
-            // return Inertia::render('Admin/Dashboard', [
-            //     'success' => 'Login Successful! ',
-            // ]);
+
         }
 
 
@@ -59,28 +56,50 @@ class AuthController extends Controller
 
     }
 
-    private function getjobSeeker(){
-        $jobSeekers = JobSeeker::with('readinessAssessment')->get();
-        return $jobSeekers;
-    }
+    public function dashboard(Request $request){
 
-    public function dashboard(){
-        $jobSeekers = $this->getjobSeeker();
+        $jobSeekers = new JobSeeker();
+
+        if($request->has('gender') && $request->gender != ''){
+            $jobSeekers = $jobSeekers->where('gender', $request->gender);
+        }
 
         $selectedCandidates = JobSeeker::where('status', 1)->get();
-
         $rejectedCandidates = JobSeeker::where('status', 0)->get();
-
         $jobSeekersCount = JobSeeker::count();
-
         $jobSeekersWithAssessmentCount = JobSeeker::with('readinessAssessment')->count();
-
         $selectedJobSeekers = JobSeeker::where('status', 1)->count();
-
         $rejectedJobSeekers = JobSeeker::where('status', 0)->count();
 
         return Inertia::render('Admin/Dashboard', [
-            'jobSeekers' => $jobSeekers,
+            'jobSeekers' => $jobSeekers->with('readinessAssessment')->get(),
+            'jobSeekersCount' => $jobSeekersCount,
+            'jobSeekersWithAssessmentCount' => $jobSeekersWithAssessmentCount,
+            'selectedJobSeekers' => $selectedJobSeekers,
+            'rejectedJobSeekers' => $rejectedJobSeekers,
+            'selectedCandidates' => $selectedCandidates,
+            'rejectedCandidates' => $rejectedCandidates
+        ]);
+    }
+
+    public function filterCandidates(Request $request){
+        $jobSeekers = new JobSeeker();
+
+        if($request->has('gender') && $request->gender != ''){
+            $jobSeekers = $jobSeekers->where('gender', $request->gender);
+        }
+
+        // return response()->json(['jobSeekers' => $jobSeekers->with('readinessAssessment')->get()]);
+
+        $selectedCandidates = JobSeeker::where('status', 1)->get();
+        $rejectedCandidates = JobSeeker::where('status', 0)->get();
+        $jobSeekersCount = JobSeeker::count();
+        $jobSeekersWithAssessmentCount = JobSeeker::with('readinessAssessment')->count();
+        $selectedJobSeekers = JobSeeker::where('status', 1)->count();
+        $rejectedJobSeekers = JobSeeker::where('status', 0)->count();
+
+        return Inertia::render('Admin/Dashboard', [
+            'jobSeekers' => $jobSeekers->with('readinessAssessment')->get(),
             'jobSeekersCount' => $jobSeekersCount,
             'jobSeekersWithAssessmentCount' => $jobSeekersWithAssessmentCount,
             'selectedJobSeekers' => $selectedJobSeekers,
@@ -113,7 +132,6 @@ class AuthController extends Controller
         $jobSeeker->reviewed = $review;
         $jobSeeker->save();
         return redirect()->back();
-        // return Redirect::route('dashboard');
     }
 
     public function changeStatus($id, $status){

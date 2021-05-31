@@ -93,21 +93,22 @@
                                     <div class="form-group">
                                        <label class="custom-label">First Name</label>
                                        <input type="text" class="form-control" v-model="personalInformation.firstName">
-                                       <div class="error-messages" v-if="errors.firstName">{{ errors.firstName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.firstName">{{ errors.firstName[0] }}</div>
+                                       <!-- <div class="valid-feedback">Looks good!</div> -->
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group">
                                        <label class="custom-label">Middle Name</label>
                                        <input type="text" class="form-control" v-model="personalInformation.middleName">
-                                       <div class="error-messages" v-if="errors.middleName">{{ errors.middleName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.middleName">{{ errors.middleName[0] }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <div class="form-group">
                                        <label class="custom-label">Surname</label>
                                        <input type="text" class="form-control" v-model="personalInformation.surName">
-                                       <div class="error-messages" v-if="errors.surName">{{ errors.surName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.surName">{{ errors.surName[0] }}</div>
                                     </div>
                                  </div>
                               </div>
@@ -116,14 +117,14 @@
                                     <div class="form-group">
                                        <label class="custom-label">Mobile No.</label>
                                        <input type="number" class="form-control" v-model="personalInformation.mobile">
-                                       <div class="error-messages" v-if="errors.mobile">{{ errors.mobile[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.mobile">{{ errors.mobile[0] }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">Email Address</label>
                                        <input type="email" class="form-control" v-model="personalInformation.email">
-                                       <div class="error-messages" v-if="errors.email">{{ errors.email[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.email">{{ errors.email[0] }}</div>
                                     </div>
                                  </div>
                               </div>
@@ -137,7 +138,7 @@
                                              <option value="karachi">Karachi</option>
                                              <option value="peshawar">Peshawar</option>
                                           </select>
-                                          <div class="error-messages" v-if="errors.city">{{ errors.city[0] }}</div>
+                                          <div class="form-text small text-danger" v-if="errors.city">{{ errors.city[0] }}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -150,7 +151,7 @@
                                              <option value="india">India</option>
                                              <option value="japan">Japan</option>
                                           </select>
-                                          <div class="error-messages" v-if="errors.region">{{ errors.region[0] }}</div>
+                                          <div class="form-text small text-danger" v-if="errors.region">{{ errors.region[0] }}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -158,12 +159,12 @@
                               <div class="form-group">
                                  <label class="custom-label">NIN</label>
                                  <input type="text" class="form-control" v-model="personalInformation.nin">
-                                 <div class="error-messages" v-if="errors.nin">{{ errors.nin[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.nin">{{ errors.nin[0] }}</div>
                               </div>
                               <div class="form-group">
                                  <label class="custom-label">Date of Birth</label>
                                  <input type="date" class="form-control" v-model="personalInformation.dob">
-                                 <div class="error-messages" v-if="errors.dob">{{ errors.dob[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.dob">{{ errors.dob[0] }}</div>
                               </div>
                               <div class="text-center mt-5">
                                  <button type="button" class="btn btn-primary" @click="validatePersonalInformation">Submit</button>
@@ -175,13 +176,15 @@
                               <h6>What's your Gender?</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
-                                    <input type="radio" id="c1"  value="male" v-model="personalInformation.gender">
+                                    <input type="radio" id="c1" class="form-control"  value="male" v-model="personalInformation.gender">
                                     <label for="c1">Male</label>
                                  </div>
                                  <div class="radio text-left mb-3">
-                                    <input type="radio" id="c2"  value="female" v-model="personalInformation.gender">
+                                    <input type="radio" id="c2" class="form-control"  value="female" v-model="personalInformation.gender">
                                     <label for="c2">Female</label>
                                  </div>
+                                <div class="form-text small text-danger" v-if="errors.gender">{{ errors.gender[0] }}</div>
+
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="validateGender">Submit</button>
@@ -208,6 +211,7 @@
                                     <input type="radio" id="oa4" value="doctoral" v-model="personalInformation.qualification">
                                     <label for="oa4">Doctoral Degree</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="errors.qualification">{{ errors.qualification[0] }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveQualification">Submit</button>
@@ -227,7 +231,9 @@
                                     <input type="radio" id="c6" value="no" v-model="personalInformation.employment">
                                     <label for="c6">No</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="errors.employment">{{ errors.employment[0] }}</div>
                               </div>
+
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveEmployment">Submit</button>
                               </div>
@@ -245,6 +251,7 @@
                                     <input type="radio" id="c8" value="no" v-model="personalInformation.jobTraining">
                                     <label for="c8">No</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="errors.jobTraining">{{ errors.jobTraining[0] }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveJobTraining">Submit</button>
@@ -263,6 +270,7 @@
                                     <input type="radio" id="c10" value="no"   v-model="personalInformation.socialBeneficiary">
                                     <label for="c10">No</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="errors.socialBeneficiary">{{ errors.socialBeneficiary[0] }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveSocial">Submit</button>
@@ -285,6 +293,7 @@
                                     <input type="radio" id="c102" value="more_than_3_months" v-model="personalInformation.beenUnemployed">
                                     <label for="c102">More than 3 months</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="errors.beenUnemployed">{{ errors.beenUnemployed[0] }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveUnemploymentForm">Submit</button>
@@ -314,12 +323,12 @@ import Layout from '../Layouts/Layout'
                 showGenderForm: false,
                 showQualificationForm: false,
                 showEmploymentForm: false,
-                AssessmentStarted: false,
-                applicationRejected: false,
-                applicationAccepted: false,
                 showOnJobForm: false,
                 showSocialForm: false,
                 showUnemployedForm: false,
+                AssessmentStarted: false,
+                applicationRejected: false,
+                applicationAccepted: false,
                 personalInformation: {
                     id: '',
                     firstName: '',
@@ -351,6 +360,7 @@ import Layout from '../Layouts/Layout'
                         this.personalInformation.id = response.data.success;
                         this.showPersonalInformationForm = false;
                         this.showGenderForm = true;
+                        this.errors = [];
                     }
                     if(response.data.errors){
                         this.errors = response.data.errors;
@@ -361,6 +371,7 @@ import Layout from '../Layouts/Layout'
 
             },
             validateGender: function(){
+
                 if(this.personalInformation.gender == 'male'){
                     this.showGenderForm = false;
                     this.applicationRejected = true;
@@ -371,6 +382,10 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                                 this.showGenderForm = false;
                                 this.showQualificationForm = true;
+                                this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     }).catch(error => {
                         console.log(error);
@@ -389,6 +404,10 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                             this.showQualificationForm = false;
                             this.showEmploymentForm = true;
+                            this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     });
                 }
@@ -399,6 +418,10 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                             this.showEmploymentForm = false;
                             this.showOnJobForm = true;
+                            this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     });
             },
@@ -408,6 +431,10 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                             this.showOnJobForm = false;
                             this.showSocialForm = true;
+                            this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     });
             },
@@ -417,6 +444,10 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                             this.showSocialForm = false;
                             this.showUnemployedForm = true;
+                            this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     });
             },
@@ -432,6 +463,10 @@ import Layout from '../Layouts/Layout'
                             this.showSocialForm = false;
                             this.showUnemployedForm = false;
                             this.applicationAccepted = true;
+                            this.errors = [];
+                        }
+                        if(response.data.errors){
+                                this.errors = response.data.errors;
                         }
                     });
                 }

@@ -19,6 +19,10 @@ class FrontendController extends Controller
         return Inertia::render('Welcome');
     }
 
+    public function privacyPolicy(){
+        return Inertia::render('TermsOfService');
+    }
+
     public function jobSeeker(){
         return Inertia::render('EligibilityForm');
     }
@@ -26,6 +30,14 @@ class FrontendController extends Controller
     public function employerForm(Request $request){
 
         $messages = [
+            'name.required' => 'Please enter your name',
+            'companyName.required' => 'Please enter your company name',
+            'email.required' => 'Please enter your email address',
+            'mobileNumber.required' => 'Please enter your mobile number',
+            'employmentSector' => 'Please enter your employment sector',
+            'hqLocation' => 'Please enter head quater location',
+            'city.required' => 'Please enter your city',
+            'expectedVacancies' => 'Please enter expected vacancies',
             'email.unique' => 'We already have your details, our team member will contact you soon.'
         ];
         $request->validate([
@@ -57,6 +69,17 @@ class FrontendController extends Controller
 
     public function savePersonalInformation(Request $request){
 
+        $messages = [
+            'firstName.required' => 'Please enter your first name',
+            'surName.required' => 'Please enter your sur name',
+            'mobile.required' => 'Please enter your phone number',
+            'email.required' => 'Please enter your email',
+            'email.unique' => 'We already have your details',
+            'city.required' => 'Please select any city',
+            'region.required' => 'Please select any region',
+            'nin.required' => 'Please enter nin',
+            'dob.required' => 'Please select your date of birth',
+        ];
 
         $validator = Validator::make($request->all(),[
             'firstName' => 'required',
@@ -67,7 +90,7 @@ class FrontendController extends Controller
             'region' => 'required',
             'nin' => 'required',
             'dob' => 'required'
-        ]);
+        ], $messages);
 
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()]);
@@ -91,6 +114,18 @@ class FrontendController extends Controller
 
     public function saveGender(Request $request){
 
+        $messages = [
+            'gender.required' => 'Please select your gender'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'gender' => 'required'
+        ], $messages);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->gender = $request->gender;
         $jobSeeker->save();
@@ -99,18 +134,51 @@ class FrontendController extends Controller
     }
 
     public function saveQualification(Request $request){
+        $messages = [
+            'qualification.required' => 'Please select your qualification'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'qualification' => 'required'
+        ], $messages);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->qualification = $request->qualification;
         $jobSeeker->save();
         return response()->json(['success' => 'Qualification Saved']);
     }
     public function saveEmployment(Request $request){
+        $messages = [
+            'employment.required' => 'Please select any option'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'employment' => 'required'
+        ], $messages);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->full_time_employment = $request->employment;
         $jobSeeker->save();
         return response()->json(['success' => 'Employment Saved']);
     }
     public function saveJobTraining(Request $request){
+        $messages = [
+            'jobTraining.required' => 'Please select any option'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'jobTraining' => 'required'
+        ], $messages);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->on_job_training = $request->jobTraining;
         $jobSeeker->save();
@@ -118,6 +186,16 @@ class FrontendController extends Controller
     }
 
     public function saveSocial(Request $request){
+        $messages = [
+            'socialBeneficiary.required' => 'Please select any option'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'socialBeneficiary' => 'required'
+        ], $messages);
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->social_benficiary = $request->socialBeneficiary;
         $jobSeeker->save();
@@ -125,6 +203,16 @@ class FrontendController extends Controller
     }
 
     public function saveUnemployment(Request $request){
+        $messages = [
+            'beenUnemployed.required' => 'Please select any option'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'beenUnemployed' => 'required'
+        ], $messages);
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->unemployed = $request->beenUnemployed;
         $jobSeeker->save();

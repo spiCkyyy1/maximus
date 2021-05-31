@@ -1,5 +1,4 @@
 <template>
-    <admin-layout>
         <div>
             <div class="card-body" v-if="jobSeekers.length > 0">
 											<div class="table-responsive">
@@ -60,15 +59,10 @@
             </div>
             <div v-else class="d-flex justify-content-center"><h3>Sorry, no candidate found.</h3></div>
         </div>
-    </admin-layout>
 </template>
 
 <script>
-import AdminLayout from '../../Layouts/AdminLayout'
 export default {
-    components:{
-        AdminLayout
-    },
     props:{
         jobSeekers: Object
     }

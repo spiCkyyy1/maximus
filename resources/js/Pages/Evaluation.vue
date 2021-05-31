@@ -20,6 +20,7 @@
                                     <input type="radio" id="c103" class="score" :value="value4" v-model="value" :data-id="weighted_score4">
                                     <label for="c103">{{option4}}</label>
                                  </div>
+                                 <div class="form-text small text-danger" v-if="error != ''">{{ error }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" v-on:click="$emit('submitAnswer', step)">Submit</button>
@@ -48,7 +49,8 @@ export default {
         weighted_score2: String,
         weighted_score3: String,
         weighted_score4: String,
-        competency: String
+        competency: String,
+        error: String
     },
     watch: {
             value() {
