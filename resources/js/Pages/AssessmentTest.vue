@@ -14,7 +14,7 @@
          </div>
          <div class="content-box">
             <div class="feature-foreground wow fadeInRight">
-               <ul class="process-steps-1">
+               <ul class="process-steps-1" v-if="hideProcess">
                   <li :class="readinessPart ? 'active' : ''">
                      <a href=""><span>1</span></a>
                   </li>
@@ -26,7 +26,7 @@
                   </li>
                </ul>
                <div>
-                  <div class="row justify-content-center">
+                  <div class="row justify-content-center" v-if="hideProgressBar">
                      <div class="col">
                         <div class="status-bar">
                            <div class="custom-label">
@@ -71,7 +71,7 @@
                                 </p>
                            </div>
                         </div>
-                        <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" v-if="step == 1"
+                        <readiness class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" v-if="step == 1"
                         question="Do you have a recent work history?" option1="Never worked" step="1"
                         option2="Not worked within the last 6 months" option3="worked within the last 6 months"
                         value1="never_worked" value2="not_worked_within_six_months" value3="worked_within_six_months"
@@ -284,7 +284,7 @@
                         weighted_score1="" weighted_score2="" weighted_score3="" competency="readiness" :error="error"></readiness>
 
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="30" v-if="step == 30"
+                        <evaluation class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="30" v-if="step == 30"
                         question="I possess sufficient resources to achieve my academic goals."
                         option1="Very Confident"
                         option2="Fairly Confident" option3="Not Very Confident" option4="Not Confident"
@@ -377,7 +377,7 @@
                         value1="very_confident" value2="fairly_confident" value3="not_very_confident" value4="not_confident"
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"></evaluation>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="43" v-if="step == 43"
+                        <competencies class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="43" v-if="step == 43"
                         question="Are you flexible and receptive regarding new ideas and approaches?"
                         option1="Very Confident"
                         option2="Fairly Confident" option3="Not Very Confident" option4="Not Confident"
@@ -577,7 +577,9 @@ import Competencies from '../Pages/Competencies'
                 error: '',
                 answerSelected: false,
                 partNo: 'Part 1',
-                testPhase: 'Assessment Test'
+                testPhase: 'Readiness Test',
+                hideProgressBar: false,
+                hideProcess: false
             }
         },
         methods: {
@@ -629,6 +631,7 @@ import Competencies from '../Pages/Competencies'
                             this.readinessAssessment = [];
                             this.partNo = 'Part 3';
                             this.testPhase = 'Competencies Test';
+
                         }
 
                     });
@@ -641,6 +644,8 @@ import Competencies from '../Pages/Competencies'
                             this.competenciesPart = false;
                             this.applicationAccepted = true;
                             this.step = 100;
+                            this.hideProgressBar = true;
+                            this.hideProcess = true;
                         }
 
                     });

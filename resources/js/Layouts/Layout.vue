@@ -150,7 +150,7 @@
 		</div>
 	</div>
 </header>
-<header id="header" class="header header-static" v-else>
+<header id="header" class="header header-static" v-if="route().current() != 'assessmentTest' && route().current() != 'landing'">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
@@ -203,7 +203,7 @@
 <slot></slot>
 
 
-				<footer id="footer">
+				<footer id="footer" v-if="route().current() != 'assessmentTest'">
 					<div class="content-box p-0">
 						<div class="container-fluid">
 							<div class="row align-items-center">

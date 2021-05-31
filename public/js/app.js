@@ -18012,7 +18012,9 @@ __webpack_require__.r(__webpack_exports__);
       error: '',
       answerSelected: false,
       partNo: 'Part 1',
-      testPhase: 'Assessment Test'
+      testPhase: 'Readiness Test',
+      hideProgressBar: false,
+      hideProcess: false
     };
   },
   methods: {
@@ -18085,6 +18087,8 @@ __webpack_require__.r(__webpack_exports__);
             _this.competenciesPart = false;
             _this.applicationAccepted = true;
             _this.step = 100;
+            _this.hideProgressBar = true;
+            _this.hideProcess = true;
           }
         });
       }
@@ -21836,6 +21840,7 @@ var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_87 = {
+  key: 0,
   id: "footer"
 };
 var _hoisted_88 = {
@@ -22056,7 +22061,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), _hoisted_68])])])])])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("header", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+  , ["href"])]), _hoisted_68])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.route().current() != 'assessmentTest' && _ctx.route().current() != 'landing' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("header", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
     href: _ctx.route('landing'),
     "class": "navbar-brand"
   }, {
@@ -22104,7 +22109,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), _hoisted_86])])])])])])])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_92, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+  , ["href"])]), _hoisted_86])])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), _ctx.route().current() != 'assessmentTest' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("footer", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_92, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
     href: _ctx.route('landing')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22137,7 +22142,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), _hoisted_97, _hoisted_98]), _hoisted_99]), _hoisted_100])])])])]), _hoisted_101]);
+  , ["href"])]), _hoisted_97, _hoisted_98]), _hoisted_99]), _hoisted_100])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_101]);
 }
 
 /***/ }),
@@ -25510,6 +25515,7 @@ var _hoisted_10 = {
   "class": "feature-foreground wow fadeInRight"
 };
 var _hoisted_11 = {
+  key: 0,
   "class": "process-steps-1"
 };
 
@@ -25532,6 +25538,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_15 = {
+  key: 0,
   "class": "row justify-content-center"
 };
 var _hoisted_16 = {
@@ -25610,7 +25617,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.testPhase), 1
       /* TEXT */
-      )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+      )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [$data.hideProcess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
         "class": $data.readinessPart ? 'active' : ''
       }, [_hoisted_12], 2
       /* CLASS */
@@ -25622,7 +25629,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": $data.competenciesPart ? 'active' : ''
       }, [_hoisted_14], 2
       /* CLASS */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.step) + " out of 66", 1
+      )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.hideProgressBar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.step) + " out of 66", 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.step) + "%", 1
       /* TEXT */
@@ -25637,8 +25644,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "aria-valuemax": "66"
       }, null, 12
       /* STYLE, PROPS */
-      , ["aria-valuenow"])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_25, [_hoisted_26])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_27, [_hoisted_28])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["aria-valuenow"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_25, [_hoisted_26])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_27, [_hoisted_28])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 2,
+        "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
@@ -26219,6 +26227,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 30 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 31,
+        "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
@@ -26518,6 +26527,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 43 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 44,
+        "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
@@ -28255,7 +28265,7 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 
 var _hoisted_27 = {
   key: 2,
-  "class": "card form-dark",
+  "class": "card form-dark wow fadeInRight",
   id: "personalInformation"
 };
 
@@ -28470,7 +28480,7 @@ var _hoisted_74 = {
 };
 var _hoisted_75 = {
   key: 3,
-  "class": "card",
+  "class": "card wow fadeInRight",
   id: "genderForm"
 };
 
@@ -28510,7 +28520,7 @@ var _hoisted_83 = {
 };
 var _hoisted_84 = {
   key: 4,
-  "class": "card"
+  "class": "card wow fadeInRight"
 };
 
 var _hoisted_85 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "What is the highest level of qualification you hold?", -1
@@ -28569,7 +28579,7 @@ var _hoisted_96 = {
 };
 var _hoisted_97 = {
   key: 5,
-  "class": "card"
+  "class": "card wow fadeInRight"
 };
 
 var _hoisted_98 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "You are available for full-time employment? ", -1
@@ -28608,7 +28618,7 @@ var _hoisted_105 = {
 };
 var _hoisted_106 = {
   key: 6,
-  "class": "card"
+  "class": "card wow fadeInRight"
 };
 
 var _hoisted_107 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "This programme has an element of On-TheJob training, you are willing and able to commit.", -1
@@ -28647,7 +28657,7 @@ var _hoisted_114 = {
 };
 var _hoisted_115 = {
   key: 7,
-  "class": "card"
+  "class": "card wow fadeInRight"
 };
 
 var _hoisted_116 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Are you an active social beneficiary? ", -1
@@ -28686,7 +28696,7 @@ var _hoisted_123 = {
 };
 var _hoisted_124 = {
   key: 8,
-  "class": "card"
+  "class": "card wow fadeInRight"
 };
 
 var _hoisted_125 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "How long have you been unemployed?", -1
@@ -28745,7 +28755,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           id: $data.personalInformation.id
         }),
         as: "button",
-        "class": "btn btn-primary",
+        "class": "btn btn-primary mt-5",
         style: {
           "margin-left": "30%"
         }
@@ -28789,7 +28799,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.surName]]), $data.errors.surName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.surName[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        type: "number",
+        type: "text",
         "class": "form-control",
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.personalInformation.mobile = $event;
@@ -30383,11 +30393,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "class": "info-block wow fadeInUp mt-5"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "figure mb-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: "/images/logo-white.png",
-  "class": "img-fluid",
-  alt: "..."
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/images/logo-white.png\" class=\"img-fluid\" alt=\"...\"> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
+  "class": "white-text"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+  "class": "th-text"
+}, "OJT")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
   "class": "white-text"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Join "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
   "class": "th-text"
@@ -30496,7 +30506,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "class": "sub-title"
 }, "About Us"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
   "class": "title"
-}, "OJT program is designed to support Job seekers")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+}, "The OJT program is designed to support Job seekers")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "font-md"
 }, " with a 360 degree solution for developing academic qualifications through a supported 16 week ‘on-the job training program’ centered around developing key skills to ensure graduates can build a strong foundation of skills required to meet the needs of employers and start their Career path. ")])])])])])], -1
 /* HOISTED */
@@ -30537,7 +30547,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "class": "meta"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "heading white-text"
-}, "qualifications")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+}, "Graduate")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "col-sm-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "icon-box"
@@ -30547,7 +30557,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "class": "meta"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "heading white-text"
-}, "Jobless")])])])])])])])], -1
+}, "Graduate/3 mths+ Unemployed")])])])])])])])], -1
 /* HOISTED */
 );
 
@@ -30596,7 +30606,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "mb-0"
-}, " OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to apply. ", -1
+}, " The OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to register and check eligibility. ", -1
 /* HOISTED */
 );
 
@@ -30620,7 +30630,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
   "data-target": "#employer-form-modal"
 }, "Employer")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "mb-0"
-}, " Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2023. ")])], -1
+}, " Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2030. ")])], -1
 /* HOISTED */
 );
 
@@ -30644,7 +30654,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"button\" class=\"btn btn-primary\">Job Seeker</button> ")]), _hoisted_16])]), _hoisted_17])])])])])])];
+      , ["href"])]), _hoisted_16])]), _hoisted_17])])])])])])];
     }),
     _: 1
     /* STABLE */

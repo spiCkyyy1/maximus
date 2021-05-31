@@ -8,7 +8,10 @@
 					<div class="col-md-7 col-xl-6">
 						<div class="info-block wow fadeInUp mt-5">
 							<div class="figure mb-5">
-                                <img src="/images/logo-white.png" class="img-fluid" alt="...">
+                                <!-- <img src="/images/logo-white.png" class="img-fluid" alt="..."> -->
+                                <h1 class="white-text">
+                                    <span class="th-text">OJT</span>
+							    </h1>
 							</div>
 							<h1 class="white-text">
                                 Join <span class="th-text">On The Job Training (OJT) </span> program to enhance your skills.
@@ -96,7 +99,7 @@
 						<div class="info-block">
 							<div class="sec-title">
 								<p class="sub-title">About Us</p>
-								<h1 class="title">OJT program is designed to support Job seekers</h1>
+								<h1 class="title">The OJT program is designed to support Job seekers</h1>
 							</div>
 							<p class="font-md">
 								with a 360 degree solution for developing academic qualifications through a supported 16 week ‘on-the job training program’ centered around developing key skills to ensure graduates can build a strong foundation of skills required to meet the needs of employers and start their Career path.
@@ -131,7 +134,7 @@
 							<div class="icon-box">
 								<i class="icon-graduation"></i>
 								<div class="meta">
-									<div class="heading white-text">qualifications</div>
+									<div class="heading white-text">Graduate</div>
 								</div>
 							</div>
 						</div>
@@ -139,7 +142,7 @@
 							<div class="icon-box">
 								<i class="icon-briefcase"></i>
 								<div class="meta">
-									<div class="heading white-text">Jobless</div>
+									<div class="heading white-text">Graduate/3 mths+ Unemployed</div>
 								</div>
 							</div>
 						</div>
@@ -164,10 +167,9 @@
 									</div>
 									<div class="text-center">
                                         <InertiaLink :href="route('jobSeeker')" as="buton" class="btn btn-primary">Job Seeker</InertiaLink>
-										<!-- <button type="button" class="btn btn-primary">Job Seeker</button> -->
 									</div>
 									<p class="mb-0">
-                                        OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to apply.
+                                        The OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to register and check eligibility.
 									</p>
 								</div>
 							</div>
@@ -180,7 +182,7 @@
 										<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#employer-form-modal">Employer</button>
 									</div>
 									<p class="mb-0">
-                                        Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2023.
+                                        Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2030.
 									</p>
 								</div>
 							</div>

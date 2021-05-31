@@ -72,9 +72,7 @@
                               </p>
                                 Please follow the below link to complete the next step of the application / readiness assessments.
 
-
-
-                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary" style="margin-left: 30%">Take your Assessment Test</inertiaLink>
+                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">Take your Assessment Test</inertiaLink>
                            </div>
                         </div>
                         <div class="card" v-if="applicationRejected">
@@ -91,7 +89,7 @@
                                 </p>
                            </div>
                         </div>
-                        <div class="card form-dark" id="personalInformation" v-if="showPersonalInformationForm">
+                        <div class="card form-dark wow fadeInRight" id="personalInformation" v-if="showPersonalInformationForm">
                            <div>
                               <h6 class="mb-5">Personal Information</h6>
                               <div class="form-row">
@@ -122,7 +120,7 @@
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">Mobile No.</label>
-                                       <input type="number" class="form-control" v-model="personalInformation.mobile">
+                                       <input type="text" class="form-control" v-model="personalInformation.mobile">
                                        <div class="form-text small text-danger" v-if="errors.mobile">{{ errors.mobile[0] }}</div>
                                     </div>
                                  </div>
@@ -177,7 +175,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card" v-if="showGenderForm" id="genderForm">
+                        <div class="card wow fadeInRight" v-if="showGenderForm" id="genderForm">
                            <div>
                               <h6>What's your Gender?</h6>
                               <div class="check_radio mt-4 mb-5">
@@ -197,7 +195,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card" v-if="showQualificationForm">
+                        <div class="card wow fadeInRight" v-if="showQualificationForm">
                            <div>
                               <h6>What is the highest level of qualification you hold?</h6>
                               <div class="check_radio mt-4 mb-5">
@@ -225,7 +223,7 @@
                            </div>
                         </div>
 
-                        <div class="card" v-if="showEmploymentForm">
+                        <div class="card wow fadeInRight"  v-if="showEmploymentForm">
                            <div>
                               <h6>You are available for full-time employment? </h6>
                               <div class="check_radio mt-4 mb-5">
@@ -245,7 +243,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card" v-if="showOnJobForm">
+                        <div class="card wow fadeInRight" v-if="showOnJobForm">
                            <div>
                               <h6>This programme has an element of On-TheJob training, you are willing and able to commit.</h6>
                               <div class="check_radio mt-4 mb-5">
@@ -264,7 +262,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card" v-if="showSocialForm">
+                        <div class="card wow fadeInRight" v-if="showSocialForm">
                            <div>
                               <h6>Are you an active social beneficiary? </h6>
                               <div class="check_radio mt-4 mb-5">
@@ -283,7 +281,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card" v-if="showUnemployedForm">
+                        <div class="card wow fadeInRight" v-if="showUnemployedForm">
                            <div>
                               <h6>How long have you been unemployed?</h6>
                               <div class="check_radio mt-4 mb-5">
