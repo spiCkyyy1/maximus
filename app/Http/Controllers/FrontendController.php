@@ -79,6 +79,8 @@ class FrontendController extends Controller
             'region.required' => 'Please select any region',
             'nin.required' => 'Please enter nin',
             'dob.required' => 'Please select your date of birth',
+            'nin.min' => 'Please enter 12 digits of nin',
+            'nin.max' => 'Please enter 12 digits of nin'
         ];
 
         $validator = Validator::make($request->all(),[
@@ -88,7 +90,7 @@ class FrontendController extends Controller
             'email' => 'required|email|unique:job_seekers,email',
             'city' => 'required',
             'region' => 'required',
-            'nin' => 'required',
+            'nin' => 'required|min:12|max:12',
             'dob' => 'required'
         ], $messages);
 

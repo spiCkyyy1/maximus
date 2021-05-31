@@ -18013,8 +18013,8 @@ __webpack_require__.r(__webpack_exports__);
       answerSelected: false,
       partNo: 'Part 1',
       testPhase: 'Readiness Test',
-      hideProgressBar: false,
-      hideProcess: false
+      hideProgressBar: true,
+      hideProcess: true
     };
   },
   methods: {
@@ -18087,8 +18087,8 @@ __webpack_require__.r(__webpack_exports__);
             _this.competenciesPart = false;
             _this.applicationAccepted = true;
             _this.step = 100;
-            _this.hideProgressBar = true;
-            _this.hideProcess = true;
+            _this.hideProgressBar = false;
+            _this.hideProcess = false;
           }
         });
       }
@@ -18570,7 +18570,8 @@ __webpack_require__.r(__webpack_exports__);
     weighted_score3: String,
     weighted_score4: String,
     competency: String,
-    error: String
+    error: String,
+    btnText: String
   },
   watch: {
     value: function value() {
@@ -18817,7 +18818,8 @@ __webpack_require__.r(__webpack_exports__);
     weighted_score3: String,
     weighted_score4: String,
     competency: String,
-    error: String
+    error: String,
+    btnText: String
   },
   watch: {
     value: function value() {
@@ -19321,7 +19323,8 @@ __webpack_require__.r(__webpack_exports__);
     weighted_score2: String,
     weighted_score3: String,
     competency: String,
-    error: String
+    error: String,
+    btnText: String
   },
   watch: {
     value: function value() {
@@ -25662,7 +25665,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25682,7 +25686,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 3 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25702,7 +25707,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 4 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25722,7 +25728,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 5 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25742,7 +25749,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25762,7 +25770,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 7 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25782,7 +25791,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 8 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25802,7 +25812,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 9 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25822,7 +25833,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 10 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25842,7 +25854,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 11 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25862,7 +25875,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 12 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25882,7 +25896,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 13 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25902,7 +25917,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 14 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25922,7 +25938,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 15 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25942,7 +25959,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 16 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25962,7 +25980,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 17 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -25982,7 +26001,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 18 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26002,7 +26022,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 19 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26022,7 +26043,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 20 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26042,7 +26064,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 21 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26062,7 +26085,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 22 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26082,7 +26106,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 23 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26102,7 +26127,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 24 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26122,7 +26148,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "0.5",
         weighted_score3: "1",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 25 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26142,7 +26169,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 26 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26162,7 +26190,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 27 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26182,7 +26211,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 28 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26202,7 +26232,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "1",
         weighted_score3: "1.25",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 29 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
@@ -26222,7 +26253,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score2: "",
         weighted_score3: "",
         competency: "readiness",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 30 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26246,7 +26278,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 31 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26269,7 +26302,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 32 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26292,7 +26326,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 33 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26315,7 +26350,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 34 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26338,7 +26374,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 35 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26361,7 +26398,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 36 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26384,7 +26422,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 37 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26407,7 +26446,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 38 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26430,7 +26470,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 39 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26453,7 +26494,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 40 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26476,7 +26518,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 41 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26499,7 +26542,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 42 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
@@ -26522,7 +26566,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "evaluation",
-        error: $data.error
+        error: $data.error,
+        btnText: "Submit"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 43 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26546,7 +26591,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Adaptability",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 44 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26569,7 +26615,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Adaptability",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 45 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26592,7 +26639,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Collaboration",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 46 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26615,7 +26663,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Collaboration",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 47 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26638,7 +26687,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Collaboration",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 48 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26661,7 +26711,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Communication",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 49 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26684,7 +26735,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Communication",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 50 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26707,7 +26759,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 51 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26730,7 +26783,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 52 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26753,7 +26807,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 53 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26776,7 +26831,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Integrity",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 54 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26799,7 +26855,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Integrity",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 55 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26822,7 +26879,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Inclusivity",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 56 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26845,7 +26903,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Responsiveness",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 57 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26868,7 +26927,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Responsiveness",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 58 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26891,7 +26951,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Responsiveness",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 59 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26914,7 +26975,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Results",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 60 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26937,7 +26999,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Results",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 61 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26960,7 +27023,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Initiative",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 62 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -26983,7 +27047,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Initiative",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 63 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -27006,7 +27071,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Development",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 64 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -27029,7 +27095,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Accomplishments",
-        error: $data.error
+        error: $data.error,
+        btnText: "Next"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 65 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
@@ -27052,7 +27119,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "0.5",
         weighted_score4: "0.25",
         competency: "Growth",
-        error: $data.error
+        error: $data.error,
+        btnText: "Submit"
       }, null, 8
       /* PROPS */
       , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])];
@@ -28071,7 +28139,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.$emit('submitAnswer', $props.step);
     })
-  }, "Submit")])])])]);
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.btnText), 1
+  /* TEXT */
+  )])])])]);
 }
 
 /***/ }),
@@ -28215,7 +28285,7 @@ var _hoisted_17 = {
 };
 var _hoisted_18 = {
   key: 0,
-  "class": "card"
+  "class": "card wow fadeInDown"
 };
 
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
@@ -28248,7 +28318,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_25 = {
   key: 1,
-  "class": "card"
+  "class": "card wow fadeInDown"
 };
 
 var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
@@ -29174,7 +29244,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.$emit('submitAnswer', $props.step);
     })
-  }, "Submit")])])])]);
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.btnText), 1
+  /* TEXT */
+  )])])])]);
 }
 
 /***/ }),
@@ -30326,7 +30398,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return _ctx.$emit('submitAnswer', $props.step);
     })
-  }, "Submit")])])])]);
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.btnText), 1
+  /* TEXT */
+  )])])])]);
 }
 
 /***/ }),

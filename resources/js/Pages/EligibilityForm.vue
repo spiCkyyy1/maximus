@@ -58,7 +58,7 @@
                   </div>
                   <div class="feature-content d-flex align-items-center">
                      <div class="qa">
-                        <div class="card" v-if="applicationAccepted">
+                        <div class="card wow fadeInDown" v-if="applicationAccepted">
                            <div>
                               <div class="icon">
                                  <i class="icon-check alert-icon-success"></i>
@@ -75,7 +75,7 @@
                               <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">Take your Assessment Test</inertiaLink>
                            </div>
                         </div>
-                        <div class="card" v-if="applicationRejected">
+                        <div class="card wow fadeInDown" v-if="applicationRejected">
                            <div>
                               <div class="icon">
                                  <i class="icon-close alert-icon-rejected"></i>

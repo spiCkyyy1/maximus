@@ -19,7 +19,7 @@
                                  <div class="form-text small text-danger" v-if="error != ''">{{ error }}</div>
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" v-on:click="$emit('submitAnswer', step)">Submit</button>
+                                 <button type="button" class="btn btn-primary" v-on:click="$emit('submitAnswer', step)">{{btnText}}</button>
                               </div>
                            </div>
                         </div>
@@ -43,7 +43,8 @@ export default {
         weighted_score2: String,
         weighted_score3: String,
         competency: String,
-        error: String
+        error: String,
+        btnText: String
     },
     watch: {
             value() {
