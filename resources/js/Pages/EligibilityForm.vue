@@ -79,10 +79,13 @@
                               <div class="icon">
                                  <i class="icon-close alert-icon-rejected"></i>
                               </div>
-                              <h6>We are sorry.</h6>
-                              <p class="font-md">
-                                 Your application does not meet the eligibility criteria.
-                              </p>
+                              <h6>Thank you for registering your interest.</h6>
+                                <p class="font-md">
+                                    You have successfully completed the registration, you are not eligible for the OJT program.
+                                </p>
+                                <p class="font-md">
+                                    A member of the team will contact you with regards to other programs available.
+                                </p>
                            </div>
                         </div>
                         <div class="card form-dark" id="personalInformation" v-if="showPersonalInformationForm">
@@ -373,8 +376,16 @@ import Layout from '../Layouts/Layout'
             validateGender: function(){
 
                 if(this.personalInformation.gender == 'male'){
-                    this.showGenderForm = false;
-                    this.applicationRejected = true;
+                    axios.post('/application-rejected', this.personalInformation)
+                    .then(response => {
+                        if(response.data.success){
+                                this.showGenderForm = false;
+                                this.applicationRejected = true;
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                    });
+
 
                 }else{
                     axios.post('/save-gender', this.personalInformation)
@@ -395,8 +406,16 @@ import Layout from '../Layouts/Layout'
             },
             saveQualification: function(){
                 if(this.personalInformation.qualification == 'school'){
-                            this.showQualificationForm = false;
-                            this.applicationRejected = true;
+
+                    axios.post('/application-rejected', this.personalInformation)
+                    .then(response => {
+                        if(response.data.success){
+                                this.showQualificationForm = false;
+                                this.applicationRejected = true;
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                    });
 
                 }else{
                     axios.post('/save-qualification', this.personalInformation)
@@ -453,8 +472,17 @@ import Layout from '../Layouts/Layout'
             },
             saveUnemploymentForm: function(){
                 if(this.personalInformation.beenUnemployed == 'less_than_3_months'){
-                    this.showUnemployedForm = false;
-                    this.applicationRejected = true;
+
+                    axios.post('/application-rejected', this.personalInformation)
+                    .then(response => {
+                        if(response.data.success){
+                                this.showUnemployedForm = false;
+                                this.applicationRejected = true;
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                    });
+
 
                 }else{
                     axios.post('/save-unemployment', this.personalInformation)

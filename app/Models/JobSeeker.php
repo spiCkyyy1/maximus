@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -21,16 +22,48 @@ class JobSeeker extends Model
         return $this->hasMany(ReadinessAssessment::class);
     }
 
+    public function getCityAttribute($value){
+        if(!is_null($value)){
+            return ucfirst($value);
+        }
+        return 'N/A';
+    }
+
+    public function getRegionAttribute($value){
+        if(!is_null($value)){
+            return ucfirst($value);
+        }
+        return 'N/A';
+    }
+
+    public function getDobAttribute($value){
+        if(!is_null($value)){
+            return Carbon::parse($value)->toFormattedDateString();
+        }
+        return 'N/A';
+    }
+
     public function getFullTimeEmploymentAttribute($value){
-        return ucfirst($value);
+        if(!is_null($value)){
+            return ucfirst($value);
+        }
+        return 'N/A';
+
     }
 
     public function getOnJobTrainingAttribute($value){
-        return ucfirst($value);
+        if(!is_null($value)){
+            return ucfirst($value);
+        }
+        return 'N/A';
+
     }
 
     public function getSocialBenficiaryAttribute($value){
-        return ucfirst($value);
+        if(!is_null($value)){
+            return ucfirst($value);
+        }
+        return 'N/A';
     }
 
     public function getReadinessWeightedScoreAttribute(){
@@ -68,6 +101,7 @@ class JobSeeker extends Model
     }
 
     public function getWorstCompetencyAttribute(){
+
         if($this->readinessAssessment()->exists()){
             $data = [];
             $worstCompetency = DB::table('readiness_assessments')

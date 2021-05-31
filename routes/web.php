@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'landing'])->name('landing');
 
-Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('/terms-conditions', [FrontendController::class, 'termsCondition'])->name('termsCondition');
 
 Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
 
 Route::post('/employer-form', [FrontendController::class, 'employerForm'])->name('employerForm');
+
+Route::post('/application-rejected', [FrontendController::class, 'applicationRejected'])->name('applicationRejected');
 
 Route::post('/save-personal-information', [FrontendController::class, 'savePersonalInformation'])->name('savePersonalInformation');
 
@@ -56,9 +57,19 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/all-candidates', [AuthController::class, 'allCandidates'])->name('allCandidates');
 
+    Route::get('/admin/get-selected-candidates', [AuthController::class, 'getSelectedCandidates'])->name('getSelectedCandidates');
+
     Route::get('/admin/selected-candidates', [AuthController::class, 'selectedCandidates'])->name('selectedCandidates');
 
     Route::get('/admin/rejected-candidates', [AuthController::class, 'rejectedCandidates'])->name('rejectedCandidates');
+
+    Route::get('/admin/get-rejected-candidates', [AuthController::class, 'getRejectedCandidates'])->name('getRejectedCandidates');
+
+    Route::get('/admin/reviewed-candidates', [AuthController::class, 'reviewedCandidates'])->name('reviewedCandidates');
+
+    Route::get('/admin/get-reviewed-candidates', [AuthController::class, 'getReviewedCandidates'])->name('getReviewedCandidates');
+
+    Route::get('/admin/employers', [AuthController::class, 'employers'])->name('employers');
 
     Route::get('/admin/review/jobseeker/{id}/{review}', [AuthController::class, 'reviewJobSeeker'])->name('reviewJobSeeker');
 

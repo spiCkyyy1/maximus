@@ -100,7 +100,7 @@
 											<div class="form-group">
 												<label class="custom-label">Gender</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.gender" @change="filterCandidates">
+													<select class="form-control" v-model="filter.gender">
 														<option value="" disabled>---</option>
                                                         <option value="male">Male</option>
 														<option value="female">Female</option>
@@ -112,7 +112,7 @@
 											<div class="form-group">
 												<label class="custom-label">Qualification</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.qualification" @change="filterCandidates">
+													<select class="form-control" v-model="filter.qualification">
 														<option value="" disabled>---</option>
                                                         <option value="school">School</option>
 														<option value="bachelors">Bachelor's Degree</option>
@@ -126,7 +126,7 @@
 											<div class="form-group">
 												<label class="custom-label">Full-Time Employment</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.fullTimeEmployment" @change="filterCandidates">
+													<select class="form-control" v-model="filter.fullTimeEmployment">
                                                         <option value="" disabled>---</option>
 														<option value="yes">Yes</option>
 														<option value="no">No</option>
@@ -138,7 +138,7 @@
 											<div class="form-group">
 												<label class="custom-label">On-TheJob Training</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.JobTraining" @change="filterCandidates">
+													<select class="form-control" v-model="filter.JobTraining">
                                                         <option value="" disabled>---</option>
 														<option value="yes">Yes</option>
 														<option value="no">No</option>
@@ -150,7 +150,7 @@
 											<div class="form-group">
 												<label class="custom-label">Active Social Beneficiary</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.socialBeneficiary" @change="filterCandidates">
+													<select class="form-control" v-model="filter.socialBeneficiary">
                                                         <option value="" disabled>---</option>
 														<option value="yes">Yes</option>
 														<option value="no">No</option>
@@ -162,7 +162,7 @@
 											<div class="form-group">
 												<label class="custom-label">Unemployed</label>
 												<div class="select-picker">
-													<select class="form-control" v-model="filter.unEmployed" @change="filterCandidates">
+													<select class="form-control" v-model="filter.unEmployed">
                                                         <option value="" disabled>---</option>
 														<option value="never_worked">Never worked</option>
 														<option value="less_than_3_months">Less Than 3 Months</option>
@@ -171,8 +171,21 @@
 												</div>
 											</div>
 										</div>
+                                        <div class="col-sm-6 col-md-4">
+											<div class="form-group">
+												<label class="custom-label">Reviewed Candidates</label>
+												<div class="select-picker">
+													<select class="form-control" v-model="filter.review">
+                                                        <option value="" disabled>---</option>
+														<option value="1">Yes</option>
+														<option value="0">No</option>
+													</select>
+												</div>
+											</div>
+										</div>
 									</div>
                                     <button class="btn btn-sm" title="Reset Filter" style="color: green" @click="resetFilter"><i class="fas fa-sync"></i></button>
+                                    <button class="btn btn-sm btn-primary" title="Apply Filter" @click="filterCandidates"><i class="fas fa-filter"></i> Apply filter</button>
 								</div>
 							</div>
 
@@ -219,28 +232,32 @@
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
-															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
 															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
                                                             <td v-if="jobSeeker.qualification == 'school'">School</td>
 															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+                                                            <td v-if="jobSeeker.qualification == null">N/A</td>
 															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
 															<td class="text-center">{{jobSeeker.on_job_training}}</td>
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
-															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
-                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+															<td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score == 'N/A'"><a href="javascript:;" >{{jobSeeker.readiness_weighted_score}}</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score == 'N/A'"><a href="javascript:;">{{jobSeeker.evaluation_weighted_score}}</a></td>
                                                             <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
                                                             <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td v-if="jobSeeker.unemployed == null">N/A</td>
                                                             <td>
                                                                 <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
                                                                 <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
-                                                                &nbsp;
+                                                                <!-- &nbsp;
                                                                 <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span> -->
                                                             </td>
 														</tr>
 													</tbody>
@@ -284,35 +301,39 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(jobSeeker, k) in selectedCandidates" :key="k">
+														<tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td class="text-center">
 																<div class="avatar avatar-sm">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
-															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
 															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
                                                             <td v-if="jobSeeker.qualification == 'school'">School</td>
 															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+                                                            <td v-if="jobSeeker.qualification == null">N/A</td>
 															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
 															<td class="text-center">{{jobSeeker.on_job_training}}</td>
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
-															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
-                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+															<td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score == 'N/A'"><a href="javascript:;" >{{jobSeeker.readiness_weighted_score}}</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score == 'N/A'"><a href="javascript:;">{{jobSeeker.evaluation_weighted_score}}</a></td>
                                                             <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
                                                             <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td v-if="jobSeeker.unemployed == null">N/A</td>
                                                             <td>
                                                                 <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
                                                                 <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
-                                                                &nbsp;
+                                                                <!-- &nbsp;
                                                                 <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span> -->
                                                             </td>
 														</tr>
 													</tbody>
@@ -355,33 +376,39 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(jobSeeker, k) in rejectedCandidates" :key="k">
+														<tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td class="text-center">
 																<div class="avatar avatar-sm">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
-															<td class="strong">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}} </td>
+															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
 															<td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
                                                             <td v-if="jobSeeker.qualification == 'school'">School</td>
 															<td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
                                                             <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+                                                            <td v-if="jobSeeker.qualification == null">N/A</td>
 															<td class="text-center">{{jobSeeker.full_time_employment}}</td>
 															<td class="text-center">{{jobSeeker.on_job_training}}</td>
 															<td class="text-center">{{jobSeeker.social_benficiary}}</td>
-															<td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.readiness_weighted_score}}%</a></td>
-                                                            <td class="text-center strong"><a href="javascript:;" data-toggle="modal" data-target="#mcqs-modal">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+															<td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score == 'N/A'"><a href="javascript:;" >{{jobSeeker.readiness_weighted_score}}</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                                            <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score == 'N/A'"><a href="javascript:;">{{jobSeeker.evaluation_weighted_score}}</a></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
+                                                            <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
 															<td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                                            <td v-if="jobSeeker.unemployed == null">N/A</td>
                                                             <td>
                                                                 <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
                                                                 <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
-                                                                &nbsp;
+                                                                <!-- &nbsp;
                                                                 <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span> -->
                                                             </td>
 														</tr>
 													</tbody>
@@ -394,7 +421,11 @@
 							</div>
 						</div>
 					</div>
+                        <detail-modal :show="showModal" v-if="showModal"
+                                :jobSeeker="jobSeeker" v-on:closeModal="closeModal"></detail-modal>
 
+                        <assessment-modal :show="showAssessmestModal" v-if="showAssessmestModal"
+                        :assessment="assessment" v-on:closeAssessmentModal="closeAssessmentModal" :title="modalTitle"></assessment-modal>
 				</div>
 			</div>
 		</div>
@@ -405,29 +436,42 @@
 
 <script>
 import AdminLayout from '../../Layouts/AdminLayout'
+import DetailModal from '../Admin/DetailModal'
+import AssessmentModal from '../Admin/AssessmentModal'
 export default {
     components:{
-        AdminLayout
+        AdminLayout,
+        DetailModal,
+        AssessmentModal
     },
-    props: {
-        jobSeekers: Object,
-        selectedCandidates: Object,
-        rejectedCandidates: Object,
-        jobSeekersCount: Number,
-        jobSeekersWithAssessmentCount: Number,
-        selectedJobSeekers: Number,
-        rejectedJobSeekers: Number
+    mounted(){
+        this.filterCandidates();
     },
     data(){
         return{
+
+            jobSeekers: {},
+            selectedCandidates: {},
+            rejectedCandidates: {},
+            jobSeekersCount: 0,
+            jobSeekersWithAssessmentCount: 0,
+            selectedJobSeekers: 0,
+            rejectedJobSeekers: 0,
             filter: {
                 gender: '',
                 qualification: '',
                 fullTimeEmployment: '',
                 JobTraining: '',
                 socialBeneficiary: '',
-                unEmployed: ''
-            }
+                unEmployed: '',
+                review: '',
+                limit: 10
+            },
+            showModal: false,
+            showAssessmestModal: false,
+            jobSeeker: {},
+            assessment: {},
+            modalTitle: ''
         }
     },
     methods: {
@@ -443,15 +487,21 @@ export default {
             });
         },
         filterCandidates: function(){
-            // axios.post('/filter-candidates', this.filter)
-            // .then(response => {
-            //     console.log(response);
-            //     if(response.data.success){
-            //         this.jobSeekers = response.data.success;
-            //     }
-            // }).catch(error => {
-            //     console.log(error);
-            // });
+            axios.post('/filter-candidates', this.filter)
+            .then(response => {
+                console.log(response);
+                if(response.data.success){
+                    this.jobSeekers = response.data.jobSeekers;
+                    this.jobSeekersCount = response.data.jobSeekersCount;
+                    this.jobSeekersWithAssessmentCount = response.data.jobSeekersWithAssessmentCount;
+                    this.selectedJobSeekers = response.data.selectedJobSeekers;
+                    this.rejectedJobSeekers = response.data.rejectedJobSeekers;
+                    this.selectedCandidates = response.data.selectedCandidates;
+                    this.rejectedCandidates = response.data.rejectedCandidates;
+                }
+            }).catch(error => {
+                console.log(error);
+            });
         },
         resetFilter: function(){
             this.filter =  {
@@ -462,7 +512,28 @@ export default {
                 socialBeneficiary: '',
                 unEmployed: ''
             };
-        }
+            this.filterCandidates();
+        },
+        modalOpen: function(jobSeeker, event) {
+            this.jobSeeker = jobSeeker;
+            this.showModal = true;
+      },
+      closeModal: function(show){
+          this.jobSeeker = {};
+          this.showModal = false;
+          $("#mcqs-modal").modal('hide');
+      },
+      openAssessmentModal: function(assessment, title){
+          this.assessment = assessment;
+          this.showAssessmestModal = true;
+          this.modalTitle = title;
+          $("#assessment-modal").modal('show');
+      },
+      closeAssessmentModal: function(){
+          this.assessment = {};
+          this.showAssessmestModal = false;
+          $("#assessment-modal").modal('hide');
+      }
     }
 }
 </script>

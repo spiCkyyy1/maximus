@@ -1,101 +1,7 @@
 
 <template>
    <div class="wrap">
-   <!--MAXIMUS MODALS-->
-   <!--MCQ's-->
-   <div id="mcqs-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-         <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <i class="icon-close"></i>
-            </button>
-            <div class="modal-body">
-               <div class="modal-title">
-                  <i class="icon-note"></i>Assessment Test
-               </div>
-               <ul class="accordion mcqs-list th-list number drag-drop" id="faqs-list">
-                  <li class="card mb-3 correct">
-                     <div class="card-header">
-                        <div class="row align-items-center">
-                           <div class="col">
-                              <div class="title">
-                                 Est sit amet facilisis magna etiam?
-                              </div>
-                           </div>
-                           <div class="col-auto">
-                              <div class="drag-cursor"></div>
-                           </div>
-                        </div>
-                     </div>
-                     <!--.card-header-->
-                     <div id="card-1">
-                        <div class="card-body">
-                           <div class="check_radio style-2 mb-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r1" name="radio1">
-                                 <label class="custom-label" for="cr-r1">One</label>
-                              </div>
-                           </div>
-                           <div class="check_radio style-2 mb-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r2" name="radio1" checked>
-                                 <label class="custom-label" for="cr-r2">Two</label>
-                              </div>
-                           </div>
-                           <div class="check_radio style-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r3" name="radio1">
-                                 <label class="custom-label" for="cr-r3">Two</label>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="card mb-3 incorrect">
-                     <div class="card-header">
-                        <div class="row align-items-center">
-                           <div class="col">
-                              <div class="title">
-                                 Est sit amet facilisis magna etiam?
-                              </div>
-                           </div>
-                           <div class="col-auto">
-                              <div class="drag-cursor"></div>
-                           </div>
-                        </div>
-                     </div>
-                     <!--.card-header-->
-                     <div id="card-1">
-                        <div class="card-body">
-                           <div class="check_radio style-2 mb-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r1a" name="radio2" checked>
-                                 <label class="custom-label" for="cr-r1a">One</label>
-                              </div>
-                           </div>
-                           <div class="check_radio style-2 mb-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r2a" name="radio2">
-                                 <label class="custom-label" for="cr-r2a">Two</label>
-                              </div>
-                           </div>
-                           <div class="check_radio style-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r3a" name="radio2">
-                                 <label class="custom-label" for="cr-r3a">Two</label>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-               </ul>
-            </div>
-         </div>
-         <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-   </div>
-   <!-- /.modal -->
+
    <div class="ux-module main-dashboard style-1">
    <!--Add 'style-n' class here for different looks-->
    <!--UX MODULE HOLDER-->
@@ -115,10 +21,13 @@
             <ul class="sec-holder">
                <li class="heading">Dashboard</li>
                <li :class="route().current() == 'dashboard' ? 'active' : ''"><inertiaLink :href="route('dashboard')"><span><i class="icon-speedometer"></i></span>Dashboard</inertiaLink></li>
+               <li class="heading">Employer</li>
+               <li :class="route().current() == 'employers' ? 'active' : ''"><inertiaLink :href="route('employers')"><span><i class="icon-user"></i></span>Employers</inertiaLink></li>
                <li class="heading">Candidates</li>
                <li :class="route().current() == 'allCandidates' ? 'active' : ''"><inertiaLink :href="route('allCandidates')"><span><i class="icon-user"></i></span>All Candidates</inertiaLink></li>
                <li :class="route().current() == 'selectedCandidates' ? 'active' : ''"><inertiaLink :href="route('selectedCandidates')"><span><i class="icon-user-following"></i></span>Selected Candidates</inertiaLink></li>
                <li :class="route().current() == 'rejectedCandidates' ? 'active' : ''"><inertiaLink :href="route('rejectedCandidates')"><span><i class="icon-user-unfollow"></i></span>Rejected Candidates</inertiaLink></li>
+               <li :class="route().current() == 'reviewedCandidates' ? 'active' : ''"><inertiaLink :href="route('reviewedCandidates')"><span><i class="icon-user-unfollow"></i></span>Reviewed Candidates</inertiaLink></li>
                <li class="heading">Account</li>
                <li><InertiaLink :href="route('logout')" method="post"><span><i class="icon-logout"></i></span> Logout</InertiaLink></li>
 

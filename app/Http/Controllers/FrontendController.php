@@ -19,7 +19,7 @@ class FrontendController extends Controller
         return Inertia::render('Welcome');
     }
 
-    public function privacyPolicy(){
+    public function termsCondition(){
         return Inertia::render('TermsOfService');
     }
 
@@ -133,6 +133,17 @@ class FrontendController extends Controller
 
     }
 
+    public function applicationRejected(Request $request){
+
+        $jobSeeker = JobSeeker::find($request->id);
+
+        $jobSeeker->status = 0;
+
+        $jobSeeker->save();
+
+        return response()->json(['success' => 'Application Rejected.']);
+    }
+
     public function saveQualification(Request $request){
         $messages = [
             'qualification.required' => 'Please select your qualification'
@@ -216,7 +227,7 @@ class FrontendController extends Controller
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->unemployed = $request->beenUnemployed;
         $jobSeeker->save();
-        Mail::to($request->email)->send(new JobSeekerEmail($request->id));
+        // Mail::to($request->email)->send(new JobSeekerEmail($request->id));
         return response()->json(['success' => 'Unemployment Status Saved']);
     }
 

@@ -135,7 +135,7 @@
                                 <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="index.php#about-us">About</a>
+								<inertaLink class="nav-link" :href="route('landing')">About</inertaLink>
 							</li>
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
@@ -209,19 +209,20 @@
 							<div class="row align-items-center">
 								<div class="col-sm">
 									<ul class="links">
-										<li><a href="">About Maximus</a></li>
+										<li><inertiaLink :href="route('landing')">About OJT</inertiaLink></li>
 										<li><a href="">Careers</a></li>
-										<li><inertiaLink :href="route('privacyPolicy')">Privacy Policy</inertiaLink></li>
+                                        <li><inertiaLink :href="route('landing')">Privacy Policy</inertiaLink></li>
+										<li><inertiaLink :href="route('termsCondition')">Terms & Conditions</inertiaLink></li>
+                                        <li><a href="https://www.maximusgulf.com/en/services" target="_blank">Our Services</a></li>
+                                        <li><a href="https://www.maximusgulf.com/en/impact" target="_blank">Our Impact</a></li>
 									</ul>
 									<p class="mb-0">Copyright © Maximus 2021. All right reserved.</p>
 								</div>
 								<div class="col-sm-auto">
 									<ul class="social-icons">
-										<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a href="https://www.youtube.com/user/MAXIMUScorporate"><i class="fab fa-youtube"></i></a></li>
+										<li><a href="https://twitter.com/MAXIMUS_news"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="https://www.linkedin.com/company/maximus/"><i class="fab fa-linkedin-in"></i></a></li>
 									</ul>
 								</div>
 							</div>

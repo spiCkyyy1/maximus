@@ -31,6 +31,7 @@ class JobSeekerEmail extends Mailable
     public function build()
     {
         // ->from('OJTREG@maximusgulf.com')
-        return $this->subject('Maximus Gulf')->view('emails.jobseekeremail');
+        // ->subject('Maximus Gulf')
+        return $this->from('OJTREG@maximusgulf.com')->view('emails.jobseekeremail');
     }
 }
