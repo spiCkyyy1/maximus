@@ -62,7 +62,7 @@ class FrontendController extends Controller
             'expected_vacancies' => $request->expectedVacancies
         ]);
 
-        Mail::to($request->email)->send(new EmployerEmail());
+        // Mail::to($request->email)->send(new EmployerEmail());
 
         return redirect()->back()->with('success', 'Thank you for registering your interest with MAXIMUS Gulf. A member of the team will contact you.');
     }
