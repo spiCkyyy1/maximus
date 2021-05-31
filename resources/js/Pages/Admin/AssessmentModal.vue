@@ -11,7 +11,7 @@
                   <i class="icon-notebook"></i>{{title}}
                </div>
                <ul class="accordion mcqs-list th-list number drag-drop" id="faqs-list">
-                  <li class="card mb-3 correct" v-for="(data, k) in assessment" :key="k">
+                  <li class="card mb-3" v-for="(data, k) in assessment" :key="k">
                      <div class="card-header">
                         <div class="row align-items-center">
                            <div class="col">
@@ -28,8 +28,8 @@
                         <div class="card-body">
                            <div class="check_radio style-2 mb-2">
                               <div class="radio">
-                                 <input type="radio" class="cr-r1" name="radio1" checked>
-                                 <label class="custom-label" for="cr-r1">{{data.answer}}</label>
+                                 <input type="radio" class="cr-r1" :name="'radio'+k" checked>
+                                 <label class="custom-label" :for="'cr-r1'+k">{{data.answer}}</label>
                               </div>
                            </div>
                            <!-- <div class="check_radio style-2 mb-2">

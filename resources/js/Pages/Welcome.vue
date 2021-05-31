@@ -3,7 +3,7 @@
 
     <div class="section section-banner bg-1" id="home">
 		<div class="content-box">
-			<div class="container-fluid">
+			<div class="container">
 				<div class="row">
 					<div class="col-md-7 col-xl-6">
 						<div class="info-block wow fadeInUp mt-5">

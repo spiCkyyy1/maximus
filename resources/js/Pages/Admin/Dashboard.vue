@@ -184,9 +184,16 @@
 											</div>
 										</div>
 									</div>
-                                    <button class="btn btn-sm" title="Reset Filter" style="color: green" @click="resetFilter"><i class="fas fa-sync"></i></button>
-                                    <button class="btn btn-sm btn-primary" title="Apply Filter" @click="filterCandidates"><i class="fas fa-filter"></i> Apply filter</button>
 								</div>
+                                <div class="card-footer">
+                                        <div class="row align-items-center">
+
+                                            <div class="col-auto ml-auto">
+                                                    <button class="btn btn-sm btn-default" title="Reset Filter" @click="resetFilter"><i class="icon-refresh fa-lg fa-r"></i>Reset</button>
+                                                    <button class="btn btn-sm btn-primary ml-1" title="Apply Filter" @click="filterCandidates"><i class="icon-layers fa-lg fa-r"></i> Apply filter</button>
+                                            </div>
+                                        </div>
+                                </div>
 							</div>
 
 							<div class="tab-content">
@@ -199,7 +206,7 @@
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
-                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
+                                                    <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload"><i class="icon-doc fa-lg fa-r"></i>Export</a>
 												</div>
 											</div>
 										</div><!--.card-header-->
@@ -341,7 +348,7 @@
 											</div>
 										</div>
 									</div>
-                                    <div v-else class="d-flex justify-content-center"><h3>Sorry, no candidate found.</h3></div>
+                                    <div v-else><not-found></not-found></div>
                                 </div>
 								<div class="tab-pane fade" id="tab-3a">
                                     <div class="card table-card" v-if="rejectedCandidates.length > 0">
@@ -416,7 +423,7 @@
 											</div>
 										</div>
 									</div>
-                                    <div v-else class="d-flex justify-content-center"><h3>Sorry, no candidate found.</h3></div>
+                                    <div v-else><not-found></not-found></div>
                                 </div>
 							</div>
 						</div>
@@ -438,11 +445,13 @@
 import AdminLayout from '../../Layouts/AdminLayout'
 import DetailModal from '../Admin/DetailModal'
 import AssessmentModal from '../Admin/AssessmentModal'
+import NotFound from '../Admin/NotFound'
 export default {
     components:{
         AdminLayout,
         DetailModal,
-        AssessmentModal
+        AssessmentModal,
+        NotFound
     },
     mounted(){
         this.filterCandidates();

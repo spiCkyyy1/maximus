@@ -65,11 +65,14 @@
                               </div>
                               <h6>Thank you for registering your interest.</h6>
                               <p class="font-md">
-                                 You have successfully completed the registration and passed the eligibility for the OJT program.
+                                You have successfully completed the registration and passed the eligibility for the OJT program.
                               </p>
                               <p class="font-md">
-                                 A member of the team will contact you with regards to the next steps of welcoming you on the program.
+                                 A member of the team will contact you with regards to the documents required and welcoming you on the program.
                               </p>
+                                Please follow the below link to complete the next step of the application / readiness assessments.
+
+
 
                               <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary" style="margin-left: 30%">Take your Assessment Test</inertiaLink>
                            </div>

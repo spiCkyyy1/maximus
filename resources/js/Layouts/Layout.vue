@@ -135,7 +135,7 @@
                                 <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<inertaLink class="nav-link" :href="route('landing')">About</inertaLink>
+								<InertiaLink class="nav-link" :href="route('landing')">About</InertiaLink>
 							</li>
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
@@ -182,7 +182,7 @@
                                 <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="index.php#about-us">About</a>
+								<InertiaLink class="nav-link" :href="route('landing')">About</InertiaLink>
 							</li>
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>

@@ -6,8 +6,8 @@
                <div class="feature-content w-100 px-5">
                   <img src="/images/banners/2.png" alt="" class="img-fluid hiring-img wow fadeInDown">
                   <div class="sec-title wow fadeInLeft">
-                     <p class="sub-title white-text">JOIN THE TEAM</p>
-                     <h1 class="title white-text">We Are Hiring</h1>
+                     <p class="sub-title white-text">{{partNo}}</p>
+                     <h1 class="title white-text">{{testPhase}}</h1>
                   </div>
                </div>
             </div>
@@ -567,15 +567,17 @@ import Competencies from '../Pages/Competencies'
         data(){
             return{
                 readinessPart: true,
-                evaluationPart: true,
-                competenciesPart: true,
+                evaluationPart: false,
+                competenciesPart: false,
                 applicationAccepted: false,
                 applicationRejected: false,
                 readinessAssessment: [],
                 answer: '',
                 step: 1,
                 error: '',
-                answerSelected: false
+                answerSelected: false,
+                partNo: 'Part 1',
+                testPhase: 'Assessment Test'
             }
         },
         methods: {
@@ -611,6 +613,8 @@ import Competencies from '../Pages/Competencies'
                             this.readinessPart = false;
                             this.evaluationPart = true;
                             this.readinessAssessment = [];
+                            this.partNo = 'Part 2';
+                            this.testPhase = 'Evaluation Test';
                         }
 
                     });
@@ -623,6 +627,8 @@ import Competencies from '../Pages/Competencies'
                             this.evaluationPart = false;
                             this.competenciesPart = true;
                             this.readinessAssessment = [];
+                            this.partNo = 'Part 3';
+                            this.testPhase = 'Competencies Test';
                         }
 
                     });
@@ -645,7 +651,27 @@ import Competencies from '../Pages/Competencies'
 
 
             },
-
+            created() {
+            var self = this;
+            window.onbeforeunload = function (e) {
+                if(self.$route.path  == "/page3") {
+                    e = e || window.event;
+                    //old browsers
+                    if (e) {e.returnValue = 'Changes you made may not be saved';}
+                    //safari, chrome(chrome ignores text)
+                    return 'Changes you made may not be saved';
+                } else {
+                    return null;
+                }
+        };
+        if (performance.navigation.type == 1) {
+            if(this.$route.path == '/page3') {
+                this.$router.push({path: '/page1'})
+                } else {
+                console.log('reload page without redirect');
+            }
+        }
+  }
         }
     }
 </script>

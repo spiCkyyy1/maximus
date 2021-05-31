@@ -37,29 +37,29 @@
 
 		<!-- FORM PLUGINS -->
 		<!-- Full Calendar -->
-		<link href="{{asset('admin/plugins/fullcalendar/fullcalendar.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet">
 		<!-- Select 2 -->
-		<link href="{{asset('admin/plugins/select2/select2.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/select2/select2.min.css')}}" rel="stylesheet">
 		<!-- Tagify -->
-		<link href="{{asset('admin/plugins/tagify/tagify.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/tagify/tagify.min.css')}}" rel="stylesheet">
 		<!-- Flat Picker -->
-		<link href="{{asset('admin/plugins/flatpickr/flatpickr.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/flatpickr/flatpickr.min.css')}}" rel="stylesheet">
 		<!-- IntlTell Input -->
-		<link href="{{asset('admin/plugins/intlTelInput/intlTelInput.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/intlTelInput/intlTelInput.min.css')}}" rel="stylesheet">
 		<!-- Mini Colors -->
-		<link href="{{asset('admin/plugins/minicolors/minicolors.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/minicolors/minicolors.min.css')}}" rel="stylesheet">
 		<!-- RateYo -->
-		<link href="{{asset('admin/plugins/rateyo/rateyo.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/rateyo/rateyo.min.css')}}" rel="stylesheet">
 		<!-- Audio Player -->
-		<link href="{{asset('admin/plugins/audioplayer/audioplayer.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/audioplayer/audioplayer.min.css')}}" rel="stylesheet">
 		<!-- Range Slider -->
-		<link href="{{asset('admin/plugins/rangeslider/rangeslider.min.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/rangeslider/rangeslider.min.css')}}" rel="stylesheet">
 		<!-- Ion.RangeSlider -->
 		<link href="{{asset('admin/plugins/ion.rangeSlider/ion.rangeSlider.min')}}.css" rel="stylesheet">
 
 		<link href="{{asset('admin/plugins/charts/stiff-chart/stiff-chart')}}.min.css" rel="stylesheet">
 		<link href="{{asset('admin/plugins/charts/org-chart/jquery.orgchart')}}.css" rel="stylesheet">
-		<link href="{{asset('admin/plugins/charts/apexcharts/apexcharts.css"')}} rel="stylesheet">
+		<link href="{{asset('admin/plugins/charts/apexcharts/apexcharts.css')}}" rel="stylesheet">
 		<link href="{{asset('admin/plugins/charts/morrischarts/morris.min.css')}}" rel="stylesheet">
 		<link href="{{asset('admin/plugins/charts/jvectormap/jvectormap.min.css')}}" rel="stylesheet">
 
@@ -81,13 +81,13 @@
         <script src="{{asset('admin/js/jquery/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('admin/js/jquery/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('admin/js/bootstrap/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-        {{-- <script src="{{asset('admin/js/plugins.min.js')}}" type="text/javascript"></script> --}}
+        <script src="{{asset('admin/js/plugins.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('admin/js/charts.min.js')}}" type="text/javascript"></script>
         <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
         {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> --}}
         {{-- <script>new WOW().init();</script> --}}
-        {{-- <script src="{{asset('admin/js/custom.min.js')}}" type="text/javascript"></script> --}}
-        {{-- <script src="{{asset('admin/js/charts-custom.min.js')}}" type="text/javascript"></script> --}}
+        <script src="{{asset('admin/js/custom.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('admin/js/charts-custom.min.js')}}" type="text/javascript"></script>
 
 
     </body>

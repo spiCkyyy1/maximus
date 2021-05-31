@@ -39,5 +39,15 @@
         <script src="{{asset('js/grid.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        @if(Route::currentRouteName() == 'assessmentTest')
+
+            window.onbeforeunload = function() {
+                return "Do you really want to leave our brilliant application?";
+                //if we return nothing here (just calling return;) then there will be no pop-up question at all
+                //return;
+            };
+        @endif
+        </script>
     </body>
 </html>
