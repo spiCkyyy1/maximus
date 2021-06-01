@@ -100,6 +100,7 @@ $(window).scroll(function() {
 	}
 });
 $('#scroll-to-top').click(function() {
+    alert('clicked');
 	$('body,html').animate({
 		scrollTop : 0
 	}, 500);

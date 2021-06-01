@@ -122,25 +122,25 @@
                     <thead>
                         <tr>
                             <th width="55px">#</th>
-                            <th class="text-center" width="50px"><i class="icon-user fa-lg"></i></th>
+                            <th  width="50px"><i class="icon-user fa-lg"></i></th>
                             <th width="150px">Name</th>
                             <th>Gender</th>
                             <th>Qualification</th>
-                            <th class="text-center">Full-Time Employment</th>
-                            <th class="text-center">On-TheJob Training</th>
-                            <th class="text-center">Active Social Beneficiary</th>
+                            <th >Full-Time Employment</th>
+                            <th >On-TheJob Training</th>
+                            <th >Active Social Beneficiary</th>
                             <th>Unemployed</th>
-                            <th class="text-center">Readiness Assessment Test</th>
-                            <th class="text-center">Evaluation Assessment Test</th>
-                            <th class="text-center">Best Competency</th>
-                            <th class="text-center">Worst Competency</th>
+                            <th >Readiness Assessment Test</th>
+                            <th >Evaluation Assessment Test</th>
+                            <th >Best Competency</th>
+                            <th >Worst Competency</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                             <tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
                                 <td>{{jobSeeker.id}}</td>
-                                <td class="text-center">
+                                <td >
                                     <div class="avatar avatar-sm">
                                         <img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
                                     </div>
@@ -152,17 +152,17 @@
                                 <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
                                 <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
                                 <td v-if="jobSeeker.qualification == null">N/A</td>
-                                <td class="text-center">{{jobSeeker.full_time_employment}}</td>
-                                <td class="text-center">{{jobSeeker.on_job_training}}</td>
-                                <td class="text-center">{{jobSeeker.social_benficiary}}</td>
+                                <td >{{jobSeeker.full_time_employment}}</td>
+                                <td >{{jobSeeker.on_job_training}}</td>
+                                <td >{{jobSeeker.social_benficiary}}</td>
                                 <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                 <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                 <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
-                                <td v-if="jobSeeker.unemployed == null">N/A</td>
-                                <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
-                                <td class="text-center" v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
-                                <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
-                                <td class="text-center" v-if="jobSeeker.evaluation_weighted_score == 'N/A'">{{jobSeeker.evaluation_weighted_score}}</td>
+                                <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td>
+                                <td v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                <td  v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
+                                <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                <td  v-if="jobSeeker.evaluation_weighted_score == 'N/A'">{{jobSeeker.evaluation_weighted_score}}</td>
                                 <td v-if="jobSeeker.best_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
                                 <td v-else><span>{{jobSeeker.best_competency}}</span></td>
                                 <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
