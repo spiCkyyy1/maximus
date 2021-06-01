@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
-use App\Models\JobSeeker;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +79,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/download/excel', [AuthController::class, 'downloadExcel'])->name('downloadExcel');
 
+    Route::get('/admin/download/selected', [AuthController::class, 'downloadSelectedExcel'])->name('downloadSelectedExcel');
+
+    Route::get('/admin/download/rejected', [AuthController::class, 'downloadRejectedExcel'])->name('downloadRejectedExcel');
+
+    Route::get('/admin/download/reviewed', [AuthController::class, 'downloadReviewedExcel'])->name('downloadReviewedExcel');
+
 });
 
 Route::get('/admin/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -93,7 +98,6 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
-    return JobSeeker::paginate(1);
     return 'done';
 });
 

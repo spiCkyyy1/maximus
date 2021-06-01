@@ -103,6 +103,19 @@
             </div>
          </div>
          <div v-if="jobSeekers.length > 0">
+             <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="title" v-if="all"><i class="icon-people"></i> Job Seekers</div>
+                    <div class="title" v-if="selected"><i class="icon-people"></i> Selected Candidates</div>
+                    <div class="title" v-if="rejected"><i class="icon-people"></i> Rejected Candidates</div>
+                    <div class="title" v-if="reviewed"><i class="icon-people"></i> Reviewed Candidates</div>
+                </div>
+                <div class="col-auto">
+                    <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload"><i class="icon-doc fa-lg fa-r"></i>Export</a>
+                </div>
+            </div>
+        </div>
             <div class="card-body">
                 <div class="table-responsive">
                 <table class="table table-hover">
@@ -155,8 +168,8 @@
                                 <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
                                 <td v-else><span>{{jobSeeker.worst_competency}}</span></td>
                                 <td>
-                                    <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
-                                    <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                        <span v-if="jobSeeker.reviewed == 'Unreviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                        <span v-if="jobSeeker.reviewed == 'Reviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -325,7 +338,33 @@ export default {
           this.assessment = {};
           this.showAssessmestModal = false;
           $("#assessment-modal").modal('hide');
-      }
+      },
+      excelDownload: function(){
+            $("#loader").css("display", "block");
+            let url = '';
+            if(this.all){
+                url = '/admin/download/excel';
+            }
+            if(this.selected){
+                url = '/admin/download/selected';
+            }
+            if(this.rejected){
+                url = '/admin/download/rejected';
+            }
+            if(this.reviewed){
+                url = '/admin/download/reviewed'
+            }
+            axios.get(url, {responseType:'blob'}).
+            then(result => {
+                $("#loader").css("display", "none");
+                const url = window.URL.createObjectURL(new Blob([result.data], {type:'application/vnd.ms-excel'}));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'job-seekers.xlsx');
+                    document.body.appendChild(link);
+                    link.click();
+            });
+        },
     }
 }
 </script>

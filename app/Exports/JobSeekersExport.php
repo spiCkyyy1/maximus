@@ -13,9 +13,30 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
     /**
     * @return \Illuminate\Support\Collection
     */
+
+    protected $status;
+
+    public function __construct($status)
+    {
+        $this->status = $status;
+
+    }
+
+
+
     public function collection()
     {
-        return JobSeeker::all();
+        if($this->status == 'all')
+            return JobSeeker::all();
+
+        if($this->status == 'selected')
+            return JobSeeker::where('status', 1)->get();
+
+        if($this->status == 'rejected')
+            return JobSeeker::where('status', 0)->get();
+
+        if($this->status == 'reviewed')
+            return JobSeeker::where('reviewed', 1)->get();
     }
 
     public function headings(): array
@@ -38,7 +59,14 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
             'Social Beneficiary',
             'Un-Employed',
             'Reviewed',
-            'Status'
+            'Status',
+            'Created At',
+            'Updated At',
+            'Readiness Assessment',
+            'Evaluation Assessment',
+            'Best Competencies',
+            'Worst Competencies',
+            'Total Competencies Answered'
         ];
     }
 }

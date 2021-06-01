@@ -206,7 +206,7 @@
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
-                                                    <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload"><i class="icon-doc fa-lg fa-r"></i>Export</a>
+                                                    <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload('all', $event)"><i class="icon-doc fa-lg fa-r"></i>Export</a>
 												</div>
 											</div>
 										</div>
@@ -262,8 +262,8 @@
                                                             <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
                                                             <td v-else><span>{{jobSeeker.worst_competency}}</span></td>
                                                             <td>
-                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Unreviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Reviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
                                                             </td>
 														</tr>
 													</tbody>
@@ -310,7 +310,7 @@
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
-                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
+                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload('selected', $event)"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
 										</div>
@@ -366,8 +366,8 @@
                                                             <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
                                                             <td v-else><span>{{jobSeeker.worst_competency}}</span></td>
                                                             <td>
-                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Unreviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Reviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
                                                             </td>
 														</tr>
 													</tbody>
@@ -414,7 +414,7 @@
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
-                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload"><i class="fas fa-file"></i> Export</a>
+                                                    <a href="javascript:;" class="btn btn-default" @click="excelDownload('rejected', $event)"><i class="fas fa-file"></i> Export</a>
 												</div>
 											</div>
 										</div>
@@ -468,8 +468,8 @@
                                                             <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
                                                             <td v-else><span >{{jobSeeker.worst_competency}}</span></td>
                                                             <td>
-                                                                <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
-                                                                <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Unreviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                                                <span v-if="jobSeeker.reviewed == 'Reviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
                                                             </td>
 														</tr>
 													</tbody>
@@ -566,9 +566,21 @@ export default {
         }
     },
     methods: {
-        excelDownload: function(){
-            axios.get('/admin/download/excel', {responseType:'blob'}).
+        excelDownload: function(type){
+            $("#loader").css("display", "block");
+            let url = '';
+            if(type == 'all'){
+                url = '/admin/download/excel';
+            }
+            if(type == 'selected'){
+                url = '/admin/download/selected';
+            }
+            if(type == 'rejected'){
+                url = '/admin/download/rejected';
+            }
+            axios.get(url, {responseType:'blob'}).
             then(result => {
+                $("#loader").css("display", "none");
                 const url = window.URL.createObjectURL(new Blob([result.data], {type:'application/vnd.ms-excel'}));
                     const link = document.createElement('a');
                     link.href = url;

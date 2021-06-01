@@ -198,6 +198,17 @@ class AuthController extends Controller
     }
 
     public function downloadExcel(){
-        return Excel::download(new JobSeekersExport(), 'job-seekers.xlsx');
+        return Excel::download(new JobSeekersExport('all'), 'job-seekers.xlsx');
+    }
+
+    public function downloadSelectedExcel(){
+        return Excel::download(new JobSeekersExport('selected'), 'job-seekers.xlsx');
+    }
+
+    public function downloadRejectedExcel(){
+        return Excel::download(new JobSeekersExport('rejected'), 'job-seekers.xlsx');
+    }
+    public function downloadReviewedExcel(){
+        return Excel::download(new JobSeekersExport('reviewed'), 'job-seekers.xlsx');
     }
 }

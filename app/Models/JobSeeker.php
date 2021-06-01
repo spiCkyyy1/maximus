@@ -82,6 +82,37 @@ class JobSeeker extends Model
         return 'N/A';
     }
 
+    public function getUnemployedAttribute($value){
+        if(is_null($value)){
+            return 'N/A';
+        }
+        return $value;
+    }
+
+
+    public function getReviewedAttribute($value){
+        if($value == 0){
+            return 'Unreviewed';
+        }
+
+        return 'Reviewed';
+    }
+
+    public function getStatusAttribute($value){
+        if($value == 1){
+            return 'Selected';
+        }
+        return 'Rejected';
+    }
+
+    public function getCreatedAtAttribute($value){
+        return Carbon::parse($value)->toFormattedDateString();
+    }
+
+    public function getUpdatedAtAttribute($value){
+        return Carbon::parse($value)->toFormattedDateString();
+    }
+
     public function getReadinessWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
             $gainedSum =  $this->readinessAssessment()->where('competencies', 'readiness')->sum('weighted_score');
@@ -142,5 +173,6 @@ class JobSeeker extends Model
         if($this->readinessAssessment()->exists()){
             return DB::table('readiness_assessments')->where('job_seeker_id', $this->id)->distinct('competencies')->count('competencies');
         }
+        return 0;
     }
 }
