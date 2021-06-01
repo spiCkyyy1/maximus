@@ -237,7 +237,7 @@
 
 			</main>
 
-			<div id="scroll-to-top" title="Go to top" onclick="topFunction()">
+			<div id="scroll-to-top" title="Go to top" @click="topFunction">
 				<img src="/images/icons/arrow.png">
 			</div>
 
@@ -246,6 +246,12 @@
 
 <script>
 export default {
+    // mounted(){
+    //     let file = document.createElement('link');
+    //   file.rel = 'text/javascript';
+    //   file.href = 'js/custom.js';
+    //   document.head.appendChild(file);
+    // },
     data(){
         return{
             form: this.$inertia.form({
@@ -268,6 +274,11 @@ export default {
             cities: Object
         },
     methods: {
+        topFunction(){
+            $('body,html').animate({
+                    scrollTop : 0
+                }, 500);
+        },
         employerForm: function(){
             this.form
                     .post(this.route('employerForm'), {

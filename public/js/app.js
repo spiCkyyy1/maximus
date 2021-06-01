@@ -17329,6 +17329,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  // mounted(){
+  //     let file = document.createElement('link');
+  //   file.rel = 'text/javascript';
+  //   file.href = 'js/custom.js';
+  //   document.head.appendChild(file);
+  // },
   data: function data() {
     return {
       form: this.$inertia.form({
@@ -17351,6 +17357,11 @@ __webpack_require__.r(__webpack_exports__);
     cities: Object
   },
   methods: {
+    topFunction: function topFunction() {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 500);
+    },
     employerForm: function employerForm() {
       var _this = this;
 
@@ -21936,13 +21947,9 @@ var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 
 var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-sm-auto\"><ul class=\"social-icons\"><li><a href=\"https://www.youtube.com/user/MAXIMUScorporate\" target=\"_blank\"><i class=\"fab fa-youtube\"></i></a></li><li><a href=\"https://twitter.com/MAXIMUS_news\" target=\"_blank\"><i class=\"fab fa-twitter\"></i></a></li><li><a href=\"https://www.linkedin.com/company/maximus/\" target=\"_blank\"><i class=\"fab fa-linkedin-in\"></i></a></li></ul></div>", 1);
 
-var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  id: "scroll-to-top",
-  title: "Go to top",
-  onclick: "topFunction()"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: "/images/icons/arrow.png"
-})], -1
+}, null, -1
 /* HOISTED */
 );
 
@@ -22185,7 +22192,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"])]), _hoisted_91, _hoisted_92]), _hoisted_93]), _hoisted_94])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_95]);
+  , ["href"])]), _hoisted_91, _hoisted_92]), _hoisted_93]), _hoisted_94])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+    id: "scroll-to-top",
+    title: "Go to top",
+    onClick: _cache[14] || (_cache[14] = function () {
+      return $options.topFunction && $options.topFunction.apply($options, arguments);
+    })
+  }, [_hoisted_95])]);
 }
 
 /***/ }),
