@@ -57,7 +57,7 @@
                      </div>
                   </div>
                   <div class="feature-content d-flex align-items-center">
-                     <div class="qa">
+                     <div>
                         <div class="card wow fadeInDown" v-if="applicationAccepted">
                            <div>
                               <div class="icon">
@@ -93,22 +93,32 @@
                            <div>
                               <h6 class="mb-5">Personal Information</h6>
                               <div class="form-row">
-                                 <div class="col-sm-4">
+                                  <div class="col-sm-auto col-lg-12 col-xl-auto">
+                                    <div class="form-group">
+                                       <label class="custom-label">Title</label>
+                                       <div class="select-option">
+                                          <select class="form-control" v-model="personalInformation.title">
+                                             <option value="mr">Mr.</option>
+                                             <option value="mrs">Mrs.</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">First Name</label>
                                        <input type="text" class="form-control" v-model="personalInformation.firstName">
                                        <div class="form-text small text-danger" v-if="errors.firstName">{{ errors.firstName[0] }}</div>
-                                       <!-- <div class="valid-feedback">Looks good!</div> -->
                                     </div>
                                  </div>
-                                 <div class="col-sm-4">
+                                 <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">Middle Name</label>
                                        <input type="text" class="form-control" v-model="personalInformation.middleName">
                                        <div class="form-text small text-danger" v-if="errors.middleName">{{ errors.middleName[0] }}</div>
                                     </div>
                                  </div>
-                                 <div class="col-sm-4">
+                                 <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">Surname</label>
                                        <input type="text" class="form-control" v-model="personalInformation.surName">
@@ -136,12 +146,10 @@
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">City</label>
-                                       <div class="select-picker">
+                                       <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.city">
-                                             <option value="lahore">Lahore</option>
-                                             <option value="karachi">Karachi</option>
-                                             <option value="peshawar">Peshawar</option>
-                                          </select>
+                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{city.text}}</option>
+                                            </select>
                                           <div class="form-text small text-danger" v-if="errors.city">{{ errors.city[0] }}</div>
                                        </div>
                                     </div>
@@ -149,12 +157,10 @@
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">Region</label>
-                                       <div class="select-picker">
+                                       <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.region">
-                                             <option value="pakistan">Pakistan</option>
-                                             <option value="india">India</option>
-                                             <option value="japan">Japan</option>
-                                          </select>
+                                            <option v-for="(region, k) in regions" :key="k" :value="region.value">{{region.text}}</option>
+                                            </select>
                                           <div class="form-text small text-danger" v-if="errors.region">{{ errors.region[0] }}</div>
                                        </div>
                                     </div>
@@ -321,6 +327,10 @@ import Layout from '../Layouts/Layout'
         components: {
             Layout
         },
+        props:{
+            cities: Object,
+            regions: Object
+        },
         data(){
             return{
                 showPersonalInformationForm: true,
@@ -334,6 +344,7 @@ import Layout from '../Layouts/Layout'
                 applicationRejected: false,
                 applicationAccepted: false,
                 personalInformation: {
+                    title: '',
                     id: '',
                     firstName: '',
                     middleName: '',

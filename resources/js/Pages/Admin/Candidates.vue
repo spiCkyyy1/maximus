@@ -1,8 +1,8 @@
 <template>
    <admin-layout>
       <div>
-         <div class="card">
-            <div class="card-body pb-0" v-if="route().current() == 'allCandidates'">
+         <div class="card" v-if="route().current() == 'allCandidates'">
+            <div class="card-body pb-0">
                <div class="form-row">
                   <div class="col-sm-6 col-md-4">
                      <div class="form-group">
@@ -102,69 +102,94 @@
                </div>
             </div>
          </div>
-         <div class="card-body" v-if="jobSeekers.length > 0">
-            <div class="table-responsive">
-               <table class="table table-hover">
-                  <thead>
-                     <tr>
-                        <th width="55px">#</th>
-                        <th class="text-center" width="50px"><i class="icon-user fa-lg"></i></th>
-                        <th width="150px">Name</th>
-                        <th>Gender</th>
-                        <th>Qualification</th>
-                        <th class="text-center">Full-Time Employment</th>
-                        <th class="text-center">On-TheJob Training</th>
-                        <th class="text-center">Active Social Beneficiary</th>
-                        <th class="text-center">Readiness Assessment Test</th>
-                        <th class="text-center">Evaluation Assessment Test</th>
-                        <th class="text-center">Best Competency</th>
-                        <th class="text-center">Worst Competency</th>
-                        <th>Unemployed</th>
-                        <th>Actions</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
-                        <td>{{jobSeeker.id}}</td>
-                        <td class="text-center">
-                           <div class="avatar avatar-sm">
-                              <img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
-                           </div>
-                        </td>
-                        <td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
-                        <td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
-                        <td v-if="jobSeeker.qualification == 'school'">School</td>
-                        <td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
-                        <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
-                        <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
-                        <td v-if="jobSeeker.qualification == null">N/A</td>
-                        <td class="text-center">{{jobSeeker.full_time_employment}}</td>
-                        <td class="text-center">{{jobSeeker.on_job_training}}</td>
-                        <td class="text-center">{{jobSeeker.social_benficiary}}</td>
-                        <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
-                        <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score == 'N/A'"><a href="javascript:;" >{{jobSeeker.readiness_weighted_score}}</a></td>
-                        <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
-                        <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score == 'N/A'"><a href="javascript:;">{{jobSeeker.evaluation_weighted_score}}</a></td>
-                        <td><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
-                        <td><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
-                        <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
-                        <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
-                        <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
-                        <td v-if="jobSeeker.unemployed == null">N/A</td>
-                        <td>
-                           <span v-if="jobSeeker.reviewed == 0">
-                              <inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink>
-                           </span>
-                           <span v-if="jobSeeker.reviewed == 1">
-                              <inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink>
-                           </span>
-                           <!-- &nbsp;
-                              <span v-if="jobSeeker.status == 0"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 1})"><i class="fas fa-check" title="Approve"></i></inertiaLink></span>
-                              <span v-if="jobSeeker.status == 1"><inertiaLink :href="route('changeStatus', {id: jobSeeker.id, status: 0})"><i class="fas fa-times" title="Reject" style="color: red"></i></inertiaLink></span> -->
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
+         <div v-if="jobSeekers.length > 0">
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="55px">#</th>
+                            <th class="text-center" width="50px"><i class="icon-user fa-lg"></i></th>
+                            <th width="150px">Name</th>
+                            <th>Gender</th>
+                            <th>Qualification</th>
+                            <th class="text-center">Full-Time Employment</th>
+                            <th class="text-center">On-TheJob Training</th>
+                            <th class="text-center">Active Social Beneficiary</th>
+                            <th>Unemployed</th>
+                            <th class="text-center">Readiness Assessment Test</th>
+                            <th class="text-center">Evaluation Assessment Test</th>
+                            <th class="text-center">Best Competency</th>
+                            <th class="text-center">Worst Competency</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
+                                <td>{{jobSeeker.id}}</td>
+                                <td class="text-center">
+                                    <div class="avatar avatar-sm">
+                                        <img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+                                    </div>
+                                </td>
+                                <td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
+                                <td><span class="badge badge-soft-info">{{jobSeeker.gender}}</span></td>
+                                <td v-if="jobSeeker.qualification == 'school'">School</td>
+                                <td v-if="jobSeeker.qualification == 'bachelors'">Bachelor's Degree</td>
+                                <td v-if="jobSeeker.qualification == 'masters'">Master's Degree</td>
+                                <td v-if="jobSeeker.qualification == 'doctoral'">Doctoral Degree</td>
+                                <td v-if="jobSeeker.qualification == null">N/A</td>
+                                <td class="text-center">{{jobSeeker.full_time_employment}}</td>
+                                <td class="text-center">{{jobSeeker.on_job_training}}</td>
+                                <td class="text-center">{{jobSeeker.social_benficiary}}</td>
+                                <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
+                                <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
+                                <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
+                                <td v-if="jobSeeker.unemployed == null">N/A</td>
+                                <td class="text-center strong" v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                <td class="text-center" v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
+                                <td class="text-center strong" v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                <td class="text-center" v-if="jobSeeker.evaluation_weighted_score == 'N/A'">{{jobSeeker.evaluation_weighted_score}}</td>
+                                <td v-if="jobSeeker.best_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
+                                <td v-else><span>{{jobSeeker.best_competency}}</span></td>
+                                <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
+                                <td v-else><span>{{jobSeeker.worst_competency}}</span></td>
+                                <td>
+                                    <span v-if="jobSeeker.reviewed == 0"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>
+                                    <span v-if="jobSeeker.reviewed == 1"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 0})"><i class="fas fa-eye-slash" title="Unreviewed"></i></inertiaLink></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                    <div class="card-pagination">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="card-pagination-count">
+                                    Showing 1 to 10 of 57 entries
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item disabled">
+                                        <a href class="page-link" tabindex="-1">First</a>
+                                    </li>
+                                    <li><a href class="page-link"><i class="icon-arrow-left small"></i></a></li>
+                                    <li class="page-item"><a href class="page-link">1</a></li>
+                                    <li class="page-item active">
+                                        <a href class="page-link">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a href class="page-link">3</a></li>
+                                    <li><a href class="page-link"><i class="icon-arrow-right small"></i></a></li>
+                                    <li class="page-item">
+                                        <a href class="page-link">Last</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
             </div>
          </div>
          <div v-else>

@@ -26,21 +26,17 @@
                             <div class="form-text small text-danger" v-if="errors.name">{{ errors.name }}</div>
                         </div>
                         <div class="form-group">
-                            <label class="custom-label">Region</label>
-                            <div class="select-picker">
-                                <select class="form-control" v-model="form.region">
-                                    <option value="pakistan">Pakistan</option>
-                                    <option value="india">India</option>
-                                    <option value="japan">Japan</option>
-                                </select>
-                                <div class="form-text small text-danger" v-if="errors.region">{{ errors.region }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="custom-label">Company Name</label>
                             <input type="text" class="form-control" v-model="form.companyName">
                             <div class="form-text small text-danger" v-if="errors.companyName">{{ errors.companyName }}</div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="custom-label">Employment Sector</label>
+                            <input type="text" class="form-control" v-model="form.employmentSector">
+                            <div class="form-text small text-danger" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -51,39 +47,37 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">Mobile #</label>
-                                    <input type="text" class="form-control" v-model="form.mobileNumber">
-                                    <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="custom-label">Employment Sector</label>
-                                    <input type="text" class="form-control" v-model="form.employmentSector">
-                                    <div class="form-text small text-danger" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
                                     <label class="custom-label">Head Quater (HQ) Location</label>
                                     <input type="text" class="form-control" v-model="form.hqLocation">
 
                                     <div class="form-text small text-danger" v-if="errors.hqLocation">{{ errors.hqLocation }}</div>
                                 </div>
-
                             </div>
-                        </div>
 
+                        </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">City</label>
-                                    <input type="text" class="form-control" v-model="form.city">
-                                    <div class="form-text small text-danger" v-if="errors.city">{{ errors.city }}</div>
+                                    <label class="custom-label">Mobile #</label>
+                                    <input type="text" class="form-control" v-model="form.mobileNumber">
+                                    <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                <label class="custom-label">Region</label>
+                                <div class="select-option">
+                                    <select class="form-control" v-model="form.region">
+                                        <option v-for="(region, k) in regions" :key="k" :value="region.value">{{region.text}}</option>
+                                    </select>
+                                    <div class="form-text small text-danger" v-if="errors.region">{{ errors.region }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="custom-label">No. of expected Vacancies</label>
@@ -91,6 +85,18 @@
                                     <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ errors.expectedVacancies }}</div>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="custom-label">City</label>
+                                        <div class="select-option">
+                                            <select class="form-control" v-model="form.city">
+                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{city.text}}</option>
+                                            </select>
+                                            <div class="form-text small text-danger" v-if="errors.city">{{ errors.city }}</div>
+                                        </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -135,7 +141,7 @@
                                 <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<InertiaLink class="nav-link" :href="route('landing')">About</InertiaLink>
+								<a class="nav-link" href="#about-us">About</a>
 							</li>
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
@@ -182,13 +188,13 @@
                                 <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<InertiaLink class="nav-link" :href="route('landing')">About</InertiaLink>
+								<a class="nav-link" href="javascript:;" @click="redirectToAbout">About</a>
 							</li>
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link nav-btn btn-secondary active" href="#employer">Employer</a>
+								<a class="nav-link nav-btn btn-secondary active" href="javascript:;" @click="redirectToEmployer">Employer</a>
 							</li>
 						</ul>
 					</div>
@@ -209,9 +215,8 @@
 							<div class="row align-items-center">
 								<div class="col-sm">
 									<ul class="links">
-										<li><inertiaLink :href="route('landing')">About OJT</inertiaLink></li>
-										<li><a href="">Careers</a></li>
-                                        <li><inertiaLink :href="route('landing')">Privacy Policy</inertiaLink></li>
+										<li><a class="nav-link" href="javascript:;" @click="redirectToAbout">About OJT</a></li>
+                                        <li><inertiaLink :href="route('privacyPolicy')">Privacy Policy</inertiaLink></li>
 										<li><inertiaLink :href="route('termsCondition')">Terms & Conditions</inertiaLink></li>
                                         <li><a href="https://www.maximusgulf.com/en/services" target="_blank">Our Services</a></li>
                                         <li><a href="https://www.maximusgulf.com/en/impact" target="_blank">Our Impact</a></li>
@@ -220,9 +225,9 @@
 								</div>
 								<div class="col-sm-auto">
 									<ul class="social-icons">
-										<li><a href="https://www.youtube.com/user/MAXIMUScorporate"><i class="fab fa-youtube"></i></a></li>
-										<li><a href="https://twitter.com/MAXIMUS_news"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="https://www.linkedin.com/company/maximus/"><i class="fab fa-linkedin-in"></i></a></li>
+										<li><a href="https://www.youtube.com/user/MAXIMUScorporate" target="_blank"><i class="fab fa-youtube"></i></a></li>
+										<li><a href="https://twitter.com/MAXIMUS_news" target="_blank"><i class="fab fa-twitter"></i></a></li>
+										<li><a href="https://www.linkedin.com/company/maximus/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -259,6 +264,8 @@ export default {
     props: {
             errors: Object,
             success: Object,
+            regions: Object,
+            cities: Object
         },
     methods: {
         employerForm: function(){
@@ -279,6 +286,14 @@ export default {
 
                         }
                     })
+        },
+        redirectToEmployer: function(){
+            var base_url = window.location.origin;
+            window.location.href = base_url+'#employer';
+        },
+        redirectToAbout: function(){
+            var base_url = window.location.origin;
+            window.location.href = base_url+'#about-us';
         }
     }
 }

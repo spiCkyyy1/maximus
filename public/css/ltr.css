@@ -9119,7 +9119,7 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; }
     .modal-footer .btn {
-      min-width: 100px; }
+      min-width: 130px; }
   .modal.center-modal .modal-dialog {
     max-width: 700px; }
     .modal.center-modal .modal-dialog:hover .modal-body .icon {
@@ -9590,10 +9590,21 @@ textarea.form-control {
     margin: auto;
     cursor: pointer;
     font-size: 0.625rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
     position: absolute;
-    top: 10px;
+    top: 0;
     right: 15px;
-    bottom: auto;
+    bottom: 0;
     left: auto; }
   .dropdown-arrow .form-control, .select-option .form-control {
     padding-right: 40px !important; }
@@ -9605,6 +9616,10 @@ textarea.form-control {
   -webkit-appearance: none; }
   .select-option select::-ms-expand {
     display: none; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: none;
+  z-index: 1; }
 
 .input-group .form-control {
   background-color: white;

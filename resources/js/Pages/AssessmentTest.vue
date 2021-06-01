@@ -42,7 +42,7 @@
                      </div>
                   </div>
                   <div class="feature-content d-flex align-items-center">
-                     <div class="qa">
+                     <div>
                         <div class="card" v-if="applicationAccepted">
                            <div>
                               <div class="icon">
@@ -720,28 +720,7 @@ import Competencies from '../Pages/Competencies'
                 this.error = '';
 
 
-            },
-            created() {
-            var self = this;
-            window.onbeforeunload = function (e) {
-                if(self.$route.path  == "/page3") {
-                    e = e || window.event;
-                    //old browsers
-                    if (e) {e.returnValue = 'Changes you made may not be saved';}
-                    //safari, chrome(chrome ignores text)
-                    return 'Changes you made may not be saved';
-                } else {
-                    return null;
-                }
-        };
-        if (performance.navigation.type == 1) {
-            if(this.$route.path == '/page3') {
-                this.$router.push({path: '/page1'})
-                } else {
-                console.log('reload page without redirect');
             }
-        }
-  }
         }
     }
 </script>

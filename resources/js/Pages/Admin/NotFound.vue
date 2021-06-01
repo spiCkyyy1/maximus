@@ -1,5 +1,4 @@
 <template>
-<admin-layout>
 <div class="main-body sticky-bg-1 bg-fixed">
 
 		<div class="alert-page d-flex align-items-center justify-content-center text-center h-100">
@@ -11,8 +10,7 @@
 			</div>
 		</div>
 
-	</div><!--main-body-->
-</admin-layout>
+	</div>
 </template>
 
 <script>

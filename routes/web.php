@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
+use App\Models\JobSeeker;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'landing'])->name('landing');
 
 Route::get('/terms-conditions', [FrontendController::class, 'termsCondition'])->name('termsCondition');
+
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
 
 Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
 
@@ -90,6 +93,7 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
+    return JobSeeker::paginate(1);
     return 'done';
 });
 

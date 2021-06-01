@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Mail\EmployerEmail;
 use App\Mail\JobSeekerEmail;
+use App\Models\Cities;
 use App\Models\Employer;
 use App\Models\JobSeeker;
 use App\Models\ReadinessAssessment;
+use App\Models\Region;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -16,15 +18,26 @@ use Inertia\Inertia;
 class FrontendController extends Controller
 {
     public function landing(){
-        return Inertia::render('Welcome');
+
+        return Inertia::render('Welcome', [
+            'cities' => Cities::all(),
+            'regions' => Region::all()
+            ]);
     }
 
     public function termsCondition(){
         return Inertia::render('TermsOfService');
     }
 
+    public function privacyPolicy(){
+        return Inertia::render('PrivacyPolicy');
+    }
+
     public function jobSeeker(){
-        return Inertia::render('EligibilityForm');
+        return Inertia::render('EligibilityForm',[
+            'cities' => Cities::all(),
+            'regions' => Region::all()
+        ]);
     }
 
     public function employerForm(Request $request){

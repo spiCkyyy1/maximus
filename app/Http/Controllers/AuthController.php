@@ -15,6 +15,8 @@ use Redirect;
 
 class AuthController extends Controller
 {
+
+    private $totalCompetencies = 14;
     public function login(){
         return Inertia::render('Admin/Login');
     }
@@ -103,10 +105,16 @@ class AuthController extends Controller
         $selectedCandidates = JobSeeker::where('status', 1)->get();
         $rejectedCandidates = JobSeeker::where('status', 0)->get();
         $jobSeekersCount = JobSeeker::count();
-        // $jobSeekersWithAssessmentCount = JobSeeker::with('readinessAssessment')->count();
-        $jobSeekersWithAssessmentCount = ReadinessAssessment::with('jobSeeker')->count();
         $selectedJobSeekers = JobSeeker::where('status', 1)->count();
         $rejectedJobSeekers = JobSeeker::where('status', 0)->count();
+
+        $jobSeekersWithAssessmentCount = 0;
+
+        foreach(JobSeeker::all() as $jobSeeker){
+            if($jobSeeker->answered_competencies == $this->totalCompetencies){
+                $jobSeekersWithAssessmentCount++;
+            }
+        }
 
         return response()->json([
             'success' => true,

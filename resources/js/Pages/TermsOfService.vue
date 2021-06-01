@@ -1,61 +1,62 @@
 <template>
 <layout>
-    <div>
-    OJT Landing Page Privacy Statement & Terms & Conditions
-Privacy Statement:
-Our Commitment to Privacy
-Maximus, Inc. (together with its affiliates, "Maximus") respects your privacy and we have developed the following statement to demonstrate our commitment to you. This privacy statement applies to personal information we collect about you on the Maximus website located at maximus.com (the “Site”) and describes the types of information collected, how that information is used, and the choices users have about collection and use of this information. This privacy statement does not govern privacy practices associated with offline activities, websites other than this Site, or products and services not available or enabled via this Site, except as expressly set forth in this Privacy Statement. Effective January 1, 2020.
-
-Information We Collect
-Although much of the Site is available without registration or providing personal information, in order to take advantage of some of our Site’s features, you will be asked to provide personal information. This personal information is provided voluntarily by you, the user, in order to participate or register for a particular product or service, or when you otherwise communicate with us or the Site. Personal information will be collected at various pages on the Site, including when you:
-        ◦ Submit an investor relations information request
-        ◦ Submit an employment application
-We clearly identify data you must provide so we can deliver the services or information you request. Maximus may ask that you provide personal information, such as your first and last name, mailing address (including ZIP/Postal code), country of residence, email address, telephone numbers and other personal information. Providing this information is optional, but failure to do so in some cases will limit the services available to you.
-In addition, our web servers automatically collect and log web usage data from you when you visit the Site. This information, including your Internet Protocol (IP) address, referring sites, pages viewed, browser type, operating system, CPU speed, referring or exit web pages, and length of visit, informs us about how visitors use and navigate the Site.
-
-How We Use and Share the Information Collected
-Maximus does not share your personally identifiable information to unaffiliated third parties, but we may use your information to, among other things:
-        ◦ Provide the information or service requested or otherwise respond to your inquiries
-        ◦ Improve the content, navigation and efficiency of the Site
-        ◦ Make you aware of other benefits, products, services or events offered by Maximus that may interest you
-        ◦ Enforce the Maximus Terms of Use and otherwise prevent illegal or improper activity related to the Site
-In order to respond to an information, request you submit through the Site, we may share your personal information with our affiliated companies that may be able to respond directly to your inquiry. In addition, we may disclose your information to third parties (1) in connection with job opportunities, or (2) to comply with valid legal process such as a search warrant, subpoena or court order. By using this Site, you agree and acknowledge that personal information collected through the Site may be transferred across national boundaries and stored and processed in any country around the world, including the United States.
-We may use and share with others aggregated or anonymous (not personally identifiable) information that we have collected based on web usage data, surveys or statistical information that we have compiled about our users.
-
-Employment Applications
-Maximus collects your personal information to allow us to process your application for employment. Your personal information will be treated as confidential and made accessible only to authorized Maximus employees and/or suppliers, external representatives and third parties engaged specifically to support Maximus in conducting recruitment and selection or onboarding activities and for employment purposes in respect of successful candidates. 
-You may be asked to provide additional information not contained in your application to assist the recruitment and selection processes (for example, references or for vetting and/or security checks). If you choose not to provide the requested information, it may limit our ability to assess your suitability for employment and we may be unable to proceed with your application.
-
-Cookies and Google Analytics
-Like most websites, we employ "cookies," "Web beacons," and similar devices to help you more efficiently use the Site and to track your activities. A cookie is a small amount of data that is transferred to your browser by a Web server and can only be read by the server that gave it to you. It functions as your identification card and enables Maximus to record your activities and preferences. It cannot be executed as code or deliver viruses. A Web beacon is a small transparent gif image that is embedded in an HTML page or e-mail used to track when the page or e-mail has been viewed. Maximus uses cookies and similar devices to track your use of the Site, types of Products and Services viewed and information downloaded, count visitors we receive daily. Our Web servers automatically log the IP/Internet address of your computer. Maximus does not generally use this information to identify you personally. 
-Our website uses Google Analytics, a service which transmits website traffic data to Google Analytics servers in the United States. Google Analytics does not identify individual users or associate your IP address with any other data held by Google Analytics. We use reports provided by Google Analytics to help us understand website traffic and webpage usage. You may view the Google Analytics Privacy Statement located at https://policies.google.com/technologies/partner-sites.
- 
-Opt-Out of Cookies and Google Analytics
-If you do not want your browser to accept cookies, you can modify the cookie option in your browser’s settings. However, some Site features or services may not function properly or be accessible without cookies. For additional information on Opting-Out of Google Analytics tracking cookies, please see Google Analytics Opt-Out at https://tools.google.com/dlpage/gaoptout?hl=en.
-
-Security
-Maximus uses various technological and procedural security measures in order to protect the personal information we collect through the Site from loss, misuse, alteration or destruction. We have documented Information Security & Privacy policies to address data protection. We regularly provide information security and privacy awareness training to our employees. However, you should be aware that, due to the open and unsecured character of the internet, Maximus cannot be responsible for the security of transmissions of personal information over the internet. We have prepared a formal incident response plan in case of a data breach. Please do not submit Protected Health Information through our Site. Please contact the individual program with any questions or enrollment requests.
-
-Changes to this Privacy Statement
-We will occasionally update this privacy statement. When we do, we will revise the "last updated" date at the top of the privacy statement. Please check the Site from time to time for the most current version of our privacy statement. Your continued use of the Site after we have notified you of changes as described above constitutes your acceptance of the changes.
-
-
-Terms of Use
-By accessing and using this site, you agree to comply with all applicable laws and to accept the following terms of use ("Terms").
-Except as otherwise noted, the content and format of this site are the property of Maximus, Inc. (together with its affiliates, "Maximus"). Any trademarks used or referred to on this site are the property of their respective owners.
-Any information submitted by you through this site shall be deemed non-confidential and non-proprietary. You represent that you have the lawful right to submit such information and agree that you will not submit any information unless you are legally entitled to do so. You should not submit information you consider confidential.
-Maximus does not accept unauthorized idea submissions outside of established business relationships. Any ideas disclosed to Maximus outside of a pre-existing and documented confidential business relationship are not confidential, and Maximus may therefore develop, use and freely disclose or publish similar ideas without compensating you or accounting to you. By submitting an idea to Maximus through this website, you agree to be bound by these Terms.
-You are prohibited from posting on this site or transmitting to or from this site any material that is false, unlawful, threatening, defamatory, obscene, invasive of another party’s privacy, or could give rise to any civil or criminal liability under the law. You are prohibited from posting or transmitting to this site any copyrighted material or material that is confidential to a third party.
-Maximus has the right, but not the obligation, to monitor and review transmissions, bulletin boards, postings and chat rooms that may be made available on this site. Maximus assumes no liability with respect to such activities or the content of any such locations.
-Nothing contained in this site shall confer any license or right to any copyright, patent, trademark or other proprietary interest of Maximus or any third party. This site and its contents may not be copied, uploaded, posted, transmitted, or distributed in any way, without the prior written consent of Maximus, except that you may download, display, and print one copy of the materials on any single computer solely for your personal, non-commercial use, provided that you do not modify the material in any way and you keep intact all copyright, trademark, and other proprietary notices.
-The information on this site is provided for informational purposes only and does not create a business or professional services relationship between you and Maximus. Links on this site may lead to services or sites not operated by Maximus. No warranty is made with respect to such other services or sites, and Maximus takes no responsibility for such other sites or services. A link to another site or service is not an endorsement of that site or service. Any use you make of the information provided on this site, or any site or service linked to by this site, is at your own risk.
-The Maximus Privacy Statement describes how Maximus uses and discloses your personal information. By accessing, browsing, and using this site, you accept, without limitation or qualification, the Maximus Privacy Statement. The Maximus Privacy Statement may change without notice. You may view the Maximus Privacy Statement here: maximus.com/privacy-statement.(link this to the Privacy Tab)
-Maximus may, from time to time, restrict access to certain features, parts or content of the site, or the entire site. Maximus may make modifications, improvements, corrections and/or changes to this site and these Terms. It is your responsibility to refer to the Terms whenever you access the website. Every time you access the website you agree to be bound by the Terms and the Maximus Privacy Statement as varied or amended from time to time.
-Maximus is not responsible for any errors or omissions contained on this site. All Maximus and third party information is provided "As Is." To the maximum extent permitted by applicable law, Maximus disclaims all warranties, express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, non-infringement of intellectual property, or arising from a course of dealing, usage, or practice. 
-In no event will Maximus be liable to any party for any direct, indirect, incidental, special, exemplary, punitive, consequential or other damages (including, but not limited to, lost profits, business interruption, loss of programs or data) without regard to the form of action and whether in contract, tort, negligence, strict liability, or otherwise, arising out of or in connection with this site, any content on or accessed through this site or any site service linked to, or any copying, displaying, or use thereof.
-Maximus’ failure to insist upon or enforce strict performance of any provision of these Terms shall not be construed as a waiver of any provision or right. You agree that these terms of use and any legal action or proceeding relating to this site shall be governed by the local laws and venue for any such proceedings.
-Statements on this site that do not directly relate to historical facts may constitute "forward-looking statements" within the meaning of the Private Securities Litigation Reform Act of 1995 and the provisions of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended (which Sections were adopted as part of Private Securities Litigation Reform Act of 1995). Such forward-looking statements are based upon management’s current knowledge and assumptions about future events and involve risks and uncertainties that could cause actual results, performance or achievements to be materially different from anticipated results, prospects, performance or achievements expressed or implied by such forward-looking statements. Such risks and uncertainties include, but are not necessarily limited to, those discussed in the most recent Form 10-K filed by Maximus with the Securities and Exchange Commission. Maximus disclaims any intention to, and undertakes no obligation to, revise any forward-looking statement, whether as a result of new information, future event, or otherwise.
-    </div>
+    <div class="section light-bg" id="">
+		<div class="content-box">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="info-block">
+							<div class="sec-title">
+								<h1 class="title">Terms of Use</h1>
+							</div>
+							<p class="font-md">
+								By accessing and using this site, you agree to comply with all applicable laws and to accept the following terms of use ("Terms").
+							</p>
+							<p class="font-md">
+								Except as otherwise noted, the content and format of this site are the property of Maximus, Inc. (together with its affiliates, "Maximus"). Any trademarks used or referred to on this site are the property of their respective owners.
+							</p>
+							<p class="font-md">
+								Any information submitted by you through this site shall be deemed non-confidential and non-proprietary. You represent that you have the lawful right to submit such information and agree that you will not submit any information unless you are legally entitled to do so. You should not submit information you consider confidential.
+							</p>
+							<p class="font-md">
+								Maximus does not accept unauthorized idea submissions outside of established business relationships. Any ideas disclosed to Maximus outside of a pre-existing and documented confidential business relationship are not confidential, and Maximus may therefore develop, use and freely disclose or publish similar ideas without compensating you or accounting to you. By submitting an idea to Maximus through this website, you agree to be bound by these Terms.
+							</p>
+							<p class="font-md">
+								You are prohibited from posting on this site or transmitting to or from this site any material that is false, unlawful, threatening, defamatory, obscene, invasive of another party’s privacy, or could give rise to any civil or criminal liability under the law. You are prohibited from posting or transmitting to this site any copyrighted material or material that is confidential to a third party.
+							</p>
+							<p class="font-md">
+								Maximus has the right, but not the obligation, to monitor and review transmissions, bulletin boards, postings and chat rooms that may be made available on this site. Maximus assumes no liability with respect to such activities or the content of any such locations.
+							</p>
+							<p class="font-md">
+								Nothing contained in this site shall confer any license or right to any copyright, patent, trademark or other proprietary interest of Maximus or any third party. This site and its contents may not be copied, uploaded, posted, transmitted, or distributed in any way, without the prior written consent of Maximus, except that you may download, display, and print one copy of the materials on any single computer solely for your personal, non-commercial use, provided that you do not modify the material in any way and you keep intact all copyright, trademark, and other proprietary notices.
+							</p>
+							<p class="font-md">
+								The information on this site is provided for informational purposes only and does not create a business or professional services relationship between you and Maximus. Links on this site may lead to services or sites not operated by Maximus. No warranty is made with respect to such other services or sites, and Maximus takes no responsibility for such other sites or services. A link to another site or service is not an endorsement of that site or service. Any use you make of the information provided on this site, or any site or service linked to by this site, is at your own risk.
+							</p>
+							<p class="font-md">
+								The Maximus Privacy Statement describes how Maximus uses and discloses your personal information. By accessing, browsing, and using this site, you accept, without limitation or qualification, the Maximus Privacy Statement. The Maximus Privacy Statement may change without notice. You may view the Maximus Privacy Statement here: maximus.com/privacy-statement.(link this to the Privacy Tab)
+							</p>
+							<p class="font-md">
+								Maximus may, from time to time, restrict access to certain features, parts or content of the site, or the entire site. Maximus may make modifications, improvements, corrections and/or changes to this site and these Terms. It is your responsibility to refer to the Terms whenever you access the website. Every time you access the website you agree to be bound by the Terms and the Maximus Privacy Statement as varied or amended from time to time.
+							</p>
+							<p class="font-md">
+								Maximus is not responsible for any errors or omissions contained on this site. All Maximus and third party information is provided "As Is." To the maximum extent permitted by applicable law, Maximus disclaims all warranties, express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, non-infringement of intellectual property, or arising from a course of dealing, usage, or practice. 
+							</p>
+							<p class="font-md">
+								In no event will Maximus be liable to any party for any direct, indirect, incidental, special, exemplary, punitive, consequential or other damages (including, but not limited to, lost profits, business interruption, loss of programs or data) without regard to the form of action and whether in contract, tort, negligence, strict liability, or otherwise, arising out of or in connection with this site, any content on or accessed through this site or any site service linked to, or any copying, displaying, or use thereof.
+							</p>
+							<p class="font-md">
+								Maximus’ failure to insist upon or enforce strict performance of any provision of these Terms shall not be construed as a waiver of any provision or right. You agree that these terms of use and any legal action or proceeding relating to this site shall be governed by the local laws and venue for any such proceedings.
+							</p>
+							<p class="font-md">
+								Statements on this site that do not directly relate to historical facts may constitute "forward-looking statements" within the meaning of the Private Securities Litigation Reform Act of 1995 and the provisions of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended (which Sections were adopted as part of Private Securities Litigation Reform Act of 1995). Such forward-looking statements are based upon management’s current knowledge and assumptions about future events and involve risks and uncertainties that could cause actual results, performance or achievements to be materially different from anticipated results, prospects, performance or achievements expressed or implied by such forward-looking statements. Such risks and uncertainties include, but are not necessarily limited to, those discussed in the most recent Form 10-K filed by Maximus with the Securities and Exchange Commission. Maximus disclaims any intention to, and undertakes no obligation to, revise any forward-looking statement, whether as a result of new information, future event, or otherwise.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </layout>
 </template>
 
