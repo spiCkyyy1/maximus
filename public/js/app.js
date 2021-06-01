@@ -18146,7 +18146,9 @@ __webpack_require__.r(__webpack_exports__);
           if (response.data.success) {
             _this.competenciesPart = false;
             _this.applicationAccepted = true;
-            _this.step = 100;
+            setTimeout(function () {
+              _this.step = 100;
+            }, 1000);
             _this.hideProgressBar = false;
             _this.hideProcess = false;
           }
@@ -19371,9 +19373,19 @@ __webpack_require__.r(__webpack_exports__);
     option1: String,
     option2: String,
     option3: String,
+    option4: String,
+    option5: String,
+    option6: String,
+    option7: String,
+    option8: String,
     value1: String,
     value2: String,
     value3: String,
+    value4: String,
+    value5: String,
+    value6: String,
+    value7: String,
+    value8: String,
     answer: String,
     value: String,
     step: String,
@@ -26012,6 +26024,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         step: "1",
         option2: "Not worked within the last 6 months",
         option3: "worked within the last 6 months",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         value1: "never_worked",
         value2: "not_worked_within_six_months",
         value3: "worked_within_six_months",
@@ -26036,6 +26058,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "no",
         value2: "maybe",
         value3: "yes",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26057,9 +26089,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "hours_and_days",
         value2: "week",
         value3: "weekends",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26075,6 +26117,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         option1: "Significant Responsibilities",
         option2: "Some Responsibilities",
         option3: "None",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         value1: "significant_responsibilities",
         value2: "some_responsibilities",
         value3: "none",
@@ -26096,6 +26148,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         option1: "Cannot work",
         option2: "Could work with support",
         option3: "No support needed",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         value1: "cannot_work",
         value2: "work_with_support",
         value3: "no_support_needed",
@@ -26120,9 +26182,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_supportive",
         value2: "neutral",
         value3: "very_supportive",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26138,6 +26210,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         option1: "No Transport",
         option2: "Access to Transport",
         option3: "Own Transport",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         value1: "no_transport",
         value2: "access_to_transport",
         value3: "own_transport",
@@ -26162,6 +26244,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26183,9 +26275,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26204,6 +26306,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "no_cv",
         value2: "needs_updating",
         value3: "yes_cv",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26225,6 +26337,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "lot_of_support",
         value2: "little_bit_of_support",
         value3: "no_support",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26246,6 +26368,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26267,6 +26399,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26288,9 +26430,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
-        weighted_score1: "0.5",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0",
+        weighted_score2: "0.5",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26309,9 +26461,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "no_english",
         value2: "some_english",
         value3: "fluent_english",
-        weighted_score1: "0.5",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26330,8 +26492,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "no_english",
         value2: "some_english",
         value3: "fluent_english",
-        weighted_score1: "0",
-        weighted_score2: "0.5",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0.25",
+        weighted_score2: "0.75",
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
@@ -26351,9 +26523,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "very_difficult",
         value2: "somewhat_difficult",
         value3: "not_at_all_difficult",
-        weighted_score1: "0.5",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0",
+        weighted_score2: "0.5",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26372,8 +26554,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_at_all",
         value2: "willing",
         value3: "very_willing",
-        weighted_score1: "0",
-        weighted_score2: "0.5",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0.5",
+        weighted_score2: "0.75",
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
@@ -26393,6 +26585,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "very_difficult",
         value2: "somewhat_difficult",
         value3: "not_at_all_difficult",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26414,6 +26616,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_at_all",
         value2: "somewhat_confidence",
         value3: "very_confident",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26435,6 +26647,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26456,6 +26678,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "yes",
         value2: "no",
         value3: "",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0.5",
         weighted_score2: "1",
         weighted_score3: "",
@@ -26477,9 +26709,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_willing",
         value2: "somewhat_willing",
         value3: "very_willing",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.5",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26498,6 +26740,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "often",
         value2: "occassionally",
         value3: "never",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
         weighted_score2: "0.5",
         weighted_score3: "1",
@@ -26519,9 +26771,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_clear",
         value2: "somewhat_clear",
         value3: "very_clear",
-        weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
+        weighted_score1: "0.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26540,9 +26802,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "0-5",
         value2: "6-10",
         value3: "11+",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26561,9 +26833,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "0-5",
         value2: "6-10",
         value3: "11+",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26582,9 +26864,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
+        option4: "",
+        option5: "",
+        option6: "",
+        option7: "",
+        option8: "",
+        value4: "",
+        value5: "",
+        value6: "",
+        value7: "",
+        value8: "",
         weighted_score1: "0",
-        weighted_score2: "1",
-        weighted_score3: "1.25",
+        weighted_score2: "0.75",
+        weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
         btnText: "next"
@@ -26600,9 +26892,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         option1: "Family issues",
         option2: "Transportation",
         option3: "Health Issues",
+        option4: "Location",
+        option5: "Education",
+        option6: "Experience",
+        option7: "Qualifcations",
+        option8: "No Barriers",
         value1: "family_issues",
         value2: "transportation",
         value3: "health_issues",
+        value4: "location",
+        value5: "education",
+        value6: "experience",
+        value7: "qualifications",
+        value8: "no_barriers",
         weighted_score1: "",
         weighted_score2: "",
         weighted_score3: "",
@@ -30797,9 +31099,44 @@ var _hoisted_8 = {
 };
 var _hoisted_9 = {
   key: 3,
-  "class": "form-text small text-danger"
+  "class": "radio text-left mb-3"
 };
 var _hoisted_10 = {
+  "for": "c103"
+};
+var _hoisted_11 = {
+  key: 4,
+  "class": "radio text-left mb-3"
+};
+var _hoisted_12 = {
+  "for": "c104"
+};
+var _hoisted_13 = {
+  key: 5,
+  "class": "radio text-left mb-3"
+};
+var _hoisted_14 = {
+  "for": "c105"
+};
+var _hoisted_15 = {
+  key: 6,
+  "class": "radio text-left mb-3"
+};
+var _hoisted_16 = {
+  "for": "c106"
+};
+var _hoisted_17 = {
+  key: 7,
+  "class": "radio text-left mb-3"
+};
+var _hoisted_18 = {
+  "for": "c107"
+};
+var _hoisted_19 = {
+  key: 8,
+  "class": "form-text small text-danger"
+};
+var _hoisted_20 = {
   "class": "text-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -30844,12 +31181,77 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option3), 1
   /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.error != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.error), 1
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.value4 != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "radio",
+    id: "c103",
+    "class": "score",
+    value: $props.value4,
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $props.value = $event;
+    }),
+    "data-id": _ctx.weighted_score4
+  }, null, 8
+  /* PROPS */
+  , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option4), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.value5 != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "radio",
+    id: "c104",
+    "class": "score",
+    value: $props.value5,
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $props.value = $event;
+    }),
+    "data-id": _ctx.weighted_score5
+  }, null, 8
+  /* PROPS */
+  , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option5), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.value6 != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "radio",
+    id: "c105",
+    "class": "score",
+    value: $props.value6,
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $props.value = $event;
+    }),
+    "data-id": _ctx.weighted_score6
+  }, null, 8
+  /* PROPS */
+  , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option6), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.value7 != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "radio",
+    id: "c106",
+    "class": "score",
+    value: $props.value7,
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+      return $props.value = $event;
+    }),
+    "data-id": _ctx.weighted_score7
+  }, null, 8
+  /* PROPS */
+  , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option7), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.value8 != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "radio",
+    id: "c107",
+    "class": "score",
+    value: $props.value8,
+    "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+      return $props.value = $event;
+    }),
+    "data-id": _ctx.weighted_score8
+  }, null, 8
+  /* PROPS */
+  , ["value", "data-id"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $props.value]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.option8), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.error != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.error), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     type: "button",
     "class": "btn btn-primary",
-    onClick: _cache[4] || (_cache[4] = function ($event) {
+    onClick: _cache[9] || (_cache[9] = function ($event) {
       return _ctx.$emit('submitAnswer', $props.step);
     })
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.btnText), 1

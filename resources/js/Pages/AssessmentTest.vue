@@ -74,6 +74,8 @@
                         <readiness class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" v-if="step == 1"
                         question="Do you have a recent work history?" option1="Never worked" step="1"
                         option2="Not worked within the last 6 months" option3="worked within the last 6 months"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         value1="never_worked" value2="not_worked_within_six_months" value3="worked_within_six_months"
                         weighted_score1="0.5" weighted_score2="0" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
@@ -82,6 +84,8 @@
                         question="Can you start work in the next 30 days? When are you available to start work?" option1="No"
                         option2="Maybe" option3="Yes"
                         value1="no" value2="maybe" value3="yes"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -89,13 +93,17 @@
                         question="Are you limited by the number of hours that you can work? What are your prefered working hous?" option1="Limit to hours and days"
                         option2="I can work a standard week" option3="Would also consider evening shifts or weekends"
                         value1="hours_and_days" value2="week" value3="weekends"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="4" v-if="step == 4"
                         question="Do you have caring responsibilities that make it difficult to find work ( I.E Childcare/ Elderly person/ Disabled person)"
                         option1="Significant Responsibilities"
                         option2="Some Responsibilities" option3="None"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         value1="significant_responsibilities" value2="some_responsibilities" value3="none"
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
@@ -104,6 +112,8 @@
                         question="Do you need support with a current health condition to enable you to work?"
                         option1="Cannot work"
                         option2="Could work with support" option3="No support needed"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         value1="cannot_work" value2="work_with_support" value3="no_support_needed"
                         weighted_score1="0" weighted_score2="0" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
@@ -113,13 +123,17 @@
                         option1="Not Supportive"
                         option2="Neutral" option3="Very Supportive"
                         value1="not_supportive" value2="neutral" value3="very_supportive"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="7" v-if="step == 7"
                         question="Are you able to arrange your own transportation to work?"
                         option1="No Transport"
                         option2="Access to Transport" option3="Own Transport"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         value1="no_transport" value2="access_to_transport" value3="own_transport"
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
@@ -130,6 +144,8 @@
                         option1="Not Willing"
                         option2="Don't Mind" option3="Yes Willing"
                         value1="not_willing" value2="dont_mind" value3="yes_willing"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -138,7 +154,9 @@
                         option1="Not Willing"
                         option2="Don't Mind" option3="Yes Willing"
                         value1="not_willing" value2="dont_mind" value3="yes_willing"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="10" v-if="step == 10"
@@ -146,6 +164,8 @@
                         option1="Don't have a CV"
                         option2="Needs updating" option3="Up to date"
                         value1="no_cv" value2="needs_updating" value3="yes_cv"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -154,6 +174,8 @@
                         option1="A lot of support"
                         option2="A little bit of support" option3="No support"
                         value1="lot_of_support" value2="little_bit_of_support" value3="no_support"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -162,6 +184,8 @@
                         option1="Not Willing"
                         option2="Don't Mind" option3="Yes Willing"
                         value1="not_willing" value2="dont_mind" value3="yes_willing"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -171,6 +195,8 @@
                         option1="Not at all"
                         option2="Little confidence" option3="Very Confident"
                         value1="not_at_all" value2="little_confidence" value3="very_confident"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -179,7 +205,9 @@
                         option1="Not at all"
                         option2="Little confidence" option3="Very Confident"
                         value1="not_at_all" value2="little_confidence" value3="very_confident"
-                        weighted_score1="0.5" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -188,7 +216,9 @@
                         option1="No English"
                         option2="Some English" option3="Fluent English"
                         value1="no_english" value2="some_english" value3="fluent_english"
-                        weighted_score1="0.5" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0.25" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="16" v-if="step == 16"
@@ -196,7 +226,9 @@
                         option1="No English"
                         option2="Some English" option3="Fluent English"
                         value1="no_english" value2="some_english" value3="fluent_english"
-                        weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0.25" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -205,7 +237,9 @@
                         option1="Very Difficult"
                         option2="Somewhat difficult" option3="Not at all difficult"
                         value1="very_difficult" value2="somewhat_difficult" value3="not_at_all_difficult"
-                        weighted_score1="0.5" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="18" v-if="step == 18"
@@ -213,7 +247,9 @@
                         option1="Not at all"
                         option2="Willing" option3="Very willing"
                         value1="not_at_all" value2="willing" value3="very_willing"
-                        weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0.5" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="19" v-if="step == 19"
@@ -221,6 +257,8 @@
                         option1="Very Difficult"
                         option2="Somewhat difficult" option3="Not at all difficult"
                         value1="very_difficult" value2="somewhat_difficult" value3="not_at_all_difficult"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -230,6 +268,8 @@
                         option1="Not at all"
                         option2="Somewhat confidence" option3="Very Confident"
                         value1="not_at_all" value2="somewhat_confidence" value3="very_confident"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -238,6 +278,8 @@
                         option1="Not at all"
                         option2="Little confidence" option3="Very Confident"
                         value1="not_at_all" value2="little_confidence" value3="very_confident"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -247,6 +289,8 @@
                         option1="Yes"
                         option2="No" option3=""
                         value1="yes" value2="no" value3=""
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0.5" weighted_score2="1" weighted_score3="" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -255,7 +299,9 @@
                         option1="Not willing"
                         option2="Somewhat willing" option3="Very willing"
                         value1="not_willing" value2="somewhat_willing" value3="very_willing"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -264,6 +310,8 @@
                         option1="Often"
                         option2="Occassionally" option3="Never"
                         value1="often" value2="occassionally" value3="never"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
                         weighted_score1="0" weighted_score2="0.5" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -273,7 +321,9 @@
                         option1="Not clear"
                         option2="Somewhat clear" option3="Very clear"
                         value1="not_clear" value2="somewhat_clear" value3="very_clear"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0.25" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -282,7 +332,9 @@
                         option1="0-5"
                         option2="6-10" option3="11+"
                         value1="0-5" value2="6-10" value3="11+"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -291,7 +343,9 @@
                         option1="0-5"
                         option2="6-10" option3="11+"
                         value1="0-5" value2="6-10" value3="11+"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
@@ -300,15 +354,19 @@
                         option1="Not willing"
                         option2="Don't mind" option3="Yes willing"
                         value1="not_willing" value2="dont_mind" value3="yes_willing"
-                        weighted_score1="0" weighted_score2="1" weighted_score3="1.25" competency="readiness" :error="error"
+                        option4="" option5="" option6="" option7="" option8=""
+                        value4="" value5="" value6="" value7="" value8=""
+                        weighted_score1="0" weighted_score2="0.75" weighted_score3="1" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
 
                         <readiness :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="29" v-if="step == 29"
                         question="If we have the perfect vacancy, what do you believe is your number one barrier stopping you from Starting this tomorrow?"
                         option1="Family issues"
-                        option2="Transportation" option3="Health Issues"
-                        value1="family_issues" value2="transportation" value3="health_issues"
+                        option2="Transportation" option3="Health Issues" option4="Location" option5="Education" option6="Experience"
+                        option7="Qualifcations" option8="No Barriers"
+                        value1="family_issues" value2="transportation" value3="health_issues" value4="location" value5="education"
+                        value6="experience" value7="qualifications" value8="no_barriers"
                         weighted_score1="" weighted_score2="" weighted_score3="" competency="readiness" :error="error"
                         btnText="next"></readiness>
 
@@ -708,7 +766,10 @@ import Competencies from '../Pages/Competencies'
                         if(response.data.success){
                             this.competenciesPart = false;
                             this.applicationAccepted = true;
+                            setTimeout(() => {
                             this.step = 100;
+                            }, 1000);
+
                             this.hideProgressBar = false;
                             this.hideProcess = false;
                         }

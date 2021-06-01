@@ -116,7 +116,7 @@ class JobSeeker extends Model
     public function getReadinessWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
             $gainedSum =  $this->readinessAssessment()->where('competencies', 'readiness')->sum('weighted_score');
-            return number_format(($gainedSum / 100) * $this->readinessTotalSum, 3);
+            return number_format(($gainedSum * 100) / $this->readinessTotalSum, 3);
         }
         return 'N/A';
     }
@@ -124,7 +124,7 @@ class JobSeeker extends Model
     public function getEvaluationWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
             $evaluationGainedSum = $this->readinessAssessment()->where('competencies', 'evaluation')->sum('weighted_score');
-            return number_format(($evaluationGainedSum / 100) * $this->evaluationTotalSum, 2);
+            return number_format(($evaluationGainedSum * 100) / $this->evaluationTotalSum, 2);
         }
         return 'N/A';
     }

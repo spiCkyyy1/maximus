@@ -16,6 +16,26 @@
                                     <input type="radio" id="c102" class="score" :value="value3" v-model="value" :data-id="weighted_score3">
                                     <label for="c102">{{option3}}</label>
                                  </div>
+                                 <div class="radio text-left mb-3" v-if="value4 != ''">
+                                    <input type="radio" id="c103" class="score" :value="value4" v-model="value" :data-id="weighted_score4">
+                                    <label for="c103">{{option4}}</label>
+                                 </div>
+                                 <div class="radio text-left mb-3" v-if="value5 != ''">
+                                    <input type="radio" id="c104" class="score" :value="value5" v-model="value" :data-id="weighted_score5">
+                                    <label for="c104">{{option5}}</label>
+                                 </div>
+                                 <div class="radio text-left mb-3" v-if="value6 != ''">
+                                    <input type="radio" id="c105" class="score" :value="value6" v-model="value" :data-id="weighted_score6">
+                                    <label for="c105">{{option6}}</label>
+                                 </div>
+                                 <div class="radio text-left mb-3" v-if="value7 != ''">
+                                    <input type="radio" id="c106" class="score" :value="value7" v-model="value" :data-id="weighted_score7">
+                                    <label for="c106">{{option7}}</label>
+                                 </div>
+                                 <div class="radio text-left mb-3" v-if="value8 != ''">
+                                    <input type="radio" id="c107" class="score" :value="value8" v-model="value" :data-id="weighted_score8">
+                                    <label for="c107">{{option8}}</label>
+                                 </div>
                                  <div class="form-text small text-danger" v-if="error != ''">{{ error }}</div>
                               </div>
                               <div class="text-center">
@@ -33,9 +53,19 @@ export default {
         option1: String,
         option2: String,
         option3: String,
+        option4: String,
+        option5: String,
+        option6: String,
+        option7: String,
+        option8: String,
         value1: String,
         value2: String,
         value3: String,
+        value4: String,
+        value5: String,
+        value6: String,
+        value7: String,
+        value8: String,
         answer: String,
         value:  String,
         step: String,
