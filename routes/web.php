@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
-use App\Models\JobSeeker;
-use Illuminate\Queue\Jobs\JobName;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +48,11 @@ Route::post('/save-evaluation', [FrontendController::class, 'saveEvaluation'])->
 
 Route::post('/save-competencies', [FrontendController::class, 'saveCompetencies'])->name('saveCompetencies');
 
+Route::get('language/{language}', function ($language) {
+    Session()->put('locale', $language);
+
+    return redirect()->back();
+})->name('language');
 
 Route::middleware('auth')->group(function () {
 
@@ -106,7 +109,6 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
-    return JobSeeker::paginate(2);
     return 'done';
 });
 

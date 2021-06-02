@@ -16,10 +16,14 @@
         <!-- Styles -->
         {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
         {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+        <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/wow.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/ltr.css')}}">
-        {{-- <link rel="stylesheet" href="{{asset('css/rtl.css')}}"> --}}
+        @if(Session::get('locale') == 'en')
+            <link rel="stylesheet" href="{{asset('css/ltr.css')}}">
+        @else
+        <link rel="stylesheet" href="{{asset('css/rtl.css')}}">
+        @endif
         <style>#app{height: 100%;}</style>
     </head>
     <body>
@@ -32,7 +36,7 @@
         <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/jquery-ui.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/bootstrap/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-        {{-- <script src="{{asset('js/wow.min.js')}}" type="text/javascript"></script> --}}
+        <script src="{{asset('js/flatpickr.min.js')}}" type="text/javascript"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
         <script>new WOW().init();</script>
         <script src="{{asset('js/owl.carousel.min.js')}}" type="text/javascript"></script>

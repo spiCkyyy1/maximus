@@ -37,5 +37,18 @@ class AppServiceProvider extends ServiceProvider
                 'success' => Session::get('success'),
             ];
         });
+
+        Inertia::share([
+
+            'locale' => function () {
+                return app()->getLocale();
+            },
+            'language' => function () {
+                return translations(
+                    resource_path('lang/'. app()->getLocale() .'.json')
+                );
+            },
+
+        ]);
     }
 }

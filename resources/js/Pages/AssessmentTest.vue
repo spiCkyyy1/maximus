@@ -684,6 +684,7 @@ import Competencies from '../Pages/Competencies'
             Evaluation,
             Competencies
         },
+        mixins: [require('../base')],
         props: {
             jobSeekerId: String
         },

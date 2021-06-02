@@ -14,6 +14,11 @@
          </div>
          <div class="content-box">
             <div class="feature-foreground wow fadeInRight">
+                <div class="th-loader loader-page" id="loader" v-if="showLoader">
+					<svg class="spinner-container" viewBox="0 0 52 52">
+						<circle class="path" cx="26px" cy="26px" r="20px" fill="none" />
+					</svg>
+				</div>
                <ul class="process-steps-1" v-if="AssessmentStarted">
                   <li>
                      <a href=""><span>1</span></a>
@@ -172,10 +177,12 @@
                                  <div class="form-text small text-danger" v-if="errors.nin">{{ errors.nin[0] }}</div>
                               </div>
                               <div class="form-group">
-                                 <label class="custom-label">Date of Birth</label>
-                                 <input type="date" class="form-control" v-model="personalInformation.dob">
-                                 <div class="form-text small text-danger" v-if="errors.dob">{{ errors.dob[0] }}</div>
-                              </div>
+										<label class="custom-label">Date of Birth</label>
+										<div class="select-date">
+											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
+                                            <div class="form-text small text-danger" v-if="errors.dob">{{ errors.dob[0] }}</div>
+										</div>
+                                </div>
                               <div class="text-center mt-5">
                                  <button type="button" class="btn btn-primary" @click="validatePersonalInformation">Submit</button>
                               </div>
@@ -327,6 +334,7 @@ import Layout from '../Layouts/Layout'
         components: {
             Layout
         },
+        mixins: [require('../base')],
         props:{
             cities: Object,
             regions: Object
@@ -362,11 +370,13 @@ import Layout from '../Layouts/Layout'
                     socialBeneficiary: '',
                     beenUnemployed: ''
                 },
-                errors: {}
+                errors: {},
+                showLoader: false
             }
         },
         methods: {
             validatePersonalInformation: function(){
+                this.showLoader = true;
 
                 axios.post('/save-personal-information', this.personalInformation)
                 .then(response => {
@@ -376,6 +386,7 @@ import Layout from '../Layouts/Layout'
                         this.showPersonalInformationForm = false;
                         this.showGenderForm = true;
                         this.errors = [];
+                        this.showLoader = false;
                     }
                     if(response.data.errors){
                         this.errors = response.data.errors;
@@ -386,13 +397,14 @@ import Layout from '../Layouts/Layout'
 
             },
             validateGender: function(){
-
+                this.showLoader = true;
                 if(this.personalInformation.gender == 'male'){
                     axios.post('/application-rejected', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                                 this.showGenderForm = false;
                                 this.applicationRejected = true;
+                                this.showLoader = false;
                         }
                     }).catch(error => {
                         console.log(error);
@@ -400,12 +412,14 @@ import Layout from '../Layouts/Layout'
 
 
                 }else{
+                    this.showLoader = true;
                     axios.post('/save-gender', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                                 this.showGenderForm = false;
                                 this.showQualificationForm = true;
                                 this.errors = [];
+                                this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
@@ -417,6 +431,7 @@ import Layout from '../Layouts/Layout'
 
             },
             saveQualification: function(){
+                this.showLoader = true;
                 if(this.personalInformation.qualification == 'school'){
 
                     axios.post('/application-rejected', this.personalInformation)
@@ -424,18 +439,21 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                                 this.showQualificationForm = false;
                                 this.applicationRejected = true;
+                                this.showLoader = false;
                         }
                     }).catch(error => {
                         console.log(error);
                     });
 
                 }else{
+                    this.showLoader = true;
                     axios.post('/save-qualification', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                             this.showQualificationForm = false;
                             this.showEmploymentForm = true;
                             this.errors = [];
+                            this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
@@ -444,12 +462,14 @@ import Layout from '../Layouts/Layout'
                 }
             },
             saveEmployment: function(){
+                this.showLoader = true;
                 axios.post('/save-employment', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                             this.showEmploymentForm = false;
                             this.showOnJobForm = true;
                             this.errors = [];
+                            this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
@@ -457,12 +477,14 @@ import Layout from '../Layouts/Layout'
                     });
             },
             saveJobTraining: function(){
+                this.showLoader = true;
                 axios.post('/save-jobTraining', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                             this.showOnJobForm = false;
                             this.showSocialForm = true;
                             this.errors = [];
+                            this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
@@ -470,12 +492,14 @@ import Layout from '../Layouts/Layout'
                     });
             },
             saveSocial: function(){
+                this.showLoader = true;
                 axios.post('/save-social', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                             this.showSocialForm = false;
                             this.showUnemployedForm = true;
                             this.errors = [];
+                            this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
@@ -483,13 +507,15 @@ import Layout from '../Layouts/Layout'
                     });
             },
             saveUnemploymentForm: function(){
-                if(this.personalInformation.beenUnemployed == 'less_than_3_months'){
 
+                if(this.personalInformation.beenUnemployed == 'less_than_3_months'){
+                    this.showLoader = true;
                     axios.post('/application-rejected', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
                                 this.showUnemployedForm = false;
                                 this.applicationRejected = true;
+                                this.showLoader = false;
                         }
                     }).catch(error => {
                         console.log(error);
@@ -497,6 +523,7 @@ import Layout from '../Layouts/Layout'
 
 
                 }else{
+                    this.showLoader = true;
                     axios.post('/save-unemployment', this.personalInformation)
                     .then(response => {
                         if(response.data.success){
@@ -504,6 +531,7 @@ import Layout from '../Layouts/Layout'
                             this.showUnemployedForm = false;
                             this.applicationAccepted = true;
                             this.errors = [];
+                            this.showLoader = false;
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;

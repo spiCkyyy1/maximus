@@ -10,14 +10,14 @@
 							<div class="figure mb-5">
                                 <!-- <img src="/images/logo-white.png" class="img-fluid" alt="..."> -->
                                 <h1 class="white-text">
-                                    <span class="th-text">OJT</span>
+                                    <span class="th-text">{{__('landing_heading1')}}</span>
 							    </h1>
 							</div>
 							<h1 class="white-text">
-                                Join <span class="th-text">On The Job Training (OJT) </span> program to enhance your skills.
+                                {{__('landing_join')}} <span class="th-text">{{__('landing_heading_orange')}} </span> {{__('landing_heading_white')}}.
 							</h1>
 							<div class="btn-action mt-5">
-								<a href="index.php#employer" class="btn btn-primary">Apply Now<span class="icon"><i class="icon-arrow-right"></i></span></a>
+								<inertiaLink :href="route('jobSeeker')" class="btn btn-primary">{{__('landing_apply_now')}}<span class="icon"><i class="icon-arrow-right"></i></span></inertiaLink>
 							</div>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 	</div>
 
 	<!--Icons Boxes-->
-	<div class="section section-auto bgc-1" id="">
+	<div class="section section-auto bgc-1">
 		<div class="content-box p-0">
 			<div class="icon-boxes wow fadeInUp">
 				<ul>
@@ -37,7 +37,7 @@
 							<div class="col-auto">
 								<i class="icon-organization"></i>
 							</div>
-							<div class="col">Sourcing Jobs for Candidates</div>
+							<div class="col">{{__('landing_point_1')}}</div>
 						</div>
 					</li>
 					<li>
@@ -45,7 +45,7 @@
 							<div class="col-auto">
 								<i class="icon-support"></i>
 							</div>
-							<div class="col">Dedicated Mentor to support along the journey</div>
+							<div class="col">{{__('landing_point_2')}}</div>
 						</div>
 					</li>
 					<li>
@@ -53,7 +53,7 @@
 							<div class="col-auto">
 								<i class="icon-layers"></i>
 							</div>
-							<div class="col">5 Soft Skills Training</div>
+							<div class="col">{{__('landing_point_3')}}</div>
 						</div>
 					</li>
 					<li>
@@ -61,7 +61,7 @@
 							<div class="col-auto">
 								<i class="icon-list"></i>
 							</div>
-							<div class="col">3 Technical Skills Training</div>
+							<div class="col">{{__('landing_point_4')}}</div>
 						</div>
 					</li>
 					<li>
@@ -69,7 +69,7 @@
 							<div class="col-auto">
 								<i class="icon-notebook"></i>
 							</div>
-							<div class="col">Work place Assignments</div>
+							<div class="col">{{__('landing_point_5')}}</div>
 						</div>
 					</li>
 				</ul>
@@ -90,7 +90,7 @@
 							<div class="img-3 d-flex align-items-center wow fadeInUp">
 								<div>
 									<i class="icon-trophy"></i>
-									<p class="mb-0">We're ready to assist you</p>
+									<p class="mb-0">{{__('about_us_trophy')}}</p>
 								</div>
 							</div>
 						</div>
@@ -98,11 +98,11 @@
 					<div class="col-md-6">
 						<div class="info-block">
 							<div class="sec-title">
-								<p class="sub-title">About Us</p>
-								<h1 class="title">The OJT program is designed to support Job seekers</h1>
+								<p class="sub-title">{{__('about_us')}}</p>
+								<h1 class="title">{{__('about_us_title')}}</h1>
 							</div>
 							<p class="font-md">
-								with a 360 degree solution for developing academic qualifications through a supported 16 week ‘on-the job training program’ centered around developing key skills to ensure graduates can build a strong foundation of skills required to meet the needs of employers and start their Career path.
+								{{__('about_us_body')}}
 							</p>
 						</div>
 					</div>
@@ -119,14 +119,14 @@
 
 				<div class="services">
 					<div class="sec-title text-center wow fadeInUp">
-						<h1 class="title white-text">Eligibility Criteria</h1>
+						<h1 class="title white-text">{{__('eligibility_criteria')}}</h1>
 					</div>
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="icon-box">
 								<i class="icon-user-female"></i>
 								<div class="meta">
-									<div class="heading white-text">Gender</div>
+									<div class="heading white-text">{{__('eligibility_point_1')}}</div>
 								</div>
 							</div>
 						</div>
@@ -134,7 +134,7 @@
 							<div class="icon-box">
 								<i class="icon-graduation"></i>
 								<div class="meta">
-									<div class="heading white-text">Graduate</div>
+									<div class="heading white-text">{{__('eligibility_point_2')}}</div>
 								</div>
 							</div>
 						</div>
@@ -142,7 +142,7 @@
 							<div class="icon-box">
 								<i class="icon-briefcase"></i>
 								<div class="meta">
-									<div class="heading white-text">Graduate/3 mths+ Unemployed</div>
+									<div class="heading white-text">{{__('eligibility_point_3')}}</div>
 								</div>
 							</div>
 						</div>
@@ -166,10 +166,10 @@
 										<img src="/images/icons/job-seeker.png" alt="" class="img-fluid">
 									</div>
 									<div class="text-center">
-                                        <InertiaLink :href="route('jobSeeker')" as="buton" class="btn btn-primary">Job Seeker</InertiaLink>
+                                        <InertiaLink :href="route('jobSeeker')" as="buton" class="btn btn-primary">{{__('job_seeker')}}</InertiaLink>
 									</div>
 									<p class="mb-0">
-                                        The OJT program will help you to start your professional career development journey. Click ‘JOB SEEKER’ to register and check eligibility.
+                                        {{__('job_seeker_desc')}}
 									</p>
 								</div>
 							</div>
@@ -179,10 +179,10 @@
 										<img src="/images/icons/boss.png" alt="" class="img-fluid">
 									</div>
 									<div class="text-center">
-										<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#employer-form-modal">Employer</button>
+										<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#employer-form-modal">{{__('employer')}}</button>
 									</div>
 									<p class="mb-0">
-                                        Contact us for partnership opportunities, register your vacancies and we help you fill the roles through 1 of our Programs aligned to Vision 2030.
+                                        {{__('employer_desc')}}
 									</p>
 								</div>
 							</div>
@@ -200,6 +200,7 @@
 import Layout from '../Layouts/Layout'
 
     export default {
+        mixins: [require('../base')],
         components: {
             Layout
         }

@@ -8,7 +8,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<i class="fas fa-times"></i>
 				</button>
-				<h2 class="modal-title">Employer</h2>
+				<h2 class="modal-title">{{__('employer_form_heading')}}</h2>
 			</div>
 
             <div class="alert alert-success" v-if="success">{{ success }}</div>
@@ -21,18 +21,18 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group">
-                            <label class="custom-label">Your Name</label>
+                            <label class="custom-label">{{__('employer_your_name')}}</label>
                             <input type="text" class="form-control" v-model="form.name">
                             <div class="form-text small text-danger" v-if="errors.name">{{ errors.name }}</div>
                         </div>
                         <div class="form-group">
-                            <label class="custom-label">Company Name</label>
+                            <label class="custom-label">{{__('employer_company_name')}}</label>
                             <input type="text" class="form-control" v-model="form.companyName">
                             <div class="form-text small text-danger" v-if="errors.companyName">{{ errors.companyName }}</div>
                         </div>
 
                         <div class="form-group">
-                            <label class="custom-label">Employment Sector</label>
+                            <label class="custom-label">{{__('employer_employment_Sector')}}</label>
                             <input type="text" class="form-control" v-model="form.employmentSector">
                             <div class="form-text small text-danger" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
                         </div>
@@ -40,14 +40,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">Email</label>
+                                    <label class="custom-label">{{__('employer_email')}}</label>
                                     <input type="email" class="form-control" v-model="form.email">
                                     <div class="form-text small text-danger" v-if="errors.email">{{ errors.email }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">Head Quater (HQ) Location</label>
+                                    <label class="custom-label">{{__('employer_hq')}}</label>
                                     <input type="text" class="form-control" v-model="form.hqLocation">
 
                                     <div class="form-text small text-danger" v-if="errors.hqLocation">{{ errors.hqLocation }}</div>
@@ -58,14 +58,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">Mobile #</label>
+                                    <label class="custom-label">{{__('employer_mobile_no')}}</label>
                                     <input type="text" class="form-control" v-model="form.mobileNumber">
                                     <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                <label class="custom-label">Region</label>
+                                <label class="custom-label">{{__('employer_region')}}</label>
                                 <div class="select-option">
                                     <select class="form-control" v-model="form.region">
                                         <option v-for="(region, k) in regions" :key="k" :value="region.value">{{region.text}}</option>
@@ -80,14 +80,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">No. of expected Vacancies</label>
+                                    <label class="custom-label">{{__('employer_expected_vac')}}</label>
                                     <input type="text" class="form-control" v-model="form.expectedVacancies">
                                     <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ errors.expectedVacancies }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">City</label>
+                                    <label class="custom-label">{{__('employer_city')}}</label>
                                         <div class="select-option">
                                             <select class="form-control" v-model="form.city">
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{city.text}}</option>
@@ -102,8 +102,8 @@
                     </div>
                 </div>
                 <div class="modal-footer text-right">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary btn-sm" :disabled="form.processing">Apply</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">{{__('employer_cancel')}}</button>
+                    <button type="submit" class="btn btn-primary btn-sm" :disabled="form.processing">{{__('employer_apply')}}</button>
                 </div>
             </form>
 		</div>
@@ -118,17 +118,7 @@
 						<inertiaLink :href="route('landing')" class="navbar-brand">
 							<img src="/images/logo-white.png" class="img-fluid" alt="">
 						</inertiaLink>
-						<ul class="lang-rtl">
-							<li class="lang_switcher">
-
-									<a class="icon-lang" href="?lang=arb">
-										<span>AR</span>Lang
-									</a>
-									<!-- <a class="icon-lang" href="?lang=eng">
-										<span>EN</span>Lang
-									</a> -->
-							</li>
-						</ul>
+						<language-selector></language-selector>
 					</div>
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,16 +128,16 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarToggle">
 						<ul class="navbar-nav align-items-center">
 							<li class="nav-item active">
-                                <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
+                                <InertiaLink :href="route('landing')" class="nav-link">{{__('header_home')}}</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#about-us">About</a>
+								<a class="nav-link" href="#about-us">{{__('header_about')}}</a>
 							</li>
 							<li class="nav-item mr-0">
-                                <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
+                                <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">{{__('header_jobseeker')}}</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link nav-btn btn-secondary active" href="#employer">Employer</a>
+								<a class="nav-link nav-btn btn-secondary active" href="#employer">{{__('header_employer')}}</a>
 							</li>
 						</ul>
 					</div>
@@ -165,17 +155,7 @@
 						<inertiaLink :href="route('landing')" class="navbar-brand">
 							<img src="/images/logo.png" class="img-fluid" alt="">
 						</inertiaLink>
-						<ul class="lang-rtl">
-							<li class="lang_switcher">
-
-									<a class="icon-lang" href="?lang=arb">
-										<span>AR</span>Lang
-									</a>
-									<!-- <a class="icon-lang" href="?lang=eng">
-										<span>EN</span>Lang
-									</a> -->
-							</li>
-						</ul>
+						<language-selector></language-selector>
 					</div>
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -185,16 +165,16 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarToggle">
 						<ul class="navbar-nav align-items-center">
 							<li class="nav-item active">
-                                <InertiaLink :href="route('landing')" class="nav-link">Home</InertiaLink>
+                                <InertiaLink :href="route('landing')" class="nav-link">{{__('header_home')}}</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="javascript:;" @click="redirectToAbout">About</a>
+								<a class="nav-link" href="javascript:;" @click="redirectToAbout">{{__('header_about')}}</a>
 							</li>
 							<li class="nav-item mr-0">
-                                <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">Job Seeker</InertiaLink>
+                                <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">{{__('header_jobseeker')}}</InertiaLink>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link nav-btn btn-secondary active" href="javascript:;" @click="redirectToEmployer">Employer</a>
+								<a class="nav-link nav-btn btn-secondary active" href="javascript:;" @click="redirectToEmployer">{{__('header_employer')}}</a>
 							</li>
 						</ul>
 					</div>
@@ -207,6 +187,11 @@
 <main>
 
 <slot></slot>
+<div class="th-loader loader-page" id="frontEndloader" style="display: none">
+    <svg class="spinner-container" viewBox="0 0 52 52">
+    <circle class="path" cx="26px" cy="26px" r="20px" fill="none" />
+    </svg>
+</div>
 
 
 				<footer id="footer" v-if="route().current() != 'assessmentTest'">
@@ -215,13 +200,13 @@
 							<div class="row align-items-center">
 								<div class="col-sm">
 									<ul class="links">
-										<li><a class="nav-link" href="javascript:;" @click="redirectToAbout">About OJT</a></li>
-                                        <li><inertiaLink :href="route('privacyPolicy')">Privacy Policy</inertiaLink></li>
-										<li><inertiaLink :href="route('termsCondition')">Terms & Conditions</inertiaLink></li>
-                                        <li><a href="https://www.maximusgulf.com/en/services" target="_blank">Our Services</a></li>
-                                        <li><a href="https://www.maximusgulf.com/en/impact" target="_blank">Our Impact</a></li>
+										<li><a class="nav-link" href="javascript:;" @click="redirectToAbout">{{__('footer_about')}}</a></li>
+                                        <li><inertiaLink :href="route('privacyPolicy')">{{__('footer_privacy')}}</inertiaLink></li>
+										<li><inertiaLink :href="route('termsCondition')">{{__('footer_terms')}}</inertiaLink></li>
+                                        <li><a href="https://www.maximusgulf.com/en/services" target="_blank">{{__('footer_services')}}</a></li>
+                                        <li><a href="https://www.maximusgulf.com/en/impact" target="_blank">{{__('footer_impact')}}</a></li>
 									</ul>
-									<p class="mb-0">Copyright © Maximus 2021. All right reserved.</p>
+									<p class="mb-0">{{__('footer_copyright')}}</p>
 								</div>
 								<div class="col-sm-auto">
 									<ul class="social-icons">
@@ -245,13 +230,12 @@
 </template>
 
 <script>
+import languageSelector from '../Shared/LanguageSelector'
 export default {
-    // mounted(){
-    //     let file = document.createElement('link');
-    //   file.rel = 'text/javascript';
-    //   file.href = 'js/custom.js';
-    //   document.head.appendChild(file);
-    // },
+    components:{
+        languageSelector
+    },
+    mixins: [require('../base')],
     data(){
         return{
             form: this.$inertia.form({
