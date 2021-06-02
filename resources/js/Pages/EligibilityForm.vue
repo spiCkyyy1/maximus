@@ -77,7 +77,7 @@
                               </p>
                                 Please follow the below link to complete the next step of the application / readiness assessments.
 
-                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">Take your Assessment Test</inertiaLink>
+                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">Start Assessment</inertiaLink>
                            </div>
                         </div>
                         <div class="card wow fadeInDown" v-if="applicationRejected">

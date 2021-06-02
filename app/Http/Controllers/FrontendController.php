@@ -241,6 +241,7 @@ class FrontendController extends Controller
         }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->unemployed = $request->beenUnemployed;
+        $jobSeeker->status = 1;
         $jobSeeker->save();
         // Mail::to($request->email)->send(new JobSeekerEmail($request->id));
         return response()->json(['success' => 'Unemployment Status Saved']);
@@ -257,7 +258,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => $data['weightedScore'],
+                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }
@@ -273,7 +274,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => $data['weightedScore'],
+                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }
@@ -289,7 +290,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => $data['weightedScore'],
+                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }

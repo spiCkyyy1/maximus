@@ -18,7 +18,7 @@ class JobSeeker extends Model
 
     protected $appends = ['readiness_weighted_score', 'evaluation_weighted_score', 'best_competency', 'worst_competency', 'answered_competencies'];
 
-    private $readinessTotalSum = 29;
+    private $readinessTotalSum = 28;
 
     private $evaluationTotalSum = 13;
 
@@ -116,6 +116,10 @@ class JobSeeker extends Model
     public function getReadinessWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
             $gainedSum =  $this->readinessAssessment()->where('competencies', 'readiness')->sum('weighted_score');
+            if(!$gainedSum){
+                return 'N/A';
+            }
+
             return number_format(($gainedSum * 100) / $this->readinessTotalSum, 3);
         }
         return 'N/A';
@@ -124,6 +128,9 @@ class JobSeeker extends Model
     public function getEvaluationWeightedScoreAttribute(){
         if($this->readinessAssessment()->exists()){
             $evaluationGainedSum = $this->readinessAssessment()->where('competencies', 'evaluation')->sum('weighted_score');
+            if(!$evaluationGainedSum){
+                return 'N/A';
+            }
             return number_format(($evaluationGainedSum * 100) / $this->evaluationTotalSum, 2);
         }
         return 'N/A';
@@ -131,20 +138,31 @@ class JobSeeker extends Model
 
     public function getBestCompetencyAttribute(){
         if($this->readinessAssessment()->exists()){
-            $data = [];
+
             $bestCompetency = DB::table('readiness_assessments')
-                 ->select('competencies', DB::raw('count(weighted_score) as total'))
+                 ->select('competencies', DB::raw('sum(weighted_score) as total'))
                  ->whereNotIn('competencies', ['readiness', 'evaluation'])
                  ->where('job_seeker_id', '=', $this->id)
                  ->groupBy('competencies')
-                 ->orderByRaw('count(weighted_score) DESC')
-                 ->limit(3)
+                 ->orderByRaw('sum(weighted_score) DESC')
+                //  ->limit(3)
                  ->get();
 
-            foreach($bestCompetency as $comp){
-                array_push($data, $comp->competencies);
+            $result = [];
+            foreach($bestCompetency as $data){
+                $totalSum = $this->readinessAssessment()->where('competencies',  $data->competencies)->count();
+                if($totalSum != 0){
+                    $result[$data->competencies] = number_format(($data->total * 100) / $totalSum, 2);
+                }
             }
-            return implode('-',$data);
+            $max = max($result);
+            $temp = [];
+            foreach($result as $k => $x){
+                if($x == $max){
+                    array_push($temp, $k);
+                }
+            }
+            return implode(',', $temp);
         }
         return 'N/A';
     }
@@ -152,19 +170,31 @@ class JobSeeker extends Model
     public function getWorstCompetencyAttribute(){
 
         if($this->readinessAssessment()->exists()){
-            $data = [];
+
             $worstCompetency = DB::table('readiness_assessments')
-                 ->select('competencies', DB::raw('count(weighted_score) as total'))
+                 ->select('competencies', DB::raw('sum(weighted_score) as total'))
                  ->whereNotIn('competencies', ['readiness', 'evaluation'])
                  ->where('job_seeker_id', '=', $this->id)
                  ->groupBy('competencies')
-                 ->orderByRaw('count(weighted_score) ASC')
-                 ->limit(3)
+                 ->orderByRaw('sum(weighted_score) ASC')
+                //  ->limit(3)
                  ->get();
-            foreach($worstCompetency as $comp){
-                    array_push($data, $comp->competencies);
+                //  return $worstCompetency;
+            $result = [];
+            foreach($worstCompetency as $data){
+                $totalSum = $this->readinessAssessment()->where('competencies',  $data->competencies)->count();
+                if($totalSum != 0){
+                    $result[$data->competencies] = number_format(($data->total * 100) / $totalSum, 2);
+                }
             }
-            return implode('-',$data);
+            $min = min($result);
+            $temp = [];
+            foreach($result as $k => $x){
+                if($x == $min){
+                    array_push($temp, $k);
+                }
+            }
+            return implode(',', $temp);
         }
         return 'N/A';
     }

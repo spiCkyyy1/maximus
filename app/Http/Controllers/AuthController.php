@@ -17,7 +17,7 @@ use Redirect;
 class AuthController extends Controller
 {
 
-    private $totalCompetencies = 14;
+    private $totalCompetencies = 11;
     public function login(){
         return Inertia::render('Admin/Login');
     }

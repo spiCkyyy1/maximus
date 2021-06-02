@@ -68,7 +68,7 @@
                                 <label class="custom-label">{{__('employer_region')}}</label>
                                 <div class="select-option">
                                     <select class="form-control" v-model="form.region">
-                                        <option v-for="(region, k) in regions" :key="k" :value="region.value">{{region.text}}</option>
+                                        <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
                                     </select>
                                     <div class="form-text small text-danger" v-if="errors.region">{{ errors.region }}</div>
                                 </div>
@@ -90,7 +90,7 @@
                                     <label class="custom-label">{{__('employer_city')}}</label>
                                         <div class="select-option">
                                             <select class="form-control" v-model="form.city">
-                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{city.text}}</option>
+                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
                                             </select>
                                             <div class="form-text small text-danger" v-if="errors.city">{{ errors.city }}</div>
                                         </div>
@@ -192,7 +192,6 @@
     <circle class="path" cx="26px" cy="26px" r="20px" fill="none" />
     </svg>
 </div>
-
 
 				<footer id="footer" v-if="route().current() != 'assessmentTest'">
 					<div class="content-box p-0">

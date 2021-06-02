@@ -32,18 +32,6 @@
                                  <label class="custom-label" :for="'cr-r1'+k">{{data.answer}}</label>
                               </div>
                            </div>
-                           <!-- <div class="check_radio style-2 mb-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r2" name="radio1" checked>
-                                 <label class="custom-label" for="cr-r2">Two</label>
-                              </div>
-                           </div>
-                           <div class="check_radio style-2">
-                              <div class="radio">
-                                 <input type="radio" id="cr-r3" name="radio1">
-                                 <label class="custom-label" for="cr-r3">Two</label>
-                              </div>
-                           </div> -->
                         </div>
                      </div>
                   </li>
@@ -62,6 +50,7 @@ export default {
         title: String
     },
     mounted(){
+        console.log(this.assessment);
         if(this.assessment != '' || this.assessment.length != 0){
             $("#assessment-modal").modal('show');
         }

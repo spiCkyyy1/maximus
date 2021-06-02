@@ -5,7 +5,6 @@
                     <inertiaLink class="icon-lang" :href="route('language', [selectable_locale])">
                         <span v-if="selectable_locale == 'ar'"> AR</span>
                         <span v-else>EN</span>
-                        <!-- <icon :name="selectable_locale" /> -->
                     </inertiaLink>
             </li>
         </ul>

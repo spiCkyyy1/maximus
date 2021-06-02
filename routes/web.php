@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
+use App\Models\JobSeeker;
+use App\Models\ReadinessAssessment;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +111,9 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
+    return JobSeeker::with(['readinessAssessment' => function($q){
+        $q->where('job_seeker_id', 1);
+    }])->get();
     return 'done';
 });
 

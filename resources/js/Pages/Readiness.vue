@@ -17,23 +17,23 @@
                                     <label for="c102">{{option3}}</label>
                                  </div>
                                  <div class="radio text-left mb-3" v-if="value4 != ''">
-                                    <input type="radio" id="c103" class="score" :value="value4" v-model="value" :data-id="weighted_score4">
+                                    <input type="radio" id="c103" class="score" :value="value4" v-model="value">
                                     <label for="c103">{{option4}}</label>
                                  </div>
                                  <div class="radio text-left mb-3" v-if="value5 != ''">
-                                    <input type="radio" id="c104" class="score" :value="value5" v-model="value" :data-id="weighted_score5">
+                                    <input type="radio" id="c104" class="score" :value="value5" v-model="value">
                                     <label for="c104">{{option5}}</label>
                                  </div>
                                  <div class="radio text-left mb-3" v-if="value6 != ''">
-                                    <input type="radio" id="c105" class="score" :value="value6" v-model="value" :data-id="weighted_score6">
+                                    <input type="radio" id="c105" class="score" :value="value6" v-model="value">
                                     <label for="c105">{{option6}}</label>
                                  </div>
                                  <div class="radio text-left mb-3" v-if="value7 != ''">
-                                    <input type="radio" id="c106" class="score" :value="value7" v-model="value" :data-id="weighted_score7">
+                                    <input type="radio" id="c106" class="score" :value="value7" v-model="value">
                                     <label for="c106">{{option7}}</label>
                                  </div>
                                  <div class="radio text-left mb-3" v-if="value8 != ''">
-                                    <input type="radio" id="c107" class="score" :value="value8" v-model="value" :data-id="weighted_score8">
+                                    <input type="radio" id="c107" class="score" :value="value8" v-model="value">
                                     <label for="c107">{{option8}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="error != ''">{{ error }}</div>
@@ -78,7 +78,7 @@ export default {
     },
     watch: {
             value() {
-                let weightedScore = $(".score").attr('data-id');
+                let weightedScore = $("input[type='radio'].score:checked").attr('data-id');
                 this.$emit('updateAnswer', {question: this.question, value: this.value, weightedScore: weightedScore, competency: this.competency});
             }
         }

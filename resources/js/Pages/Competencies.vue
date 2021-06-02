@@ -55,7 +55,7 @@ export default {
     },
     watch: {
             value() {
-                let weightedScore = $(".score").attr('data-id');
+                let weightedScore = $("input[type='radio'].score:checked").attr('data-id');
                 this.$emit('updateAnswer', {question: this.question, value: this.value, weightedScore: weightedScore, competency: this.competency});
             }
         }
