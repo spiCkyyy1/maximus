@@ -70,6 +70,7 @@
         <style>.error-messages {
             color: red;
             font-size: 12px; }</style>
+            <style>.disable-anchor{pointer-events: none}</style>
     </head>
     <body class="login-page-2">
         @inertia

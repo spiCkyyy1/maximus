@@ -83,13 +83,13 @@
 						<div class="col-12">
 							<ul class="nav nav-tabs nav-tabs-2 nav-overflow">
 								<li class="nav-item">
-									<a class="nav-link active" data-toggle="tab" href="#tab-1a">All Candidates</a>
+									<a class="nav-link" data-toggle="tab" :class="tab == 'AllCandidates' ? 'active' : ''" id="nav-1" @click="changeTab('AllCandidates')">All Candidates</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" data-toggle="tab" href="#tab-2a">Selected Candidates</a>
+									<a class="nav-link" data-toggle="tab" :class="tab == 'selectedCandidates' ? 'active' : ''" id="nav-2" @click="changeTab('selectedCandidates')">Selected Candidates</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" data-toggle="tab" href="#tab-3a">Rejected Candidates</a>
+									<a class="nav-link" data-toggle="tab" :class="tab == 'rejectedCandidates' ? 'active' : ''" id="nav-3" @click="changeTab('rejectedCandidates')">Rejected Candidates</a>
 								</li>
 							</ul>
 
@@ -190,15 +190,15 @@
 
                                             <div class="col-auto ml-auto">
                                                     <button class="btn btn-sm btn-default" title="Reset Filter" @click="resetFilter"><i class="icon-refresh fa-lg fa-r"></i>Reset</button>
-                                                    <button class="btn btn-sm btn-primary ml-1" title="Apply Filter" @click="filterCandidates"><i class="icon-layers fa-lg fa-r"></i> Apply filter</button>
+                                                    <button class="btn btn-sm btn-primary ml-1" title="Apply Filter" @click="getPaginatedData(jobSeekers.current_page)"><i class="icon-layers fa-lg fa-r"></i> Apply filter</button>
                                             </div>
                                         </div>
                                 </div>
 							</div>
 
 							<div class="tab-content">
-								<div class="tab-pane active" id="tab-1a">
-									<div class="card table-card" v-if="jobSeekers.length > 0">
+								<div class="tab-pane" :class="tab == 'AllCandidates' ? 'active' : ''" id="tab-1">
+									<div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
 										<div class="card-header">
 											<div class="row align-items-center">
 												<div class="col">
@@ -232,7 +232,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
+														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
 																<div class="avatar avatar-sm">
@@ -270,43 +270,17 @@
 												</table>
 											</div>
 										</div>
-                                        <div class="card-footer">
-                                            <div class="card-pagination">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <div class="card-pagination-count">
-                                                            Showing 1 to 10 of 57 entries
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <ul class="pagination justify-content-end">
-                                                            <li class="page-item disabled">
-                                                                <a href class="page-link" tabindex="-1">First</a>
-                                                            </li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-left small"></i></a></li>
-                                                            <li class="page-item"><a href class="page-link">1</a></li>
-                                                            <li class="page-item active">
-                                                                <a href class="page-link">2 <span class="sr-only">(current)</span></a>
-                                                            </li>
-                                                            <li class="page-item"><a href class="page-link">3</a></li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-right small"></i></a></li>
-                                                            <li class="page-item">
-                                                                <a href class="page-link">Last</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
+                                        v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
                                     <div v-else><not-found></not-found></div>
 								</div>
-								<div class="tab-pane fade" id="tab-2a">
-                                    <div class="card table-card" v-if="selectedCandidates.length > 0">
+								<div class="tab-pane" :class="tab == 'selectedCandidates' ? 'active' : ''" id="tab-2">
+                                    <div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
 										<div class="card-header">
 											<div class="row align-items-center">
 												<div class="col">
-													<div class="title"><i class="icon-people"></i>Job Seekers</div>
+													<div class="title"><i class="icon-people"></i>Selected Candidates</div>
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
@@ -336,7 +310,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(jobSeeker, k) in selectedCandidates" :key="k">
+														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
 																<div class="avatar avatar-sm">
@@ -374,43 +348,17 @@
 												</table>
 											</div>
 										</div>
-                                        <div class="card-footer">
-                                            <div class="card-pagination">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <div class="card-pagination-count">
-                                                            Showing 1 to 10 of 57 entries
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <ul class="pagination justify-content-end">
-                                                            <li class="page-item disabled">
-                                                                <a href class="page-link" tabindex="-1">First</a>
-                                                            </li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-left small"></i></a></li>
-                                                            <li class="page-item"><a href class="page-link">1</a></li>
-                                                            <li class="page-item active">
-                                                                <a href class="page-link">2 <span class="sr-only">(current)</span></a>
-                                                            </li>
-                                                            <li class="page-item"><a href class="page-link">3</a></li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-right small"></i></a></li>
-                                                            <li class="page-item">
-                                                                <a href class="page-link">Last</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
+                                        v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
                                     <div v-else><not-found></not-found></div>
                                 </div>
-								<div class="tab-pane fade" id="tab-3a">
-                                    <div class="card table-card" v-if="rejectedCandidates.length > 0">
+								<div class="tab-pane" :class="tab == 'rejectedCandidates' ? 'active' : ''" id="tab-3">
+                                    <div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
 										<div class="card-header">
 											<div class="row align-items-center">
 												<div class="col">
-													<div class="title"><i class="icon-people"></i>Job Seekers</div>
+													<div class="title"><i class="icon-people"></i>Rejected Candidates</div>
 												</div>
 												<div class="col-auto">
 													<inertiaLink :href="route('allCandidates')" class="btn btn-default">View All</inertiaLink>
@@ -438,7 +386,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(jobSeeker, k) in rejectedCandidates" :key="k">
+														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
 																<div class="avatar avatar-sm">
@@ -476,34 +424,8 @@
 												</table>
 											</div>
 										</div>
-                                        <div class="card-footer">
-                                            <div class="card-pagination">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <div class="card-pagination-count">
-                                                            Showing 1 to 10 of 57 entries
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <ul class="pagination justify-content-end">
-                                                            <li class="page-item disabled">
-                                                                <a href class="page-link" tabindex="-1">First</a>
-                                                            </li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-left small"></i></a></li>
-                                                            <li class="page-item"><a href class="page-link">1</a></li>
-                                                            <li class="page-item active">
-                                                                <a href class="page-link">2 <span class="sr-only">(current)</span></a>
-                                                            </li>
-                                                            <li class="page-item"><a href class="page-link">3</a></li>
-                                                            <li><a href class="page-link"><i class="icon-arrow-right small"></i></a></li>
-                                                            <li class="page-item">
-                                                                <a href class="page-link">Last</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
+                                        v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
                                     <div v-else><not-found></not-found></div>
                                 </div>
@@ -528,22 +450,23 @@ import AdminLayout from '../../Layouts/AdminLayout'
 import DetailModal from '../Admin/DetailModal'
 import AssessmentModal from '../Admin/AssessmentModal'
 import NotFound from '../Admin/NotFound'
+import Pagination from '../Admin/TablePagination'
 export default {
     components:{
         AdminLayout,
         DetailModal,
         AssessmentModal,
-        NotFound
+        NotFound,
+        Pagination
     },
     mounted(){
-        this.filterCandidates();
+        this.dashboardData();
+        this.getPaginatedData(this.currentPage);
     },
     data(){
         return{
 
             jobSeekers: {},
-            selectedCandidates: {},
-            rejectedCandidates: {},
             jobSeekersCount: 0,
             jobSeekersWithAssessmentCount: 0,
             selectedJobSeekers: 0,
@@ -562,21 +485,57 @@ export default {
             showAssessmestModal: false,
             jobSeeker: {},
             assessment: {},
-            modalTitle: ''
+            modalTitle: '',
+            dataLoaded: false,
+            currentPage: 1,
+            getAllCandidatesUrl: '/admin/get-paginated-data',
+            tab: 'AllCandidates'
         }
     },
     methods: {
+        changeTab: function(tab){
+            this.tab = tab;
+            this.getPaginatedData(this.currentPage);
+        },
+        getPaginatedData: function(page){
+            $("#loader").css("display", "block");
+            axios.post(this.getAllCandidatesUrl+'?page='+page, {filter: this.filter, tab: this.tab})
+            .then(response => {
+                if(response.data.success){
+                    $("#loader").css("display", "none");
+                    this.jobSeekers = response.data.success;
+                    this.dataLoaded = true;
+                }
+
+            });
+        },
+
+        getPaginatedDataByUrl: function(url){
+            $("#loader").css("display", "block");
+            axios.post(url, {filter: this.filter, tab: this.tab})
+            .then(response => {
+                if(response.data.success){
+                    $("#loader").css("display", "none");
+                    this.jobSeekers = response.data.success;
+                    this.dataLoaded = true;
+                }
+            })
+        },
         excelDownload: function(type){
             $("#loader").css("display", "block");
             let url = '';
+            let fileName = '';
             if(type == 'all'){
                 url = '/admin/download/excel';
+                fileName = 'job-seekers.xlsx';
             }
             if(type == 'selected'){
                 url = '/admin/download/selected';
+                fileName = 'Selected-candidates.xlsx';
             }
             if(type == 'rejected'){
                 url = '/admin/download/rejected';
+                fileName = 'rejected-candidates.xlsx';
             }
             axios.get(url, {responseType:'blob'}).
             then(result => {
@@ -584,24 +543,21 @@ export default {
                 const url = window.URL.createObjectURL(new Blob([result.data], {type:'application/vnd.ms-excel'}));
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'job-seekers.xlsx');
+                    link.setAttribute('download', fileName);
                     document.body.appendChild(link);
                     link.click();
             });
         },
-        filterCandidates: function(){
+        dashboardData: function(){
             $("#loader").css("display", "block");
             axios.post('/filter-candidates', this.filter)
             .then(response => {
                 if(response.data.success){
                     $("#loader").css("display", "none");
-                    this.jobSeekers = response.data.jobSeekers;
                     this.jobSeekersCount = response.data.jobSeekersCount;
                     this.jobSeekersWithAssessmentCount = response.data.jobSeekersWithAssessmentCount;
                     this.selectedJobSeekers = response.data.selectedJobSeekers;
                     this.rejectedJobSeekers = response.data.rejectedJobSeekers;
-                    this.selectedCandidates = response.data.selectedCandidates;
-                    this.rejectedCandidates = response.data.rejectedCandidates;
                 }
             }).catch(error => {
                 console.log(error);
@@ -614,9 +570,12 @@ export default {
                 fullTimeEmployment: '',
                 JobTraining: '',
                 socialBeneficiary: '',
-                unEmployed: ''
+                unEmployed: '',
+                review: '',
+                limit: 10
             };
-            this.filterCandidates();
+            this.dataLoaded = false;
+            this.getPaginatedData(this.currentPage);
         },
         modalOpen: function(jobSeeker, event) {
             this.jobSeeker = jobSeeker;

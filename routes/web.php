@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
+use App\Models\JobSeeker;
+use Illuminate\Queue\Jobs\JobName;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -55,23 +57,27 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
-    Route::post('/filter-candidates', [AuthController::class, 'filterCandidates'])->name('filterCandidates');
+    Route::post('/admin/get-paginated-data', [AuthController::class, 'getPaginatedData'])->name('getPaginatedData');
+
+    Route::post('/filter-candidates', [AuthController::class, 'dashboardData'])->name('dashboardData');
 
     Route::get('/admin/all-candidates', [AuthController::class, 'allCandidates'])->name('allCandidates');
 
-    Route::get('/admin/get-selected-candidates', [AuthController::class, 'getSelectedCandidates'])->name('getSelectedCandidates');
+    Route::post('/admin/get-selected-candidates', [AuthController::class, 'getSelectedCandidates'])->name('getSelectedCandidates');
 
     Route::get('/admin/selected-candidates', [AuthController::class, 'selectedCandidates'])->name('selectedCandidates');
 
     Route::get('/admin/rejected-candidates', [AuthController::class, 'rejectedCandidates'])->name('rejectedCandidates');
 
-    Route::get('/admin/get-rejected-candidates', [AuthController::class, 'getRejectedCandidates'])->name('getRejectedCandidates');
+    Route::post('/admin/get-rejected-candidates', [AuthController::class, 'getRejectedCandidates'])->name('getRejectedCandidates');
 
     Route::get('/admin/reviewed-candidates', [AuthController::class, 'reviewedCandidates'])->name('reviewedCandidates');
 
-    Route::get('/admin/get-reviewed-candidates', [AuthController::class, 'getReviewedCandidates'])->name('getReviewedCandidates');
+    Route::post('/admin/get-reviewed-candidates', [AuthController::class, 'getReviewedCandidates'])->name('getReviewedCandidates');
 
     Route::get('/admin/employers', [AuthController::class, 'employers'])->name('employers');
+
+    Route::post('/admin/get-employers', [AuthController::class, 'getEmployers'])->name('getEmployers');
 
     Route::get('/admin/review/jobseeker/{id}/{review}', [AuthController::class, 'reviewJobSeeker'])->name('reviewJobSeeker');
 
@@ -84,6 +90,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/download/rejected', [AuthController::class, 'downloadRejectedExcel'])->name('downloadRejectedExcel');
 
     Route::get('/admin/download/reviewed', [AuthController::class, 'downloadReviewedExcel'])->name('downloadReviewedExcel');
+
+    Route::get('/admin/download/employers', [AuthController::class, 'downloadEmployersExcel'])->name('downloadEmployersExcel');
 
 });
 
@@ -98,6 +106,7 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
+    return JobSeeker::paginate(2);
     return 'done';
 });
 

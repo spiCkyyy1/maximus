@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EmployersExport;
 use App\Exports\JobSeekersExport;
 use App\Models\Employer;
 use App\Models\JobSeeker;
@@ -64,46 +65,8 @@ class AuthController extends Controller
         return Inertia('Admin/Dashboard');
     }
 
-    public function filterCandidates(Request $request){
-        $jobSeekers = new JobSeeker();
+    public function dashboardData(Request $request){
 
-        if($request->has('gender') && $request->gender != ''){
-            $jobSeekers = $jobSeekers->where('gender', $request->gender);
-        }
-
-        if($request->has('qualification') && $request->qualification != ''){
-            $jobSeekers = $jobSeekers->where('qualification', $request->qualification);
-        }
-
-
-        if($request->has('fullTimeEmployment') && $request->fullTimeEmployment != ''){
-            $jobSeekers = $jobSeekers->where('full_time_employment', $request->fullTimeEmployment);
-        }
-
-        if($request->has('JobTraining') && $request->JobTraining != ''){
-            $jobSeekers = $jobSeekers->where('on_job_training', $request->JobTraining);
-        }
-
-        if($request->has('socialBeneficiary') && $request->socialBeneficiary != ''){
-            $jobSeekers = $jobSeekers->where('social_benficiary', $request->socialBeneficiary);
-        }
-
-        if($request->has('unEmployed') && $request->unEmployed != ''){
-            $jobSeekers = $jobSeekers->where('unemployed', $request->unEmployed);
-        }
-
-        if($request->has('review') && $request->review != ''){
-            $jobSeekers = $jobSeekers->where('reviewed', $request->review);
-        }
-
-        $jobSeekers = $jobSeekers->with('readinessAssessment');
-        $jobSeekers = $jobSeekers->orderBy('id', 'DESC');
-        if($request->has('limit') && $request->limit != ''){
-            $jobSeekers = $jobSeekers->limit($request->limit);
-        }
-
-        $selectedCandidates = JobSeeker::where('status', 1)->get();
-        $rejectedCandidates = JobSeeker::where('status', 0)->get();
         $jobSeekersCount = JobSeeker::count();
         $selectedJobSeekers = JobSeeker::where('status', 1)->count();
         $rejectedJobSeekers = JobSeeker::where('status', 0)->count();
@@ -118,14 +81,59 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'jobSeekers' => $jobSeekers->get(),
             'jobSeekersCount' => $jobSeekersCount,
             'jobSeekersWithAssessmentCount' => $jobSeekersWithAssessmentCount,
             'selectedJobSeekers' => $selectedJobSeekers,
             'rejectedJobSeekers' => $rejectedJobSeekers,
-            'selectedCandidates' => $selectedCandidates,
-            'rejectedCandidates' => $rejectedCandidates
         ]);
+    }
+
+    public function getPaginatedData(Request $request){
+
+        $jobSeekers = new JobSeeker();
+
+        if($request->tab == 'selectedCandidates'){
+            $jobSeekers = $jobSeekers->where('status', 1);
+        }
+
+        if($request->tab == 'rejectedCandidates'){
+            $jobSeekers = $jobSeekers->where('status', 0);
+        }
+
+        if($request->filter['gender'] != ''){
+            $jobSeekers = $jobSeekers->where('gender', $request->filter['gender']);
+        }
+
+        if($request->filter['qualification'] != ''){
+            $jobSeekers = $jobSeekers->where('qualification', $request->filter['qualification']);
+        }
+
+
+        if($request->filter['fullTimeEmployment'] != ''){
+            $jobSeekers = $jobSeekers->where('full_time_employment', $request->filter['fullTimeEmployment']);
+        }
+
+        if($request->filter['JobTraining'] != ''){
+            $jobSeekers = $jobSeekers->where('on_job_training', $request->filter['JobTraining']);
+        }
+
+        if($request->filter['socialBeneficiary'] != ''){
+            $jobSeekers = $jobSeekers->where('social_benficiary', $request->filter['socialBeneficiary']);
+        }
+
+        if($request->filter['unEmployed'] != ''){
+            $jobSeekers = $jobSeekers->where('unemployed', $request->filter['unEmployed']);
+        }
+
+        if($request->filter['review'] != ''){
+            $jobSeekers = $jobSeekers->where('reviewed', $request->filter['review']);
+        }
+
+        $jobSeekers = $jobSeekers->with('readinessAssessment');
+        $jobSeekers = $jobSeekers->orderBy('id', 'DESC');
+
+
+        return response()->json(['success' => $jobSeekers->paginate($request->filter['limit'])]);
     }
 
     public function allCandidates(){
@@ -147,7 +155,7 @@ class AuthController extends Controller
     }
 
     public function getSelectedCandidates(){
-        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('status', 1)->get()]);
+        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('status', 1)->paginate(10)]);
     }
 
     public function rejectedCandidates(){
@@ -160,7 +168,7 @@ class AuthController extends Controller
     }
 
     public function getRejectedCandidates(){
-        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('status', 0)->get()]);
+        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('status', 0)->paginate(10)]);
     }
 
     public function reviewedCandidates(){
@@ -173,14 +181,16 @@ class AuthController extends Controller
     }
 
     public function getReviewedCandidates(){
-        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('reviewed', 1)->get()]);
+        return response()->json(['success' => JobSeeker::with('readinessAssessment')->where('reviewed', 1)->paginate(10)]);
     }
 
     public function employers(){
 
-        return Inertia('Admin/Employers', [
-            'employers' => Employer::all()
-        ]);
+        return Inertia('Admin/Employers');
+    }
+
+    public function getEmployers(){
+        return response()->json(['success' => Employer::paginate(10)]);
     }
 
     public function reviewJobSeeker($id, $review){
@@ -202,13 +212,17 @@ class AuthController extends Controller
     }
 
     public function downloadSelectedExcel(){
-        return Excel::download(new JobSeekersExport('selected'), 'job-seekers.xlsx');
+        return Excel::download(new JobSeekersExport('selected'), 'Selected-candidates.xlsx');
     }
 
     public function downloadRejectedExcel(){
-        return Excel::download(new JobSeekersExport('rejected'), 'job-seekers.xlsx');
+        return Excel::download(new JobSeekersExport('rejected'), 'rejected-candidates.xlsx');
     }
     public function downloadReviewedExcel(){
-        return Excel::download(new JobSeekersExport('reviewed'), 'job-seekers.xlsx');
+        return Excel::download(new JobSeekersExport('reviewed'), 'reviewed-candidates.xlsx');
+    }
+
+    public function downloadEmployersExcel(){
+        return Excel::download(new EmployersExport(), 'employers.xlsx');
     }
 }

@@ -97,12 +97,12 @@
                <div class="row align-items-center">
                   <div class="col-auto ml-auto">
                      <button class="btn btn-sm btn-default" title="Reset Filter" @click="resetFilter"><i class="icon-refresh fa-lg fa-r"></i>Reset</button>
-                     <button class="btn btn-sm btn-primary ml-1" title="Apply Filter" @click="filterCandidates"><i class="icon-layers fa-lg fa-r"></i> Apply filter</button>
+                     <button class="btn btn-sm btn-primary ml-1" title="Apply Filter" @click="getPaginatedData(currentPage)"><i class="icon-layers fa-lg fa-r"></i> Apply filter</button>
                   </div>
                </div>
             </div>
          </div>
-         <div v-if="jobSeekers.length > 0">
+         <div v-if="dataLoaded && jobSeekers.data.length > 0">
              <div class="card-header">
             <div class="row align-items-center">
                 <div class="col">
@@ -138,7 +138,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr v-for="(jobSeeker, k) in jobSeekers" :key="k">
+                            <tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
                                 <td>{{jobSeeker.id}}</td>
                                 <td >
                                     <div class="avatar avatar-sm">
@@ -176,34 +176,8 @@
                 </table>
                 </div>
             </div>
-            <div class="card-footer">
-                    <div class="card-pagination">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <div class="card-pagination-count">
-                                    Showing 1 to 10 of 57 entries
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <ul class="pagination justify-content-end">
-                                    <li class="page-item disabled">
-                                        <a href class="page-link" tabindex="-1">First</a>
-                                    </li>
-                                    <li><a href class="page-link"><i class="icon-arrow-left small"></i></a></li>
-                                    <li class="page-item"><a href class="page-link">1</a></li>
-                                    <li class="page-item active">
-                                        <a href class="page-link">2 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item"><a href class="page-link">3</a></li>
-                                    <li><a href class="page-link"><i class="icon-arrow-right small"></i></a></li>
-                                    <li class="page-item">
-                                        <a href class="page-link">Last</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+            <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
+            v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
          </div>
          <div v-else>
             <not-found></not-found>
@@ -223,12 +197,14 @@ import AdminLayout from '../../Layouts/AdminLayout'
 import DetailModal from '../Admin/DetailModal'
 import AssessmentModal from '../Admin/AssessmentModal'
 import NotFound from '../Admin/NotFound'
+import Pagination from '../Admin/TablePagination'
 export default {
     components:{
         AdminLayout,
         DetailModal,
         AssessmentModal,
-        NotFound
+        NotFound,
+        Pagination
     },
     props:{
         all: Boolean,
@@ -254,24 +230,35 @@ export default {
                 review: '',
                 limit: ''
             },
+            dataLoaded: false,
+            getAllCandidatesUrl: '/admin/get-paginated-data',
+            tab: '',
+            currentPage: 1
         }
     },
     mounted(){
          if(this.selected){
-                axios.get('/admin/get-selected-candidates')
+             $("#loader").css("display", "block");
+                axios.post('/admin/get-selected-candidates')
                 .then(response => {
                     if(response.data.success){
+                        $("#loader").css("display", "none");
                         this.jobSeekers = response.data.success;
+                        this.dataLoaded = true;
                     }
                 }).catch(error => {
                     console.log(error);
                 });
             }
             if(this.rejected){
-                axios.get('/admin/get-rejected-candidates')
+                this.getAllCandidatesUrl = '/admin/get-rejected-candidates';
+                $("#loader").css("display", "block");
+                axios.post(this.getAllCandidatesUrl)
                 .then(response => {
                     if(response.data.success){
+                        $("#loader").css("display", "none");
                         this.jobSeekers = response.data.success;
+                        this.dataLoaded = true;
                     }
                 }).catch(error => {
                     console.log(error);
@@ -279,10 +266,13 @@ export default {
 
             }
             if(this.reviewed){
-                axios.get('/admin/get-reviewed-candidates')
+                $("#loader").css("display", "block");
+                axios.post('/admin/get-reviewed-candidates')
                 .then(response => {
                     if(response.data.success){
+                        $("#loader").css("display", "none");
                         this.jobSeekers = response.data.success;
+                        this.dataLoaded = true;
                     }
                 }).catch(error => {
                     console.log(error);
@@ -290,23 +280,33 @@ export default {
 
             }
             if(this.all){
-        this.filterCandidates();
+                this.getPaginatedData(this.currentPage);
             }
 
     },
     methods: {
-        filterCandidates: function(){
+        getPaginatedData: function(page){
+            $("#loader").css("display", "block");
+            axios.post(this.getAllCandidatesUrl+'?page='+page, {filter: this.filter, tab: ''})
+            .then(response => {
+                if(response.data.success){
+                    $("#loader").css("display", "none");
+                    this.jobSeekers = response.data.success;
+                    this.dataLoaded = true;
+                }
 
-            axios.post('/filter-candidates', this.filter)
-                .then(response => {
-                    if(response.data.success){
-                        this.jobSeekers = response.data.jobSeekers;
-                    }
-                }).catch(error => {
-                    console.log(error);
-                });
-
-
+            });
+        },
+        getPaginatedDataByUrl: function(url){
+            $("#loader").css("display", "block");
+            axios.post(url, {filter: this.filter, tab: this.tab})
+            .then(response => {
+                if(response.data.success){
+                    $("#loader").css("display", "none");
+                    this.jobSeekers = response.data.success;
+                    this.dataLoaded = true;
+                }
+            })
         },
         resetFilter: function(){
             this.filter =  {
@@ -315,9 +315,13 @@ export default {
                 fullTimeEmployment: '',
                 JobTraining: '',
                 socialBeneficiary: '',
-                unEmployed: ''
+                unEmployed: '',
+                review: '',
+                limit: ''
             };
-            this.filterCandidates();
+
+            this.dataLoaded = false;
+            this.getPaginatedData(1);
         },
         modalOpen: function(jobSeeker, event) {
             this.jobSeeker = jobSeeker;
@@ -342,17 +346,22 @@ export default {
       excelDownload: function(){
             $("#loader").css("display", "block");
             let url = '';
+            let fileName = '';
             if(this.all){
                 url = '/admin/download/excel';
+                fileName = 'job-seekers.xlsx';
             }
             if(this.selected){
                 url = '/admin/download/selected';
+                fileName = 'Selected-candidates.xlsx';
             }
             if(this.rejected){
                 url = '/admin/download/rejected';
+                fileName = 'rejected-candidates.xlsx';
             }
             if(this.reviewed){
-                url = '/admin/download/reviewed'
+                url = '/admin/download/reviewed';
+                fileName = 'reviewed-candidates.xlsx';
             }
             axios.get(url, {responseType:'blob'}).
             then(result => {
@@ -360,7 +369,7 @@ export default {
                 const url = window.URL.createObjectURL(new Blob([result.data], {type:'application/vnd.ms-excel'}));
                     const link = document.createElement('a');
                     link.href = url;
-                    link.setAttribute('download', 'job-seekers.xlsx');
+                    link.setAttribute('download', fileName);
                     document.body.appendChild(link);
                     link.click();
             });

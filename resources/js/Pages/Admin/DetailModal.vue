@@ -24,12 +24,12 @@
 					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">City</div>
-						<div class="text-right" v-if="jobSeeker.city != null"> {{jobSeeker.city}}</div>
+						<div class="text-right" v-if="jobSeeker.city != null"> {{jobSeeker.city.text}}</div>
                         <div class="text-right" v-else> N/A</div>
 					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Region</div>
-						<div class="text-right" v-if="jobSeeker.region != null">{{jobSeeker.region}}</div>
+						<div class="text-right" v-if="jobSeeker.region != null">{{jobSeeker.region.text}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
@@ -45,8 +45,8 @@
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Application Status</div>
 						<div class="text-right">
-							<div class="badge badge-grd-danger" v-if="jobSeeker.status == 0">Rejected</div>
-							<div class="badge badge-grd-success" v-if="jobSeeker.status == 1">Selected</div>
+							<div class="badge badge-grd-danger" v-if="jobSeeker.status == 'Rejected'">Rejected</div>
+							<div class="badge badge-grd-success" v-if="jobSeeker.status == 'Selected'">Selected</div>
 						</div>
 					</li>
 				</ul>
