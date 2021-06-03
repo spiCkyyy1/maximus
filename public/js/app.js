@@ -21631,7 +21631,8 @@ __webpack_require__.r(__webpack_exports__);
         martialStatus: ''
       },
       errors: {},
-      showLoader: false
+      showLoader: false,
+      reloaded: false
     };
   },
   methods: {

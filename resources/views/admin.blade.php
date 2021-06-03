@@ -90,7 +90,8 @@
         <script src="{{asset('admin/js/jquery/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('admin/js/jquery/jquery-ui/jquery-ui.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('admin/js/bootstrap/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-        {{-- <script src="{{asset('admin/js/plugins.min.js')}}" type="text/javascript"></script> --}}
+        <script src="{{asset('admin/plugins/select2/select2.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('admin/js/plugins.min.js')}}" type="text/javascript"></script>
         {{-- <script src="{{asset('admin/js/charts.min.js')}}" type="text/javascript"></script> --}}
         {{-- <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script> --}}
         {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> --}}

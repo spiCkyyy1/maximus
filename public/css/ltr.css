@@ -10140,12 +10140,11 @@ header.header {
   background: linear-gradient(180deg, rgba(0, 49, 69, 0.9), transparent); }
 
 header .lang-rtl {
-  width: 77px;
+  width: 72px;
   height: 35px;
   background: #00445e;
   position: relative;
   z-index: 9;
-  padding-left: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: 15px;
@@ -10155,8 +10154,8 @@ header .lang-rtl {
   -o-border-radius: 50px;
   border-radius: 50px; }
   header .lang-rtl li {
-    margin: 0 5px;
-    display: inline-block; }
+    text-align: left;
+    padding-left: 8px; }
     header .lang-rtl li.lang_switcher a {
       color: white;
       line-height: 25px;
@@ -10168,10 +10167,10 @@ header .lang-rtl {
         line-height: 25px;
         text-transform: uppercase;
         overflow: hidden;
-        float: right;
-        margin-left: 5px;
         color: white;
         background: #f7921e;
+        position: absolute;
+        right: 5px;
         font-size: 0.6875rem;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
