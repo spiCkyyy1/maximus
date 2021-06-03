@@ -51,12 +51,13 @@ export default {
         weighted_score4: String,
         competency: String,
         error: String,
-        btnText: String
+        btnText: String,
+        questionForDb: String
     },
     watch: {
             value() {
                 let weightedScore = $("input[type='radio'].score:checked").attr('data-id');
-                this.$emit('updateAnswer', {question: this.question, value: this.value, weightedScore: weightedScore, competency: this.competency});
+                this.$emit('updateAnswer', {question: this.questionForDb, value: this.value, weightedScore: weightedScore, competency: this.competency});
             }
         }
 }
