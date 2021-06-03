@@ -11,7 +11,7 @@
                   <i class="icon-notebook"></i>{{title}}
                </div>
                <ul class="accordion mcqs-list th-list number drag-drop" id="faqs-list">
-                  <li class="card mb-3" v-for="(data, k) in assessment" :key="k">
+                  <li class="card mb-3" v-for="(data, k) in assessmentQuestions" :key="k">
                      <div class="card-header">
                         <div class="row align-items-center">
                            <div class="col">
@@ -45,17 +45,30 @@
 <script>
 export default {
     props:{
-        assessment: Object,
+        assessment: Number,
         show: Boolean,
         title: String
     },
+    data(){
+        return{
+            assessmentQuestions: {}
+        }
+    },
     mounted(){
-        console.log(this.assessment);
-        if(this.assessment != '' || this.assessment.length != 0){
+        if(this.assessment != 0){
+            $("#loader").css("display", "block");
+            axios.post('/admin/get/questions',{title: this.title, id: this.assessment})
+            .then(response => {
+                if(response.data.success){
+                    this.assessmentQuestions = response.data.success;
+                }
+                setTimeout(() => {
+                    $("#loader").css("display", "none");
+                }, 2000);
+
+            });
             $("#assessment-modal").modal('show');
         }
-
-        console.log(this.assessment);
     }
 }
 </script>

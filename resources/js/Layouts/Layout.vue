@@ -8,7 +8,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<i class="fas fa-times"></i>
 				</button>
-				<h2 class="modal-title">{{__('employer_form_heading')}}</h2>
+				<h2 class="modal-title">{{__('employer')}}</h2>
 			</div>
 
             <div class="alert alert-success" v-if="success">{{ success }}</div>

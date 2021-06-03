@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/filter-candidates', [AuthController::class, 'dashboardData'])->name('dashboardData');
 
+    Route::post('/admin/get/questions', [AuthController::class, 'getAssessmentQuestions'])->name('getAssessmentQuestions');
+
     Route::get('/admin/all-candidates', [AuthController::class, 'allCandidates'])->name('allCandidates');
 
     Route::post('/admin/get-selected-candidates', [AuthController::class, 'getSelectedCandidates'])->name('getSelectedCandidates');
@@ -111,9 +113,7 @@ Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])-
 Route::get('/test', function(){
     // return view('emails.jobseekeremail', ['id' => 1]);
     // Mail::to('spickyyy@gmail.com')->send(new JobSeekerEmail());
-    return JobSeeker::with(['readinessAssessment' => function($q){
-        $q->where('job_seeker_id', 1);
-    }])->get();
+
     return 'done';
 });
 

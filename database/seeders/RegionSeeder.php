@@ -61,7 +61,7 @@ class RegionSeeder extends Seeder
 
         Region::create([
             'value' => 'northern-borders',
-            'text' => 'Nothern Borders'
+            'text' => 'Northern Borders'
         ]);
 
         Region::create([

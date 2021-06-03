@@ -12,7 +12,7 @@ class JobSeeker extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $fillable = ['first_name', 'middle_name', 'last_name', 'mobile', 'email', 'city',
+    protected $fillable = ['title','first_name', 'middle_name', 'last_name', 'martial_staus', 'mobile', 'email', 'city',
     'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
     'unemployed', 'reviewed', 'status'];
 
@@ -204,5 +204,23 @@ class JobSeeker extends Model
             return DB::table('readiness_assessments')->where('job_seeker_id', $this->id)->distinct('competencies')->count('competencies');
         }
         return 0;
+    }
+
+    public static function getReadinessQuestions($id){
+        $questions = ReadinessAssessment::where('job_seeker_id', $id)
+        ->where('competencies', 'readiness')->get();
+        return $questions;
+    }
+
+    public static function getEvaluationQuestions($id){
+        $questions = ReadinessAssessment::where('job_seeker_id', $id)
+        ->where('competencies', 'evaluation')->get();
+        return $questions;
+    }
+
+    public static function getCompetenciesQuestions($id){
+        $questions = ReadinessAssessment::where('job_seeker_id', $id)
+        ->whereNotIn('competencies', ['readiness','evaluation'])->get();
+        return $questions;
     }
 }

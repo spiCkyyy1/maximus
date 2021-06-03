@@ -93,10 +93,13 @@ class FrontendController extends Controller
             'nin.required' => 'Please enter nin',
             'dob.required' => 'Please select your date of birth',
             'nin.min' => 'Please enter 12 digits of nin',
-            'nin.max' => 'Please enter 12 digits of nin'
+            'nin.max' => 'Please enter 12 digits of nin',
+            'title.required' => 'Please select title',
+            'martialStatus' => 'Please select your martial status'
         ];
 
         $validator = Validator::make($request->all(),[
+            'title' => 'required',
             'firstName' => 'required',
             'surName' => 'required',
             'mobile' => 'required',
@@ -104,7 +107,8 @@ class FrontendController extends Controller
             'city' => 'required',
             'region' => 'required',
             'nin' => 'required|min:12|max:12',
-            'dob' => 'required'
+            'dob' => 'required',
+            'martialStatus' => 'required'
         ], $messages);
 
         if($validator->fails()){
@@ -112,6 +116,7 @@ class FrontendController extends Controller
         }
 
         $jobSeekerId = JobSeeker::create([
+            'title' => $request->title,
             'first_name' => $request->firstName,
             'middle_name' => $request->middleName,
             'last_name' => $request->surName,
@@ -121,6 +126,7 @@ class FrontendController extends Controller
             'region' => $request->region,
             'nin' => $request->nin,
             'dob' => $request->dob,
+            'martial_status' => $request->martialStatus
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);

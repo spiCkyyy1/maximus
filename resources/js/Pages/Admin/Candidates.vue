@@ -159,13 +159,13 @@
                                 <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                 <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
                                 <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td>
-                                <td v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
+                                <td v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                 <td  v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
-                                <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
+                                <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
                                 <td  v-if="jobSeeker.evaluation_weighted_score == 'N/A'">{{jobSeeker.evaluation_weighted_score}}</td>
-                                <td v-if="jobSeeker.best_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.best_competency}}</span></td>
+                                <td v-if="jobSeeker.best_competency != 'N/A'"><span class="badge badge-soft-info"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Competencies')">{{jobSeeker.best_competency}}</a></span></td>
                                 <td v-else><span>{{jobSeeker.best_competency}}</span></td>
-                                <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info">{{jobSeeker.worst_competency}}</span></td>
+                                <td v-if="jobSeeker.worst_competency != 'N/A'"><span class="badge badge-soft-info"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Competencies')">{{jobSeeker.worst_competency}}</a></span></td>
                                 <td v-else><span>{{jobSeeker.worst_competency}}</span></td>
                                 <td>
                                         <span v-if="jobSeeker.reviewed == 'Unreviewed'"><inertiaLink :href="route('reviewJobSeeker', {id: jobSeeker.id, review: 1})"><i class="fas fa-eye" title="Reviewed"></i></inertiaLink></span>

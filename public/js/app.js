@@ -20272,18 +20272,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    assessment: Object,
+    assessment: Number,
     show: Boolean,
     title: String
   },
+  data: function data() {
+    return {
+      assessmentQuestions: {}
+    };
+  },
   mounted: function mounted() {
-    console.log(this.assessment);
+    var _this = this;
 
-    if (this.assessment != '' || this.assessment.length != 0) {
+    if (this.assessment != 0) {
+      $("#loader").css("display", "block");
+      axios.post('/admin/get/questions', {
+        title: this.title,
+        id: this.assessment
+      }).then(function (response) {
+        if (response.data.success) {
+          _this.assessmentQuestions = response.data.success;
+        }
+
+        setTimeout(function () {
+          $("#loader").css("display", "none");
+        }, 2000);
+      });
       $("#assessment-modal").modal('show');
     }
-
-    console.log(this.assessment);
   }
 });
 
@@ -20557,7 +20573,7 @@ __webpack_require__.r(__webpack_exports__);
       showModal: false,
       showAssessmestModal: false,
       jobSeeker: {},
-      assessment: {},
+      assessment: '',
       modalTitle: '',
       dataLoaded: false,
       currentPage: 1,
@@ -20680,7 +20696,7 @@ __webpack_require__.r(__webpack_exports__);
       $("#assessment-modal").modal('show');
     },
     closeAssessmentModal: function closeAssessmentModal() {
-      this.assessment = {};
+      this.assessment = '';
       this.showAssessmestModal = false;
       $("#assessment-modal").modal('hide');
     }
@@ -21034,8 +21050,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             _this.readinessAssessment = [];
             _this.partNo = 'Part 2';
             _this.testPhase = 'Evaluation Test';
-            _this.showLoader = false;
           }
+
+          _this.showLoader = false;
         });
       }
 
@@ -21051,8 +21068,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             _this.readinessAssessment = [];
             _this.partNo = 'Part 3';
             _this.testPhase = 'Competencies Test';
-            _this.showLoader = false;
           }
+
+          _this.showLoader = false;
         });
       }
 
@@ -21070,8 +21088,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             }, 1000);
             _this.hideProgressBar = false;
             _this.hideProcess = false;
-            _this.showLoader = false;
           }
+
+          _this.showLoader = false;
         });
       }
 
@@ -21573,7 +21592,6 @@ __webpack_require__.r(__webpack_exports__);
       showOnJobForm: false,
       showSocialForm: false,
       showUnemployedForm: false,
-      AssessmentStarted: false,
       applicationRejected: false,
       applicationAccepted: false,
       personalInformation: {
@@ -21593,7 +21611,8 @@ __webpack_require__.r(__webpack_exports__);
         employment: '',
         jobTraining: '',
         socialBeneficiary: '',
-        beenUnemployed: ''
+        beenUnemployed: '',
+        martialStatus: ''
       },
       errors: {},
       showLoader: false
@@ -21610,12 +21629,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.showPersonalInformationForm = false;
           _this.showGenderForm = true;
           _this.errors = [];
-          _this.showLoader = false;
         }
 
         if (response.data.errors) {
           _this.errors = response.data.errors;
         }
+
+        _this.showLoader = false;
       })["catch"](function (e) {
         console.log(e);
       });
@@ -21630,8 +21650,9 @@ __webpack_require__.r(__webpack_exports__);
           if (response.data.success) {
             _this2.showGenderForm = false;
             _this2.applicationRejected = true;
-            _this2.showLoader = false;
           }
+
+          _this2.showLoader = false;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -21642,12 +21663,13 @@ __webpack_require__.r(__webpack_exports__);
             _this2.showGenderForm = false;
             _this2.showQualificationForm = true;
             _this2.errors = [];
-            _this2.showLoader = false;
           }
 
           if (response.data.errors) {
             _this2.errors = response.data.errors;
           }
+
+          _this2.showLoader = false;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -21663,8 +21685,9 @@ __webpack_require__.r(__webpack_exports__);
           if (response.data.success) {
             _this3.showQualificationForm = false;
             _this3.applicationRejected = true;
-            _this3.showLoader = false;
           }
+
+          _this3.showLoader = false;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -21675,12 +21698,13 @@ __webpack_require__.r(__webpack_exports__);
             _this3.showQualificationForm = false;
             _this3.showEmploymentForm = true;
             _this3.errors = [];
-            _this3.showLoader = false;
           }
 
           if (response.data.errors) {
             _this3.errors = response.data.errors;
           }
+
+          _this3.showLoader = false;
         });
       }
     },
@@ -21693,12 +21717,13 @@ __webpack_require__.r(__webpack_exports__);
           _this4.showEmploymentForm = false;
           _this4.showOnJobForm = true;
           _this4.errors = [];
-          _this4.showLoader = false;
         }
 
         if (response.data.errors) {
           _this4.errors = response.data.errors;
         }
+
+        _this4.showLoader = false;
       });
     },
     saveJobTraining: function saveJobTraining() {
@@ -21710,12 +21735,13 @@ __webpack_require__.r(__webpack_exports__);
           _this5.showOnJobForm = false;
           _this5.showSocialForm = true;
           _this5.errors = [];
-          _this5.showLoader = false;
         }
 
         if (response.data.errors) {
           _this5.errors = response.data.errors;
         }
+
+        _this5.showLoader = false;
       });
     },
     saveSocial: function saveSocial() {
@@ -21727,16 +21753,19 @@ __webpack_require__.r(__webpack_exports__);
           _this6.showSocialForm = false;
           _this6.showUnemployedForm = true;
           _this6.errors = [];
-          _this6.showLoader = false;
         }
 
         if (response.data.errors) {
           _this6.errors = response.data.errors;
         }
+
+        _this6.showLoader = false;
       });
     },
     saveUnemploymentForm: function saveUnemploymentForm() {
       var _this7 = this;
+
+      this.showLoader = true;
 
       if (this.personalInformation.beenUnemployed == 'less_than_3_months') {
         this.showLoader = true;
@@ -21744,8 +21773,9 @@ __webpack_require__.r(__webpack_exports__);
           if (response.data.success) {
             _this7.showUnemployedForm = false;
             _this7.applicationRejected = true;
-            _this7.showLoader = false;
           }
+
+          _this7.showLoader = false;
         })["catch"](function (error) {
           console.log(error);
         });
@@ -21757,12 +21787,13 @@ __webpack_require__.r(__webpack_exports__);
             _this7.showUnemployedForm = false;
             _this7.applicationAccepted = true;
             _this7.errors = [];
-            _this7.showLoader = false;
           }
 
           if (response.data.errors) {
             _this7.errors = response.data.errors;
           }
+
+          _this7.showLoader = false;
         });
       }
     }
@@ -24887,7 +24918,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_InertiaLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InertiaLink");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('employer_form_heading')), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('employer')), 1
   /* TEXT */
   )]), $props.success ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.success), 1
   /* TEXT */
@@ -25723,7 +25754,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "aria-label": "Close"
   }, [_hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.assessment, function (data, k) {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.assessmentQuestions, function (data, k) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       "class": "card mb-3",
       key: k
@@ -26371,7 +26402,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), jobSeeker.unemployed == 'never_worked' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_94, "Never Worked")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'less_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_95, "Less Than 3 Months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'more_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_96, "More than 3 months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_97, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Readiness Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score) + "%", 9
         /* TEXT, PROPS */
@@ -26380,19 +26411,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Evaluation Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score) + "%", 9
         /* TEXT, PROPS */
         , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_101, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_103, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_103, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
         /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
-        /* TEXT */
-        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_106, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
-        /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
+        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_106, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
         /* TEXT */
         )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_108, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
@@ -27585,7 +27626,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), jobSeeker.unemployed == 'never_worked' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_124, "Never Worked")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'less_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_125, "Less Than 3 Months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'more_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_126, "More than 3 months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_127, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Readiness Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score) + "%", 9
         /* TEXT, PROPS */
@@ -27594,19 +27635,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_130, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Evaluation Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score) + "%", 9
         /* TEXT, PROPS */
         , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_131, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_132, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_133, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_132, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_134, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
         /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_134, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
-        /* TEXT */
-        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_136, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
-        /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
+        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_136, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
         /* TEXT */
         )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
@@ -27691,7 +27742,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), jobSeeker.unemployed == 'never_worked' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_163, "Never Worked")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'less_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_164, "Less Than 3 Months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'more_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_165, "More than 3 months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_166, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_167, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Readiness Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score) + "%", 9
         /* TEXT, PROPS */
@@ -27700,19 +27751,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_169, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Evaluation Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score) + "%", 9
         /* TEXT, PROPS */
         , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_170, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_171, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_172, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_171, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_172, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_173, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
         /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_173, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
-        /* TEXT */
-        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_174, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_175, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
-        /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_176, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
+        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_174, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_175, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_176, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
         /* TEXT */
         )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_177, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
@@ -27797,7 +27858,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), jobSeeker.unemployed == 'never_worked' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_202, "Never Worked")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'less_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_203, "Less Than 3 Months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'more_than_3_months' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_204, "More than 3 months")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.unemployed == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_205, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_206, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Readiness Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Readiness Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score) + "%", 9
         /* TEXT, PROPS */
@@ -27806,19 +27867,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_208, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
-            return $options.openAssessmentModal(jobSeeker.readiness_assessment, 'Evaluation Assessment');
+            return $options.openAssessmentModal(jobSeeker.id, 'Evaluation Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score) + "%", 9
         /* TEXT, PROPS */
         , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_209, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_210, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_211, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_210, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_211, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_212, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
         /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_212, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
-        /* TEXT */
-        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_213, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_214, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
-        /* TEXT */
-        )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_215, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
+        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_213, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_214, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+          href: "javascript:;",
+          onClick: function onClick($event) {
+            return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 9
+        /* TEXT, PROPS */
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_215, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
         /* TEXT */
         )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_216, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
@@ -28818,41 +28889,31 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Thank you for registering your interest.", -1
-/* HOISTED */
-);
-
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+var _hoisted_28 = {
   "class": "font-md"
-}, " You have successfully completed the registration and passed the eligibility for the OJT program. ", -1
-/* HOISTED */
-);
-
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+};
+var _hoisted_29 = {
   "class": "font-md"
-}, " A member of the team will contact you with regards to the next steps of welcoming you on the program. ", -1
-/* HOISTED */
-);
-
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Go to website");
-
-var _hoisted_32 = {
+};
+var _hoisted_30 = {
   key: 1,
   "class": "card"
 };
 
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-close alert-icon-rejected"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Thank you for registering your interest."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "font-md"
-}, " You have successfully completed the registration, you are not eligible for the OJT program. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "font-md"
-}, " A member of the team will contact you with regards to other programs available. ")], -1
+})], -1
 /* HOISTED */
 );
 
+var _hoisted_32 = {
+  "class": "font-md"
+};
+var _hoisted_33 = {
+  "class": "font-md"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertiaLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertiaLink");
 
@@ -28866,9 +28927,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.partNo), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.partNo)), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.testPhase), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.testPhase)), 1
       /* TEXT */
       )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [$data.showLoader ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [_hoisted_12])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.hideProcess ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
         "class": $data.readinessPart ? 'active' : ''
@@ -28882,7 +28943,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": $data.competenciesPart ? 'active' : ''
       }, [_hoisted_16], 2
       /* CLASS */
-      )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.hideProgressBar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.step) + " out of 63", 1
+      )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.hideProgressBar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.step) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('out_of')) + " 63", 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.progressBarPercentage) + "%", 1
       /* TEXT */
@@ -28897,7 +28958,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "aria-valuemax": "100"
       }, null, 12
       /* STYLE, PROPS */
-      , ["aria-valuenow"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_27, _hoisted_28, _hoisted_29, _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+      , ["aria-valuenow"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('thankyou_register')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('completed_registration_passed')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('member_contact')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
         href: _ctx.route('landing'),
         as: "button",
         "class": "btn btn-primary mt-5",
@@ -28906,24 +28973,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_31];
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('go_to_website')), 1
+          /* TEXT */
+          )];
         }),
         _: 1
         /* STABLE */
 
       }, 8
       /* PROPS */
-      , ["href"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_32, [_hoisted_33])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["href"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('thankyou_register')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('completed_registration_rejected')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('member_contact_other_program')), 1
+      /* TEXT */
+      )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 2,
         "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
-        question: "Do you have a recent work history?",
-        option1: "Never worked",
+        question: _ctx.__('q1'),
+        option1: _ctx.__('q1_o1'),
         step: "1",
-        option2: "Not worked within the last 6 months",
-        option3: "worked within the last 6 months",
+        option2: _ctx.__('q1_o2'),
+        option3: _ctx.__('q1_o3'),
         option4: "",
         option5: "",
         option6: "",
@@ -28942,19 +29017,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 3,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "2",
-        question: "Can you start work in the next 30 days? When are you available to start work?",
-        option1: "No",
-        option2: "Maybe",
-        option3: "Yes",
+        question: _ctx.__('q2'),
+        option1: _ctx.__('q2_o1'),
+        option2: _ctx.__('q2_o2'),
+        option3: _ctx.__('q2_o3'),
         value1: "no",
         value2: "maybe",
         value3: "yes",
@@ -28973,19 +29048,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 3 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 3 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 4,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "3",
-        question: "Are you limited by the number of hours that you can work? What are your prefered working hous?",
-        option1: "Limit to hours and days",
-        option2: "I can work a standard week",
-        option3: "Would also consider evening shifts or weekends",
+        question: _ctx.__('q3'),
+        option1: _ctx.__('q3_o1'),
+        option2: _ctx.__('q3_o2'),
+        option3: _ctx.__('q3_o3'),
         value1: "hours_and_days",
         value2: "week",
         value3: "weekends",
@@ -29004,19 +29079,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 4 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 4 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 5,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "4",
-        question: "Do you have caring responsibilities that make it difficult to find work ( I.E Childcare/ Elderly person/ Disabled person)",
-        option1: "Significant Responsibilities",
-        option2: "Some Responsibilities",
-        option3: "None",
+        question: _ctx.__('q4'),
+        option1: _ctx.__('q4_o1'),
+        option2: _ctx.__('q4_o2'),
+        option3: _ctx.__('q4_o3'),
         option4: "",
         option5: "",
         option6: "",
@@ -29035,19 +29110,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 5 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 5 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 6,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "5",
-        question: "Do you need support with a current health condition to enable you to work?",
-        option1: "Cannot work",
-        option2: "Could work with support",
-        option3: "No support needed",
+        question: _ctx.__('q5'),
+        option1: _ctx.__('q5_o1'),
+        option2: _ctx.__('q5_o2'),
+        option3: _ctx.__('q5_o3'),
         option4: "",
         option5: "",
         option6: "",
@@ -29066,19 +29141,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 6 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 7,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "6",
-        question: "Are your family supportive of you working?",
-        option1: "Not Supportive",
-        option2: "Neutral",
-        option3: "Very Supportive",
+        question: _ctx.__('q6'),
+        option1: _ctx.__('q6_o1'),
+        option2: _ctx.__('q6_o2'),
+        option3: _ctx.__('q6_o3'),
         value1: "not_supportive",
         value2: "neutral",
         value3: "very_supportive",
@@ -29097,19 +29172,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 7 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 7 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 8,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "7",
-        question: "Are you able to arrange your own transportation to work?",
-        option1: "No Transport",
-        option2: "Access to Transport",
-        option3: "Own Transport",
+        question: _ctx.__('q7'),
+        option1: _ctx.__('q7_o1'),
+        option2: _ctx.__('q7_o2'),
+        option3: _ctx.__('q7_o3'),
         option4: "",
         option5: "",
         option6: "",
@@ -29128,19 +29203,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 8 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 8 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 9,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "8",
-        question: "Would you work in a mixed working environment?",
-        option1: "Not Willing",
-        option2: "Don't Mind",
-        option3: "Yes Willing",
+        question: _ctx.__('q8'),
+        option1: _ctx.__('q8_o1'),
+        option2: _ctx.__('q8_o2'),
+        option3: _ctx.__('q8_o3'),
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
@@ -29159,19 +29234,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 9 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 9 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 10,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "9",
-        question: "Would you consider working in a role other than that of your qualification or experience?",
-        option1: "Not Willing",
-        option2: "Don't Mind",
-        option3: "Yes Willing",
+        question: _ctx.__('q9'),
+        option1: _ctx.__('q9_o1'),
+        option2: _ctx.__('q9_o2'),
+        option3: _ctx.__('q9_o3'),
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
@@ -29190,19 +29265,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 10 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 10 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 11,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "10",
-        question: "Do you have an up to date CV?",
-        option1: "Don't have a CV",
-        option2: "Needs updating",
-        option3: "Up to date",
+        question: _ctx.__('q10'),
+        option1: _ctx.__('q10_o1'),
+        option2: _ctx.__('q10_o2'),
+        option3: _ctx.__('q10_o3'),
         value1: "no_cv",
         value2: "needs_updating",
         value3: "yes_cv",
@@ -29221,19 +29296,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 11 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 11 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 12,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "11",
-        question: "Do you need support with job interviews?",
-        option1: "A lot of support",
-        option2: "A little bit of support",
-        option3: "No support",
+        question: _ctx.__('q11'),
+        option1: _ctx.__('q11_o1'),
+        option2: _ctx.__('q11_o2'),
+        option3: _ctx.__('q11_o3'),
         value1: "lot_of_support",
         value2: "little_bit_of_support",
         value3: "no_support",
@@ -29252,19 +29327,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 12 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 12 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 13,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "12",
-        question: "Are you willing to work as part of a team?",
-        option1: "Not Willing",
-        option2: "Don't Mind",
-        option3: "Yes Willing",
+        question: _ctx.__('q12'),
+        option1: _ctx.__('q12_o1'),
+        option2: _ctx.__('q12_o2'),
+        option3: _ctx.__('q12_o3'),
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
@@ -29283,19 +29358,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 13 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 13 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 14,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "13",
-        question: "Are you confident in using Microsoft office?",
-        option1: "Not at all",
-        option2: "Limited confident",
-        option3: "Very Confident",
+        question: _ctx.__('q13'),
+        option1: _ctx.__('q13_o1'),
+        option2: _ctx.__('q13_o2'),
+        option3: _ctx.__('q13_o3'),
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
@@ -29314,19 +29389,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 14 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 14 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 15,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "14",
-        question: "Are you confident in working with numbers?",
-        option1: "Not at all",
-        option2: "Limited confident",
-        option3: "Very Confident",
+        question: _ctx.__('q14'),
+        option1: _ctx.__('q14_o1'),
+        option2: _ctx.__('q14_o2'),
+        option3: _ctx.__('q14_o3'),
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
@@ -29345,19 +29420,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 15 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 15 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 16,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "15",
-        question: "Can you speak in English?",
-        option1: "No English",
-        option2: "Some English",
-        option3: "Fluent English",
+        question: _ctx.__('q15'),
+        option1: _ctx.__('q15_o1'),
+        option2: _ctx.__('q15_o2'),
+        option3: _ctx.__('q15_o3'),
         value1: "no_english",
         value2: "some_english",
         value3: "fluent_english",
@@ -29376,19 +29451,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 16 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 16 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 17,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "16",
-        question: "Can you read and write in English?",
-        option1: "No English",
-        option2: "Some English",
-        option3: "Fluent English",
+        question: _ctx.__('q16'),
+        option1: _ctx.__('q16_o1'),
+        option2: _ctx.__('q16_o2'),
+        option3: _ctx.__('q16_o3'),
         value1: "no_english",
         value2: "some_english",
         value3: "fluent_english",
@@ -29407,19 +29482,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 17 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 17 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 18,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "17",
-        question: "Do your living arrangements make it difficult for you to find work?",
-        option1: "Very Difficult",
-        option2: "Somewhat difficult",
-        option3: "Not at all difficult",
+        question: _ctx.__('q17'),
+        option1: _ctx.__('q17_o1'),
+        option2: _ctx.__('q17_o2'),
+        option3: _ctx.__('q17_o3'),
         value1: "very_difficult",
         value2: "somewhat_difficult",
         value3: "not_at_all_difficult",
@@ -29438,19 +29513,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 18 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 18 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 19,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "18",
-        question: "Are you willing to travel for 30 minutes or more to get to your work location?",
-        option1: "Not at all",
-        option2: "Willing",
-        option3: "Very willing",
+        question: _ctx.__('q18'),
+        option1: _ctx.__('q18_o1'),
+        option2: _ctx.__('q18_o2'),
+        option3: _ctx.__('q18_o3'),
         value1: "not_at_all",
         value2: "willing",
         value3: "very_willing",
@@ -29469,19 +29544,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 19 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 19 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 20,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "19",
-        question: "How difficult is it for you to get support with your caring responsibilities to enable you to work?",
-        option1: "Very Difficult",
-        option2: "Somewhat difficult",
-        option3: "Not at all difficult",
+        question: _ctx.__('q19'),
+        option1: _ctx.__('q19_o1'),
+        option2: _ctx.__('q19_o2'),
+        option3: _ctx.__('q19_o3'),
         value1: "very_difficult",
         value2: "somewhat_difficult",
         value3: "not_at_all_difficult",
@@ -29500,19 +29575,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 20 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 20 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 21,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "20",
-        question: "Are you confident you will find a job?",
-        option1: "Not at all",
-        option2: "Somewhat confident",
-        option3: "Very Confident",
+        question: _ctx.__('q20'),
+        option1: _ctx.__('q20_o1'),
+        option2: _ctx.__('q20_o2'),
+        option3: _ctx.__('q20_o3'),
         value1: "not_at_all",
         value2: "somewhat_confidence",
         value3: "very_confident",
@@ -29531,19 +29606,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 21 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 21 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 22,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "21",
-        question: "How confident are you with using a computer and/ or smartphone?",
-        option1: "Not at all",
-        option2: "Little confidence",
-        option3: "Very Confident",
+        question: _ctx.__('q21'),
+        option1: _ctx.__('q21_o1'),
+        option2: _ctx.__('q21_o2'),
+        option3: _ctx.__('q21_o3'),
         value1: "not_at_all",
         value2: "little_confidence",
         value3: "very_confident",
@@ -29562,18 +29637,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 22 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 22 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 23,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "22",
-        question: "Do you believe you have any skills gaps in relation to your job goals/ preferences?",
-        option1: "Yes",
-        option2: "No",
+        question: _ctx.__('q22'),
+        option1: _ctx.__('q22_o1'),
+        option2: _ctx.__('q22_o2'),
         option3: "",
         value1: "yes",
         value2: "no",
@@ -29593,19 +29668,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 23 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 23 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 24,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "23",
-        question: "Are you willing to move cities to secure a job?",
-        option1: "Not willing",
-        option2: "Somewhat willing",
-        option3: "Very willing",
+        question: _ctx.__('q23'),
+        option1: _ctx.__('q23_o1'),
+        option2: _ctx.__('q23_o2'),
+        option3: _ctx.__('q23_o3'),
         value1: "not_willing",
         value2: "somewhat_willing",
         value3: "very_willing",
@@ -29624,19 +29699,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 24 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 24 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 25,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "24",
-        question: "Are you often late for appointments and deadlines?",
-        option1: "Often",
-        option2: "Occassionally",
-        option3: "Never",
+        question: _ctx.__('q24'),
+        option1: _ctx.__('q24_o1'),
+        option2: _ctx.__('q24_o2'),
+        option3: _ctx.__('q24_o3'),
         value1: "often",
         value2: "occassionally",
         value3: "never",
@@ -29655,19 +29730,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 25 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 25 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 26,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "25",
-        question: "Do you have clear job goals?",
-        option1: "Not clear",
-        option2: "Somewhat clear",
-        option3: "Very clear",
+        question: _ctx.__('q25'),
+        option1: _ctx.__('q25_o1'),
+        option2: _ctx.__('q25_o2'),
+        option3: _ctx.__('q25_o3'),
         value1: "not_clear",
         value2: "somewhat_clear",
         value3: "very_clear",
@@ -29686,19 +29761,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 26 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 26 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 27,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "26",
-        question: "How many jobs have you applied for in the last 3 months?",
-        option1: "0-5",
-        option2: "6-10",
-        option3: "11+",
+        question: _ctx.__('q26'),
+        option1: _ctx.__('q26_o1'),
+        option2: _ctx.__('q26_o2'),
+        option3: _ctx.__('q26_o3'),
         value1: "0-5",
         value2: "6-10",
         value3: "11+",
@@ -29717,19 +29792,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 27 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 27 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 28,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "27",
-        question: "How many interviews have you had in the last three months?",
-        option1: "0-5",
-        option2: "6-10",
-        option3: "11+",
+        question: _ctx.__('q27'),
+        option1: _ctx.__('q27_o1'),
+        option2: _ctx.__('q27_o2'),
+        option3: _ctx.__('q27_o3'),
         value1: "0-5",
         value2: "6-10",
         value3: "11+",
@@ -29748,19 +29823,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 28 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 28 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 29,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "28",
-        question: "How willing would you be to work in a customer facing role?",
-        option1: "Not willing",
-        option2: "Don't mind",
-        option3: "Yes willing",
+        question: _ctx.__('q28'),
+        option1: _ctx.__('q28_o1'),
+        option2: _ctx.__('q28_o2'),
+        option3: _ctx.__('q28_o3'),
         value1: "not_willing",
         value2: "dont_mind",
         value3: "yes_willing",
@@ -29779,24 +29854,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "1",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 29 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 29 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_readiness, {
         key: 30,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "29",
-        question: "If we have the perfect vacancy, what do you believe is your number one barrier stopping you from Starting this tomorrow?",
-        option1: "Family issues",
-        option2: "Transportation",
-        option3: "Health Issues",
-        option4: "Location",
-        option5: "Education",
-        option6: "Experience",
-        option7: "Qualifcations",
-        option8: "No Barriers",
+        question: _ctx.__('q29'),
+        option1: _ctx.__('q29_o1'),
+        option2: _ctx.__('q29_o2'),
+        option3: _ctx.__('q29_o3'),
+        option4: _ctx.__('q29_o4'),
+        option5: _ctx.__('q29_o5'),
+        option6: _ctx.__('q29_o6'),
+        option7: _ctx.__('q29_o7'),
+        option8: _ctx.__('q29_o8'),
         value1: "family_issues",
         value2: "transportation",
         value3: "health_issues",
@@ -29810,21 +29885,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score3: "",
         competency: "readiness",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 30 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "option5", "option6", "option7", "option8", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 30 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 31,
         "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "30",
-        question: "I possess sufficient resources to achieve my academic goals.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q30'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29835,20 +29910,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 31 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 31 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 32,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "31",
-        question: "I complete assigned work effectively and on time",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q31'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29859,20 +29934,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 32 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 32 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 33,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "32",
-        question: "I am able to clearly identify areas where I can improve.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q32'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29883,20 +29958,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 33 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 33 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 34,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "33",
-        question: "I am able to accurately describe a situation in writing.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q33'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29907,20 +29982,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 34 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 34 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 35,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "34",
-        question: "I am able to verbally articulate my thoughts and ideas.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q34'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29931,20 +30006,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 35 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 35 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 36,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "35",
-        question: "I am willing to learn from my peers",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q35'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29955,20 +30030,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 36 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 36 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 37,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "36",
-        question: "I convey my thoughts to others clearly and respectfully.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q36'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -29979,20 +30054,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 37 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 37 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 38,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "37",
-        question: "I demonstrate effective listening skills",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q37'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30003,20 +30078,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 38 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 38 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 39,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "38",
-        question: "I am able to learn from critical reflection.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q38'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30027,20 +30102,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 39 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 39 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 40,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "39",
-        question: "I am able to think critically and objectively about any given topic or situation.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q39'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30051,20 +30126,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 40 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 40 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 41,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "40",
-        question: "I take the initiative to discover new academic challenges.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q40'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30075,20 +30150,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 41 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 41 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 42,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "41",
-        question: "I am able to think critically while a teacher delivers a lesson.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q41'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30099,20 +30174,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "evaluation",
         error: $data.error,
-        btnText: "next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 42 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 42 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_evaluation, {
         key: 43,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "42",
-        question: "I am able to write a persuasive essay, including a convincing thesis and solid evidence to support my claims.",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q42'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30126,18 +30201,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         btnText: "Submit"
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 43 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 43 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 44,
         "class": "wow fadeInRight",
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "43",
-        question: "Are you flexible and receptive regarding new ideas and approaches?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q43'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30148,20 +30223,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Adaptability",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 44 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 44 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 45,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "44",
-        question: "In response to unexpected events and the fluctuating demands of your job, do you adapt easily to plans, goals, and actions?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q44'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30172,20 +30247,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Adaptability",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 45 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 45 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 46,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "45",
-        question: "Do you cultivate positive relationships? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q45'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30196,20 +30271,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Collaboration",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 46 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 46 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 47,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "46",
-        question: "How willing are you to learn from others?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q46'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30220,20 +30295,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Collaboration",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 47 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 47 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 48,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "47",
-        question: "Do you recognize how personal behaviors and emotions impact others?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q47'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30244,20 +30319,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Collaboration",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 48 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 48 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 49,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "48",
-        question: "Do you convey your thoughts clearly and respectfully? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q48'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30268,20 +30343,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Communication",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 49 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 49 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 50,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "49",
-        question: "Do you demonstrate effective listening skills?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q49'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30292,20 +30367,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Communication",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 50 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 50 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 51,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "50",
-        question: "Are you self-motivated and able to build the trust of others?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q50'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30316,20 +30391,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 51 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 51 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 52,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "51",
-        question: "Can you inspire them to work toward a common goal?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q51'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30340,20 +30415,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 52 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 52 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 53,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "52",
-        question: "Do you acknowledge the contributions of others?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q52'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30364,20 +30439,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Leadership Qualities",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 53 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 53 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 54,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "53",
-        question: "Do you have the ability to make decisions for the right/ethical reasons? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q53'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30388,20 +30463,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Integrity",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 54 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 54 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 55,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "54",
-        question: "Do you practice honesty/integrity when fulfilling your work responsibilities?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q54'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30412,20 +30487,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Integrity",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"55\" v-if=\"step == 55\"\n                        question=\"Do you promote an inclusive environment by showing respect for differences in lifestyle, viewpoint, race, nationality, ethnicity, religion, belief, sexual orientation, disability, and age? \"\n                        option1=\"Very Confident\"\n                        option2=\"Fairly Confident\" option3=\"Not Very Confident\" option4=\"Not Confident\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Inclusivity\" :error=\"error\"\n                        btnText=\"Next\"></competencies> "), $data.step == 55 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"55\" v-if=\"step == 55\"\n                        question=\"Do you promote an inclusive environment by showing respect for differences in lifestyle, viewpoint, race, nationality, ethnicity, religion, belief, sexual orientation, disability, and age? \"\n                        :option1=\"__('very_confident')\"\n                        :option2=\"__('confident')\" :option3=\"__('neutral')\" :option4=\"__('not_confident')\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Inclusivity\" :error=\"error\"\n                        :btnText=\"__('next')\"></competencies> "), $data.step == 55 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 56,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "55",
-        question: "Are you accessible to others?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q55'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30436,20 +30511,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Responsiveness",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 56 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 56 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 57,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "56",
-        question: "Do you reach out in a timely and responsive manner? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q56'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30460,20 +30535,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Responsiveness",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 57 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 57 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 58,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "57",
-        question: "Are you diplomatic, courteous, and welcoming?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q57'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30484,20 +30559,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Responsiveness",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 58 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 58 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 59,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "58",
-        question: "Do you identify goals that are aligned with the organization’s strategic direction and achieve results accordingly ?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q58'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30508,20 +30583,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Results",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 59 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 59 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 60,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "59",
-        question: "Do you persist through significant difficulties to achieve those goals?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q59'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30532,20 +30607,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Results",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 60 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 60 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 61,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "60",
-        question: "Do you anticipate needs, solve problems, and take action, all without explicit instructions? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q60'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30556,20 +30631,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Initiative",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 61 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 61 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 62,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "61",
-        question: "Do you take the initiative to discover new work challenges and to help shape events that lead to the organization’s success?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q61'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30580,20 +30655,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Initiative",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 62 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 62 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 63,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "62",
-        question: "Are you committed to improving your knowledge and skills?",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q62'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30604,20 +30679,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Development",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 63 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.step == 63 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_competencies, {
         key: 64,
         value: $data.answer,
         onUpdateAnswer: $options.updateAnswer,
         onSubmitAnswer: $options.submitAnswer,
         step: "63",
-        question: "What steps do you take to improve and develop your skills? ",
-        option1: "Very Confident",
-        option2: "Fairly Confident",
-        option3: "Not Very Confident",
-        option4: "Not Confident",
+        question: _ctx.__('q63'),
+        option1: _ctx.__('very_confident'),
+        option2: _ctx.__('confident'),
+        option3: _ctx.__('neutral'),
+        option4: _ctx.__('not_confident'),
         value1: "very_confident",
         value2: "fairly_confident",
         value3: "not_very_confident",
@@ -30628,10 +30703,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         weighted_score4: "0.25",
         competency: "Development",
         error: $data.error,
-        btnText: "Next"
+        btnText: _ctx.__('next')
       }, null, 8
       /* PROPS */
-      , ["value", "onUpdateAnswer", "onSubmitAnswer", "error"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"64\" v-if=\"step == 64\"\n                        question=\"What are your major accomplishments during this review period?\"\n                        option1=\"Very Confident\"\n                        option2=\"Fairly Confident\" option3=\"Not Very Confident\" option4=\"Not Confident\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Accomplishments\" :error=\"error\"\n                        btnText=\"Next\"></competencies>\n\n                        <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"65\" v-if=\"step == 65\"\n                        question=\"Identify areas for development and improvement that you can accomplish in the next review period.\"\n                        option1=\"Very Confident\"\n                        option2=\"Fairly Confident\" option3=\"Not Very Confident\" option4=\"Not Confident\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Growth\" :error=\"error\"\n                        btnText=\"Submit\"></competencies> ")])])])])])])];
+      , ["value", "onUpdateAnswer", "onSubmitAnswer", "question", "option1", "option2", "option3", "option4", "error", "btnText"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"64\" v-if=\"step == 64\"\n                        question=\"What are your major accomplishments during this review period?\"\n                        option1=\"Very Confident\"\n                        option2=\"Fairly Confident\" option3=\"Not Very Confident\" option4=\"Not Confident\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Accomplishments\" :error=\"error\"\n                        btnText=\"Next\"></competencies>\n\n                        <competencies :value=\"answer\" v-on:updateAnswer=\"updateAnswer\" v-on:submitAnswer=\"submitAnswer\" step=\"65\" v-if=\"step == 65\"\n                        question=\"Identify areas for development and improvement that you can accomplish in the next review period.\"\n                        option1=\"Very Confident\"\n                        option2=\"Fairly Confident\" option3=\"Not Very Confident\" option4=\"Not Confident\"\n                        value1=\"very_confident\" value2=\"fairly_confident\" value3=\"not_very_confident\" value4=\"not_confident\"\n                        weighted_score1=\"1\" weighted_score2=\"0.75\" weighted_score3=\"0.5\" weighted_score4=\"0.25\" competency=\"Growth\" :error=\"error\"\n                        btnText=\"Submit\"></competencies> ")])])])])])])];
     }),
     _: 1
     /* STABLE */
@@ -31670,43 +31745,49 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "section section-qa section-custom section-custom-right secondary-bg"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_2 = {
   "class": "feature-background"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+};
+var _hoisted_3 = {
   "class": "fb-fill d-flex align-items-center bg-2",
   style: {
     "background-image": "url('/images/banners/bg2.png')"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "feature-content w-100 px-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: "/images/banners/2.png",
   alt: "",
   "class": "img-fluid hiring-img wow fadeInDown"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "sec-title wow fadeInLeft"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "sub-title white-text"
-}, "JOIN THE TEAM"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
-  "class": "title white-text"
-}, "We Are Hiring")])])])], -1
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_3 = {
+var _hoisted_6 = {
+  "class": "sec-title wow fadeInLeft"
+};
+var _hoisted_7 = {
+  "class": "sub-title white-text"
+};
+var _hoisted_8 = {
+  "class": "title white-text"
+};
+var _hoisted_9 = {
   "class": "content-box"
 };
-var _hoisted_4 = {
+var _hoisted_10 = {
   "class": "feature-foreground wow fadeInRight"
 };
-var _hoisted_5 = {
+var _hoisted_11 = {
   key: 0,
   "class": "th-loader loader-page",
   id: "loader"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   "class": "spinner-container",
   viewBox: "0 0 52 52"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("circle", {
@@ -31719,100 +31800,15 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_7 = {
-  key: 1,
-  "class": "process-steps-1"
-};
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "1")])], -1
-/* HOISTED */
-);
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "2")])], -1
-/* HOISTED */
-);
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "3")])], -1
-/* HOISTED */
-);
-
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "4")])], -1
-/* HOISTED */
-);
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "5")])], -1
-/* HOISTED */
-);
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "6")])], -1
-/* HOISTED */
-);
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "7")])], -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-  href: ""
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "8")])], -1
-/* HOISTED */
-);
-
-var _hoisted_16 = {
-  key: 0,
-  "class": "row justify-content-center"
-};
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "status-bar"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "custom-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "col title"
-}, "1 out of 10"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "col-auto sub-title"
-}, "25%")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "progress"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "progress-bar",
-  role: "progressbar",
-  style: {
-    "width": "25%"
-  },
-  "aria-valuenow": "25",
-  "aria-valuemin": "0",
-  "aria-valuemax": "100"
-})])])], -1
-/* HOISTED */
-);
-
-var _hoisted_18 = {
+var _hoisted_13 = {
   "class": "feature-content d-flex align-items-center"
 };
-var _hoisted_19 = {
+var _hoisted_14 = {
   key: 0,
   "class": "card wow fadeInDown"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-check alert-icon-success"
@@ -31820,285 +31816,238 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Thank you for registering your interest.", -1
-/* HOISTED */
-);
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+var _hoisted_16 = {
   "class": "font-md"
-}, " You have successfully completed the registration and passed the eligibility for the OJT program. ", -1
-/* HOISTED */
-);
-
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+};
+var _hoisted_17 = {
   "class": "font-md"
-}, " A member of the team will contact you with regards to the documents required and welcoming you on the program. ", -1
-/* HOISTED */
-);
-
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Please follow the below link to complete the next step of the application / readiness assessments. ");
-
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Start Assessment");
-
-var _hoisted_26 = {
+};
+var _hoisted_18 = {
   key: 1,
   "class": "card wow fadeInDown"
 };
 
-var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-close alert-icon-rejected"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Thank you for registering your interest."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "font-md"
-}, " You have successfully completed the registration, you are not eligible for the OJT program. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "font-md"
-}, " A member of the team will contact you with regards to other programs available. ")], -1
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_28 = {
+var _hoisted_20 = {
+  "class": "font-md"
+};
+var _hoisted_21 = {
+  "class": "font-md"
+};
+var _hoisted_22 = {
   key: 2,
   "class": "card form-dark wow fadeInRight",
   id: "personalInformation"
 };
-
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", {
+var _hoisted_23 = {
   "class": "mb-5"
-}, "Personal Information", -1
-/* HOISTED */
-);
-
-var _hoisted_30 = {
+};
+var _hoisted_24 = {
   "class": "form-row"
 };
-var _hoisted_31 = {
+var _hoisted_25 = {
   "class": "col-sm-auto col-lg-12 col-xl-auto"
 };
-var _hoisted_32 = {
+var _hoisted_26 = {
   "class": "form-group"
 };
-
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_27 = {
   "class": "custom-label"
-}, "Title", -1
-/* HOISTED */
-);
-
-var _hoisted_34 = {
+};
+var _hoisted_28 = {
   "class": "select-option"
 };
 
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "mr"
 }, "Mr.", -1
 /* HOISTED */
 );
 
-var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: "mrs"
 }, "Mrs.", -1
 /* HOISTED */
 );
 
-var _hoisted_37 = {
+var _hoisted_31 = {
   "class": "col-sm"
+};
+var _hoisted_32 = {
+  "class": "form-group"
+};
+var _hoisted_33 = {
+  "class": "custom-label"
+};
+var _hoisted_34 = {
+  key: 0,
+  "class": "form-text small text-danger"
+};
+var _hoisted_35 = {
+  "class": "col-sm"
+};
+var _hoisted_36 = {
+  "class": "form-group"
+};
+var _hoisted_37 = {
+  "class": "custom-label"
 };
 var _hoisted_38 = {
-  "class": "form-group"
-};
-
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "First Name", -1
-/* HOISTED */
-);
-
-var _hoisted_40 = {
   key: 0,
   "class": "form-text small text-danger"
+};
+var _hoisted_39 = {
+  "class": "col-sm"
+};
+var _hoisted_40 = {
+  "class": "form-group"
 };
 var _hoisted_41 = {
-  "class": "col-sm"
+  "class": "custom-label"
 };
 var _hoisted_42 = {
-  "class": "form-group"
-};
-
-var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "Middle Name", -1
-/* HOISTED */
-);
-
-var _hoisted_44 = {
   key: 0,
   "class": "form-text small text-danger"
+};
+var _hoisted_43 = {
+  "class": "form-group"
+};
+var _hoisted_44 = {
+  "class": "custom-label"
 };
 var _hoisted_45 = {
-  "class": "col-sm"
+  "class": "select-option"
 };
 var _hoisted_46 = {
-  "class": "form-group"
+  value: "married"
 };
-
-var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "Surname", -1
-/* HOISTED */
-);
-
+var _hoisted_47 = {
+  value: "divorced"
+};
 var _hoisted_48 = {
-  key: 0,
-  "class": "form-text small text-danger"
+  value: "single"
 };
 var _hoisted_49 = {
-  "class": "form-row"
+  key: 0,
+  "class": "form-text small text-danger"
 };
 var _hoisted_50 = {
-  "class": "col-sm-6"
-};
-var _hoisted_51 = {
-  "class": "form-group"
-};
-
-var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "Mobile No.", -1
-/* HOISTED */
-);
-
-var _hoisted_53 = {
-  key: 0,
-  "class": "form-text small text-danger"
-};
-var _hoisted_54 = {
-  "class": "col-sm-6"
-};
-var _hoisted_55 = {
-  "class": "form-group"
-};
-
-var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "Email Address", -1
-/* HOISTED */
-);
-
-var _hoisted_57 = {
-  key: 0,
-  "class": "form-text small text-danger"
-};
-var _hoisted_58 = {
   "class": "form-row"
 };
-var _hoisted_59 = {
+var _hoisted_51 = {
   "class": "col-sm-6"
+};
+var _hoisted_52 = {
+  "class": "form-group"
+};
+var _hoisted_53 = {
+  "class": "custom-label"
+};
+var _hoisted_54 = {
+  key: 0,
+  "class": "form-text small text-danger"
+};
+var _hoisted_55 = {
+  "class": "col-sm-6"
+};
+var _hoisted_56 = {
+  "class": "form-group"
+};
+var _hoisted_57 = {
+  "class": "custom-label"
+};
+var _hoisted_58 = {
+  key: 0,
+  "class": "form-text small text-danger"
+};
+var _hoisted_59 = {
+  "class": "form-row"
 };
 var _hoisted_60 = {
-  "class": "form-group"
-};
-
-var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "City", -1
-/* HOISTED */
-);
-
-var _hoisted_62 = {
-  "class": "select-option"
-};
-var _hoisted_63 = {
-  key: 0,
-  "class": "form-text small text-danger"
-};
-var _hoisted_64 = {
   "class": "col-sm-6"
 };
-var _hoisted_65 = {
+var _hoisted_61 = {
   "class": "form-group"
 };
-
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_62 = {
   "class": "custom-label"
-}, "Region", -1
-/* HOISTED */
-);
-
-var _hoisted_67 = {
+};
+var _hoisted_63 = {
   "class": "select-option"
 };
-var _hoisted_68 = {
+var _hoisted_64 = {
   key: 0,
   "class": "form-text small text-danger"
+};
+var _hoisted_65 = {
+  "class": "col-sm-6"
+};
+var _hoisted_66 = {
+  "class": "form-group"
+};
+var _hoisted_67 = {
+  "class": "custom-label"
+};
+var _hoisted_68 = {
+  "class": "select-option"
 };
 var _hoisted_69 = {
-  "class": "form-group"
-};
-
-var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "NIN", -1
-/* HOISTED */
-);
-
-var _hoisted_71 = {
   key: 0,
   "class": "form-text small text-danger"
+};
+var _hoisted_70 = {
+  "class": "form-group"
+};
+var _hoisted_71 = {
+  "class": "custom-label"
 };
 var _hoisted_72 = {
-  "class": "form-group"
-};
-
-var _hoisted_73 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "class": "custom-label"
-}, "Date of Birth", -1
-/* HOISTED */
-);
-
-var _hoisted_74 = {
-  "class": "select-date"
-};
-var _hoisted_75 = {
   key: 0,
   "class": "form-text small text-danger"
 };
+var _hoisted_73 = {
+  "class": "form-group"
+};
+var _hoisted_74 = {
+  "class": "custom-label"
+};
+var _hoisted_75 = {
+  "class": "select-date"
+};
 var _hoisted_76 = {
-  "class": "text-center mt-5"
+  key: 0,
+  "class": "form-text small text-danger"
 };
 var _hoisted_77 = {
+  "class": "text-center mt-5"
+};
+var _hoisted_78 = {
   key: 3,
   "class": "card wow fadeInRight",
   id: "genderForm"
 };
-
-var _hoisted_78 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "What's your Gender?", -1
-/* HOISTED */
-);
-
 var _hoisted_79 = {
   "class": "check_radio mt-4 mb-5"
 };
 var _hoisted_80 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_81 = {
   "for": "c1"
-}, "Male", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_82 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_83 = {
   "for": "c2"
-}, "Female", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_84 = {
   key: 0,
   "class": "form-text small text-danger"
@@ -32110,225 +32059,148 @@ var _hoisted_86 = {
   key: 4,
   "class": "card wow fadeInRight"
 };
-
-var _hoisted_87 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "What is the highest level of qualification you hold?", -1
-/* HOISTED */
-);
-
-var _hoisted_88 = {
+var _hoisted_87 = {
   "class": "check_radio mt-4 mb-5"
 };
+var _hoisted_88 = {
+  "class": "radio text-left mb-3"
+};
 var _hoisted_89 = {
-  "class": "radio text-left mb-3"
-};
-
-var _hoisted_90 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "oa1"
-}, "School", -1
-/* HOISTED */
-);
-
+};
+var _hoisted_90 = {
+  "class": "radio text-left mb-3"
+};
 var _hoisted_91 = {
-  "class": "radio text-left mb-3"
-};
-
-var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "oa2"
-}, "Bachelor's Degree", -1
-/* HOISTED */
-);
-
+};
+var _hoisted_92 = {
+  "class": "radio text-left mb-3"
+};
 var _hoisted_93 = {
-  "class": "radio text-left mb-3"
-};
-
-var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "oa3"
-}, "Master's Degree", -1
-/* HOISTED */
-);
-
-var _hoisted_95 = {
+};
+var _hoisted_94 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_95 = {
   "for": "oa4"
-}, "Doctoral Degree", -1
-/* HOISTED */
-);
-
-var _hoisted_97 = {
+};
+var _hoisted_96 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_98 = {
+var _hoisted_97 = {
   "class": "text-center"
 };
-var _hoisted_99 = {
+var _hoisted_98 = {
   key: 5,
   "class": "card wow fadeInRight"
 };
-
-var _hoisted_100 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "You are available for full-time employment? ", -1
-/* HOISTED */
-);
-
-var _hoisted_101 = {
+var _hoisted_99 = {
   "class": "check_radio mt-4 mb-5"
+};
+var _hoisted_100 = {
+  "class": "radio text-left mb-3"
+};
+var _hoisted_101 = {
+  "for": "c5"
 };
 var _hoisted_102 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_103 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "for": "c5"
-}, "Yes", -1
-/* HOISTED */
-);
-
-var _hoisted_104 = {
-  "class": "radio text-left mb-3"
-};
-
-var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_103 = {
   "for": "c6"
-}, "No", -1
-/* HOISTED */
-);
-
-var _hoisted_106 = {
+};
+var _hoisted_104 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_107 = {
+var _hoisted_105 = {
   "class": "text-center"
 };
-var _hoisted_108 = {
+var _hoisted_106 = {
   key: 6,
   "class": "card wow fadeInRight"
 };
-
-var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "This programme has an element of On-TheJob training, you are willing and able to commit.", -1
-/* HOISTED */
-);
-
-var _hoisted_110 = {
+var _hoisted_107 = {
   "class": "check_radio mt-4 mb-5"
 };
-var _hoisted_111 = {
+var _hoisted_108 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_112 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_109 = {
   "for": "c7"
-}, "Yes", -1
-/* HOISTED */
-);
-
-var _hoisted_113 = {
+};
+var _hoisted_110 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_114 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_111 = {
   "for": "c8"
-}, "No", -1
-/* HOISTED */
-);
-
-var _hoisted_115 = {
+};
+var _hoisted_112 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_116 = {
+var _hoisted_113 = {
   "class": "text-center"
 };
-var _hoisted_117 = {
+var _hoisted_114 = {
   key: 7,
   "class": "card wow fadeInRight"
 };
-
-var _hoisted_118 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "Are you an active social beneficiary? ", -1
-/* HOISTED */
-);
-
-var _hoisted_119 = {
+var _hoisted_115 = {
   "class": "check_radio mt-4 mb-5"
 };
-var _hoisted_120 = {
+var _hoisted_116 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_121 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_117 = {
   "for": "c9"
-}, "Yes", -1
-/* HOISTED */
-);
-
-var _hoisted_122 = {
+};
+var _hoisted_118 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_123 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_119 = {
   "for": "c10"
-}, "No", -1
-/* HOISTED */
-);
-
-var _hoisted_124 = {
+};
+var _hoisted_120 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_125 = {
+var _hoisted_121 = {
   "class": "text-center"
 };
-var _hoisted_126 = {
+var _hoisted_122 = {
   key: 8,
   "class": "card wow fadeInRight"
 };
-
-var _hoisted_127 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, "How long have you been unemployed?", -1
-/* HOISTED */
-);
-
-var _hoisted_128 = {
+var _hoisted_123 = {
   "class": "check_radio mt-4 mb-5"
 };
-var _hoisted_129 = {
+var _hoisted_124 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_130 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_125 = {
   "for": "c91"
-}, "Never worked", -1
-/* HOISTED */
-);
-
-var _hoisted_131 = {
+};
+var _hoisted_126 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_132 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_127 = {
   "for": "c101"
-}, "Less Than 3 Months", -1
-/* HOISTED */
-);
-
-var _hoisted_133 = {
+};
+var _hoisted_128 = {
   "class": "radio text-left mb-3"
 };
-
-var _hoisted_134 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_129 = {
   "for": "c102"
-}, "More than 3 months", -1
-/* HOISTED */
-);
-
-var _hoisted_135 = {
+};
+var _hoisted_130 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_136 = {
+var _hoisted_131 = {
   "class": "text-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -32338,7 +32210,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [$data.showLoader ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, [_hoisted_6])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.AssessmentStarted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_7, [_hoisted_8, _hoisted_9, _hoisted_10, _hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14, _hoisted_15])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.AssessmentStarted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_16, [_hoisted_17])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_20, _hoisted_21, _hoisted_22, _hoisted_23, _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('join_the_team')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('we_are_hiring')), 1
+      /* TEXT */
+      )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [$data.showLoader ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [_hoisted_12])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$data.applicationAccepted ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('thankyou_register')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('completed_registration_passed')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('member_contact')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('follow_link')) + " ", 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
         href: _ctx.route('assessmentTest', {
           id: $data.personalInformation.id
         }),
@@ -32349,21 +32233,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_25];
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('take_your_assessment_test')), 1
+          /* TEXT */
+          )];
         }),
         _: 1
         /* STABLE */
 
       }, 8
       /* PROPS */
-      , ["href"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_26, [_hoisted_27])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showPersonalInformationForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_32, [_hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+      , ["href"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.applicationRejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('thankyou_register')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('completed_registration_passed')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('member_contact_other_program')), 1
+      /* TEXT */
+      )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showPersonalInformationForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('personal_information')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('title')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
         "class": "form-control",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.personalInformation.title = $event;
         })
-      }, [_hoisted_35, _hoisted_36], 512
+      }, [_hoisted_29, _hoisted_30], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.title]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_38, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.title]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('first_name')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "form-control",
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
@@ -32371,9 +32269,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.firstName]]), $data.errors.firstName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.firstName[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.firstName]]), $data.errors.firstName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.firstName[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_42, [_hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('middle_name')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "form-control",
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
@@ -32381,9 +32281,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.middleName]]), $data.errors.middleName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.middleName[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.middleName]]), $data.errors.middleName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.middleName[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_46, [_hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('surname')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "form-control",
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
@@ -32391,277 +32293,362 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.surName]]), $data.errors.surName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.surName[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.surName]]), $data.errors.surName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.surName[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_51, [_hoisted_52, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        type: "text",
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('marital_status')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
         "class": "form-control",
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $data.personalInformation.martialStatus = $event;
+        })
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('married')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('divorced')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('single')), 1
+      /* TEXT */
+      )], 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.martialStatus]]), $data.errors.martialStatus ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.martialStatus[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('mobile_no')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        type: "text",
+        "class": "form-control",
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.personalInformation.mobile = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.mobile]]), $data.errors.mobile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.mobile[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.mobile]]), $data.errors.mobile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.mobile[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_55, [_hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('email_addresss')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "email",
         "class": "form-control",
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.personalInformation.email = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.email]]), $data.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.email[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.email]]), $data.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.email[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_60, [_hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_60, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('city')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
         "class": "form-control",
-        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
           return $data.personalInformation.city = $event;
         })
       }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.cities, function (city, k) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("option", {
           key: k,
           value: city.value
-        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(city.text), 9
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__(city.text)), 9
         /* TEXT, PROPS */
         , ["value"]);
       }), 128
       /* KEYED_FRAGMENT */
       ))], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.city]]), $data.errors.city ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.city[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.city]]), $data.errors.city ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_64, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.city[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_65, [_hoisted_66, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_67, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('region')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
         "class": "form-control",
-        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+        "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
           return $data.personalInformation.region = $event;
         })
       }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.regions, function (region, k) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("option", {
           key: k,
           value: region.value
-        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(region.text), 9
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__(region.text)), 9
         /* TEXT, PROPS */
         , ["value"]);
       }), 128
       /* KEYED_FRAGMENT */
       ))], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.region]]), $data.errors.region ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.region[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.personalInformation.region]]), $data.errors.region ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_69, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.region[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_69, [_hoisted_70, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('nin')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "form-control",
-        "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
+        "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
           return $data.personalInformation.nin = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.nin]]), $data.errors.nin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.nin[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.nin]]), $data.errors.nin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_72, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.nin[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_72, [_hoisted_73, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_74, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('dob')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "form-control date-pickr",
-        "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
+        "onUpdate:modelValue": _cache[11] || (_cache[11] = function ($event) {
           return $data.personalInformation.dob = $event;
         }),
         "data-input": ""
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.dob]]), $data.errors.dob ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_75, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.dob[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.personalInformation.dob]]), $data.errors.dob ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.dob[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_76, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_77, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
         "class": "btn btn-primary",
-        onClick: _cache[11] || (_cache[11] = function () {
+        onClick: _cache[12] || (_cache[12] = function () {
           return $options.validatePersonalInformation && $options.validatePersonalInformation.apply($options, arguments);
         })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showGenderForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_77, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showGenderForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_78, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('whats_your_gender')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
         id: "c1",
         "class": "form-control",
         value: "male",
-        "onUpdate:modelValue": _cache[12] || (_cache[12] = function ($event) {
-          return $data.personalInformation.gender = $event;
-        })
-      }, null, 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.gender]]), _hoisted_81]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        type: "radio",
-        id: "c2",
-        "class": "form-control",
-        value: "female",
         "onUpdate:modelValue": _cache[13] || (_cache[13] = function ($event) {
           return $data.personalInformation.gender = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.gender]]), _hoisted_83]), $data.errors.gender ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.gender[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.gender]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_81, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('male')), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        type: "radio",
+        id: "c2",
+        "class": "form-control",
+        value: "female",
+        "onUpdate:modelValue": _cache[14] || (_cache[14] = function ($event) {
+          return $data.personalInformation.gender = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.gender]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_83, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('female')), 1
+      /* TEXT */
+      )]), $data.errors.gender ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_84, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.gender[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_85, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
         "class": "btn btn-primary",
-        onClick: _cache[14] || (_cache[14] = function () {
+        onClick: _cache[15] || (_cache[15] = function () {
           return $options.validateGender && $options.validateGender.apply($options, arguments);
         })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showQualificationForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_86, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_87, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showQualificationForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_86, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('highest_level_of_education')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
         id: "oa1",
         value: "school",
-        "onUpdate:modelValue": _cache[15] || (_cache[15] = function ($event) {
-          return $data.personalInformation.qualification = $event;
-        })
-      }, null, 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), _hoisted_90]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        type: "radio",
-        id: "oa2",
-        value: "bachelors",
         "onUpdate:modelValue": _cache[16] || (_cache[16] = function ($event) {
           return $data.personalInformation.qualification = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), _hoisted_92]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_93, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_89, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('school')), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "oa3",
-        value: "masters",
+        id: "oa2",
+        value: "bachelors",
         "onUpdate:modelValue": _cache[17] || (_cache[17] = function ($event) {
           return $data.personalInformation.qualification = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), _hoisted_94]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_95, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_91, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('bachelor')), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_92, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "oa4",
-        value: "doctoral",
+        id: "oa3",
+        value: "masters",
         "onUpdate:modelValue": _cache[18] || (_cache[18] = function ($event) {
           return $data.personalInformation.qualification = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), _hoisted_96]), $data.errors.qualification ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_97, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.qualification[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_93, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('master')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        type: "button",
-        "class": "btn btn-primary",
-        onClick: _cache[19] || (_cache[19] = function () {
-          return $options.saveQualification && $options.saveQualification.apply($options, arguments);
-        })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEmploymentForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_100, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_101, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_94, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c5",
-        value: "yes",
-        "onUpdate:modelValue": _cache[20] || (_cache[20] = function ($event) {
-          return $data.personalInformation.employment = $event;
+        id: "oa4",
+        value: "doctoral",
+        "onUpdate:modelValue": _cache[19] || (_cache[19] = function ($event) {
+          return $data.personalInformation.qualification = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.employment]]), _hoisted_103]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.qualification]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_95, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('doctoral')), 1
+      /* TEXT */
+      )]), $data.errors.qualification ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_96, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.qualification[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_97, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "btn btn-primary",
+        onClick: _cache[20] || (_cache[20] = function () {
+          return $options.saveQualification && $options.saveQualification.apply($options, arguments);
+        })
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEmploymentForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('full_time_employment')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c6",
-        value: "no",
+        id: "c5",
+        value: "yes",
         "onUpdate:modelValue": _cache[21] || (_cache[21] = function ($event) {
           return $data.personalInformation.employment = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.employment]]), _hoisted_105]), $data.errors.employment ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_106, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.employment[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.employment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_101, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('yes')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        type: "button",
-        "class": "btn btn-primary",
-        onClick: _cache[22] || (_cache[22] = function () {
-          return $options.saveEmployment && $options.saveEmployment.apply($options, arguments);
-        })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showOnJobForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_108, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_111, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c7",
-        value: "yes",
-        "onUpdate:modelValue": _cache[23] || (_cache[23] = function ($event) {
-          return $data.personalInformation.jobTraining = $event;
+        id: "c6",
+        value: "no",
+        "onUpdate:modelValue": _cache[22] || (_cache[22] = function ($event) {
+          return $data.personalInformation.employment = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.jobTraining]]), _hoisted_112]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_113, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.employment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_103, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('no')), 1
+      /* TEXT */
+      )]), $data.errors.employment ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_104, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.employment[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "btn btn-primary",
+        onClick: _cache[23] || (_cache[23] = function () {
+          return $options.saveEmployment && $options.saveEmployment.apply($options, arguments);
+        })
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showOnJobForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_106, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('ojt_training')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_108, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c8",
-        value: "no",
+        id: "c7",
+        value: "yes",
         "onUpdate:modelValue": _cache[24] || (_cache[24] = function ($event) {
           return $data.personalInformation.jobTraining = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.jobTraining]]), _hoisted_114]), $data.errors.jobTraining ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_115, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.jobTraining[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.jobTraining]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('yes')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        type: "button",
-        "class": "btn btn-primary",
-        onClick: _cache[25] || (_cache[25] = function () {
-          return $options.saveJobTraining && $options.saveJobTraining.apply($options, arguments);
-        })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showSocialForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_117, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_118, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_119, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_120, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c9",
-        value: "yes",
-        "onUpdate:modelValue": _cache[26] || (_cache[26] = function ($event) {
-          return $data.personalInformation.socialBeneficiary = $event;
+        id: "c8",
+        value: "no",
+        "onUpdate:modelValue": _cache[25] || (_cache[25] = function ($event) {
+          return $data.personalInformation.jobTraining = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.socialBeneficiary]]), _hoisted_121]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_122, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.jobTraining]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_111, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('no')), 1
+      /* TEXT */
+      )]), $data.errors.jobTraining ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_112, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.jobTraining[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_113, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "btn btn-primary",
+        onClick: _cache[26] || (_cache[26] = function () {
+          return $options.saveJobTraining && $options.saveJobTraining.apply($options, arguments);
+        })
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showSocialForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('active_social')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_115, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c10",
-        value: "no",
+        id: "c9",
+        value: "yes",
         "onUpdate:modelValue": _cache[27] || (_cache[27] = function ($event) {
           return $data.personalInformation.socialBeneficiary = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.socialBeneficiary]]), _hoisted_123]), $data.errors.socialBeneficiary ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_124, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.socialBeneficiary[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.socialBeneficiary]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_117, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('yes')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_125, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        type: "button",
-        "class": "btn btn-primary",
-        onClick: _cache[28] || (_cache[28] = function () {
-          return $options.saveSocial && $options.saveSocial.apply($options, arguments);
-        })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showUnemployedForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_126, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_127, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_129, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_118, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c91",
-        value: "never_worked",
-        "onUpdate:modelValue": _cache[29] || (_cache[29] = function ($event) {
-          return $data.personalInformation.beenUnemployed = $event;
+        id: "c10",
+        value: "no",
+        "onUpdate:modelValue": _cache[28] || (_cache[28] = function ($event) {
+          return $data.personalInformation.socialBeneficiary = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), _hoisted_130]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_131, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.socialBeneficiary]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_119, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('no')), 1
+      /* TEXT */
+      )]), $data.errors.socialBeneficiary ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_120, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.socialBeneficiary[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_121, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        type: "button",
+        "class": "btn btn-primary",
+        onClick: _cache[29] || (_cache[29] = function () {
+          return $options.saveSocial && $options.saveSocial.apply($options, arguments);
+        })
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showUnemployedForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_122, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('long_unemployed')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_123, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_124, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c101",
-        value: "less_than_3_months",
+        id: "c91",
+        value: "never_worked",
         "onUpdate:modelValue": _cache[30] || (_cache[30] = function ($event) {
           return $data.personalInformation.beenUnemployed = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), _hoisted_132]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_125, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('never_worked')), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_126, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
-        id: "c102",
-        value: "more_than_3_months",
+        id: "c101",
+        value: "less_than_3_months",
         "onUpdate:modelValue": _cache[31] || (_cache[31] = function ($event) {
           return $data.personalInformation.beenUnemployed = $event;
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), _hoisted_134]), $data.errors.beenUnemployed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_135, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.beenUnemployed[0]), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_127, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('less_than_3')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_136, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        type: "radio",
+        id: "c102",
+        value: "more_than_3_months",
+        "onUpdate:modelValue": _cache[32] || (_cache[32] = function ($event) {
+          return $data.personalInformation.beenUnemployed = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_129, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('more_than_3')), 1
+      /* TEXT */
+      )]), $data.errors.beenUnemployed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_130, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.beenUnemployed[0]), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_131, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
         "class": "btn btn-primary",
-        onClick: _cache[32] || (_cache[32] = function () {
+        onClick: _cache[33] || (_cache[33] = function () {
           return $options.saveUnemploymentForm && $options.saveUnemploymentForm.apply($options, arguments);
         })
-      }, "Submit")])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])];
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
+      /* TEXT */
+      )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])];
     }),
     _: 1
     /* STABLE */

@@ -225,4 +225,16 @@ class AuthController extends Controller
     public function downloadEmployersExcel(){
         return Excel::download(new EmployersExport(), 'employers.xlsx');
     }
+    public function getAssessmentQuestions(Request $request){
+
+        if($request->title == 'Readiness Assessment')
+            return response()->json(['success' => JobSeeker::getReadinessQuestions($request->id)]);
+
+        if($request->title == 'Evaluation Assessment')
+            return response()->json(['success' => JobSeeker::getEvaluationQuestions($request->id)]);
+
+        if($request->title == 'Competencies')
+            return response()->json(['success' => JobSeeker::getCompetenciesQuestions($request->id)]);
+
+    }
 }

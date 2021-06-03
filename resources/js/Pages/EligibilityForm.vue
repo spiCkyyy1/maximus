@@ -6,8 +6,8 @@
                <div class="feature-content w-100 px-5">
                   <img src="/images/banners/2.png" alt="" class="img-fluid hiring-img wow fadeInDown">
                   <div class="sec-title wow fadeInLeft">
-                     <p class="sub-title white-text">JOIN THE TEAM</p>
-                     <h1 class="title white-text">We Are Hiring</h1>
+                     <p class="sub-title white-text">{{__('join_the_team')}}</p>
+                     <h1 class="title white-text">{{__('we_are_hiring')}}</h1>
                   </div>
                </div>
             </div>
@@ -19,48 +19,8 @@
 						<circle class="path" cx="26px" cy="26px" r="20px" fill="none" />
 					</svg>
 				</div>
-               <ul class="process-steps-1" v-if="AssessmentStarted">
-                  <li>
-                     <a href=""><span>1</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>2</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>3</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>4</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>5</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>6</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>7</span></a>
-                  </li>
-                  <li>
-                     <a href=""><span>8</span></a>
-                  </li>
-               </ul>
+
                <div>
-                  <div class="row justify-content-center" v-if="AssessmentStarted">
-                     <div class="col">
-                        <div class="status-bar">
-                           <div class="custom-label">
-                              <div class="row">
-                                 <div class="col title">1 out of 10</div>
-                                 <div class="col-auto sub-title">25%</div>
-                              </div>
-                           </div>
-                           <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
                   <div class="feature-content d-flex align-items-center">
                      <div>
                         <div class="card wow fadeInDown" v-if="applicationAccepted">
@@ -68,16 +28,16 @@
                               <div class="icon">
                                  <i class="icon-check alert-icon-success"></i>
                               </div>
-                              <h6>Thank you for registering your interest.</h6>
+                              <h6>{{__('thankyou_register')}}</h6>
                               <p class="font-md">
-                                You have successfully completed the registration and passed the eligibility for the OJT program.
+                                {{__('completed_registration_passed')}}
                               </p>
                               <p class="font-md">
-                                 A member of the team will contact you with regards to the documents required and welcoming you on the program.
+                                 {{__('member_contact')}}
                               </p>
-                                Please follow the below link to complete the next step of the application / readiness assessments.
+                                {{__('follow_link')}}
 
-                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">Start Assessment</inertiaLink>
+                              <inertiaLink :href="route('assessmentTest', {id: personalInformation.id})" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">{{__('take_your_assessment_test')}}</inertiaLink>
                            </div>
                         </div>
                         <div class="card wow fadeInDown" v-if="applicationRejected">
@@ -85,22 +45,22 @@
                               <div class="icon">
                                  <i class="icon-close alert-icon-rejected"></i>
                               </div>
-                              <h6>Thank you for registering your interest.</h6>
+                              <h6>{{__('thankyou_register')}}</h6>
                                 <p class="font-md">
-                                    You have successfully completed the registration, you are not eligible for the OJT program.
+                                    {{__('completed_registration_passed')}}
                                 </p>
                                 <p class="font-md">
-                                    A member of the team will contact you with regards to other programs available.
+                                    {{__('member_contact_other_program')}}
                                 </p>
                            </div>
                         </div>
                         <div class="card form-dark wow fadeInRight" id="personalInformation" v-if="showPersonalInformationForm">
                            <div>
-                              <h6 class="mb-5">Personal Information</h6>
+                              <h6 class="mb-5">{{__('personal_information')}}</h6>
                               <div class="form-row">
                                   <div class="col-sm-auto col-lg-12 col-xl-auto">
                                     <div class="form-group">
-                                       <label class="custom-label">Title</label>
+                                       <label class="custom-label">{{__('title')}}</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.title">
                                              <option value="mr">Mr.</option>
@@ -111,37 +71,48 @@
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
-                                       <label class="custom-label">First Name</label>
+                                       <label class="custom-label">{{__('first_name')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.firstName">
                                        <div class="form-text small text-danger" v-if="errors.firstName">{{ errors.firstName[0] }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
-                                       <label class="custom-label">Middle Name</label>
+                                       <label class="custom-label">{{__('middle_name')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.middleName">
                                        <div class="form-text small text-danger" v-if="errors.middleName">{{ errors.middleName[0] }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
-                                       <label class="custom-label">Surname</label>
+                                       <label class="custom-label">{{__('surname')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.surName">
                                        <div class="form-text small text-danger" v-if="errors.surName">{{ errors.surName[0] }}</div>
                                     </div>
                                  </div>
                               </div>
+                              <div class="form-group">
+                                       <label class="custom-label">{{__('marital_status')}}</label>
+                                       <div class="select-option">
+                                          <select class="form-control" v-model="personalInformation.martialStatus">
+                                            <option value="married">{{__('married')}}</option>
+                                            <option value="divorced">{{__('divorced')}}</option>
+                                            <option value="single">{{__('single')}}</option>
+                                            </select>
+                                          <div class="form-text small text-danger" v-if="errors.martialStatus">{{ errors.martialStatus[0] }}</div>
+                                       </div>
+                                </div>
                               <div class="form-row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">Mobile No.</label>
+                                       <label class="custom-label">{{__('mobile_no')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.mobile">
                                        <div class="form-text small text-danger" v-if="errors.mobile">{{ errors.mobile[0] }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">Email Address</label>
+                                       <label class="custom-label">{{__('email_addresss')}}</label>
                                        <input type="email" class="form-control" v-model="personalInformation.email">
                                        <div class="form-text small text-danger" v-if="errors.email">{{ errors.email[0] }}</div>
                                     </div>
@@ -150,10 +121,10 @@
                               <div class="form-row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">City</label>
+                                       <label class="custom-label">{{__('city')}}</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.city">
-                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{city.text}}</option>
+                                                <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
                                             </select>
                                           <div class="form-text small text-danger" v-if="errors.city">{{ errors.city[0] }}</div>
                                        </div>
@@ -161,10 +132,10 @@
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">Region</label>
+                                       <label class="custom-label">{{__('region')}}</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.region">
-                                            <option v-for="(region, k) in regions" :key="k" :value="region.value">{{region.text}}</option>
+                                            <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
                                             </select>
                                           <div class="form-text small text-danger" v-if="errors.region">{{ errors.region[0] }}</div>
                                        </div>
@@ -172,148 +143,148 @@
                                  </div>
                               </div>
                               <div class="form-group">
-                                 <label class="custom-label">NIN</label>
+                                 <label class="custom-label">{{__('nin')}}</label>
                                  <input type="text" class="form-control" v-model="personalInformation.nin">
                                  <div class="form-text small text-danger" v-if="errors.nin">{{ errors.nin[0] }}</div>
                               </div>
                               <div class="form-group">
-										<label class="custom-label">Date of Birth</label>
+										<label class="custom-label">{{__('dob')}}</label>
 										<div class="select-date">
 											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
                                             <div class="form-text small text-danger" v-if="errors.dob">{{ errors.dob[0] }}</div>
 										</div>
                                 </div>
                               <div class="text-center mt-5">
-                                 <button type="button" class="btn btn-primary" @click="validatePersonalInformation">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="validatePersonalInformation">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
                         <div class="card wow fadeInRight" v-if="showGenderForm" id="genderForm">
                            <div>
-                              <h6>What's your Gender?</h6>
+                              <h6>{{__('whats_your_gender')}}</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c1" class="form-control"  value="male" v-model="personalInformation.gender">
-                                    <label for="c1">Male</label>
+                                    <label for="c1">{{__('male')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c2" class="form-control"  value="female" v-model="personalInformation.gender">
-                                    <label for="c2">Female</label>
+                                    <label for="c2">{{__('female')}}</label>
                                  </div>
                                 <div class="form-text small text-danger" v-if="errors.gender">{{ errors.gender[0] }}</div>
 
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="validateGender">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="validateGender">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
                         <div class="card wow fadeInRight" v-if="showQualificationForm">
                            <div>
-                              <h6>What is the highest level of qualification you hold?</h6>
+                              <h6>{{__('highest_level_of_education')}}</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="oa1" value="school" v-model="personalInformation.qualification">
-                                    <label for="oa1">School</label>
+                                    <label for="oa1">{{__('school')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="oa2" value="bachelors" v-model="personalInformation.qualification">
-                                    <label for="oa2">Bachelor's Degree</label>
+                                    <label for="oa2">{{__('bachelor')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="oa3" value="masters" v-model="personalInformation.qualification">
-                                    <label for="oa3">Master's Degree</label>
+                                    <label for="oa3">{{__('master')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="oa4" value="doctoral" v-model="personalInformation.qualification">
-                                    <label for="oa4">Doctoral Degree</label>
+                                    <label for="oa4">{{__('doctoral')}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="errors.qualification">{{ errors.qualification[0] }}</div>
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="saveQualification">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="saveQualification">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
 
                         <div class="card wow fadeInRight"  v-if="showEmploymentForm">
                            <div>
-                              <h6>You are available for full-time employment? </h6>
+                              <h6>{{__('full_time_employment')}}</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c5" value="yes" v-model="personalInformation.employment">
-                                    <label for="c5">Yes</label>
+                                    <label for="c5">{{__('yes')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c6" value="no" v-model="personalInformation.employment">
-                                    <label for="c6">No</label>
+                                    <label for="c6">{{__('no')}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="errors.employment">{{ errors.employment[0] }}</div>
                               </div>
 
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="saveEmployment">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="saveEmployment">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
                         <div class="card wow fadeInRight" v-if="showOnJobForm">
                            <div>
-                              <h6>This programme has an element of On-TheJob training, you are willing and able to commit.</h6>
+                              <h6>{{__('ojt_training')}}</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c7" value="yes" v-model="personalInformation.jobTraining">
-                                    <label for="c7">Yes</label>
+                                    <label for="c7">{{__('yes')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c8" value="no" v-model="personalInformation.jobTraining">
-                                    <label for="c8">No</label>
+                                    <label for="c8">{{__('no')}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="errors.jobTraining">{{ errors.jobTraining[0] }}</div>
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="saveJobTraining">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="saveJobTraining">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
                         <div class="card wow fadeInRight" v-if="showSocialForm">
                            <div>
-                              <h6>Are you an active social beneficiary? </h6>
+                              <h6>{{__('active_social')}} </h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c9"  value="yes"  v-model="personalInformation.socialBeneficiary">
-                                    <label for="c9">Yes</label>
+                                    <label for="c9">{{__('yes')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c10" value="no"   v-model="personalInformation.socialBeneficiary">
-                                    <label for="c10">No</label>
+                                    <label for="c10">{{__('no')}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="errors.socialBeneficiary">{{ errors.socialBeneficiary[0] }}</div>
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="saveSocial">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="saveSocial">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
                         <div class="card wow fadeInRight" v-if="showUnemployedForm">
                            <div>
-                              <h6>How long have you been unemployed?</h6>
+                              <h6>{{__('long_unemployed')}}</h6>
                               <div class="check_radio mt-4 mb-5">
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c91" value="never_worked" v-model="personalInformation.beenUnemployed">
-                                    <label for="c91">Never worked</label>
+                                    <label for="c91">{{__('never_worked')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c101" value="less_than_3_months" v-model="personalInformation.beenUnemployed">
-                                    <label for="c101">Less Than 3 Months</label>
+                                    <label for="c101">{{__('less_than_3')}}</label>
                                  </div>
                                  <div class="radio text-left mb-3">
                                     <input type="radio" id="c102" value="more_than_3_months" v-model="personalInformation.beenUnemployed">
-                                    <label for="c102">More than 3 months</label>
+                                    <label for="c102">{{__('more_than_3')}}</label>
                                  </div>
                                  <div class="form-text small text-danger" v-if="errors.beenUnemployed">{{ errors.beenUnemployed[0] }}</div>
                               </div>
                               <div class="text-center">
-                                 <button type="button" class="btn btn-primary" @click="saveUnemploymentForm">Submit</button>
+                                 <button type="button" class="btn btn-primary" @click="saveUnemploymentForm">{{__('submit')}}</button>
                               </div>
                            </div>
                         </div>
@@ -348,7 +319,6 @@ import Layout from '../Layouts/Layout'
                 showOnJobForm: false,
                 showSocialForm: false,
                 showUnemployedForm: false,
-                AssessmentStarted: false,
                 applicationRejected: false,
                 applicationAccepted: false,
                 personalInformation: {
@@ -368,7 +338,8 @@ import Layout from '../Layouts/Layout'
                     employment: '',
                     jobTraining: '',
                     socialBeneficiary: '',
-                    beenUnemployed: ''
+                    beenUnemployed: '',
+                    martialStatus: ''
                 },
                 errors: {},
                 showLoader: false
@@ -386,11 +357,12 @@ import Layout from '../Layouts/Layout'
                         this.showPersonalInformationForm = false;
                         this.showGenderForm = true;
                         this.errors = [];
-                        this.showLoader = false;
+
                     }
                     if(response.data.errors){
                         this.errors = response.data.errors;
                     }
+                    this.showLoader = false;
                 }).catch(e => {
                     console.log(e);
                 });
@@ -404,8 +376,9 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                                 this.showGenderForm = false;
                                 this.applicationRejected = true;
-                                this.showLoader = false;
+
                         }
+                        this.showLoader = false;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -419,11 +392,12 @@ import Layout from '../Layouts/Layout'
                                 this.showGenderForm = false;
                                 this.showQualificationForm = true;
                                 this.errors = [];
-                                this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -439,8 +413,9 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                                 this.showQualificationForm = false;
                                 this.applicationRejected = true;
-                                this.showLoader = false;
+
                         }
+                        this.showLoader = false;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -453,11 +428,12 @@ import Layout from '../Layouts/Layout'
                             this.showQualificationForm = false;
                             this.showEmploymentForm = true;
                             this.errors = [];
-                            this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     });
                 }
             },
@@ -469,11 +445,12 @@ import Layout from '../Layouts/Layout'
                             this.showEmploymentForm = false;
                             this.showOnJobForm = true;
                             this.errors = [];
-                            this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     });
             },
             saveJobTraining: function(){
@@ -484,11 +461,12 @@ import Layout from '../Layouts/Layout'
                             this.showOnJobForm = false;
                             this.showSocialForm = true;
                             this.errors = [];
-                            this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     });
             },
             saveSocial: function(){
@@ -499,15 +477,16 @@ import Layout from '../Layouts/Layout'
                             this.showSocialForm = false;
                             this.showUnemployedForm = true;
                             this.errors = [];
-                            this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     });
             },
             saveUnemploymentForm: function(){
-
+                this.showLoader = true;
                 if(this.personalInformation.beenUnemployed == 'less_than_3_months'){
                     this.showLoader = true;
                     axios.post('/application-rejected', this.personalInformation)
@@ -515,8 +494,9 @@ import Layout from '../Layouts/Layout'
                         if(response.data.success){
                                 this.showUnemployedForm = false;
                                 this.applicationRejected = true;
-                                this.showLoader = false;
+
                         }
+                        this.showLoader = false;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -531,11 +511,12 @@ import Layout from '../Layouts/Layout'
                             this.showUnemployedForm = false;
                             this.applicationAccepted = true;
                             this.errors = [];
-                            this.showLoader = false;
+
                         }
                         if(response.data.errors){
                                 this.errors = response.data.errors;
                         }
+                        this.showLoader = false;
                     });
                 }
             }

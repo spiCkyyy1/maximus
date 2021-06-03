@@ -97,5 +97,100 @@ class CitiesSeeder extends Seeder
             'value' => 'dammam',
             'text' => 'Dammam'
         ]);
+
+        Cities::create([
+            'value' => 'dawmat-al-jandal',
+            'text' => 'Dawmat Al Jandal'
+        ]);
+
+        Cities::create([
+            'value' => 'hafar-al-batin',
+            'text' => 'Hafar Al Batin'
+        ]);
+
+        Cities::create([
+            'value' => 'hail',
+            'text' => 'Ha il'
+        ]);
+
+        Cities::create([
+            'value' => 'jeddah',
+            'text' => 'Jeddah'
+        ]);
+
+        Cities::create([
+            'value' => 'jizam',
+            'text' => 'Jizam'
+        ]);
+
+        Cities::create([
+            'value' => 'khamis mushayt',
+            'text' => 'Khamis Mushayt'
+        ]);
+
+        Cities::create([
+            'value' => 'madinah',
+            'text' => 'Madinah'
+        ]);
+
+        Cities::create([
+            'value' => 'makkah',
+            'text' => 'Makkah'
+        ]);
+
+        Cities::create([
+            'value' => 'najran',
+            'text' => 'Najran'
+        ]);
+
+        Cities::create([
+            'value' => 'rabigh',
+            'text' => 'Rabigh'
+        ]);
+
+        Cities::create([
+            'value' => 'rafha',
+            'text' => 'Rafha'
+        ]);
+
+        Cities::create([
+            'value' => 'riyadh',
+            'text' => 'Riyadh'
+        ]);
+
+        Cities::create([
+            'value' => 'sakakah',
+            'text' => 'Sakakah'
+        ]);
+
+        Cities::create([
+            'value' => 'tabuk',
+            'text' => 'Tabuk'
+        ]);
+
+        Cities::create([
+            'value' => 'taif',
+            'text' => 'Taif'
+        ]);
+
+        Cities::create([
+            'value' => 'turaif',
+            'text' => 'Turaif'
+        ]);
+
+        Cities::create([
+            'value' => 'unayzah',
+            'text' => 'Unayzah'
+        ]);
+
+        Cities::create([
+            'value' => 'yanbu-al-bahr',
+            'text' => 'Yanbu Al Bahr'
+        ]);
+
+        Cities::create([
+            'value' => 'yanbu-as-sina-iyyah',
+            'text' => 'Yanbu As Sina iyyah'
+        ]);
     }
 }
