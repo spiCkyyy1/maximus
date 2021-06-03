@@ -760,6 +760,7 @@ import Competencies from '../Pages/Competencies'
                     this.showLoader = true;
                     axios.post('/save-readiness', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
                     .then(response => {
+                        console.log(response);
                         if(response.data.success){
                             this.readinessPart = false;
                             this.evaluationPart = true;
@@ -769,6 +770,9 @@ import Competencies from '../Pages/Competencies'
                         }
                         this.showLoader = false;
 
+                    }).catch(error => {
+                        this.showLoader = false;
+                        console.log(error);
                     });
                 }
 
@@ -776,6 +780,7 @@ import Competencies from '../Pages/Competencies'
                     this.showLoader = true;
                     axios.post('/save-evaluation', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
                     .then(response => {
+                        console.log(response);
                         if(response.data.success){
                             this.evaluationPart = false;
                             this.competenciesPart = true;
@@ -785,6 +790,9 @@ import Competencies from '../Pages/Competencies'
                         }
                         this.showLoader = false;
 
+                    }).catch(error => {
+                        this.showLoader = false;
+                        console.log(error);
                     });
                 }
 
@@ -792,6 +800,7 @@ import Competencies from '../Pages/Competencies'
                     this.showLoader = true;
                     axios.post('/save-competencies', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
                     .then(response => {
+                        console.log(response);
                         if(response.data.success){
                             this.competenciesPart = false;
                             this.applicationAccepted = true;
@@ -805,6 +814,9 @@ import Competencies from '../Pages/Competencies'
                         }
                         this.showLoader = false;
 
+                    }).catch(error => {
+                        this.showLoader = false;
+                        console.log(error);
                     });
                 }
 

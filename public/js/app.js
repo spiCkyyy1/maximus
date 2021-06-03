@@ -21044,6 +21044,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           readinessAssessment: this.readinessAssessment,
           jobSeekerId: this.jobSeekerId
         }).then(function (response) {
+          console.log(response);
+
           if (response.data.success) {
             _this.readinessPart = false;
             _this.evaluationPart = true;
@@ -21053,6 +21055,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }
 
           _this.showLoader = false;
+        })["catch"](function (error) {
+          _this.showLoader = false;
+          console.log(error);
         });
       }
 
@@ -21062,6 +21067,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           readinessAssessment: this.readinessAssessment,
           jobSeekerId: this.jobSeekerId
         }).then(function (response) {
+          console.log(response);
+
           if (response.data.success) {
             _this.evaluationPart = false;
             _this.competenciesPart = true;
@@ -21071,6 +21078,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }
 
           _this.showLoader = false;
+        })["catch"](function (error) {
+          _this.showLoader = false;
+          console.log(error);
         });
       }
 
@@ -21080,6 +21090,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           readinessAssessment: this.readinessAssessment,
           jobSeekerId: this.jobSeekerId
         }).then(function (response) {
+          console.log(response);
+
           if (response.data.success) {
             _this.competenciesPart = false;
             _this.applicationAccepted = true;
@@ -21091,6 +21103,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }
 
           _this.showLoader = false;
+        })["catch"](function (error) {
+          _this.showLoader = false;
+          console.log(error);
         });
       }
 

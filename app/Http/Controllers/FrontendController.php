@@ -264,7 +264,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
+                'weighted_score' => (($data['weightedScore'] != "") ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }
@@ -280,7 +280,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
+                'weighted_score' => (($data['weightedScore'] != "") ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }
@@ -296,7 +296,7 @@ class FrontendController extends Controller
                 'job_seeker_id' => $request->jobSeekerId,
                 'question' => $data['question'],
                 'answer' => $data['answer'],
-                'weighted_score' => (!is_null($data['weightedScore']) ? $data['weightedScore'] : null),
+                'weighted_score' => (($data['weightedScore'] != "") ? $data['weightedScore'] : null),
                 'competencies' => $data['competency']
             ]);
         }
