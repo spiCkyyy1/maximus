@@ -19,6 +19,8 @@ class FrontendController extends Controller
 {
     public function landing(){
 
+        Session()->put('locale', 'en');
+
         return Inertia::render('Welcome', [
             'cities' => Cities::all(),
             'regions' => Region::all()
@@ -262,6 +264,11 @@ class FrontendController extends Controller
 
     public function saveReadiness(Request $request){
 
+        if($request->has('jobSeekerId')){
+            ReadinessAssessment::where('job_seeker_id', $request->jobSeekerId)
+            ->where('competencies', 'readiness')->delete();
+        }
+
         foreach($request->readinessAssessment as $data){
             ReadinessAssessment::create([
                 'job_seeker_id' => $request->jobSeekerId,
@@ -278,6 +285,11 @@ class FrontendController extends Controller
 
     public function saveEvaluation(Request $request){
 
+        if($request->has('jobSeekerId')){
+            ReadinessAssessment::where('job_seeker_id', $request->jobSeekerId)
+            ->where('competencies', 'evaluation')->delete();
+        }
+
         foreach($request->readinessAssessment as $data){
             ReadinessAssessment::create([
                 'job_seeker_id' => $request->jobSeekerId,
@@ -293,6 +305,11 @@ class FrontendController extends Controller
     }
 
     public function saveCompetencies(Request $request){
+
+        if($request->has('jobSeekerId')){
+            ReadinessAssessment::where('job_seeker_id', $request->jobSeekerId)
+            ->whereNotIn('competencies', ['readiness', 'evaluation'])->delete();
+        }
 
         foreach($request->readinessAssessment as $data){
             ReadinessAssessment::create([

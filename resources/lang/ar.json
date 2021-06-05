@@ -331,5 +331,7 @@
      "Please select your qualification": "الرجاء تحديد مؤهلاتك",
      "Please select any option.": "الرجاء تحديد أي خيار",
      "Mr.": "السيدة",
-     "Mrs.": "السيدة"
+     "Mrs.": "السيدة",
+     "thankyou_assessment": "شكرا لاستكمال التقييمات",
+     "assessment_email": "التقييم_البريد الإلكتروني"
 }

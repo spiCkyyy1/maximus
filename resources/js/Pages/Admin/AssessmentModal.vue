@@ -29,7 +29,7 @@
                            <div class="check_radio style-2 mb-2">
                               <div class="radio">
                                  <input type="radio" class="cr-r1" :name="'radio'+k" checked>
-                                 <label class="custom-label" :for="'cr-r1'+k">{{data.answer}}</label>
+                                 <label class="custom-label" :for="'cr-r1'+k">{{humanize(data.answer)}}</label>
                               </div>
                            </div>
                         </div>
@@ -69,6 +69,17 @@ export default {
             });
             $("#assessment-modal").modal('show');
         }
+    },
+    methods:{
+        humanize: function(str) {
+            var i, frags = str.split('_');
+            for (i=0; i<frags.length; i++) {
+                frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
+            }
+            return frags.join(' ');
+        }
     }
+
+
 }
 </script>

@@ -53,12 +53,9 @@
                               <div class="icon">
                                  <i class="icon-check alert-icon-success"></i>
                               </div>
-                              <h6>{{__('thankyou_register')}}</h6>
+                              <h6>{{__('thankyou_assessment')}}</h6>
                               <p class="font-md">
-                                 {{__('completed_registration_passed')}}
-                              </p>
-                              <p class="font-md">
-                                 {{__('member_contact')}}
+                                 {{__('assessment_email')}}
                               </p>
 
                               <inertiaLink :href="route('landing')" as="button" class="btn btn-primary mt-5" style="margin-left: 30%">{{__('go_to_website')}}</inertiaLink>
