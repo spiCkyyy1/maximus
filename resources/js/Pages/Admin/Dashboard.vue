@@ -273,7 +273,7 @@
                                         <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
                                         v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
-                                    <div v-else><not-found></not-found></div>
+                                    <div class="h-100"><not-found></not-found></div>
 								</div>
 								<div class="tab-pane" :class="tab == 'selectedCandidates' ? 'active' : ''" id="tab-2">
                                     <div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
@@ -351,7 +351,7 @@
                                         <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
                                         v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
-                                    <div v-else><not-found></not-found></div>
+                                    <div class="h-100" v-else><not-found></not-found></div>
                                 </div>
 								<div class="tab-pane" :class="tab == 'rejectedCandidates' ? 'active' : ''" id="tab-3">
                                     <div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
@@ -427,7 +427,7 @@
                                         <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
                                         v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
-                                    <div v-else><not-found></not-found></div>
+                                    <div class="h-100" v-else><not-found></not-found></div>
                                 </div>
 							</div>
 						</div>

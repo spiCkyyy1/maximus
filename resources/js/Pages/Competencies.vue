@@ -20,7 +20,7 @@
                                     <input type="radio" id="c103" class="score" :value="value4" v-model="value" :data-id="weighted_score4">
                                     <label for="c103">{{option4}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="error != ''">{{ error }}</div>
+                                 <div class="form-text small text-danger" v-if="error != ''">{{ __(error) }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" v-on:click="$emit('submitAnswer', step)">{{btnText}}</button>
@@ -32,6 +32,7 @@
 
 <script>
 export default {
+    mixins: [require('../base')],
     props: {
         question: String,
         option1: String,

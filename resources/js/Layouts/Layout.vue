@@ -23,18 +23,18 @@
                         <div class="form-group">
                             <label class="custom-label">{{__('employer_your_name')}}</label>
                             <input type="text" class="form-control" v-model="form.name">
-                            <div class="form-text small text-danger" v-if="errors.name">{{ errors.name }}</div>
+                            <div class="form-text small text-danger" v-if="errors.name">{{ __(errors.name) }}</div>
                         </div>
                         <div class="form-group">
                             <label class="custom-label">{{__('employer_company_name')}}</label>
                             <input type="text" class="form-control" v-model="form.companyName">
-                            <div class="form-text small text-danger" v-if="errors.companyName">{{ errors.companyName }}</div>
+                            <div class="form-text small text-danger" v-if="errors.companyName">{{ __(errors.companyName) }}</div>
                         </div>
 
                         <div class="form-group">
                             <label class="custom-label">{{__('employer_employment_Sector')}}</label>
                             <input type="text" class="form-control" v-model="form.employmentSector">
-                            <div class="form-text small text-danger" v-if="errors.employmentSector">{{ errors.employmentSector }}</div>
+                            <div class="form-text small text-danger" v-if="errors.employmentSector">{{ __(errors.employmentSector) }}</div>
                         </div>
 
                         <div class="row">
@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label class="custom-label">{{__('employer_email')}}</label>
                                     <input type="email" class="form-control" v-model="form.email">
-                                    <div class="form-text small text-danger" v-if="errors.email">{{ errors.email }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.email">{{ __(errors.email) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -50,7 +50,7 @@
                                     <label class="custom-label">{{__('employer_hq')}}</label>
                                     <input type="text" class="form-control" v-model="form.hqLocation">
 
-                                    <div class="form-text small text-danger" v-if="errors.hqLocation">{{ errors.hqLocation }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.hqLocation">{{ __(errors.hqLocation) }}</div>
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@
                                 <div class="form-group">
                                     <label class="custom-label">{{__('employer_mobile_no')}}</label>
                                     <input type="text" class="form-control" v-model="form.mobileNumber">
-                                    <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ __(errors.mobileNumber) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -70,7 +70,7 @@
                                     <select class="form-control" v-model="form.region">
                                         <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
                                     </select>
-                                    <div class="form-text small text-danger" v-if="errors.region">{{ errors.region }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.region">{{ __(errors.region) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 <div class="form-group">
                                     <label class="custom-label">{{__('employer_expected_vac')}}</label>
                                     <input type="text" class="form-control" v-model="form.expectedVacancies">
-                                    <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ errors.expectedVacancies }}</div>
+                                    <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ __(errors.expectedVacancies) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -92,7 +92,7 @@
                                             <select class="form-control" v-model="form.city">
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
                                             </select>
-                                            <div class="form-text small text-danger" v-if="errors.city">{{ errors.city }}</div>
+                                            <div class="form-text small text-danger" v-if="errors.city">{{ __(errors.city) }}</div>
                                         </div>
                                 </div>
                             </div>
@@ -239,7 +239,7 @@ export default {
         return{
             form: this.$inertia.form({
                 name: '',
-                region: 'pakistan',
+                region: '',
                 companyName: '',
                 email: '',
                 mobileNumber: '',

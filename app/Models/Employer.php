@@ -11,7 +11,7 @@ class Employer extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'company_name', 'email', 'number', 'employment_sector', 'hq_location', 'city', 'expected_vacancies'];
+    protected $fillable = ['name', 'company_name', 'email', 'number', 'employment_sector', 'hq_location','region', 'city', 'expected_vacancies'];
 
     public function getNameAttribute($value){
         return ucfirst($value);

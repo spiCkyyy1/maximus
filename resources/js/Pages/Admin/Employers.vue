@@ -46,7 +46,7 @@
             <pagination :metaData="employers" v-on:getPaginatedData="getPaginatedData"
                 v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
         </div>
-        <div v-else><not-found></not-found></div>
+        <div class="h-100" v-else><not-found></not-found></div>
     </admin-layout>
 </template>
 

@@ -63,31 +63,32 @@
                                        <label class="custom-label">{{__('title')}}</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.title">
-                                             <option value="mr">Mr.</option>
-                                             <option value="mrs">Mrs.</option>
+                                             <option value="mr">{{__('Mr.')}}</option>
+                                             <option value="mrs">{{__('Mrs.')}}</option>
                                           </select>
                                        </div>
+                                       <div class="form-text small text-danger" v-if="errors.firstName">{{ __(errors.title[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('first_name')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.firstName">
-                                       <div class="form-text small text-danger" v-if="errors.firstName">{{ errors.firstName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.firstName">{{ __(errors.firstName[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('middle_name')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.middleName">
-                                       <div class="form-text small text-danger" v-if="errors.middleName">{{ errors.middleName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.middleName">{{ __(errors.middleName[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('surname')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.surName">
-                                       <div class="form-text small text-danger" v-if="errors.surName">{{ errors.surName[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.surName">{{ __(errors.surName[0]) }}</div>
                                     </div>
                                  </div>
                               </div>
@@ -99,7 +100,7 @@
                                             <option value="divorced">{{__('divorced')}}</option>
                                             <option value="single">{{__('single')}}</option>
                                             </select>
-                                          <div class="form-text small text-danger" v-if="errors.martialStatus">{{ errors.martialStatus[0] }}</div>
+                                          <div class="form-text small text-danger" v-if="errors.martialStatus">{{ __(errors.martialStatus[0]) }}</div>
                                        </div>
                                 </div>
                               <div class="form-row">
@@ -107,14 +108,14 @@
                                     <div class="form-group">
                                        <label class="custom-label">{{__('mobile_no')}}</label>
                                        <input type="text" class="form-control" v-model="personalInformation.mobile">
-                                       <div class="form-text small text-danger" v-if="errors.mobile">{{ errors.mobile[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.mobile">{{ __(errors.mobile[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('email_addresss')}}</label>
                                        <input type="email" class="form-control" v-model="personalInformation.email">
-                                       <div class="form-text small text-danger" v-if="errors.email">{{ errors.email[0] }}</div>
+                                       <div class="form-text small text-danger" v-if="errors.email">{{ __(errors.email[0]) }}</div>
                                     </div>
                                  </div>
                               </div>
@@ -126,7 +127,7 @@
                                           <select class="form-control" v-model="personalInformation.city">
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
                                             </select>
-                                          <div class="form-text small text-danger" v-if="errors.city">{{ errors.city[0] }}</div>
+                                          <div class="form-text small text-danger" v-if="errors.city">{{ __(errors.city[0]) }}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -137,7 +138,7 @@
                                           <select class="form-control" v-model="personalInformation.region">
                                             <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
                                             </select>
-                                          <div class="form-text small text-danger" v-if="errors.region">{{ errors.region[0] }}</div>
+                                          <div class="form-text small text-danger" v-if="errors.region">{{ __(errors.region[0]) }}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -145,13 +146,13 @@
                               <div class="form-group">
                                  <label class="custom-label">{{__('nin')}}</label>
                                  <input type="text" class="form-control" v-model="personalInformation.nin">
-                                 <div class="form-text small text-danger" v-if="errors.nin">{{ errors.nin[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.nin">{{ __(errors.nin[0]) }}</div>
                               </div>
                               <div class="form-group">
 										<label class="custom-label">{{__('dob')}}</label>
 										<div class="select-date">
 											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
-                                            <div class="form-text small text-danger" v-if="errors.dob">{{ errors.dob[0] }}</div>
+                                            <div class="form-text small text-danger" v-if="errors.dob">{{ __(errors.dob[0]) }}</div>
 										</div>
                                 </div>
                               <div class="text-center mt-5">
@@ -171,7 +172,7 @@
                                     <input type="radio" id="c2" class="form-control"  value="female" v-model="personalInformation.gender">
                                     <label for="c2">{{__('female')}}</label>
                                  </div>
-                                <div class="form-text small text-danger" v-if="errors.gender">{{ errors.gender[0] }}</div>
+                                <div class="form-text small text-danger" v-if="errors.gender">{{ __(errors.gender[0]) }}</div>
 
                               </div>
                               <div class="text-center">
@@ -199,7 +200,7 @@
                                     <input type="radio" id="oa4" value="doctoral" v-model="personalInformation.qualification">
                                     <label for="oa4">{{__('doctoral')}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="errors.qualification">{{ errors.qualification[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.qualification">{{ __(errors.qualification[0]) }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveQualification">{{__('submit')}}</button>
@@ -219,7 +220,7 @@
                                     <input type="radio" id="c6" value="no" v-model="personalInformation.employment">
                                     <label for="c6">{{__('no')}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="errors.employment">{{ errors.employment[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.employment">{{ __(errors.employment[0]) }}</div>
                               </div>
 
                               <div class="text-center">
@@ -239,7 +240,7 @@
                                     <input type="radio" id="c8" value="no" v-model="personalInformation.jobTraining">
                                     <label for="c8">{{__('no')}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="errors.jobTraining">{{ errors.jobTraining[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.jobTraining">{{ __(errors.jobTraining[0]) }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveJobTraining">{{__('submit')}}</button>
@@ -258,7 +259,7 @@
                                     <input type="radio" id="c10" value="no"   v-model="personalInformation.socialBeneficiary">
                                     <label for="c10">{{__('no')}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="errors.socialBeneficiary">{{ errors.socialBeneficiary[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.socialBeneficiary">{{ __(errors.socialBeneficiary[0]) }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveSocial">{{__('submit')}}</button>
@@ -281,7 +282,7 @@
                                     <input type="radio" id="c102" value="more_than_3_months" v-model="personalInformation.beenUnemployed">
                                     <label for="c102">{{__('more_than_3')}}</label>
                                  </div>
-                                 <div class="form-text small text-danger" v-if="errors.beenUnemployed">{{ errors.beenUnemployed[0] }}</div>
+                                 <div class="form-text small text-danger" v-if="errors.beenUnemployed">{{ __(errors.beenUnemployed[0]) }}</div>
                               </div>
                               <div class="text-center">
                                  <button type="button" class="btn btn-primary" @click="saveUnemploymentForm">{{__('submit')}}</button>

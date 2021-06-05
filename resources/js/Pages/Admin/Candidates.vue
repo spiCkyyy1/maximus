@@ -1,6 +1,5 @@
 <template>
    <admin-layout>
-      <div>
          <div class="card" v-if="route().current() == 'allCandidates'">
             <div class="card-body pb-0">
                <div class="form-row">
@@ -179,14 +178,14 @@
             <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
             v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
          </div>
-         <div v-else>
+         <div class="h-100" v-else>
             <not-found></not-found>
          </div>
          <detail-modal :show="showModal" v-if="showModal"
             :jobSeeker="jobSeeker" v-on:closeModal="closeModal"></detail-modal>
          <assessment-modal :show="showAssessmestModal" v-if="showAssessmestModal"
             :assessment="assessment" v-on:closeAssessmentModal="closeAssessmentModal" :title="modalTitle"></assessment-modal>
-      </div>
+
    </admin-layout>
 </template>
 

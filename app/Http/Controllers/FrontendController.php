@@ -47,10 +47,11 @@ class FrontendController extends Controller
             'companyName.required' => 'Please enter your company name',
             'email.required' => 'Please enter your email address',
             'mobileNumber.required' => 'Please enter your mobile number',
-            'employmentSector' => 'Please enter your employment sector',
-            'hqLocation' => 'Please enter head quater location',
+            'employmentSector.required' => 'Please enter your employment sector',
+            'hqLocation.required' => 'Please enter head quater location',
             'city.required' => 'Please enter your city',
-            'expectedVacancies' => 'Please enter expected vacancies',
+            'region.required' => 'Please select any region',
+            'expectedVacancies.required' => 'Please enter expected vacancies',
             'email.unique' => 'We already have your details, our team member will contact you soon.'
         ];
         $request->validate([
@@ -61,6 +62,7 @@ class FrontendController extends Controller
             'employmentSector' => 'required',
             'hqLocation' => 'required',
             'city' => 'required',
+            'region' => 'required',
             'expectedVacancies' => 'required|numeric'
         ], $messages);
 
@@ -71,6 +73,7 @@ class FrontendController extends Controller
             'number' => $request->mobileNumber,
             'employment_sector' => $request->employmentSector,
             'hq_location' => $request->hqLocation,
+            'region' => $request->region,
             'city' => $request->city,
             'expected_vacancies' => $request->expectedVacancies
         ]);
@@ -85,7 +88,7 @@ class FrontendController extends Controller
         $messages = [
             'firstName.required' => 'Please enter your first name',
             'surName.required' => 'Please enter your sur name',
-            'mobile.required' => 'Please enter your phone number',
+            'mobile.required' => 'Please enter your mobile number',
             'email.required' => 'Please enter your email',
             'email.unique' => 'We already have your details',
             'city.required' => 'Please select any city',
@@ -95,7 +98,7 @@ class FrontendController extends Controller
             'nin.min' => 'Please enter 12 digits of nin',
             'nin.max' => 'Please enter 12 digits of nin',
             'title.required' => 'Please select title',
-            'martialStatus' => 'Please select your martial status'
+            'martialStatus.required' => 'Please select your martial status'
         ];
 
         $validator = Validator::make($request->all(),[
