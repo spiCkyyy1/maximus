@@ -155,14 +155,19 @@ class JobSeeker extends Model
                     $result[$data->competencies] = number_format(($data->total * 100) / $totalSum, 2);
                 }
             }
-            $max = max($result);
-            $temp = [];
-            foreach($result as $k => $x){
-                if($x == $max){
-                    array_push($temp, $k);
+            if(!empty($result)){
+                $max = max($result);
+                $temp = [];
+                foreach($result as $k => $x){
+                    if($x == $max){
+                        array_push($temp, $k);
+                    }
                 }
+                return implode(',', $temp);
             }
-            return implode(',', $temp);
+            else{
+                return 'N/A';
+            }
         }
         return 'N/A';
     }
@@ -187,14 +192,18 @@ class JobSeeker extends Model
                     $result[$data->competencies] = number_format(($data->total * 100) / $totalSum, 2);
                 }
             }
-            $min = min($result);
-            $temp = [];
-            foreach($result as $k => $x){
-                if($x == $min){
-                    array_push($temp, $k);
+            if(!empty($result)){
+                $min = min($result);
+                $temp = [];
+                foreach($result as $k => $x){
+                    if($x == $min){
+                        array_push($temp, $k);
+                    }
                 }
+                return implode(',', $temp);
+            }else{
+                return 'N/A';
             }
-            return implode(',', $temp);
         }
         return 'N/A';
     }
