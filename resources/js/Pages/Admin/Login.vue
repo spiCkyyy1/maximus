@@ -31,17 +31,17 @@
 													<label class="custom-control-label" for="switch1xs"></label>
 												</div>
 											</div>
-											<div class="col-auto">
+											<!-- <div class="col-auto">
 												<InertiaLink :href="route('forgotPassword')" class="small">Forget Password?</InertiaLink>
-											</div>
+											</div> -->
 										</div>
 									</div>
 									<div class="form-group mb-2">
 										<button type="submit"  class="btn btn-primary btn-block" :disabled="form.processing">Login</button>
 									</div>
-									<div class="text-center small">
+									<!-- <div class="text-center small">
 										Don't have an Account yet? <InertiaLink :href="route('register')">Register Now</InertiaLink>
-									</div>
+									</div> -->
 								</form>
 							</div>
 						</div>

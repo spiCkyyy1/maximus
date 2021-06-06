@@ -72,7 +72,7 @@
             font-size: 12px; }</style>
             <style>.disable-anchor{pointer-events: none}</style>
     </head>
-    <body class="login-page-2">
+    <body @if(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register' || Route::currentRouteName() == 'forgotPassword') class="login-page-2" @endif>
         @inertia
         @routes
 

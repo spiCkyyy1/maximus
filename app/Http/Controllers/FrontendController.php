@@ -19,12 +19,10 @@ class FrontendController extends Controller
 {
     public function landing(){
 
-        Session()->put('locale', 'en');
-
         return Inertia::render('Welcome', [
             'cities' => Cities::all(),
             'regions' => Region::all()
-            ]);
+        ]);
     }
 
     public function termsCondition(){
@@ -97,8 +95,8 @@ class FrontendController extends Controller
             'region.required' => 'Please select any region',
             'nin.required' => 'Please enter nin',
             'dob.required' => 'Please select your date of birth',
-            'nin.min' => 'Please enter 12 digits of nin',
-            'nin.max' => 'Please enter 12 digits of nin',
+            'nin.min' => 'Please enter 10 digits of nin',
+            'nin.max' => 'Please enter 10 digits of nin',
             'title.required' => 'Please select title',
             'martialStatus.required' => 'Please select your martial status'
         ];
@@ -111,7 +109,7 @@ class FrontendController extends Controller
             'email' => 'required|email|unique:job_seekers,email',
             'city' => 'required',
             'region' => 'required',
-            'nin' => 'required|min:12|max:12',
+            'nin' => 'required|min:10|max:10',
             'dob' => 'required',
             'martialStatus' => 'required'
         ], $messages);

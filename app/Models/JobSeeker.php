@@ -30,7 +30,7 @@ class JobSeeker extends Model
         if(!is_null($value)){
             $cityName = Cities::where('value', $value)->first(['text']);
             if(!is_null($cityName)) {
-                return $cityName;
+                return $cityName['text'];
             }else{
                 return ucfirst($value);
             }
@@ -43,7 +43,7 @@ class JobSeeker extends Model
         if(!is_null($value)){
             $regionName = Region::where('value', $value)->first(['text']);
             if(!is_null($regionName)){
-                return $regionName;
+                return $regionName['text'];
             }else{
                 return ucfirst($value);
             }

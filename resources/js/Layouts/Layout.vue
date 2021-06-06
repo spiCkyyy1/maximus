@@ -1,7 +1,7 @@
 <template>
 <div class="wrap">
 
-<div id="employer-form-modal" class="modal fade" tabindex="-1" role="dialog">
+<div id="employer-form-modal" :class="this.$page.props.locale == 'ar' ? 'modal fade text-left' : 'modal fade'" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -21,18 +21,18 @@
                 <div class="modal-body">
                     <div>
                         <div class="form-group">
-                            <label class="custom-label">{{__('employer_your_name')}}</label>
+                            <label class="custom-label">{{__('employer_your_name')}} *</label>
                             <input type="text" class="form-control" v-model="form.name">
                             <div class="form-text small text-danger" v-if="errors.name">{{ __(errors.name) }}</div>
                         </div>
                         <div class="form-group">
-                            <label class="custom-label">{{__('employer_company_name')}}</label>
+                            <label class="custom-label">{{__('employer_company_name')}} *</label>
                             <input type="text" class="form-control" v-model="form.companyName">
                             <div class="form-text small text-danger" v-if="errors.companyName">{{ __(errors.companyName) }}</div>
                         </div>
 
                         <div class="form-group">
-                            <label class="custom-label">{{__('employer_employment_Sector')}}</label>
+                            <label class="custom-label">{{__('employer_employment_Sector')}} *</label>
                             <input type="text" class="form-control" v-model="form.employmentSector">
                             <div class="form-text small text-danger" v-if="errors.employmentSector">{{ __(errors.employmentSector) }}</div>
                         </div>
@@ -40,14 +40,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">{{__('employer_email')}}</label>
+                                    <label class="custom-label">{{__('employer_email')}} *</label>
                                     <input type="email" class="form-control" v-model="form.email">
                                     <div class="form-text small text-danger" v-if="errors.email">{{ __(errors.email) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">{{__('employer_hq')}}</label>
+                                    <label class="custom-label">{{__('employer_hq')}} *</label>
                                     <input type="text" class="form-control" v-model="form.hqLocation">
 
                                     <div class="form-text small text-danger" v-if="errors.hqLocation">{{ __(errors.hqLocation) }}</div>
@@ -58,14 +58,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">{{__('employer_mobile_no')}}</label>
+                                    <label class="custom-label">{{__('employer_mobile_no')}} *</label>
                                     <input type="text" class="form-control" v-model="form.mobileNumber">
                                     <div class="form-text small text-danger" v-if="errors.mobileNumber">{{ __(errors.mobileNumber) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                <label class="custom-label">{{__('employer_region')}}</label>
+                                <label class="custom-label">{{__('employer_region')}} *</label>
                                 <div class="select-option">
                                     <select class="form-control" v-model="form.region">
                                         <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
@@ -80,14 +80,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">{{__('employer_expected_vac')}}</label>
+                                    <label class="custom-label">{{__('employer_expected_vac')}} *</label>
                                     <input type="text" class="form-control" v-model="form.expectedVacancies">
                                     <div class="form-text small text-danger" v-if="errors.expectedVacancies">{{ __(errors.expectedVacancies) }}</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="custom-label">{{__('employer_city')}}</label>
+                                    <label class="custom-label">{{__('employer_city')}} *</label>
                                         <div class="select-option">
                                             <select class="form-control" v-model="form.city">
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>

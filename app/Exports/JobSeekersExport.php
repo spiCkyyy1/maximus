@@ -43,9 +43,11 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
     {
         return [
             'ID',
+            'Title',
             'First Name',
             'Middle Name',
             'Last Name',
+            'Marital Status',
             'Mobile',
             'Email',
             'City',

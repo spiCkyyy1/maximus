@@ -28,6 +28,7 @@ class EmployersExport implements FromCollection, WithHeadings, ShouldAutoSize, W
             'Number',
             'Employment Sector',
             'Head Quater Location',
+            'Region',
             'City',
             'Expected Vacancies',
             'Created at',

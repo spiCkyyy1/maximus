@@ -1,52 +1,77 @@
 <template>
     <admin-layout>
-        <div class="card table-card" v-if="dataLoaded && employers.data.length > 0">
-            <div class="card-header">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <div class="title"><i class="icon-people"></i>Employers</div>
+        <div class="main-body">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+                        <div class="page-heading">
+						    <div class="row align-items-center">
+							    <div class="col">
+                                    <div class="meta">
+                                        <h1 class="title">
+                                            <div class="icon"><i class="icon-user"></i></div>
+                                            Employers
+                                        </h1>
+                                        <h1 class="title-xl">Employer</h1>
+                                        <p class="sub-title">Sociis natoque penatibus et magnis.</p>
+                                    </div>
+							    </div>
+						    </div>
+					    </div>
+                    <div class="card table-card" v-if="dataLoaded && employers.data.length > 0">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="title"><i class="icon-people"></i>Employers</div>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload"><i class="icon-doc fa-lg fa-r"></i>Export</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <a href="javascript:;" class="btn btn-primary ml-1" @click="excelDownload"><i class="icon-doc fa-lg fa-r"></i>Export</a>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="55px">#</th>
+                                        <th width="150px">Name</th>
+                                        <th>Company Name</th>
+                                        <th>Email</th>
+                                        <th>Number</th>
+                                        <th>Employment Sector</th>
+                                        <th>Head Quater Location</th>
+                                        <th>Region</th>
+                                        <th>City</th>
+                                        <th>Expected Vacancies</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(employer, k) in employers.data" :key="k">
+                                        <td>{{employer.id}}</td>
+                                        <td class="strong">{{employer.name}} </td>
+                                        <td >{{employer.company_name}}</td>
+                                        <td >{{employer.email}}</td>
+                                        <td >{{employer.number}}</td>
+                                        <td >{{employer.employment_sector}}</td>
+                                        <td >{{employer.hq_location}}</td>
+                                        <td >{{employer.region}}</td>
+                                        <td >{{employer.city}}</td>
+                                        <td >{{employer.expected_vacancies}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th width="55px">#</th>
-                                <th width="150px">Name</th>
-                                <th>Company Name</th>
-                                <th>Email</th>
-                                <th>Number</th>
-                                <th>Employment Sector</th>
-                                <th>Head Quater Location</th>
-                                <th>City</th>
-                                <th>Expected Vacancies</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(employer, k) in employers.data" :key="k">
-                                <td>{{employer.id}}</td>
-                                <td class="strong">{{employer.name}} </td>
-                                <td >{{employer.company_name}}</td>
-                                <td >{{employer.email}}</td>
-                                <td >{{employer.number}}</td>
-                                <td >{{employer.employment_sector}}</td>
-                                <td >{{employer.hq_location}}</td>
-                                <td >{{employer.city}}</td>
-                                <td >{{employer.expected_vacancies}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <pagination :metaData="employers" v-on:getPaginatedData="getPaginatedData"
-                v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
+                    <pagination :metaData="employers" v-on:getPaginatedData="getPaginatedData"
+                        v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
+                    </div>
+                    <div class="h-100" v-else><not-found></not-found></div>
+				</div>
+			</div>
+		</div>
         </div>
-        <div class="h-100" v-else><not-found></not-found></div>
     </admin-layout>
 </template>
 

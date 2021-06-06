@@ -2,21 +2,23 @@
     <div>
         <ul class="lang-rtl">
             <li class="lang_switcher">
-                    <inertiaLink class="icon-lang" :href="route('language', [selectable_locale])">
-                        <span v-if="selectable_locale == 'ar'"> AR</span>
-                        <span v-else>EN</span>
-                    </inertiaLink>
+                <a class="icon-lang" :href="url +'/'+ selectable_locale">
+                    <span v-if="selectable_locale == 'ar'"> AR</span>
+                    <span v-else>EN</span>
+                </a>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import Icon from '@/Shared/Icon'
+
 export default {
     name: "LanguageSelector",
-    components: {
-        Icon,
+    data(){
+        return{
+            url: '/language'
+        }
     },
     computed: {
         selectable_locale() {

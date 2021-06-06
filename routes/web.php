@@ -16,13 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontendController::class, 'landing'])->name('landing');
+Route::middleware('setLocale')->group(function () {
+    Route::get('/', [FrontendController::class, 'landing'])->name('landing');
 
-Route::get('/terms-conditions', [FrontendController::class, 'termsCondition'])->name('termsCondition');
+    Route::get('/terms-conditions', [FrontendController::class, 'termsCondition'])->name('termsCondition');
 
-Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
+    Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
 
-Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
+    Route::get('/eligibility-form', [FrontendController::class, 'jobSeeker'])->name('jobSeeker');
+
+});
 
 Route::post('/employer-form', [FrontendController::class, 'employerForm'])->name('employerForm');
 

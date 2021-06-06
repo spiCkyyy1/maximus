@@ -60,11 +60,12 @@
                               <div class="form-row">
                                   <div class="col-sm-auto col-lg-12 col-xl-auto">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('title')}}</label>
+                                       <label class="custom-label">{{__('title')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.title">
-                                             <option value="mr">{{__('Mr.')}}</option>
-                                             <option value="mrs">{{__('Mrs.')}}</option>
+                                             <option value="ms">{{__('ms')}}</option>
+                                             <option value="miss">{{__('miss')}}</option>
+                                             <option value="mrs">{{__('mrs')}}</option>
                                           </select>
                                        </div>
                                        <div class="form-text small text-danger" v-if="errors.firstName">{{ __(errors.title[0]) }}</div>
@@ -72,7 +73,7 @@
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('first_name')}}</label>
+                                       <label class="custom-label">{{__('first_name')}} *</label>
                                        <input type="text" class="form-control" v-model="personalInformation.firstName">
                                        <div class="form-text small text-danger" v-if="errors.firstName">{{ __(errors.firstName[0]) }}</div>
                                     </div>
@@ -86,14 +87,14 @@
                                  </div>
                                  <div class="col-sm">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('surname')}}</label>
+                                       <label class="custom-label">{{__('surname')}} *</label>
                                        <input type="text" class="form-control" v-model="personalInformation.surName">
                                        <div class="form-text small text-danger" v-if="errors.surName">{{ __(errors.surName[0]) }}</div>
                                     </div>
                                  </div>
                               </div>
                               <div class="form-group">
-                                       <label class="custom-label">{{__('marital_status')}}</label>
+                                       <label class="custom-label">{{__('marital_status')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.martialStatus">
                                             <option value="married">{{__('married')}}</option>
@@ -106,14 +107,14 @@
                               <div class="form-row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('mobile_no')}}</label>
+                                       <label class="custom-label">{{__('mobile_no')}} *</label>
                                        <input type="text" class="form-control" v-model="personalInformation.mobile">
                                        <div class="form-text small text-danger" v-if="errors.mobile">{{ __(errors.mobile[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('email_addresss')}}</label>
+                                       <label class="custom-label">{{__('email_addresss')}} *</label>
                                        <input type="email" class="form-control" v-model="personalInformation.email">
                                        <div class="form-text small text-danger" v-if="errors.email">{{ __(errors.email[0]) }}</div>
                                     </div>
@@ -122,7 +123,7 @@
                               <div class="form-row">
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('city')}}</label>
+                                       <label class="custom-label">{{__('city')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.city">
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
@@ -133,7 +134,7 @@
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                       <label class="custom-label">{{__('region')}}</label>
+                                       <label class="custom-label">{{__('region')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.region">
                                             <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
@@ -144,14 +145,15 @@
                                  </div>
                               </div>
                               <div class="form-group">
-                                 <label class="custom-label">{{__('nin')}}</label>
+                                 <label class="custom-label">{{__('nin')}} *</label>
                                  <input type="text" class="form-control" v-model="personalInformation.nin">
                                  <div class="form-text small text-danger" v-if="errors.nin">{{ __(errors.nin[0]) }}</div>
                               </div>
                               <div class="form-group">
-										<label class="custom-label">{{__('dob')}}</label>
+										<label class="custom-label">{{__('dob')}} *</label>
 										<div class="select-date">
-											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
+                                            <!-- date-pickr -->
+											<input type="date" class="form-control" v-model="personalInformation.dob" data-input>
                                             <div class="form-text small text-danger" v-if="errors.dob">{{ __(errors.dob[0]) }}</div>
 										</div>
                                 </div>

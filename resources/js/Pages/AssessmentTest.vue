@@ -36,7 +36,7 @@
                         <div class="status-bar">
                            <div class="custom-label">
                               <div class="row">
-                                 <div class="col title">{{step}} {{__('out_of')}} 63</div>
+                                 <div class="col title">{{__(step)}} {{__('out_of')}} 63</div>
                                  <div class="col-auto sub-title">{{progressBarPercentage}}%</div>
                               </div>
                            </div>

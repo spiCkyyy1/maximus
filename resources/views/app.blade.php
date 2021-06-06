@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{$page['props']['locale']}}" dir={{$page['props']['locale'] == 'en' ? 'ltr' : 'rtl'}}>
+<html lang="{{config('app.locale')}}" dir={{config('app.locale') == 'en' ? 'ltr' : 'rtl'}}>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
         <!-- Styles -->
-        {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
         <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/wow.min.css')}}">

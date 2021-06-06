@@ -235,8 +235,11 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm">
+																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																</div>
+                                                                <div class="avatar avatar-sm" v-else>
+																	<img src="/admin/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
 															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
@@ -273,7 +276,7 @@
                                         <pagination :metaData="jobSeekers" v-on:getPaginatedData="getPaginatedData"
                                         v-on:getPaginatedDataByUrl="getPaginatedDataByUrl"></pagination>
 									</div>
-                                    <div class="h-100"><not-found></not-found></div>
+                                    <div class="h-100" v-else><not-found></not-found></div>
 								</div>
 								<div class="tab-pane" :class="tab == 'selectedCandidates' ? 'active' : ''" id="tab-2">
                                     <div class="card table-card" v-if="dataLoaded && jobSeekers.data.length > 0">
@@ -313,8 +316,11 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm">
+																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																</div>
+                                                                <div class="avatar avatar-sm" v-else>
+																	<img src="/admin/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
 															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
@@ -389,8 +395,11 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm">
+																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+																</div>
+                                                                <div class="avatar avatar-sm" v-else>
+																	<img src="/admin/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
 																</div>
 															</td>
 															<td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>
