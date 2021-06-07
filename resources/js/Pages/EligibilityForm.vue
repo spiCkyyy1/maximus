@@ -153,7 +153,7 @@
 										<label class="custom-label">{{__('dob')}} *</label>
 										<div class="select-date">
                                             <!-- date-pickr -->
-											<input type="date" class="form-control" v-model="personalInformation.dob" data-input>
+											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
                                             <div class="form-text small text-danger" v-if="errors.dob">{{ __(errors.dob[0]) }}</div>
 										</div>
                                 </div>
@@ -312,6 +312,24 @@ import Layout from '../Layouts/Layout'
         props:{
             cities: Object,
             regions: Object
+        },
+        mounted(){
+
+            var base_url = window.location.origin;
+            let cssFile = document.createElement('link');
+            cssFile.rel = 'stylesheet';
+            cssFile.href = base_url+'/css/flatpickr.min.css';
+            document.head.appendChild(cssFile);
+            let jsFile = document.createElement('script');
+            jsFile.type = 'text/javascript';
+            jsFile.src = base_url+'/js/flatpickr.min.js';
+            document.head.appendChild(jsFile);
+
+            $(".date-pickr").flatpickr({
+			altInput: true,
+			altFormat: "Y-m-d",
+			dateFormat: "Y-m-d",
+		});
         },
         data(){
             return{
