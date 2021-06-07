@@ -19,11 +19,11 @@
         <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/wow.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-        {{-- @if(Session::get('locale') == 'en') --}}
+        @if(config('app.locale') == 'en')
             <link rel="stylesheet" href="{{asset('css/ltr.css')}}">
-        {{-- @else --}}
-        {{-- <link rel="stylesheet" href="{{asset('css/rtl.css')}}"> --}}
-        {{-- @endif --}}
+        @else
+            <link rel="stylesheet" href="{{asset('css/rtl.css')}}">
+        @endif
         <style>#app{height: 100%;}</style>
     </head>
     <body>
