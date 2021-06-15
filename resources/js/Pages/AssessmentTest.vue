@@ -9,6 +9,11 @@
                      <p class="sub-title white-text">{{__(partNo)}}</p>
                      <h1 class="title white-text">{{__(testPhase)}}</h1>
                   </div>
+                  <div class="row wow fadeInLeft">
+                        <div class="col-8 col-lg-12">
+                            <p class="font-md white-text">{{__(testDescription)}}</p>
+                        </div>
+                    </div>
                </div>
             </div>
          </div>
@@ -714,6 +719,7 @@ import Competencies from '../Pages/Competencies'
                 answerSelected: false,
                 partNo: 'Part 1',
                 testPhase: 'Readiness Test',
+                testDescription: 'This will identify Motivation, Attitude, Work Ethic, Commitment and Availability based on a series of questions.',
                 hideProgressBar: true,
                 hideProcess: true,
                 showLoader: false,
@@ -764,6 +770,7 @@ import Competencies from '../Pages/Competencies'
                             this.readinessAssessment = [];
                             this.partNo = 'Part 2';
                             this.testPhase = 'Evaluation Test';
+                            this.testDescription = 'Completing a Self- evaluation is a pro-active way to articulate what you’ve accomplished and identify where you would like to grow.';
                         }
                         this.showLoader = false;
 
@@ -784,6 +791,7 @@ import Competencies from '../Pages/Competencies'
                             this.readinessAssessment = [];
                             this.partNo = 'Part 3';
                             this.testPhase = 'Competencies Test';
+                            this.testDescription = 'This will highlight the competence you excel at and identify competencies you can build on.';
                         }
                         this.showLoader = false;
 

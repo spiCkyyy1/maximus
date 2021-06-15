@@ -8518,8 +8518,8 @@ body {
 .section.bg-2 {
   background-color: #f7921e; }
   .section.bg-2::before {
-    opacity: 0.05;
-    filter: alpha(opacity=5);
+    opacity: 1;
+    filter: alpha(opacity=100);
     background: url("../images/banners/bg2.png") center/cover no-repeat; }
 
 .italic {
@@ -10527,9 +10527,14 @@ footer {
 .section-services .icon-box {
   margin-top: 50px;
   text-align: center; }
-  .section-services .icon-box i {
+  .section-services .icon-box .icon {
+    margin: auto;
     color: #f7921e;
-    font-size: 5rem; }
+    max-width: 80px;
+    text-align: center; }
+    .section-services .icon-box .icon i {
+      color: #f7921e;
+      font-size: 5rem; }
   .section-services .icon-box .heading {
     color: black;
     margin-top: 20px;

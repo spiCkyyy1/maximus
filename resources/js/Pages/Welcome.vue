@@ -121,10 +121,12 @@
 					<div class="sec-title text-center wow fadeInUp">
 						<h1 class="title white-text">{{__('eligibility_criteria')}}</h1>
 					</div>
-					<div class="row">
+                    <div class="row">
 						<div class="col-sm-4">
 							<div class="icon-box">
-								<i class="icon-user-female"></i>
+								<div class="icon">
+									<img src="/images/icons/female.png" class="img-fluid" alt="">
+								</div>
 								<div class="meta">
 									<div class="heading white-text">{{__('eligibility_point_1')}}</div>
 								</div>
@@ -132,7 +134,9 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="icon-box">
-								<i class="icon-graduation"></i>
+								<div class="icon">
+									<i class="icon-graduation"></i>
+								</div>
 								<div class="meta">
 									<div class="heading white-text">{{__('eligibility_point_2')}}</div>
 								</div>
@@ -140,7 +144,9 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="icon-box">
-								<i class="icon-briefcase"></i>
+								<div class="icon">
+									<i class="icon-briefcase"></i>
+								</div>
 								<div class="meta">
 									<div class="heading white-text">{{__('eligibility_point_3')}}</div>
 								</div>
