@@ -136,9 +136,9 @@
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">{{__('header_jobseeker')}}</InertiaLink>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link nav-btn btn-secondary active" href="#employer">{{__('header_employer')}}</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</nav>
@@ -173,9 +173,9 @@
 							<li class="nav-item mr-0">
                                 <InertiaLink :href="route('jobSeeker')" class="nav-link nav-btn btn-primary ">{{__('header_jobseeker')}}</InertiaLink>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link nav-btn btn-secondary active" href="javascript:;" @click="redirectToEmployer">{{__('header_employer')}}</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</nav>

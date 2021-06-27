@@ -43,7 +43,11 @@ Route::post('/save-jobTraining', [FrontendController::class, 'saveJobTraining'])
 
 Route::post('/save-social', [FrontendController::class, 'saveSocial'])->name('saveSocial');
 
+Route::post('/save-education-field', [FrontendController::class, 'saveEducationField'])->name('saveEducationField');
+
 Route::post('/save-unemployment', [FrontendController::class, 'saveUnemployment'])->name('saveUnemployment');
+
+Route::post('/upload-files', [FrontendController::class, 'uploadDocuments'])->name('uploadDocuments');
 
 Route::get('/assessment-test/{id}', [FrontendController::class, 'assessmentTest'])->name('assessmentTest');
 
@@ -52,6 +56,8 @@ Route::post('/save-readiness', [FrontendController::class, 'saveReadiness'])->na
 Route::post('/save-evaluation', [FrontendController::class, 'saveEvaluation'])->name('saveEvaluation');
 
 Route::post('/save-competencies', [FrontendController::class, 'saveCompetencies'])->name('saveCompetencies');
+
+
 
 Route::get('language/{language}', function ($language) {
     Session()->put('locale', $language);

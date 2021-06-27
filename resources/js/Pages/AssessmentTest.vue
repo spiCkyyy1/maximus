@@ -376,7 +376,9 @@
                         :option7="__('q29_o7')" :option8="__('q29_o8')"
                         value1="family_issues" value2="transportation" value3="health_issues" value4="location" value5="education"
                         value6="experience" value7="qualifications" value8="no_barriers"
-                        weighted_score1="" weighted_score2="" weighted_score3="" competency="readiness" :error="error"
+                        weighted_score1="" weighted_score2="" weighted_score3="" weighted_score4="" weighted_score5=""
+                        weighted_score6="" weighted_score7="" weighted_score8=""
+                         competency="readiness" :error="error"
                         :btnText="__('next')"></readiness>
 
 
@@ -725,6 +727,12 @@ import Competencies from '../Pages/Competencies'
                 showLoader: false,
                 progressBarPercentage: '1'
             }
+        },
+        mounted(){
+                let file = document.createElement('link');
+                file.rel = 'stylesheet';
+                file.href = '/css/ltr.css';
+                document.head.appendChild(file);
         },
         methods: {
             updateAnswer({question, value, weightedScore, competency}){

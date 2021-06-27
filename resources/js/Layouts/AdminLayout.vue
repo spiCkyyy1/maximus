@@ -22,7 +22,7 @@
                <li class="heading">Dashboard</li>
                <li :class="route().current() == 'dashboard' ? 'active' : ''"><inertiaLink :href="route('dashboard')"><span><i class="icon-speedometer"></i></span>Dashboard</inertiaLink></li>
                <li class="heading">Employer</li>
-               <li :class="route().current() == 'employers' ? 'active' : ''"><inertiaLink :href="route('employers')"><span><i class="icon-user"></i></span>Employers</inertiaLink></li>
+               <!-- <li :class="route().current() == 'employers' ? 'active' : ''"><inertiaLink :href="route('employers')"><span><i class="icon-user"></i></span>Employers</inertiaLink></li> -->
                <li class="heading">Candidates</li>
                <li :class="route().current() == 'allCandidates' ? 'active' : ''"><inertiaLink :href="route('allCandidates')"><span><i class="icon-user"></i></span>All Candidates</inertiaLink></li>
                <li :class="route().current() == 'selectedCandidates' ? 'active' : ''"><inertiaLink :href="route('selectedCandidates')"><span><i class="icon-user-following"></i></span>Selected Candidates</inertiaLink></li>

@@ -22,6 +22,26 @@
 						<div class="text-right" v-if="jobSeeker.mobile != null">{{jobSeeker.mobile}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Role</div>
+						<div class="text-right" v-if="jobSeeker.role != null">{{humanize(jobSeeker.role)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Sector</div>
+						<div class="text-right" v-if="jobSeeker.sector != null">{{humanize(jobSeeker.sector)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Education Major</div>
+						<div class="text-right" v-if="jobSeeker.education_major != null">{{humanize(jobSeeker.education_major)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Education Field</div>
+						<div class="text-right" v-if="jobSeeker.education_field != null">{{humanize(jobSeeker.education_field)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">City</div>
 						<div class="text-right" v-if="jobSeeker.city != null"> {{jobSeeker.city}}</div>
@@ -40,6 +60,32 @@
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Date of Birth</div>
 						<div class="text-right" v-if="jobSeeker.dob != null">{{jobSeeker.dob}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Marital Status</div>
+						<div class="text-right" v-if="jobSeeker.martial_status != null">{{humanize(jobSeeker.martial_status)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">CV</div>
+						<div class="text-right" v-if="jobSeeker.cv != null">
+                            <a :href="storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.cv" download target="_blank">{{jobSeeker.cv}}</a>
+                        </div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Degree Certificate</div>
+						<div class="text-right" v-if="jobSeeker.degree_certificate != null">
+                        <a :href="storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.degree_certificate" download target="_blank">{{jobSeeker.degree_certificate}}</a>
+                        </div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">GOSI Evidence</div>
+						<div class="text-right" v-if="jobSeeker.gosi_evidence != null">
+                            <a :href="storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.gosi_evidence" download target="_blank">{{jobSeeker.gosi_evidence}}</a>
+                        </div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
@@ -62,9 +108,23 @@ export default {
         jobSeeker: Object,
         show: Boolean
     },
+    data(){
+        return{
+            storageUrl: window.location.origin + '/storage/'
+        }
+    },
     mounted(){
         if(this.jobSeeker != '' || this.jobSeeker.length != 0){
             $("#mcqs-modal").modal('show');
+        }
+    },
+    methods:{
+        humanize: function(str) {
+            var i, frags = str.split('_');
+            for (i=0; i<frags.length; i++) {
+                frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
+            }
+            return frags.join(' ');
         }
     }
 }

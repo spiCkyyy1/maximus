@@ -166,7 +166,7 @@
 				<div class="row justify-content-center mt-5">
 					<div class="col">
 						<div class="row align-items-center">
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<div class="card" data-eqh>
 									<div class="icon">
 										<img src="/images/icons/job-seeker.png" alt="" class="img-fluid">
@@ -179,7 +179,7 @@
 									</p>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<!-- <div class="col-md-6">
 								<div class="card" data-eqh>
 									<div class="icon">
 										<img src="/images/icons/boss.png" alt="" class="img-fluid">
@@ -191,7 +191,7 @@
                                         {{__('employer_desc')}}
 									</p>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

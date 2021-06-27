@@ -98,7 +98,12 @@ class FrontendController extends Controller
             'nin.min' => 'Please enter 10 digits of nin',
             'nin.max' => 'Please enter 10 digits of nin',
             'title.required' => 'Please select title',
-            'martialStatus.required' => 'Please select your martial status'
+            'martialStatus.required' => 'Please select your martial status',
+            'employment.required' => 'Please select any option',
+            'jobTraining.required' => 'Please select any option',
+            'socialBeneficiary.required' => 'Please select any option',
+            'educationMajor.required' => 'Please select any option',
+            'educationField.required' => 'Please select any option'
         ];
 
         $validator = Validator::make($request->all(),[
@@ -111,7 +116,12 @@ class FrontendController extends Controller
             'region' => 'required',
             'nin' => 'required|min:10|max:10',
             'dob' => 'required',
-            'martialStatus' => 'required'
+            'martialStatus' => 'required',
+            'employment' => 'required',
+            'jobTraining' => 'required',
+            'socialBeneficiary' => 'required',
+            'educationMajor' => 'required',
+            'educationField' => 'required'
         ], $messages);
 
         if($validator->fails()){
@@ -129,7 +139,12 @@ class FrontendController extends Controller
             'region' => $request->region,
             'nin' => $request->nin,
             'dob' => $request->dob,
-            'martial_status' => $request->martialStatus
+            'martial_status' => $request->martialStatus,
+            'full_time_employment' => $request->employment,
+            'on_job_training' => $request->jobTraining,
+            'social_benficiary' => $request->socialBeneficiary,
+            'education_major' => $request->educationMajor,
+            'education_field' => $request->educationField
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);
@@ -185,56 +200,76 @@ class FrontendController extends Controller
         $jobSeeker->save();
         return response()->json(['success' => 'Qualification Saved']);
     }
-    public function saveEmployment(Request $request){
+    // public function saveEmployment(Request $request){
+    //     $messages = [
+    //         'employment.required' => 'Please select any option'
+    //     ];
+
+    //     $validator = Validator::make($request->all(),[
+    //         'employment' => 'required'
+    //     ], $messages);
+
+    //     if($validator->fails()){
+    //         return response()->json(['errors' => $validator->errors()]);
+    //     }
+    //     $jobSeeker = JobSeeker::find($request->id);
+    //     $jobSeeker->full_time_employment = $request->employment;
+    //     $jobSeeker->save();
+    //     return response()->json(['success' => 'Employment Saved']);
+    // }
+    // public function saveJobTraining(Request $request){
+    //     $messages = [
+    //         'jobTraining.required' => 'Please select any option'
+    //     ];
+
+    //     $validator = Validator::make($request->all(),[
+    //         'jobTraining' => 'required'
+    //     ], $messages);
+
+    //     if($validator->fails()){
+    //         return response()->json(['errors' => $validator->errors()]);
+    //     }
+    //     $jobSeeker = JobSeeker::find($request->id);
+    //     $jobSeeker->on_job_training = $request->jobTraining;
+    //     $jobSeeker->save();
+    //     return response()->json(['success' => 'Job Training Saved']);
+    // }
+    // public function saveSocial(Request $request){
+    //     $messages = [
+    //         'socialBeneficiary.required' => 'Please select any option'
+    //     ];
+
+    //     $validator = Validator::make($request->all(),[
+    //         'socialBeneficiary' => 'required'
+    //     ], $messages);
+    //     if($validator->fails()){
+    //         return response()->json(['errors' => $validator->errors()]);
+    //     }
+    //     $jobSeeker = JobSeeker::find($request->id);
+    //     $jobSeeker->social_benficiary = $request->socialBeneficiary;
+    //     $jobSeeker->save();
+    //     return response()->json(['success' => 'Social Beneficiary Saved']);
+    // }
+
+    public function saveEducationField(Request $request){
         $messages = [
-            'employment.required' => 'Please select any option'
+            'role.required' => 'Please select any option',
+            'sector.required' => 'Please select any option'
         ];
 
         $validator = Validator::make($request->all(),[
-            'employment' => 'required'
+            'role' => 'required',
+            'sector' => 'required'
         ], $messages);
-
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()]);
         }
         $jobSeeker = JobSeeker::find($request->id);
-        $jobSeeker->full_time_employment = $request->employment;
+        $jobSeeker->role = $request->role;
+        $jobSeeker->sector = $request->sector;
+
         $jobSeeker->save();
-        return response()->json(['success' => 'Employment Saved']);
-    }
-    public function saveJobTraining(Request $request){
-        $messages = [
-            'jobTraining.required' => 'Please select any option'
-        ];
-
-        $validator = Validator::make($request->all(),[
-            'jobTraining' => 'required'
-        ], $messages);
-
-        if($validator->fails()){
-            return response()->json(['errors' => $validator->errors()]);
-        }
-        $jobSeeker = JobSeeker::find($request->id);
-        $jobSeeker->on_job_training = $request->jobTraining;
-        $jobSeeker->save();
-        return response()->json(['success' => 'Job Training Saved']);
-    }
-
-    public function saveSocial(Request $request){
-        $messages = [
-            'socialBeneficiary.required' => 'Please select any option'
-        ];
-
-        $validator = Validator::make($request->all(),[
-            'socialBeneficiary' => 'required'
-        ], $messages);
-        if($validator->fails()){
-            return response()->json(['errors' => $validator->errors()]);
-        }
-        $jobSeeker = JobSeeker::find($request->id);
-        $jobSeeker->social_benficiary = $request->socialBeneficiary;
-        $jobSeeker->save();
-        return response()->json(['success' => 'Social Beneficiary Saved']);
+        return response()->json(['success' => 'Education Fields Saved']);
     }
 
     public function saveUnemployment(Request $request){
@@ -257,6 +292,7 @@ class FrontendController extends Controller
     }
 
     public function assessmentTest($id){
+        app()->setLocale('en');
         return Inertia::render('AssessmentTest', ['jobSeekerId' => $id]);
     }
 
@@ -321,5 +357,68 @@ class FrontendController extends Controller
 
         return response()->json(['success' => 'Competencies Submitted.']);
 
+    }
+
+    public function uploadDocuments(Request $request){
+
+        $messages = [
+            'cv.required' => 'Please select file for CV',
+            'degreeCertificate.required' => 'Please select file for Degree Certificate',
+            'gosiEvidence.required' => 'Please select file for GOSI Evidence',
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'cv' => 'required|file|mimetypes:application/pdf|max:500000',
+            'degreeCertificate' => 'required|file|mimetypes:application/pdf|max:500000',
+            'gosiEvidence' => 'required|file|mimetypes:application/pdf|max:500000'
+
+        ], $messages);
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()]);
+        }
+            // if (Storage::exists('resume/' . $image)) {
+            //     Storage::delete('resume/' . $image);
+            // }
+        if ($request->hasFile('cv')) {
+            //save job seeker cv
+            $jobSeeker = JobSeeker::find($request->id);
+            $cvImageName = $jobSeeker->id . '-' . $request->file('cv')->getClientOriginalName();
+            $cvFileName = $request->file('cv')->getClientOriginalName();
+
+            $jobSeeker->cv = $cvFileName;
+            $jobSeeker->save();
+
+            $path = $request->file('cv')->storeAs(
+                'public/'.$jobSeeker->id, $cvImageName
+            );
+        }
+        if ($request->hasFile('degreeCertificate')) {
+            //save job seeker degreeCertificate
+            $jobSeeker = JobSeeker::find($request->id);
+            $degreeCertificateImageName = $jobSeeker->id . '-' . $request->file('degreeCertificate')->getClientOriginalName();
+            $degreeCertificateFileName = $request->file('degreeCertificate')->getClientOriginalName();
+
+            $jobSeeker->degree_certificate = $degreeCertificateFileName;
+            $jobSeeker->save();
+
+            $path = $request->file('degreeCertificate')->storeAs(
+                'public/'.$jobSeeker->id, $degreeCertificateImageName
+            );
+        }
+        if ($request->hasFile('gosiEvidence')) {
+            //save job seeker gosiEvidence
+            $jobSeeker = JobSeeker::find($request->id);
+            $gosiEvidenceImageName = $jobSeeker->id . '-' . $request->file('gosiEvidence')->getClientOriginalName();
+            $gosiEvidenceFileName = $request->file('gosiEvidence')->getClientOriginalName();
+
+            $jobSeeker->gosi_evidence = $gosiEvidenceFileName;
+            $jobSeeker->save();
+
+            $path = $request->file('gosiEvidence')->storeAs(
+                'public/'.$jobSeeker->id, $gosiEvidenceImageName
+            );
+        }
+
+        return response()->json(['success' => 'Files Uploaded Successfully.']);
     }
 }

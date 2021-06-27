@@ -19,12 +19,18 @@
         <link rel="stylesheet" href="{{asset('css/flatpickr.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/wow.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
         @if(config('app.locale') == 'en')
             <link rel="stylesheet" href="{{asset('css/ltr.css')}}">
         @else
             <link rel="stylesheet" href="{{asset('css/rtl.css')}}">
         @endif
         <style>#app{height: 100%;}</style>
+        <style>
+            .select2-selection__rendered{
+                color: white !important;
+            }
+        </style>
     </head>
     <body>
         @inertia
@@ -42,6 +48,7 @@
         <script src="{{asset('js/owl.carousel.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/grid.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/select2.min.js')}}" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" type="text/javascript"></script>
         <script type="text/javascript">
         @if(Route::currentRouteName() == 'assessmentTest')
