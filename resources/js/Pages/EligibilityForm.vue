@@ -163,6 +163,7 @@
                                             <label class="custom-label">{{__('Education Major')}} *</label>
                                             <div class="select-picker">
                                                 <select class="form-control" id="educationMajor">
+                                                    <option value=""></option>
                                                     <option value="administration_and_management">{{__('Administration and Management')}}</option>
                                                     <option value="arts">{{__('Arts')}}</option>
                                                     <option value="basic_programmes_and_qualifications">{{__('Basic programmes and qualifications')}}</option>
@@ -186,6 +187,7 @@
                                             <label class="custom-label">{{__('Education Field')}} *</label>
                                             <div class="select-picker">
                                                 <select class="form-control" id="educationField">
+                                                    <option value=""></option>
                                                     <option value="accounting">{{__('Accounting')}}</option>
                                                     <option value="aerospace_engineering">{{__('Aerospace Engineering')}}</option>
                                                     <option value="agriculture_economics">{{__('Agriculture Economics')}}</option>
@@ -442,6 +444,7 @@
                                         <label class="custom-label">{{__('Role Preference')}} *</label>
                                         <div class="select-picker">
                                             <select class="form-control" id="roleSelect">
+                                                    <option value=""></option>
                                                     <option value="accountant">{{__('Accountant')}}</option>
                                                     <option value="admin">{{__('Admin')}}</option>
                                                     <option value="assistant_store_manager">{{__('Assistant Store manager')}}</option>
@@ -507,6 +510,7 @@
                                         <label class="custom-label">{{__('Sector Preference')}} *</label>
                                         <div class="select-picker">
                                             <select class="form-control" id="sectorSelect">
+                                                    <option value=""></option>
                                                     <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
                                                     <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option>
                                                     <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option>
@@ -598,21 +602,21 @@
                                 <h6 class="mb-5">Upload Files</h6>
                                 <div class="form-group">
                                     <div class="btn btn-default btn-upload">
-                                        <i class="icon-doc pr-2"></i>Upload CV
+                                        <i class="icon-doc pr-2"></i>{{uploadCvText}}
                                         <input type="file" accept="application/pdf" id="cv" ref="cv" @change="handleCvUpload">
                                     </div>
                                 </div>
                                 <div class="form-text small text-danger" v-if="errors.cv">{{ __(errors.cv[0]) }}</div>
                                 <div class="form-group">
                                     <div class="btn btn-default btn-upload">
-                                        <i class="icon-docs pr-2"></i>Upload Degree Certificate
+                                        <i class="icon-docs pr-2"></i>{{uploadDegree}}
                                         <input type="file" accept="application/pdf" id="certificate" ref="certificate" @change="handleCertificateUpload">
                                     </div>
                                 </div>
                                 <div class="form-text small text-danger" v-if="errors.degreeCertificate">{{ __(errors.degreeCertificate[0]) }}</div>
                                 <div class="form-group">
                                     <div class="btn btn-default btn-upload">
-                                        <i class="icon-note pr-2"></i>GOSI Evidence
+                                        <i class="icon-note pr-2"></i>{{uploadGosi}}
                                         <input type="file" accept="application/pdf" id="evidence" ref="evidence" @change="handleGosiUpload">
                                     </div>
                                 </div>
@@ -657,10 +661,11 @@ import Layout from '../Layouts/Layout'
             document.head.appendChild(jsFile);
 
             $(".date-pickr").flatpickr({
-			altInput: true,
-			altFormat: "Y-m-d",
-			dateFormat: "Y-m-d",
-		});
+                altInput: true,
+                altFormat: "Y-m-d",
+                dateFormat: "Y-m-d",
+            });
+
         },
         data(){
             return{
@@ -702,6 +707,9 @@ import Layout from '../Layouts/Layout'
                     degreeCertificate: '',
                     gosiEvidence: ''
                 },
+                uploadCvText: 'Upload CV',
+                uploadDegree: 'Upload Degree Certificate ',
+                uploadGosi: 'GOSI Evidence',
                 errors: {},
                 showLoader: false
             }
@@ -888,12 +896,16 @@ import Layout from '../Layouts/Layout'
             },
             handleCvUpload: function(){
                 this.personalInformation.cv = this.$refs.cv.files[0];
+                this.uploadCvText = this.$refs.cv.files[0].name;
+
             },
             handleCertificateUpload(){
                 this.personalInformation.degreeCertificate = this.$refs.certificate.files[0];
+                this.uploadDegree = this.$refs.certificate.files[0].name;
             },
             handleGosiUpload(){
                 this.personalInformation.gosiEvidence = this.$refs.evidence.files[0];
+                this.uploadGosi = this.$refs.evidence.files[0].name;
             },
             uploadFiles: function(){
 

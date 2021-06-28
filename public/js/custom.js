@@ -10,7 +10,7 @@ function getRtlVal() {
 $(document).ready(function() {
 	// WOW
 	new WOW().init();
-	
+
 	// TOOLTIP
 	$('[data-toggle="tooltip"]').tooltip();
 
@@ -23,7 +23,13 @@ $(document).ready(function() {
 	$('[data-eqh]').equalHeight();
 
 	// Select2
-	$('.select-picker select').select2();
+	$('.select-picker select').select2({
+        placeholder: {
+		    id: '',
+		    text: 'Select Option'
+		  },
+		  allowClear: true
+    });
 
 	// Flatpickr
 	$(function () {
@@ -67,9 +73,9 @@ $owlcenter.children().each( function( index ) {
 	$(this).attr( 'data-position', index );
 });
 $(document).on('click', '.owl-item>div', function() {
-	$owlcenter.trigger('to.owl.carousel', $(this).data( 'position' ) ); 
+	$owlcenter.trigger('to.owl.carousel', $(this).data( 'position' ) );
 });
-// ===== Header li Active ==== 
+// ===== Header li Active ====
 $('header li').on('click', function() {
 	$('li').removeClass('active');
 	$(this).addClass('active');
@@ -88,7 +94,7 @@ function myFunction() {
 $(window).scroll(function(){
 	var sticky = $('.sticky'),
 		scroll = $(window).scrollTop();
-  
+
 	if (scroll >= 200) sticky.addClass('fixed');
 	else sticky.removeClass('fixed');
 });
@@ -105,13 +111,13 @@ $(window).scroll(function() {
 		}
 	});
 	// Scroll To Top
-	if ($(this).scrollTop() >= 50) { 
-		$('#scroll-to-top').fadeIn(50);  
+	if ($(this).scrollTop() >= 50) {
+		$('#scroll-to-top').fadeIn(50);
 	} else {
-		$('#scroll-to-top').fadeOut(50); 
+		$('#scroll-to-top').fadeOut(50);
 	}
 });
-$('#scroll-to-top').click(function() { 
+$('#scroll-to-top').click(function() {
 	$('body,html').animate({
 		scrollTop : 0
 	}, 500);
