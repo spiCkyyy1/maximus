@@ -47,9 +47,9 @@
         <script>new WOW().init();</script>
         <script src="{{asset('js/owl.carousel.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/grid.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/select2.min.js')}}" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" type="text/javascript"></script>
+        <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
         <script type="text/javascript">
         @if(Route::currentRouteName() == 'assessmentTest')
 

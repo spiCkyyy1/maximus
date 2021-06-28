@@ -146,7 +146,7 @@
 		</div>
 	</div>
 </header>
-<header id="header" class="header header-static" v-if="route().current() != 'assessmentTest' && route().current() != 'landing'">
+<header class="header header-static" v-if="route().current() != 'assessmentTest' && route().current() != 'landing'">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">

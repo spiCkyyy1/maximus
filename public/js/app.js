@@ -24870,7 +24870,6 @@ var _hoisted_63 = {
 };
 var _hoisted_64 = {
   key: 1,
-  id: "header",
   "class": "header header-static"
 };
 var _hoisted_65 = {
