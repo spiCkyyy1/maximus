@@ -438,137 +438,133 @@
                            </div>
                         </div> -->
                         <div class="card wow fadeInRight" v-if="showEducationForm" id="educationForm">
-                           <div class="row">
-                              <div class="col-sm-6">
-                                        <div class="form-group">
+                           <div>
+                               <div class="form-group mb-5">
                                         <label class="custom-label">{{__('Role Preference')}} *</label>
                                         <div class="select-picker">
                                             <select class="form-control" id="roleSelect">
-                                                    <option value=""></option>
-                                                    <option value="accountant">{{__('Accountant')}}</option>
-                                                    <option value="admin">{{__('Admin')}}</option>
-                                                    <option value="assistant_store_manager">{{__('Assistant Store manager')}}</option>
-                                                    <option value="baker_associate">{{__('Baker Associate')}}</option>
-                                                    <option value="baker">{{__('Baker')}}</option>
-                                                    <option value="butcher">{{__('Butcher')}}</option>
-                                                    <option value="cashier">{{__('Cashier')}}</option>
-                                                    <option value="CCO_district_manager">{{__('CCO District Manager')}}</option>
-                                                    <option value="CCO_supervisor">{{__('CCO Supervisor')}}</option>
-                                                    <option value="cleaner">{{__('Cleaner')}}</option>
-                                                    <option value="cleaner_supervisor">{{__('Cleaner Supervisor')}}</option>
-                                                    <option value="coordinator">{{__('Coordinator')}}</option>
-                                                    <option value="cost_accountant">{{__('Cost Accountant')}}</option>
-                                                    <option value="customer_services">{{__('Customer services')}}</option>
-                                                    <option value="data_entry">{{__('Data Entry')}}</option>
-                                                    <option value="deli_service_associate">{{__('Deli Service Associate')}}</option>
-                                                    <option value="designer">{{__('Designer')}}</option>
-                                                    <option value="director_of_operation">{{__('Director of Operation')}}</option>
-                                                    <option value="district_manager_operation">{{__('District Manager Operation')}}</option>
-                                                    <option value="driver">{{__('Driver')}}</option>
-                                                    <option value="duty_manager">{{__('Duty Manager')}}</option>
-                                                    <option value="engineer">{{__('Engineer')}}</option>
-                                                    <option value="fish_service_associate">{{__('Fish Service Associate')}}</option>
-                                                    <option value="forklift">{{__('Forklift')}}</option>
-                                                    <option value="front_end_associate">{{__('Front End Associate')}}</option>
-                                                    <option value="hr_specialist">{{__('HR Specialist')}}</option>
-                                                    <option value="laborer">{{__('Laborer')}}</option>
-                                                    <option value="laundry_official">{{__('Laundry official')}}</option>
-                                                    <option value="machine_operator">{{__('Machine Operator')}}</option>
-                                                    <option value="manager">{{__('Manager')}}</option>
-                                                    <option value="merchandiser">{{__('Merchandiser')}}</option>
-                                                    <option value="nursing">{{__('Nursing')}}</option>
-                                                    <option value="operator">{{__('Operator')}}</option>
-                                                    <option value="payroll_coordinator">{{__('Payroll coordinator')}}</option>
-                                                    <option value="produce_service_associate">{{__('Produce Service Associate')}}</option>
-                                                    <option value="production_line">{{__('Production line')}}</option>
-                                                    <option value="quality_officer">{{__('Quality officer')}}</option>
-                                                    <option value="receiver">{{__('Receiver')}}</option>
-                                                    <option value="receptionist">{{__('Receptionist')}}</option>
-                                                    <option value="recruitment_coordinator">{{__('Recruitment coordinator')}}</option>
-                                                    <option value="regional_operation_manager">{{__('Regional Operation Manager')}}</option>
-                                                    <option value="sales_person">{{__('Sales person')}}</option>
-                                                    <option value="secretary">{{__('Secretary')}}</option>
-                                                    <option value="section_manager">{{__('Secretary')}}</option>
-                                                    <option value="security_guard">{{__('Security Guard')}}</option>
-                                                    <option value="security_supervisor">{{__('Security Supervisor')}}</option>
-                                                    <option value="shift_leader">{{__('Shift Leader')}}</option>
-                                                    <option value="stocker">{{__('Stocker')}}</option>
-                                                    <option value="store_manager">{{__('Store Manager')}}</option>
-                                                    <option value="student_counsellor">{{__('Student Counsellor')}}</option>
-                                                    <option value="system_administrator">{{__('System Administrator')}}</option>
-                                                    <option value="teacher">{{__('Teacher')}}</option>
-                                                    <option value="technician">{{__('Technician')}}</option>
-                                                    <option value="VP_of_operation">{{__('VP of operation')}}</option>
-                                                    <option value="waiter">{{__('Waiter')}}</option>
-                                                </select>
-                                            <div class="form-text small text-danger" v-if="errors.role">{{ __(errors.role[0]) }}</div>
-                                        </div>
-                                        </div>
+                                                        <option value=""></option>
+                                                        <option value="accountant">{{__('Accountant')}}</option>
+                                                        <option value="admin">{{__('Admin')}}</option>
+                                                        <option value="assistant_store_manager">{{__('Assistant Store manager')}}</option>
+                                                        <option value="baker_associate">{{__('Baker Associate')}}</option>
+                                                        <option value="baker">{{__('Baker')}}</option>
+                                                        <option value="butcher">{{__('Butcher')}}</option>
+                                                        <option value="cashier">{{__('Cashier')}}</option>
+                                                        <option value="CCO_district_manager">{{__('CCO District Manager')}}</option>
+                                                        <option value="CCO_supervisor">{{__('CCO Supervisor')}}</option>
+                                                        <option value="cleaner">{{__('Cleaner')}}</option>
+                                                        <option value="cleaner_supervisor">{{__('Cleaner Supervisor')}}</option>
+                                                        <option value="coordinator">{{__('Coordinator')}}</option>
+                                                        <option value="cost_accountant">{{__('Cost Accountant')}}</option>
+                                                        <option value="customer_services">{{__('Customer services')}}</option>
+                                                        <option value="data_entry">{{__('Data Entry')}}</option>
+                                                        <option value="deli_service_associate">{{__('Deli Service Associate')}}</option>
+                                                        <option value="designer">{{__('Designer')}}</option>
+                                                        <option value="director_of_operation">{{__('Director of Operation')}}</option>
+                                                        <option value="district_manager_operation">{{__('District Manager Operation')}}</option>
+                                                        <option value="driver">{{__('Driver')}}</option>
+                                                        <option value="duty_manager">{{__('Duty Manager')}}</option>
+                                                        <option value="engineer">{{__('Engineer')}}</option>
+                                                        <option value="fish_service_associate">{{__('Fish Service Associate')}}</option>
+                                                        <option value="forklift">{{__('Forklift')}}</option>
+                                                        <option value="front_end_associate">{{__('Front End Associate')}}</option>
+                                                        <option value="hr_specialist">{{__('HR Specialist')}}</option>
+                                                        <option value="laborer">{{__('Laborer')}}</option>
+                                                        <option value="laundry_official">{{__('Laundry official')}}</option>
+                                                        <option value="machine_operator">{{__('Machine Operator')}}</option>
+                                                        <option value="manager">{{__('Manager')}}</option>
+                                                        <option value="merchandiser">{{__('Merchandiser')}}</option>
+                                                        <option value="nursing">{{__('Nursing')}}</option>
+                                                        <option value="operator">{{__('Operator')}}</option>
+                                                        <option value="payroll_coordinator">{{__('Payroll coordinator')}}</option>
+                                                        <option value="produce_service_associate">{{__('Produce Service Associate')}}</option>
+                                                        <option value="production_line">{{__('Production line')}}</option>
+                                                        <option value="quality_officer">{{__('Quality officer')}}</option>
+                                                        <option value="receiver">{{__('Receiver')}}</option>
+                                                        <option value="receptionist">{{__('Receptionist')}}</option>
+                                                        <option value="recruitment_coordinator">{{__('Recruitment coordinator')}}</option>
+                                                        <option value="regional_operation_manager">{{__('Regional Operation Manager')}}</option>
+                                                        <option value="sales_person">{{__('Sales person')}}</option>
+                                                        <option value="secretary">{{__('Secretary')}}</option>
+                                                        <option value="section_manager">{{__('Secretary')}}</option>
+                                                        <option value="security_guard">{{__('Security Guard')}}</option>
+                                                        <option value="security_supervisor">{{__('Security Supervisor')}}</option>
+                                                        <option value="shift_leader">{{__('Shift Leader')}}</option>
+                                                        <option value="stocker">{{__('Stocker')}}</option>
+                                                        <option value="store_manager">{{__('Store Manager')}}</option>
+                                                        <option value="student_counsellor">{{__('Student Counsellor')}}</option>
+                                                        <option value="system_administrator">{{__('System Administrator')}}</option>
+                                                        <option value="teacher">{{__('Teacher')}}</option>
+                                                        <option value="technician">{{__('Technician')}}</option>
+                                                        <option value="VP_of_operation">{{__('VP of operation')}}</option>
+                                                        <option value="waiter">{{__('Waiter')}}</option>
+                                            </select>
+                                        <div class="form-text small text-danger" v-if="errors.role">{{ __(errors.role[0]) }}</div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                        <label class="custom-label">{{__('Sector Preference')}} *</label>
-                                        <div class="select-picker">
-                                            <select class="form-control" id="sectorSelect">
-                                                    <option value=""></option>
-                                                    <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
-                                                    <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option>
-                                                    <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option>
-                                                    <option value="air_transport">{{__('Air Transport')}}</option>
-                                                    <option value="bakeries_and_bread_trade">{{__('Bakeries and Bread Trade')}}</option>
-                                                    <option value="building_and_construction_for_government_projects">{{__('Building and Construction for Government Projects')}}</option>
-                                                    <option value="building_and_construction">{{__('Building and Construction')}}</option>
-                                                    <option value="business_advisory_services">{{__('Business Advisory Services')}}</option>
-                                                    <option value="cement_industry">{{__('Cement Industry')}}</option>
-                                                    <option value="ceramics_granite_and_bricks">{{__('Ceramics Granite and Bricks')}}</option>
-                                                    <option value="collection_offices_and_real_estate_services">{{__('Collection Offices and Real Estate Services')}}</option>
-                                                    <option value="communications">{{__('Communications')}}</option>
-                                                    <option value="electricity_gas_and_water">{{__('Electricity Gas and Water')}}</option>
-                                                    <option value="farmers_fishermen_and_shepherds">{{__('Farmers Fishermen and Shepherds (Private)')}}</option>
-                                                    <option value="financial_institutions">{{__('Financial Institutions')}}</option>
-                                                    <option value="gas_stations">{{__('Gas Stations')}}</option>
-                                                    <option value="gold_and_jewellery_trade">{{__('Gold and Jewellery Trade')}}</option>
-                                                    <option value="government_facilities_services_offices">{{__('Government Facilities Services Offices')}}</option>
-                                                    <option value="health_services">{{__('Health Services')}}</option>
-                                                    <option value="information_technology">{{__('Information Technology')}}</option>
-                                                    <option value="insurance_and_business_services">{{__('Insurance and Business Services')}}</option>
-                                                    <option value="international_schools">{{__('International Schools')}}</option>
-                                                    <option value="kindergartens">{{__('Kindergartens')}}</option>
-                                                    <option value="laboratories">{{__('Laboratories')}}</option>
-                                                    <option value="maintenance_and_cleaning_contracts_and_operating">{{__('Maintenance and Cleaning Contracts and Operating')}}</option>
-                                                    <option value="manufacturing">{{__('Manufacturing')}}</option>
-                                                    <option value="mining_and_quarrying">{{__('Mining and Quarrying')}}</option>
-                                                    <option value="nutrition_services">{{__('Nutrition Services')}}</option>
-                                                    <option value="oil_and_gas_extraction">{{__('Oil and Gas Extraction')}}</option>
-                                                    <option value="other">{{__('Other')}}</option>
-                                                    <option value="passenger_and_goods_transport_outside_cities">{{__('Passenger and Goods Transport Outside Cities')}}</option>
-                                                    <option value="personal_services">{{__('Personal Services')}}</option>
-                                                    <option value="petrochemical_coal_and_rubber">{{__('Petrochemical Coal and Rubber')}}</option>
-                                                    <option value="pharmacies_and_drug_stores">{{__('Pharmacies and Drug Stores')}}</option>
-                                                    <option value="print_and_electronic_publishing">{{__('Print and Electronic Publishing')}}</option>
-                                                    <option value="private_employment_offices">{{__('Private Employment Offices')}}</option>
-                                                    <option value="private_recruitment_offices">{{__('Private Recruitment Offices')}}</option>
-                                                    <option value="ready_mix_cement">{{__('Ready Mix Cement')}}</option>
-                                                    <option value="road_transport_of_goods_within_cities">{{__('Road Transport of Goods within Cities')}}</option>
-                                                    <option value="road_transport_of_passengers_within_cities">{{__('Road Transport of Passengers within Cities')}}</option>
-                                                    <option value="Sanitation companies_operating_under_government_contracts">{{__('Sanitation Companies Operating Under Government Contracts')}}</option>
-                                                    <option value="saudi_schools_for_boys_and_girls">{{__('Saudi Schools for Boys and Girls')}}</option>
-                                                    <option value="saudi_schools_for_boys">{{__('Saudi Schools for Boys')}}</option>
-                                                    <option value="saudi_schools_for_girls">{{__('Saudi Schools for Girls')}}</option>
-                                                    <option value="security_guards">{{__('Security Guards')}}</option>
-                                                    <option value="shipping">{{__('Shipping')}}</option>
-                                                    <option value="small_business_entities">{{__('Small Business Entities (Not More Than 9 Employees)')}}</option>
-                                                    <option value="social_and_group_services">{{__('Social and Group Services')}}</option>
-                                                    <option value="storage">{{__('Storage')}}</option>
-                                                    <option value="transporting_goods_outside_cities">{{__('Transporting Goods Outside Cities')}}</option>
-                                                    <option value="universities_colleges_and_training_institutions">{{__('Universities Colleges and Training Institutions')}}</option>
-                                                    <option value="wholesale_and_retail_trade">{{__('Wholesale and Retail Trade')}}</option>
-                                                    <option value="workshops_and_maintenance_shops">{{__('Workshops and Maintenance Shops')}}</option>
-                                                </select>
-                                            <div class="form-text small text-danger" v-if="errors.sector">{{ __(errors.sector[0]) }}</div>
-                                        </div>
-                                        </div>
+                                </div>
+                                <div class="form-group mb-5">
+                                    <label class="custom-label">{{__('Sector Preference')}} *</label>
+                                    <div class="select-picker">
+                                        <select class="form-control" id="sectorSelect">
+                                                <option value=""></option>
+                                                <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
+                                                <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option>
+                                                <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option>
+                                                <option value="air_transport">{{__('Air Transport')}}</option>
+                                                <option value="bakeries_and_bread_trade">{{__('Bakeries and Bread Trade')}}</option>
+                                                <option value="building_and_construction_for_government_projects">{{__('Building and Construction for Government Projects')}}</option>
+                                                <option value="building_and_construction">{{__('Building and Construction')}}</option>
+                                                <option value="business_advisory_services">{{__('Business Advisory Services')}}</option>
+                                                <option value="cement_industry">{{__('Cement Industry')}}</option>
+                                                <option value="ceramics_granite_and_bricks">{{__('Ceramics Granite and Bricks')}}</option>
+                                                <option value="collection_offices_and_real_estate_services">{{__('Collection Offices and Real Estate Services')}}</option>
+                                                <option value="communications">{{__('Communications')}}</option>
+                                                <option value="electricity_gas_and_water">{{__('Electricity Gas and Water')}}</option>
+                                                <option value="farmers_fishermen_and_shepherds">{{__('Farmers Fishermen and Shepherds (Private)')}}</option>
+                                                <option value="financial_institutions">{{__('Financial Institutions')}}</option>
+                                                <option value="gas_stations">{{__('Gas Stations')}}</option>
+                                                <option value="gold_and_jewellery_trade">{{__('Gold and Jewellery Trade')}}</option>
+                                                <option value="government_facilities_services_offices">{{__('Government Facilities Services Offices')}}</option>
+                                                <option value="health_services">{{__('Health Services')}}</option>
+                                                <option value="information_technology">{{__('Information Technology')}}</option>
+                                                <option value="insurance_and_business_services">{{__('Insurance and Business Services')}}</option>
+                                                <option value="international_schools">{{__('International Schools')}}</option>
+                                                <option value="kindergartens">{{__('Kindergartens')}}</option>
+                                                <option value="laboratories">{{__('Laboratories')}}</option>
+                                                <option value="maintenance_and_cleaning_contracts_and_operating">{{__('Maintenance and Cleaning Contracts and Operating')}}</option>
+                                                <option value="manufacturing">{{__('Manufacturing')}}</option>
+                                                <option value="mining_and_quarrying">{{__('Mining and Quarrying')}}</option>
+                                                <option value="nutrition_services">{{__('Nutrition Services')}}</option>
+                                                <option value="oil_and_gas_extraction">{{__('Oil and Gas Extraction')}}</option>
+                                                <option value="other">{{__('Other')}}</option>
+                                                <option value="passenger_and_goods_transport_outside_cities">{{__('Passenger and Goods Transport Outside Cities')}}</option>
+                                                <option value="personal_services">{{__('Personal Services')}}</option>
+                                                <option value="petrochemical_coal_and_rubber">{{__('Petrochemical Coal and Rubber')}}</option>
+                                                <option value="pharmacies_and_drug_stores">{{__('Pharmacies and Drug Stores')}}</option>
+                                                <option value="print_and_electronic_publishing">{{__('Print and Electronic Publishing')}}</option>
+                                                <option value="private_employment_offices">{{__('Private Employment Offices')}}</option>
+                                                <option value="private_recruitment_offices">{{__('Private Recruitment Offices')}}</option>
+                                                <option value="ready_mix_cement">{{__('Ready Mix Cement')}}</option>
+                                                <option value="road_transport_of_goods_within_cities">{{__('Road Transport of Goods within Cities')}}</option>
+                                                <option value="road_transport_of_passengers_within_cities">{{__('Road Transport of Passengers within Cities')}}</option>
+                                                <option value="Sanitation companies_operating_under_government_contracts">{{__('Sanitation Companies Operating Under Government Contracts')}}</option>
+                                                <option value="saudi_schools_for_boys_and_girls">{{__('Saudi Schools for Boys and Girls')}}</option>
+                                                <option value="saudi_schools_for_boys">{{__('Saudi Schools for Boys')}}</option>
+                                                <option value="saudi_schools_for_girls">{{__('Saudi Schools for Girls')}}</option>
+                                                <option value="security_guards">{{__('Security Guards')}}</option>
+                                                <option value="shipping">{{__('Shipping')}}</option>
+                                                <option value="small_business_entities">{{__('Small Business Entities (Not More Than 9 Employees)')}}</option>
+                                                <option value="social_and_group_services">{{__('Social and Group Services')}}</option>
+                                                <option value="storage">{{__('Storage')}}</option>
+                                                <option value="transporting_goods_outside_cities">{{__('Transporting Goods Outside Cities')}}</option>
+                                                <option value="universities_colleges_and_training_institutions">{{__('Universities Colleges and Training Institutions')}}</option>
+                                                <option value="wholesale_and_retail_trade">{{__('Wholesale and Retail Trade')}}</option>
+                                                <option value="workshops_and_maintenance_shops">{{__('Workshops and Maintenance Shops')}}</option>
+                                            </select>
+                                        <div class="form-text small text-danger" v-if="errors.sector">{{ __(errors.sector[0]) }}</div>
                                     </div>
+                                </div>
                            </div>
                            <div class="text-center mt-5">
                                  <button type="button" class="btn btn-primary" @click="validateEducation">{{__('submit')}}</button>
