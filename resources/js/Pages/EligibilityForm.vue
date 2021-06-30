@@ -144,20 +144,38 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="form-group">
-                                 <label class="custom-label">{{__('nin')}} *</label>
-                                 <input type="text" class="form-control" v-model="personalInformation.nin">
-                                 <div class="form-text small text-danger" v-if="errors.nin">{{ __(errors.nin[0]) }}</div>
+                              <div class="form-row">
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                            <label class="custom-label">{{__('nin')}} *</label>
+                                            <input type="text" class="form-control" v-model="personalInformation.nin">
+                                            <div class="form-text small text-danger" v-if="errors.nin">{{ __(errors.nin[0]) }}</div>
+                                        </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="custom-label">{{__('dob')}} *</label>
+                                        <div class="select-date">
+                                            <!-- date-pickr -->
+                                            <input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
+                                            <div class="form-text small text-danger" v-if="errors.dob">{{ __(errors.dob[0]) }}</div>
+                                        </div>
+                                    </div>
+                                  </div>
                               </div>
                               <div class="form-group">
-										<label class="custom-label">{{__('dob')}} *</label>
-										<div class="select-date">
-                                            <!-- date-pickr -->
-											<input type="text" class="form-control date-pickr" v-model="personalInformation.dob" data-input>
-                                            <div class="form-text small text-danger" v-if="errors.dob">{{ __(errors.dob[0]) }}</div>
-										</div>
-                                </div>
-                                <div class="form-row">
+                                        <label class="custom-label">{{__('highest_level_of_education')}} *</label>
+                                        <div class="select-option">
+                                          <select class="form-control" v-model="personalInformation.qualification">
+                                                <option value="school">{{__('school')}}</option>
+                                                <option value="bachelors">{{__('bachelor')}}</option>
+                                                <option value="masters">{{__('master')}}</option>
+                                                <option value="doctoral">{{__('doctoral')}}</option>
+                                            </select>
+                                          <div class="form-text small text-danger" v-if="errors.qualification">{{ __(errors.qualification[0]) }}</div>
+                                       </div>
+                                    </div>
+                                <div class="form-row" v-if="personalInformation.qualification != 'school'">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Major')}} *</label>
@@ -182,7 +200,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6" v-if="personalInformation.qualification != 'school'">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Field')}} *</label>
                                             <div class="select-picker">
@@ -351,7 +369,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card wow fadeInRight" v-if="showQualificationForm">
+                        <!-- <div class="card wow fadeInRight" v-if="showQualificationForm">
                            <div>
                               <h6>{{__('highest_level_of_education')}}</h6>
                               <div class="check_radio mt-4 mb-5">
@@ -377,7 +395,7 @@
                                  <button type="button" class="btn btn-primary" @click="saveQualification">{{__('submit')}}</button>
                               </div>
                            </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="card wow fadeInRight"  v-if="showEmploymentForm">
                            <div>
@@ -743,7 +761,8 @@ import Layout from '../Layouts/Layout'
                 .then(response => {
                     if(response.data.success){
                             this.showGenderForm = false;
-                            this.showQualificationForm = true;
+                            this.showEducationForm = true;
+                            // this.showQualificationForm = true;
                             this.errors = [];
 
                     }
@@ -770,42 +789,37 @@ import Layout from '../Layouts/Layout'
                 // }
 
             },
-            saveQualification: function(){
+            // saveQualification: function(){
 
-                this.showLoader = true;
-                axios.post('/save-qualification', this.personalInformation)
-                .then(response => {
-                    if(response.data.success){
-                        this.showQualificationForm = false;
-                        // this.showEmploymentForm = true;
-                        this.showEducationForm = true;
-                        this.errors = [];
+                //  this.showLoader = true;
+                //  axios.post('/save-qualification', this.personalInformation)
+                //  .then(response => {
+                //      if(response.data.success){
+                //          this.showQualificationForm = false;
+                //          // this.showEmploymentForm = true;
+                //          this.showEducationForm = true;
+                //          this.errors = []
+                //      }
+                //      if(response.data.errors){
+                //              this.errors = response.data.errors;
+                //      }
+                //      this.showLoader = false;
+                //  })
+                 // this.showLoader = true;
+                 // if(this.personalInformation.qualification == 'school')
+                 //     axios.post('/application-rejected', this.personalInformation)
+                 //     .then(response => {
+                 //         if(response.data.success){
+                 //                 this.showQualificationForm = false;
+                 //                 this.applicationRejected = true
+                 //         }
+                 //         this.showLoader = false;
+                 //     }).catch(error => {
+                 //         console.log(error);
+                 //     });
 
-                    }
-                    if(response.data.errors){
-                            this.errors = response.data.errors;
-                    }
-                    this.showLoader = false;
-                });
-
-
-                // this.showLoader = true;
-                // if(this.personalInformation.qualification == 'school'){
-
-                //     axios.post('/application-rejected', this.personalInformation)
-                //     .then(response => {
-                //         if(response.data.success){
-                //                 this.showQualificationForm = false;
-                //                 this.applicationRejected = true;
-
-                //         }
-                //         this.showLoader = false;
-                //     }).catch(error => {
-                //         console.log(error);
-                //     });
-
-                // }
-            },
+            //     // }
+            // },
             // saveEmployment: function(){
             //     this.showLoader = true;
             //     axios.post('/save-employment', this.personalInformation)

@@ -24,22 +24,22 @@
 					</li>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Role</div>
-						<div class="text-right" v-if="jobSeeker.role != null">{{humanize(jobSeeker.role)}}</div>
+						<div class="text-right" v-if="jobSeeker.role != ''">{{humanize(jobSeeker.role)}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Sector</div>
-						<div class="text-right" v-if="jobSeeker.sector != null">{{humanize(jobSeeker.sector)}}</div>
+						<div class="text-right" v-if="jobSeeker.sector != ''">{{humanize(jobSeeker.sector)}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Education Major</div>
-						<div class="text-right" v-if="jobSeeker.education_major != null">{{humanize(jobSeeker.education_major)}}</div>
+						<div class="text-right" v-if="jobSeeker.education_major != ''">{{humanize(jobSeeker.education_major)}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Education Field</div>
-						<div class="text-right" v-if="jobSeeker.education_field != null">{{humanize(jobSeeker.education_field)}}</div>
+						<div class="text-right" v-if="jobSeeker.education_field != ''">{{humanize(jobSeeker.education_field)}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">

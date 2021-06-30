@@ -102,26 +102,28 @@ class FrontendController extends Controller
             'employment.required' => 'Please select any option',
             'jobTraining.required' => 'Please select any option',
             'socialBeneficiary.required' => 'Please select any option',
-            'educationMajor.required' => 'Please select any option',
-            'educationField.required' => 'Please select any option'
+            'educationMajor.required_unless' => 'Please select any option',
+            'educationField.required_unless' => 'Please select any option',
+            'qualification.required' => 'Please select your qualification'
         ];
 
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'firstName' => 'required',
             'surName' => 'required',
+            'martialStatus' => 'required',
             'mobile' => 'required',
             'email' => 'required|email|unique:job_seekers,email',
             'city' => 'required',
             'region' => 'required',
             'nin' => 'required|min:10|max:10',
             'dob' => 'required',
-            'martialStatus' => 'required',
+            'qualification' => 'required',
+            'educationMajor' => 'required_unless:qualification,school',
+            'educationField' => 'required_unless:qualification,school',
             'employment' => 'required',
-            'jobTraining' => 'required',
             'socialBeneficiary' => 'required',
-            'educationMajor' => 'required',
-            'educationField' => 'required'
+            'jobTraining' => 'required'
         ], $messages);
 
         if($validator->fails()){
@@ -133,18 +135,19 @@ class FrontendController extends Controller
             'first_name' => $request->firstName,
             'middle_name' => $request->middleName,
             'last_name' => $request->surName,
+            'martial_status' => $request->martialStatus,
             'mobile' => $request->mobile,
             'email' => $request->email,
             'city' => $request->city,
             'region' => $request->region,
             'nin' => $request->nin,
             'dob' => $request->dob,
-            'martial_status' => $request->martialStatus,
+            'qualification' => $request->qualification,
+            'education_major' => ($request->qualification != 'school') ? $request->educationMajor : null,
+            'education_field' => ($request->qualification != 'school') ? $request->educationField : null,
             'full_time_employment' => $request->employment,
-            'on_job_training' => $request->jobTraining,
             'social_benficiary' => $request->socialBeneficiary,
-            'education_major' => $request->educationMajor,
-            'education_field' => $request->educationField
+            'on_job_training' => $request->jobTraining
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);
@@ -183,23 +186,23 @@ class FrontendController extends Controller
         return response()->json(['success' => 'Application Rejected.']);
     }
 
-    public function saveQualification(Request $request){
-        $messages = [
-            'qualification.required' => 'Please select your qualification'
-        ];
+    // public function saveQualification(Request $request){
+    //     $messages = [
+    //         'qualification.required' => 'Please select your qualification'
+    //     ];
 
-        $validator = Validator::make($request->all(),[
-            'qualification' => 'required'
-        ], $messages);
+    //     $validator = Validator::make($request->all(),[
+    //         'qualification' => 'required'
+    //     ], $messages);
 
-        if($validator->fails()){
-            return response()->json(['errors' => $validator->errors()]);
-        }
-        $jobSeeker = JobSeeker::find($request->id);
-        $jobSeeker->qualification = $request->qualification;
-        $jobSeeker->save();
-        return response()->json(['success' => 'Qualification Saved']);
-    }
+    //     if($validator->fails()){
+    //         return response()->json(['errors' => $validator->errors()]);
+    //     }
+    //     $jobSeeker = JobSeeker::find($request->id);
+    //     $jobSeeker->qualification = $request->qualification;
+    //     $jobSeeker->save();
+    //     return response()->json(['success' => 'Qualification Saved']);
+    // }
     // public function saveEmployment(Request $request){
     //     $messages = [
     //         'employment.required' => 'Please select any option'
