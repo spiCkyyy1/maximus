@@ -1588,7 +1588,7 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control, .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
+.form-control, .select-date .form-control[readonly], .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
   display: block;
   width: 100%;
   height: calc(2.25rem + 2px);
@@ -1607,37 +1607,37 @@ pre {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
   @media screen and (prefers-reduced-motion: reduce) {
-    .form-control, .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
+    .form-control, .select-date .form-control[readonly], .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
       -webkit-transition: none;
       -o-transition: none;
       transition: none; } }
-  .form-control::-ms-expand, .select-picker .select2-container .select2-selection::-ms-expand, .select2-container .select2-search--dropdown .select2-search__field::-ms-expand {
+  .form-control::-ms-expand, .select-date .form-control[readonly]::-ms-expand, .select-picker .select2-container .select2-selection::-ms-expand, .select2-container .select2-search--dropdown .select2-search__field::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus, .select-picker .select2-container .select2-selection:focus, .select2-container .select2-search--dropdown .select2-search__field:focus {
+  .form-control:focus, .select-date .form-control:focus[readonly], .select-picker .select2-container .select2-selection:focus, .select2-container .select2-search--dropdown .select2-search__field:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
-  .form-control::-webkit-input-placeholder, .select-picker .select2-container .select2-selection::-webkit-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, .select-date .form-control[readonly]::-webkit-input-placeholder, .select-picker .select2-container .select2-selection::-webkit-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, .select-picker .select2-container .select2-selection:-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .select-date .form-control[readonly]:-ms-input-placeholder, .select-picker .select2-container .select2-selection:-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control::-ms-input-placeholder, .select-picker .select2-container .select2-selection::-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-ms-input-placeholder {
+  .form-control::-ms-input-placeholder, .select-date .form-control[readonly]::-ms-input-placeholder, .select-picker .select2-container .select2-selection::-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control::placeholder, .select-picker .select2-container .select2-selection::placeholder, .select2-container .select2-search--dropdown .select2-search__field::placeholder {
+  .form-control::placeholder, .select-date .form-control[readonly]::placeholder, .select-picker .select2-container .select2-selection::placeholder, .select2-container .select2-search--dropdown .select2-search__field::placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:disabled, .select-picker .select2-container .select2-selection:disabled, .select2-container .select2-search--dropdown .select2-search__field:disabled, .form-control[readonly], .select-picker .select2-container .select2-selection[readonly], .select2-container .select2-search--dropdown .select2-search__field[readonly] {
+  .form-control:disabled, .select-date .form-control:disabled[readonly], .select-picker .select2-container .select2-selection:disabled, .select2-container .select2-search--dropdown .select2-search__field:disabled, .form-control[readonly], .select-date .form-control[readonly], .select-picker .select2-container .select2-selection[readonly], .select2-container .select2-search--dropdown .select2-search__field[readonly] {
     background-color: #e9ecef;
     opacity: 1; }
 
-select.form-control:focus::-ms-value, .select-picker .select2-container select.select2-selection:focus::-ms-value, .select2-container .select2-search--dropdown select.select2-search__field:focus::-ms-value {
+select.form-control:focus::-ms-value, .select-date select.form-control[readonly]:focus::-ms-value, .select-picker .select2-container select.select2-selection:focus::-ms-value, .select2-container .select2-search--dropdown select.select2-search__field:focus::-ms-value {
   color: #495057;
   background-color: #fff; }
 
@@ -1694,10 +1694,10 @@ select.form-control:focus::-ms-value, .select-picker .select2-container select.s
   line-height: 1.5;
   border-radius: 0.3rem; }
 
-select.form-control[size], .select-picker .select2-container select.select2-selection[size], .select2-container .select2-search--dropdown select.select2-search__field[size], select.form-control[multiple], .select-picker .select2-container select.select2-selection[multiple], .select2-container .select2-search--dropdown select.select2-search__field[multiple] {
+select.form-control[size], .select-date select.form-control[size][readonly], .select-picker .select2-container select.select2-selection[size], .select2-container .select2-search--dropdown select.select2-search__field[size], select.form-control[multiple], .select-date select.form-control[multiple][readonly], .select-picker .select2-container select.select2-selection[multiple], .select2-container .select2-search--dropdown select.select2-search__field[multiple] {
   height: auto; }
 
-textarea.form-control, .select-picker .select2-container textarea.select2-selection, .select2-container .select2-search--dropdown textarea.select2-search__field {
+textarea.form-control, .select-date textarea.form-control[readonly], .select-picker .select2-container textarea.select2-selection, .select2-container .select2-search--dropdown textarea.select2-search__field {
   height: auto; }
 
 .form-group {
@@ -1771,7 +1771,7 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
   background-color: rgba(40, 167, 69, 0.9);
   border-radius: 0.25rem; }
 
-.was-validated .form-control:valid, .was-validated .select-picker .select2-container .select2-selection:valid, .select-picker .select2-container .was-validated .select2-selection:valid, .was-validated .select2-container .select2-search--dropdown .select2-search__field:valid, .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid, .form-control.is-valid, .select-picker .select2-container .is-valid.select2-selection, .select2-container .select2-search--dropdown .is-valid.select2-search__field {
+.was-validated .form-control:valid, .was-validated .select-picker .select2-container .select2-selection:valid, .select-picker .select2-container .was-validated .select2-selection:valid, .was-validated .select2-container .select2-search--dropdown .select2-search__field:valid, .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid, .form-control.is-valid, .select-date .is-valid.form-control[readonly], .select-picker .select2-container .is-valid.select2-selection, .select2-container .select2-search--dropdown .is-valid.select2-search__field {
   border-color: #28a745;
   padding-right: 2.25rem;
   background-repeat: no-repeat;
@@ -1782,18 +1782,20 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
     border-color: #28a745;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
-  .was-validated .form-control:valid ~ .valid-feedback, .was-validated .select-picker .select2-container .select2-selection:valid ~ .valid-feedback, .select-picker .select2-container .was-validated .select2-selection:valid ~ .valid-feedback, .was-validated .select2-container .select2-search--dropdown .select2-search__field:valid ~ .valid-feedback, .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid ~ .valid-feedback,
+  .was-validated .form-control:valid ~ .valid-feedback, .was-validated .select-date .form-control:valid[readonly] ~ .valid-feedback, .was-validated .select-picker .select2-container .select2-selection:valid ~ .valid-feedback, .select-picker .select2-container .was-validated .select2-selection:valid ~ .valid-feedback, .was-validated .select2-container .select2-search--dropdown .select2-search__field:valid ~ .valid-feedback, .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid ~ .valid-feedback,
   .was-validated .form-control:valid ~ .valid-tooltip,
+  .was-validated .select-date .form-control:valid[readonly] ~ .valid-tooltip,
   .was-validated .select-picker .select2-container .select2-selection:valid ~ .valid-tooltip,
   .select-picker .select2-container .was-validated .select2-selection:valid ~ .valid-tooltip,
   .was-validated .select2-container .select2-search--dropdown .select2-search__field:valid ~ .valid-tooltip,
-  .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .select-picker .select2-container .is-valid.select2-selection ~ .valid-feedback, .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ .valid-feedback,
+  .select2-container .select2-search--dropdown .was-validated .select2-search__field:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .select-date .is-valid.form-control[readonly] ~ .valid-feedback, .select-picker .select2-container .is-valid.select2-selection ~ .valid-feedback, .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ .valid-feedback,
   .form-control.is-valid ~ .valid-tooltip,
+  .select-date .is-valid.form-control[readonly] ~ .valid-tooltip,
   .select-picker .select2-container .is-valid.select2-selection ~ .valid-tooltip,
   .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ .valid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:valid, .was-validated .select-picker .select2-container textarea.select2-selection:valid, .select-picker .select2-container .was-validated textarea.select2-selection:valid, .was-validated .select2-container .select2-search--dropdown textarea.select2-search__field:valid, .select2-container .select2-search--dropdown .was-validated textarea.select2-search__field:valid, textarea.form-control.is-valid, .select-picker .select2-container textarea.is-valid.select2-selection, .select2-container .select2-search--dropdown textarea.is-valid.select2-search__field {
+.was-validated textarea.form-control:valid, .was-validated .select-picker .select2-container textarea.select2-selection:valid, .select-picker .select2-container .was-validated textarea.select2-selection:valid, .was-validated .select2-container .select2-search--dropdown textarea.select2-search__field:valid, .select2-container .select2-search--dropdown .was-validated textarea.select2-search__field:valid, textarea.form-control.is-valid, .select-date textarea.is-valid.form-control[readonly], .select-picker .select2-container textarea.is-valid.select2-selection, .select2-container .select2-search--dropdown textarea.is-valid.select2-search__field {
   padding-right: 2.25rem;
   background-position: top calc(2.25rem / 4) right calc(2.25rem / 4); }
 
@@ -1878,7 +1880,7 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
   background-color: rgba(220, 53, 69, 0.9);
   border-radius: 0.25rem; }
 
-.was-validated .form-control:invalid, .was-validated .select-picker .select2-container .select2-selection:invalid, .select-picker .select2-container .was-validated .select2-selection:invalid, .was-validated .select2-container .select2-search--dropdown .select2-search__field:invalid, .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid, .form-control.is-invalid, .select-picker .select2-container .is-invalid.select2-selection, .select2-container .select2-search--dropdown .is-invalid.select2-search__field {
+.was-validated .form-control:invalid, .was-validated .select-picker .select2-container .select2-selection:invalid, .select-picker .select2-container .was-validated .select2-selection:invalid, .was-validated .select2-container .select2-search--dropdown .select2-search__field:invalid, .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid, .form-control.is-invalid, .select-date .is-invalid.form-control[readonly], .select-picker .select2-container .is-invalid.select2-selection, .select2-container .select2-search--dropdown .is-invalid.select2-search__field {
   border-color: #dc3545;
   padding-right: 2.25rem;
   background-repeat: no-repeat;
@@ -1889,18 +1891,20 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
     border-color: #dc3545;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
-  .was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .select-picker .select2-container .select2-selection:invalid ~ .invalid-feedback, .select-picker .select2-container .was-validated .select2-selection:invalid ~ .invalid-feedback, .was-validated .select2-container .select2-search--dropdown .select2-search__field:invalid ~ .invalid-feedback, .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid ~ .invalid-feedback,
+  .was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .select-date .form-control:invalid[readonly] ~ .invalid-feedback, .was-validated .select-picker .select2-container .select2-selection:invalid ~ .invalid-feedback, .select-picker .select2-container .was-validated .select2-selection:invalid ~ .invalid-feedback, .was-validated .select2-container .select2-search--dropdown .select2-search__field:invalid ~ .invalid-feedback, .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid ~ .invalid-feedback,
   .was-validated .form-control:invalid ~ .invalid-tooltip,
+  .was-validated .select-date .form-control:invalid[readonly] ~ .invalid-tooltip,
   .was-validated .select-picker .select2-container .select2-selection:invalid ~ .invalid-tooltip,
   .select-picker .select2-container .was-validated .select2-selection:invalid ~ .invalid-tooltip,
   .was-validated .select2-container .select2-search--dropdown .select2-search__field:invalid ~ .invalid-tooltip,
-  .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .select-picker .select2-container .is-invalid.select2-selection ~ .invalid-feedback, .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ .invalid-feedback,
+  .select2-container .select2-search--dropdown .was-validated .select2-search__field:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .select-date .is-invalid.form-control[readonly] ~ .invalid-feedback, .select-picker .select2-container .is-invalid.select2-selection ~ .invalid-feedback, .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ .invalid-feedback,
   .form-control.is-invalid ~ .invalid-tooltip,
+  .select-date .is-invalid.form-control[readonly] ~ .invalid-tooltip,
   .select-picker .select2-container .is-invalid.select2-selection ~ .invalid-tooltip,
   .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ .invalid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:invalid, .was-validated .select-picker .select2-container textarea.select2-selection:invalid, .select-picker .select2-container .was-validated textarea.select2-selection:invalid, .was-validated .select2-container .select2-search--dropdown textarea.select2-search__field:invalid, .select2-container .select2-search--dropdown .was-validated textarea.select2-search__field:invalid, textarea.form-control.is-invalid, .select-picker .select2-container textarea.is-invalid.select2-selection, .select2-container .select2-search--dropdown textarea.is-invalid.select2-search__field {
+.was-validated textarea.form-control:invalid, .was-validated .select-picker .select2-container textarea.select2-selection:invalid, .select-picker .select2-container .was-validated textarea.select2-selection:invalid, .was-validated .select2-container .select2-search--dropdown textarea.select2-search__field:invalid, .select2-container .select2-search--dropdown .was-validated textarea.select2-search__field:invalid, textarea.form-control.is-invalid, .select-date textarea.is-invalid.form-control[readonly], .select-picker .select2-container textarea.is-invalid.select2-selection, .select2-container .select2-search--dropdown textarea.is-invalid.select2-search__field {
   padding-right: 2.25rem;
   background-position: top calc(2.25rem / 4) right calc(2.25rem / 4); }
 
@@ -2004,7 +2008,7 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
       -ms-flex-align: center;
       align-items: center;
       margin-bottom: 0; }
-    .form-inline .form-control, .form-inline .select-picker .select2-container .select2-selection, .select-picker .select2-container .form-inline .select2-selection, .form-inline .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .form-inline .select2-search__field {
+    .form-inline .form-control, .form-inline .select-date .form-control[readonly], .select-date .form-inline .form-control[readonly], .form-inline .select-picker .select2-container .select2-selection, .select-picker .select2-container .form-inline .select2-selection, .form-inline .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .form-inline .select2-search__field {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -2860,7 +2864,7 @@ input[type="button"].btn-block {
   -ms-flex-align: stretch;
   align-items: stretch;
   width: 100%; }
-  .input-group > .form-control, .select-picker .select2-container .input-group > .select2-selection, .select2-container .select2-search--dropdown .input-group > .select2-search__field,
+  .input-group > .form-control, .select-date .input-group > .form-control[readonly], .select-picker .select2-container .input-group > .select2-selection, .select2-container .select2-search--dropdown .input-group > .select2-search__field,
   .input-group > .form-control-plaintext,
   .input-group > .custom-select,
   .input-group > .custom-file {
@@ -2870,40 +2874,45 @@ input[type="button"].btn-block {
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0; }
-    .input-group > .form-control + .form-control, .select-picker .select2-container .input-group > .select2-selection + .form-control, .select2-container .select2-search--dropdown .input-group > .select2-search__field + .form-control, .select-picker .select2-container .input-group > .form-control + .select2-selection, .select-picker .select2-container .input-group > .select2-selection + .select2-selection, .select-picker .select2-container .select2-search--dropdown .input-group > .select2-search__field + .select2-selection, .select2-container .select2-search--dropdown .input-group > .form-control + .select2-search__field, .select-picker .select2-container .select2-search--dropdown .input-group > .select2-selection + .select2-search__field, .select2-container .select2-search--dropdown .input-group > .select2-search__field + .select2-search__field,
+    .input-group > .form-control + .form-control, .select-date .input-group > .form-control[readonly] + .form-control, .select-picker .select2-container .input-group > .select2-selection + .form-control, .select2-container .select2-search--dropdown .input-group > .select2-search__field + .form-control, .select-date .input-group > .form-control + .form-control[readonly], .select-picker .select2-container .select-date .input-group > .select2-selection + .form-control[readonly], .select2-container .select2-search--dropdown .select-date .input-group > .select2-search__field + .form-control[readonly], .select-picker .select2-container .input-group > .form-control + .select2-selection, .select-picker .select2-container .select-date .input-group > .form-control[readonly] + .select2-selection, .select-picker .select2-container .input-group > .select2-selection + .select2-selection, .select-picker .select2-container .select2-search--dropdown .input-group > .select2-search__field + .select2-selection, .select2-container .select2-search--dropdown .input-group > .form-control + .select2-search__field, .select2-container .select2-search--dropdown .select-date .input-group > .form-control[readonly] + .select2-search__field, .select-picker .select2-container .select2-search--dropdown .input-group > .select2-selection + .select2-search__field, .select2-container .select2-search--dropdown .input-group > .select2-search__field + .select2-search__field,
     .input-group > .form-control + .custom-select,
+    .select-date .input-group > .form-control[readonly] + .custom-select,
     .select-picker .select2-container .input-group > .select2-selection + .custom-select,
     .select2-container .select2-search--dropdown .input-group > .select2-search__field + .custom-select,
     .input-group > .form-control + .custom-file,
+    .select-date .input-group > .form-control[readonly] + .custom-file,
     .select-picker .select2-container .input-group > .select2-selection + .custom-file,
     .select2-container .select2-search--dropdown .input-group > .select2-search__field + .custom-file,
     .input-group > .form-control-plaintext + .form-control,
+    .select-date .input-group > .form-control-plaintext + .form-control[readonly],
     .select-picker .select2-container .input-group > .form-control-plaintext + .select2-selection,
     .select2-container .select2-search--dropdown .input-group > .form-control-plaintext + .select2-search__field,
     .input-group > .form-control-plaintext + .custom-select,
     .input-group > .form-control-plaintext + .custom-file,
     .input-group > .custom-select + .form-control,
+    .select-date .input-group > .custom-select + .form-control[readonly],
     .select-picker .select2-container .input-group > .custom-select + .select2-selection,
     .select2-container .select2-search--dropdown .input-group > .custom-select + .select2-search__field,
     .input-group > .custom-select + .custom-select,
     .input-group > .custom-select + .custom-file,
     .input-group > .custom-file + .form-control,
+    .select-date .input-group > .custom-file + .form-control[readonly],
     .select-picker .select2-container .input-group > .custom-file + .select2-selection,
     .select2-container .select2-search--dropdown .input-group > .custom-file + .select2-search__field,
     .input-group > .custom-file + .custom-select,
     .input-group > .custom-file + .custom-file {
       margin-left: -1px; }
-  .input-group > .form-control:focus, .select-picker .select2-container .input-group > .select2-selection:focus, .select2-container .select2-search--dropdown .input-group > .select2-search__field:focus,
+  .input-group > .form-control:focus, .select-date .input-group > .form-control:focus[readonly], .select-picker .select2-container .input-group > .select2-selection:focus, .select2-container .select2-search--dropdown .input-group > .select2-search__field:focus,
   .input-group > .custom-select:focus,
   .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
     z-index: 3; }
   .input-group > .custom-file .custom-file-input:focus {
     z-index: 4; }
-  .input-group > .form-control:not(:last-child), .select-picker .select2-container .input-group > .select2-selection:not(:last-child), .select2-container .select2-search--dropdown .input-group > .select2-search__field:not(:last-child),
+  .input-group > .form-control:not(:last-child), .select-date .input-group > .form-control:not(:last-child)[readonly], .select-picker .select2-container .input-group > .select2-selection:not(:last-child), .select2-container .select2-search--dropdown .input-group > .select2-search__field:not(:last-child),
   .input-group > .custom-select:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0; }
-  .input-group > .form-control:not(:first-child), .select-picker .select2-container .input-group > .select2-selection:not(:first-child), .select2-container .select2-search--dropdown .input-group > .select2-search__field:not(:first-child),
+  .input-group > .form-control:not(:first-child), .select-date .input-group > .form-control:not(:first-child)[readonly], .select-picker .select2-container .input-group > .select2-selection:not(:first-child), .select2-container .select2-search--dropdown .input-group > .select2-search__field:not(:first-child),
   .input-group > .custom-select:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
@@ -2972,11 +2981,11 @@ input[type="button"].btn-block {
   .input-group-text input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group-lg > .form-control:not(textarea), .select-picker .select2-container .input-group-lg > .select2-selection:not(textarea), .select2-container .select2-search--dropdown .input-group-lg > .select2-search__field:not(textarea),
+.input-group-lg > .form-control:not(textarea), .select-date .input-group-lg > .form-control:not(textarea)[readonly], .select-picker .select2-container .input-group-lg > .select2-selection:not(textarea), .select2-container .select2-search--dropdown .input-group-lg > .select2-search__field:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(2.875rem + 2px); }
 
-.input-group-lg > .form-control, .select-picker .select2-container .input-group-lg > .select2-selection, .select2-container .select2-search--dropdown .input-group-lg > .select2-search__field,
+.input-group-lg > .form-control, .select-date .input-group-lg > .form-control[readonly], .select-picker .select2-container .input-group-lg > .select2-selection, .select2-container .select2-search--dropdown .input-group-lg > .select2-search__field,
 .input-group-lg > .custom-select,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -2987,11 +2996,11 @@ input[type="button"].btn-block {
   line-height: 1.5;
   border-radius: 0.3rem; }
 
-.input-group-sm > .form-control:not(textarea), .select-picker .select2-container .input-group-sm > .select2-selection:not(textarea), .select2-container .select2-search--dropdown .input-group-sm > .select2-search__field:not(textarea),
+.input-group-sm > .form-control:not(textarea), .select-date .input-group-sm > .form-control:not(textarea)[readonly], .select-picker .select2-container .input-group-sm > .select2-selection:not(textarea), .select2-container .select2-search--dropdown .input-group-sm > .select2-search__field:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.8125rem + 2px); }
 
-.input-group-sm > .form-control, .select-picker .select2-container .input-group-sm > .select2-selection, .select2-container .select2-search--dropdown .input-group-sm > .select2-search__field,
+.input-group-sm > .form-control, .select-date .input-group-sm > .form-control[readonly], .select-picker .select2-container .input-group-sm > .select2-selection, .select2-container .select2-search--dropdown .input-group-sm > .select2-search__field,
 .input-group-sm > .custom-select,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
@@ -9114,7 +9123,7 @@ h1, h2, h3, h4, h5, h6 {
     border-color: rgba(64, 64, 114, 0.5); }
     .modal-header .custom-label, .modal-body .custom-label, .modal-footer .custom-label {
       color: white; }
-    .modal-header .form-control, .modal-header .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-header .select2-selection, .modal-header .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-header .select2-search__field, .modal-body .form-control, .modal-body .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-body .select2-selection, .modal-body .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-body .select2-search__field, .modal-footer .form-control, .modal-footer .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-footer .select2-selection, .modal-footer .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-footer .select2-search__field {
+    .modal-header .form-control, .modal-header .select-date .form-control[readonly], .select-date .modal-header .form-control[readonly], .modal-header .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-header .select2-selection, .modal-header .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-header .select2-search__field, .modal-body .form-control, .modal-body .select-date .form-control[readonly], .select-date .modal-body .form-control[readonly], .modal-body .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-body .select2-selection, .modal-body .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-body .select2-search__field, .modal-footer .form-control, .modal-footer .select-date .form-control[readonly], .select-date .modal-footer .form-control[readonly], .modal-footer .select-picker .select2-container .select2-selection, .select-picker .select2-container .modal-footer .select2-selection, .modal-footer .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .modal-footer .select2-search__field {
       border: 0;
       color: white;
       background: #545487; }
@@ -9547,7 +9556,7 @@ h1, h2, h3, h4, h5, h6 {
         .btn span.icon i {
           top: -5px; } }
 
-.form-control, .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
+.form-control, .select-date .form-control[readonly], .select-picker .select2-container .select2-selection, .select2-container .select2-search--dropdown .select2-search__field {
   color: white !important;
   font-weight: 400;
   border-width: 1px;
@@ -9568,31 +9577,35 @@ h1, h2, h3, h4, h5, h6 {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px; }
-  .form-control::-webkit-input-placeholder, .select-picker .select2-container .select2-selection::-webkit-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, .select-date .form-control[readonly]::-webkit-input-placeholder, .select-picker .select2-container .select2-selection::-webkit-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control::-moz-placeholder, .select-picker .select2-container .select2-selection::-moz-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-moz-placeholder {
+  .form-control::-moz-placeholder, .select-date .form-control[readonly]::-moz-placeholder, .select-picker .select2-container .select2-selection::-moz-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-moz-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control:-moz-placeholder, .select-picker .select2-container .select2-selection:-moz-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-moz-placeholder {
+  .form-control:-moz-placeholder, .select-date .form-control:-moz-placeholder[readonly], .select-picker .select2-container .select2-selection:-moz-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-moz-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control:-ms-input-placeholder, .select-picker .select2-container .select2-selection:-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .select-date .form-control:-ms-input-placeholder[readonly], .select-picker .select2-container .select2-selection:-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control::-ms-input-placeholder, .select-picker .select2-container .select2-selection::-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-ms-input-placeholder {
+  .form-control::-webkit-input-placeholder, .select-date .form-control[readonly]::-webkit-input-placeholder, .select-picker .select2-container .select2-selection::-webkit-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control::placeholder, .select-picker .select2-container .select2-selection::placeholder, .select2-container .select2-search--dropdown .select2-search__field::placeholder {
+  .form-control:-ms-input-placeholder, .select-date .form-control[readonly]:-ms-input-placeholder, .select-picker .select2-container .select2-selection:-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  .form-control:hover, .select-picker .select2-container .select2-selection:hover, .select2-container .select2-search--dropdown .select2-search__field:hover {
+  .form-control::-ms-input-placeholder, .select-date .form-control[readonly]::-ms-input-placeholder, .select-picker .select2-container .select2-selection::-ms-input-placeholder, .select2-container .select2-search--dropdown .select2-search__field::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5); }
+  .form-control::placeholder, .select-date .form-control[readonly]::placeholder, .select-picker .select2-container .select2-selection::placeholder, .select2-container .select2-search--dropdown .select2-search__field::placeholder {
+    color: rgba(255, 255, 255, 0.5); }
+  .form-control:hover, .select-date .form-control:hover[readonly], .select-picker .select2-container .select2-selection:hover, .select2-container .select2-search--dropdown .select2-search__field:hover {
     border-color: #404072; }
-  .form-control:focus, .select-picker .select2-container .select2-selection:focus, .select2-container .select2-search--dropdown .select2-search__field:focus {
+  .form-control:focus, .select-date .form-control:focus[readonly], .select-picker .select2-container .select2-selection:focus, .select2-container .select2-search--dropdown .select2-search__field:focus {
     border-color: #404072;
     background: #404072;
     -webkit-box-shadow: 0 0 5px rgba(202, 92, 40, 0.2);
     -moz-box-shadow: 0 0 5px rgba(202, 92, 40, 0.2);
     box-shadow: 0 0 5px rgba(202, 92, 40, 0.2); }
   @media (max-width: 575px) {
-    .form-control.form-control-md, .select-picker .select2-container .form-control-md.select2-selection, .select2-container .select2-search--dropdown .form-control-md.select2-search__field {
+    .form-control.form-control-md, .select-date .form-control-md.form-control[readonly], .select-picker .select2-container .form-control-md.select2-selection, .select2-container .select2-search--dropdown .form-control-md.select2-search__field {
       padding: 8px 0; } }
 
-textarea.form-control, .select-picker .select2-container textarea.select2-selection, .select2-container .select2-search--dropdown textarea.select2-search__field {
+textarea.form-control, .select-date textarea.form-control[readonly], .select-picker .select2-container textarea.select2-selection, .select2-container .select2-search--dropdown textarea.select2-search__field {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -9635,7 +9648,7 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
     right: 15px;
     bottom: 0;
     left: auto; }
-  .dropdown-arrow .form-control, .select-option .form-control, .select-picker .form-control, .select-picker .select2-container .select2-selection, .dropdown-arrow .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .dropdown-arrow .select2-search__field, .select-option .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .select-option .select2-search__field, .select-picker .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .select-picker .select2-search__field {
+  .dropdown-arrow .form-control, .select-option .form-control, .select-picker .form-control, .dropdown-arrow .select-date .form-control[readonly], .select-date .dropdown-arrow .form-control[readonly], .select-option .select-date .form-control[readonly], .select-date .select-option .form-control[readonly], .select-picker .select-date .form-control[readonly], .select-date .select-picker .form-control[readonly], .select-picker .select2-container .select2-selection, .dropdown-arrow .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .dropdown-arrow .select2-search__field, .select-option .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .select-option .select2-search__field, .select-picker .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .select-picker .select2-search__field {
     padding-right: 40px !important; }
 
 .select-option select {
@@ -9652,6 +9665,7 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
     content: "\e075";
     margin: auto;
     cursor: pointer;
+    color: white !important;
     font-size: 1.125rem;
     display: -webkit-box;
     display: -moz-box;
@@ -9852,12 +9866,12 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
 .select2-container.select2-container--default .select2-results__option--highlighted[aria-selected] {
   color: white; }
 
-.input-group .form-control, .input-group .select-picker .select2-container .select2-selection, .select-picker .select2-container .input-group .select2-selection, .input-group .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .input-group .select2-search__field {
+.input-group .form-control, .input-group .select-date .form-control[readonly], .select-date .input-group .form-control[readonly], .input-group .select-picker .select2-container .select2-selection, .select-picker .select2-container .input-group .select2-selection, .input-group .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .input-group .select2-search__field {
   background-color: white;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important; }
-  .input-group .form-control:focus ~ [class*="input-group"] > .input-group-text, .input-group .select-picker .select2-container .select2-selection:focus ~ [class*="input-group"] > .input-group-text, .select-picker .select2-container .input-group .select2-selection:focus ~ [class*="input-group"] > .input-group-text, .input-group .select2-container .select2-search--dropdown .select2-search__field:focus ~ [class*="input-group"] > .input-group-text, .select2-container .select2-search--dropdown .input-group .select2-search__field:focus ~ [class*="input-group"] > .input-group-text {
+  .input-group .form-control:focus ~ [class*="input-group"] > .input-group-text, .input-group .select-date .form-control:focus[readonly] ~ [class*="input-group"] > .input-group-text, .input-group .select-picker .select2-container .select2-selection:focus ~ [class*="input-group"] > .input-group-text, .select-picker .select2-container .input-group .select2-selection:focus ~ [class*="input-group"] > .input-group-text, .input-group .select2-container .select2-search--dropdown .select2-search__field:focus ~ [class*="input-group"] > .input-group-text, .select2-container .select2-search--dropdown .input-group .select2-search__field:focus ~ [class*="input-group"] > .input-group-text {
     border-color: #545487; }
 
 .input-group.input-group-sm {
@@ -9897,17 +9911,19 @@ textarea.form-control, .select-picker .select2-container textarea.select2-select
   -webkit-order: -1;
   order: -1; }
 
-.input-group .form-control, .input-group .select-picker .select2-container .select2-selection, .select-picker .select2-container .input-group .select2-selection, .input-group .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .input-group .select2-search__field {
+.input-group .form-control, .input-group .select-date .form-control[readonly], .select-date .input-group .form-control[readonly], .input-group .select-picker .select2-container .select2-selection, .select-picker .select2-container .input-group .select2-selection, .input-group .select2-container .select2-search--dropdown .select2-search__field, .select2-container .select2-search--dropdown .input-group .select2-search__field {
   background-image: none; }
-  .input-group .form-control.is-valid ~ [class*="input-group"], .input-group .select-picker .select2-container .is-valid.select2-selection ~ [class*="input-group"], .select-picker .select2-container .input-group .is-valid.select2-selection ~ [class*="input-group"], .input-group .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ [class*="input-group"], .select2-container .select2-search--dropdown .input-group .is-valid.select2-search__field ~ [class*="input-group"],
+  .input-group .form-control.is-valid ~ [class*="input-group"], .input-group .select-date .is-valid.form-control[readonly] ~ [class*="input-group"], .input-group .select-picker .select2-container .is-valid.select2-selection ~ [class*="input-group"], .select-picker .select2-container .input-group .is-valid.select2-selection ~ [class*="input-group"], .input-group .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ [class*="input-group"], .select2-container .select2-search--dropdown .input-group .is-valid.select2-search__field ~ [class*="input-group"],
   .input-group .form-control.is-valid ~ [class*="input-group"] > .input-group-text,
+  .input-group .select-date .is-valid.form-control[readonly] ~ [class*="input-group"] > .input-group-text,
   .input-group .select-picker .select2-container .is-valid.select2-selection ~ [class*="input-group"] > .input-group-text,
   .select-picker .select2-container .input-group .is-valid.select2-selection ~ [class*="input-group"] > .input-group-text,
   .input-group .select2-container .select2-search--dropdown .is-valid.select2-search__field ~ [class*="input-group"] > .input-group-text,
   .select2-container .select2-search--dropdown .input-group .is-valid.select2-search__field ~ [class*="input-group"] > .input-group-text {
     border-color: #88bd63; }
-  .input-group .form-control.is-invalid ~ [class*="input-group"], .input-group .select-picker .select2-container .is-invalid.select2-selection ~ [class*="input-group"], .select-picker .select2-container .input-group .is-invalid.select2-selection ~ [class*="input-group"], .input-group .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ [class*="input-group"], .select2-container .select2-search--dropdown .input-group .is-invalid.select2-search__field ~ [class*="input-group"],
+  .input-group .form-control.is-invalid ~ [class*="input-group"], .input-group .select-date .is-invalid.form-control[readonly] ~ [class*="input-group"], .input-group .select-picker .select2-container .is-invalid.select2-selection ~ [class*="input-group"], .select-picker .select2-container .input-group .is-invalid.select2-selection ~ [class*="input-group"], .input-group .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ [class*="input-group"], .select2-container .select2-search--dropdown .input-group .is-invalid.select2-search__field ~ [class*="input-group"],
   .input-group .form-control.is-invalid ~ [class*="input-group"] > .input-group-text,
+  .input-group .select-date .is-invalid.form-control[readonly] ~ [class*="input-group"] > .input-group-text,
   .input-group .select-picker .select2-container .is-invalid.select2-selection ~ [class*="input-group"] > .input-group-text,
   .select-picker .select2-container .input-group .is-invalid.select2-selection ~ [class*="input-group"] > .input-group-text,
   .input-group .select2-container .select2-search--dropdown .is-invalid.select2-search__field ~ [class*="input-group"] > .input-group-text,
