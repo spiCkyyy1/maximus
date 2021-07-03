@@ -21127,7 +21127,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
 
       stepVal++;
-      this.progressBarPercentage = Math.floor(this.step / 63 * 100, 2);
+      this.progressBarPercentage = Math.floor(this.step / 65 * 100, 2);
       this.step = stepVal;
       console.log(this.step);
 
