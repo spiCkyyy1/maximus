@@ -120,8 +120,8 @@ class FrontendController extends Controller
             'nin' => 'required|min:10|max:10',
             'dob' => 'required',
             'qualification' => 'required',
-            'educationMajor' => 'required_unless:qualification,school',
-            'educationField' => 'required_unless:qualification,school',
+            'educationMajor' => 'required_unless:qualification,high_school',
+            'educationField' => 'required_unless:qualification,high_school',
             'employment' => 'required',
             'socialBeneficiary' => 'required',
             'jobTraining' => 'required',
@@ -145,8 +145,8 @@ class FrontendController extends Controller
             'nin' => $request->nin,
             'dob' => $request->dob,
             'qualification' => $request->qualification,
-            'education_major' => ($request->qualification != 'school') ? $request->educationMajor : null,
-            'education_field' => ($request->qualification != 'school') ? $request->educationField : null,
+            'education_major' => ($request->qualification != 'high_school') ? $request->educationMajor : null,
+            'education_field' => ($request->qualification != 'high_school') ? $request->educationField : null,
             'full_time_employment' => $request->employment,
             'social_benficiary' => $request->socialBeneficiary,
             'on_job_training' => $request->jobTraining
@@ -258,11 +258,13 @@ class FrontendController extends Controller
 
     public function saveEducationField(Request $request){
         $messages = [
+            'jobRole.required' => 'Please select any option',
             'role.required' => 'Please select any option',
             'sector.required' => 'Please select any option'
         ];
 
         $validator = Validator::make($request->all(),[
+            'jobRole' => 'required',
             'role' => 'required',
             'sector' => 'required'
         ], $messages);
@@ -270,6 +272,7 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
         $jobSeeker = JobSeeker::find($request->id);
+        $jobSeeker->job_role = $request->jobRole;
         $jobSeeker->role = $request->role;
         $jobSeeker->sector = $request->sector;
 

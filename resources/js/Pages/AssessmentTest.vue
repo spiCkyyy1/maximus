@@ -381,8 +381,17 @@
                          competency="readiness" :error="error"
                         :btnText="__('next')"></readiness>
 
+                        <div class="card" id="startPart2Btn" v-if="startPart2">
+                           <div>
+                              <h6>Click below to start part 2 of the assessment.</h6>
+                              <div class="text-center">
+                                 <button type="button" class="btn btn-primary" v-on:click="startEvaluationPart">Part 2</button>
+                              </div>
+                           </div>
+                        </div>
 
-                        <evaluation class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="30" v-if="step == 30"
+
+                        <evaluation class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="31" v-if="step == 31"
                         :question="__('q30')" questionForDb="I possess sufficient resources to achieve my academic goals."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -391,7 +400,7 @@
                         :btnText="__('next')"></evaluation>
 
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="31" v-if="step == 31"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="32" v-if="step == 32"
                         :question="__('q31')" questionForDb="I complete assigned work effectively and on time."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -399,7 +408,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="32" v-if="step == 32"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="33" v-if="step == 33"
                         :question="__('q32')" questionForDb="I am able to clearly identify areas where I can improve."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -407,7 +416,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="33" v-if="step == 33"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="34" v-if="step == 34"
                         :question="__('q33')" questionForDb="I am able to accurately describe a situation in writing."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -415,7 +424,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="34" v-if="step == 34"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="35" v-if="step == 35"
                         :question="__('q34')" questionForDb="I am able to verbally articulate my thoughts and ideas."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -423,7 +432,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"> </evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="35" v-if="step == 35"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="36" v-if="step == 36"
                         :question="__('q35')" questionForDb="I am willing to learn from my peers."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -431,7 +440,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="36" v-if="step == 36"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="37" v-if="step == 37"
                         :question="__('q36')" questionForDb="I convey my thoughts to others clearly and respectfully."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -440,7 +449,7 @@
                         :btnText="__('next')"></evaluation>
 
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="37" v-if="step == 37"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="38" v-if="step == 38"
                         :question="__('q37')" questionForDb="I demonstrate effective listening skills"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -448,7 +457,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="38" v-if="step == 38"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="39" v-if="step == 39"
                         :question="__('q38')" questionForDb="I am able to learn from critical reflection."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -456,7 +465,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="39" v-if="step == 39"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="40" v-if="step == 40"
                         :question="__('q39')" questionForDb="I am able to think critically and objectively about any given topic or situation."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -464,7 +473,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="40" v-if="step == 40"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="41" v-if="step == 41"
                         :question="__('q40')" questionForDb="I take the initiative to discover new academic challenges."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -472,7 +481,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="41" v-if="step == 41"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="42" v-if="step == 42"
                         :question="__('q41')" questionForDb="I am able to think critically while a teacher delivers a lesson."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -480,7 +489,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         :btnText="__('next')"></evaluation>
 
-                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="42" v-if="step == 42"
+                        <evaluation :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="43" v-if="step == 43"
                         :question="__('q42')" questionForDb="I am able to write a persuasive essay, including a convincing thesis and solid evidence to support my claims."
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -488,7 +497,16 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="evaluation" :error="error"
                         btnText="Submit"></evaluation>
 
-                        <competencies class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="43" v-if="step == 43"
+                        <div class="card" id="startPart3Btn" v-if="startPart3">
+                           <div>
+                              <h6>Click below to start part 3 of the assessment.</h6>
+                              <div class="text-center">
+                                 <button type="button" class="btn btn-primary" v-on:click="startCompetenciesPart">Part 3</button>
+                              </div>
+                           </div>
+                        </div>
+
+                        <competencies class="wow fadeInRight" :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="45" v-if="step == 45"
                         :question="__('q43')" questionForDb="Are you flexible and receptive regarding new ideas and approaches?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -496,7 +514,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Adaptability" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="44" v-if="step == 44"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="46" v-if="step == 46"
                         :question="__('q44')" questionForDb="In response to unexpected events and the fluctuating demands of your job, do you adapt easily to plans, goals, and actions?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -504,7 +522,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Adaptability" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="45" v-if="step == 45"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="47" v-if="step == 47"
                         :question="__('q45')" questionForDb="Do you cultivate positive relationships?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -512,7 +530,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Collaboration" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="46" v-if="step == 46"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="48" v-if="step == 48"
                         :question="__('q46')" questionForDb="How willing are you to learn from others?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -520,7 +538,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Collaboration" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="47" v-if="step == 47"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="49" v-if="step == 49"
                         :question="__('q47')" questionForDb="Do you recognize how personal behaviours and emotions impact others?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -528,7 +546,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Collaboration" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="48" v-if="step == 48"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="50" v-if="step == 50"
                         :question="__('q48')" questionForDb="Do you convey your thoughts clearly and respectfully?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -536,7 +554,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Communication" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="49" v-if="step == 49"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="51" v-if="step == 51"
                         :question="__('q49')" questionForDb="Do you demonstrate effective listening skills?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -545,7 +563,7 @@
                         :btnText="__('next')"></competencies>
 
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="50" v-if="step == 50"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="52" v-if="step == 52"
                         :question="__('q50')" questionForDb="Are you self-motivated and able to build the trust of others?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -553,7 +571,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Leadership Qualities" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="51" v-if="step == 51"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="53" v-if="step == 53"
                         :question="__('q51')" questionForDb="Can you inspire them to work toward a common goal?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -561,7 +579,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Leadership Qualities" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="52" v-if="step == 52"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="54" v-if="step == 54"
                         :question="__('q52')" questionForDb="Do you acknowledge the contributions of others?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -569,7 +587,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Leadership Qualities" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="53" v-if="step == 53"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="55" v-if="step == 55"
                         :question="__('q53')" questionForDb="Do you have the ability to make decisions for the right/ethical reasons?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -577,7 +595,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Integrity" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="54" v-if="step == 54"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="56" v-if="step == 56"
                         :question="__('q54')" questionForDb="Do you practice honesty/integrity when fulfilling your work responsibilities?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -593,7 +611,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Inclusivity" :error="error"
                         :btnText="__('next')"></competencies> -->
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="55" v-if="step == 55"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="57" v-if="step == 57"
                         :question="__('q55')" questionForDb="Are you accessible to others?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -601,7 +619,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Responsiveness" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="56" v-if="step == 56"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="58" v-if="step == 58"
                         :question="__('q56')" questionForDb="Do you reach out in a timely and responsive manner?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -609,7 +627,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Responsiveness" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="57" v-if="step == 57"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="59" v-if="step == 59"
                         :question="__('q57')" questionForDb="Are you diplomatic, courteous, and welcoming?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -617,7 +635,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Responsiveness" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="58" v-if="step == 58"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="60" v-if="step == 60"
                         :question="__('q58')" questionForDb="Do you identify goals that are aligned with the organization's strategic direction and achieve results accordingly?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -625,7 +643,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Results" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="59" v-if="step == 59"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="61" v-if="step == 61"
                         :question="__('q59')" questionForDb="Do you persist through significant difficulties to achieve those goals?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -633,7 +651,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Results" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="60" v-if="step == 60"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="62" v-if="step == 62"
                         :question="__('q60')" questionForDb="Do you anticipate needs, solve problems, and take action, all without explicit instructions?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -641,7 +659,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Initiative" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="61" v-if="step == 61"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="63" v-if="step == 63"
                         :question="__('q61')" questionForDb="Do you take the initiative to discover new work challenges and to help shape events that lead to the organization's success?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -649,7 +667,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Initiative" :error="error"
                         :btnText="__('next')"></competencies>
 
-                         <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="62" v-if="step == 62"
+                         <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="64" v-if="step == 64"
                         :question="__('q62')" questionForDb="Are you committed to improving your knowledge and skills?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -657,7 +675,7 @@
                         weighted_score1="1" weighted_score2="0.75" weighted_score3="0.5" weighted_score4="0.25" competency="Development" :error="error"
                         :btnText="__('next')"></competencies>
 
-                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="63" v-if="step == 63"
+                        <competencies :value="answer" v-on:updateAnswer="updateAnswer" v-on:submitAnswer="submitAnswer" step="65" v-if="step == 65"
                         :question="__('q63')" questionForDb="What steps do you take to improve and develop your skills?"
                         :option1="__('very_confident')"
                         :option2="__('confident')" :option3="__('neutral')" :option4="__('not_confident')"
@@ -722,6 +740,8 @@ import Competencies from '../Pages/Competencies'
                 partNo: 'Part 1',
                 testPhase: 'Readiness Test',
                 testDescription: 'This will identify Motivation, Attitude, Work Ethic, Commitment and Availability based on a series of questions.',
+                startPart2: false,
+                startPart3: false,
                 hideProgressBar: true,
                 hideProcess: true,
                 showLoader: false,
@@ -753,6 +773,52 @@ import Competencies from '../Pages/Competencies'
 
 
             },
+            startEvaluationPart: function(){
+                this.showLoader = true;
+                    axios.post('/save-readiness', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
+                    .then(response => {
+                        console.log(response);
+                        if(response.data.success){
+                            this.readinessPart = false;
+                            this.startPart2 = false;
+                            this.evaluationPart = true;
+                            this.partNo = 'Part 2';
+                            this.testPhase = 'Evaluation Test';
+                            this.testDescription = 'Completing a Self- evaluation is a pro-active way to articulate what you’ve accomplished and identify where you would like to grow.';
+                            this.readinessAssessment = [];
+                            this.step++;
+                        }
+                        this.showLoader = false;
+
+                    }).catch(error => {
+                        this.showLoader = false;
+                        console.log(error);
+                    });
+            },
+            startCompetenciesPart: function(){
+                this.showLoader = true;
+                    axios.post('/save-evaluation', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
+                    .then(response => {
+                        console.log(response);
+                        if(response.data.success){
+                            this.evaluationPart = false;
+                            this.startPart3 = false;
+                            this.competenciesPart = true;
+                            this.partNo = 'Part 3';
+                            this.testPhase = 'Competencies Test';
+                            this.testDescription = 'This will highlight the competence you excel at and identify competencies you can build on.';
+                            this.readinessAssessment = [];
+                            this.step++;
+
+                        }
+                        this.showLoader = false;
+
+                    }).catch(error => {
+                        this.showLoader = false;
+                        console.log(error);
+                    });
+
+            },
             submitAnswer: function(stepVal){
                 if(!this.answerSelected){
                     this.error = 'Please select any option.';
@@ -767,49 +833,17 @@ import Competencies from '../Pages/Competencies'
                 this.progressBarPercentage = Math.floor((this.step / 63) * 100, 2);
                 this.step = stepVal;
 
+                console.log(this.step);
+
                 if(this.step == 30){
-                    this.showLoader = true;
-                    axios.post('/save-readiness', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
-                    .then(response => {
-                        console.log(response);
-                        if(response.data.success){
-                            this.readinessPart = false;
-                            this.evaluationPart = true;
-                            this.readinessAssessment = [];
-                            this.partNo = 'Part 2';
-                            this.testPhase = 'Evaluation Test';
-                            this.testDescription = 'Completing a Self- evaluation is a pro-active way to articulate what you’ve accomplished and identify where you would like to grow.';
-                        }
-                        this.showLoader = false;
-
-                    }).catch(error => {
-                        this.showLoader = false;
-                        console.log(error);
-                    });
+                    this.startPart2 = true;
                 }
 
-                if(this.step == 43){
-                    this.showLoader = true;
-                    axios.post('/save-evaluation', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
-                    .then(response => {
-                        console.log(response);
-                        if(response.data.success){
-                            this.evaluationPart = false;
-                            this.competenciesPart = true;
-                            this.readinessAssessment = [];
-                            this.partNo = 'Part 3';
-                            this.testPhase = 'Competencies Test';
-                            this.testDescription = 'This will highlight the competence you excel at and identify competencies you can build on.';
-                        }
-                        this.showLoader = false;
-
-                    }).catch(error => {
-                        this.showLoader = false;
-                        console.log(error);
-                    });
+                if(this.step == 44){
+                    this.startPart3 = true;
                 }
 
-                if(this.step == 64){
+                if(this.step == 66){
                     this.showLoader = true;
                     axios.post('/save-competencies', {readinessAssessment: this.readinessAssessment, jobSeekerId: this.jobSeekerId})
                     .then(response => {

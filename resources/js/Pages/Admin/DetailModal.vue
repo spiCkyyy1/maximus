@@ -23,6 +23,11 @@
                         <div class="text-right" v-else>N/A</div>
 					</li>
                     <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Job Role</div>
+						<div class="text-right" v-if="jobSeeker.job_role != ''">{{humanize(jobSeeker.job_role)}}</div>
+                        <div class="text-right" v-else>N/A</div>
+					</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Role</div>
 						<div class="text-right" v-if="jobSeeker.role != ''">{{humanize(jobSeeker.role)}}</div>
                         <div class="text-right" v-else>N/A</div>
@@ -67,7 +72,7 @@
 						<div class="text-right" v-if="jobSeeker.martial_status != null">{{humanize(jobSeeker.martial_status)}}</div>
                         <div class="text-right" v-else>N/A</div>
 					</li>
-                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <!-- <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">CV</div>
 						<div class="text-right" v-if="jobSeeker.cv != null">
                             <a :href="storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.cv" download target="_blank">{{jobSeeker.cv}}</a>
@@ -87,7 +92,7 @@
                             <a :href="storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.gosi_evidence" download target="_blank">{{jobSeeker.gosi_evidence}}</a>
                         </div>
                         <div class="text-right" v-else>N/A</div>
-					</li>
+					</li> -->
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Application Status</div>
 						<div class="text-right">

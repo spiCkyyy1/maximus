@@ -169,16 +169,21 @@
                                         <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.qualification">
                                                 <option value="bachelors">{{__('bachelor')}}</option>
-                                                <option value="cannotreadnwrite">{{__('cannotreadnwrite')}}</option>
-                                                <option value="school">{{__('school')}}</option>
-                                                <option value="bachelors">{{__('bachelor')}}</option>
+                                                <!-- <option value="cannotreadnwrite">{{__('cannotreadnwrite')}}</option> -->
+                                                <option value="diploma">{{__('diploma')}}</option>
+                                                <!-- <option value="fellowship">{{__('fellowship')}}</option> -->
+                                                <option value="high_school">{{__('High School')}}</option>
+                                                <option value="higher_diploma">{{__('Higher Diploma')}}</option>
+                                                <option value="literate">{{__('Literate')}}</option>
                                                 <option value="masters">{{__('master')}}</option>
-                                                <option value="doctoral">{{__('doctoral')}}</option>
+                                                <option value="PHD_and_equivalent">{{__('PhD. and equivalent')}}</option>
+                                                <option value="primary">{{__('Primary')}}</option>
+                                                <option value="secondary">{{__('Secondary')}}</option>
                                             </select>
                                           <div class="form-text small text-danger" v-if="errors.qualification">{{ __(errors.qualification[0]) }}</div>
                                        </div>
                                     </div>
-                                <div class="form-row" v-if="personalInformation.qualification != 'school'">
+                                <div class="form-row" v-if="personalInformation.qualification != 'high_school'">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Major')}} *</label>
@@ -203,7 +208,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6" v-if="personalInformation.qualification != 'school'">
+                                    <div class="col-sm-6" v-if="personalInformation.qualification != 'high_school'">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Field')}} *</label>
                                             <div class="select-picker">
@@ -468,6 +473,35 @@
                         <div class="card wow fadeInRight" v-if="showEducationForm" id="educationForm">
                            <div>
                                <div class="form-group mb-5">
+                                        <label class="custom-label">{{__('Job Role')}} *</label>
+                                        <div class="select-picker">
+                                            <select class="form-control" id="jobRoleSelect">
+                                                <option value=""></option>
+                                                <option value="medical_and_nursing">{{__('Medical and Nursing')}}</option>
+                                                <option value="engineering">{{__('Engineering')}}</option>
+                                                <option value="teaching">{{__('Teaching')}}</option>
+                                                <option value="call_center">{{__('Call center')}}</option>
+                                                <option value="operations">{{__('Operations')}}</option>
+                                                <option value="human_resource">{{__('Human resource')}}</option>
+                                                <option value="finance">{{__('Finance')}}</option>
+                                                <option value="transportations">{{__('Transportations')}}</option>
+                                                <option value="procurement">{{__('Procurement')}}</option>
+                                                <option value="designing">{{__('Designing')}}</option>
+                                                <option value="marketing">{{__('Marketing')}}</option>
+                                                <option value="security_and_safety">{{__('Security and safety')}}</option>
+                                                <option value="IT">{{__('IT')}}</option>
+                                                <option value="sales">{{__('Sales')}}</option>
+                                                <option value="premises_maintenance">{{__('Premises & maintenance')}}</option>
+                                                <option value="legal">{{__('Legal')}}</option>
+                                                <option value="PR_Communications">{{__('PR & Communications')}}</option>
+                                                <option value="business_development">{{__('Business Development')}}</option>
+                                                <option value="reaserch_development">{{__('Reaserch & Development')}}</option>
+                                                <option value="customer_service">{{__('Customer service')}}</option>
+                                            </select>
+                                        <div class="form-text small text-danger" v-if="errors.jobRole">{{ __(errors.jobRole[0]) }}</div>
+                                    </div>
+                                </div>
+                               <div class="form-group mb-5">
                                         <label class="custom-label">{{__('Role Preference')}} *</label>
                                         <div class="select-picker">
                                             <select class="form-control" id="roleSelect">
@@ -475,13 +509,13 @@
                                                         <option value="accountant">{{__('Accountant')}}</option>
                                                         <option value="admin">{{__('Admin')}}</option>
                                                         <option value="assistant_store_manager">{{__('Assistant Store manager')}}</option>
-                                                        <option value="baker_associate">{{__('Baker Associate')}}</option>
-                                                        <option value="baker">{{__('Baker')}}</option>
-                                                        <option value="butcher">{{__('Butcher')}}</option>
+                                                        <!-- <option value="baker_associate">{{__('Baker Associate')}}</option> -->
+                                                        <!-- <option value="baker">{{__('Baker')}}</option> -->
+                                                        <!-- <option value="butcher">{{__('Butcher')}}</option> -->
                                                         <option value="cashier">{{__('Cashier')}}</option>
                                                         <option value="CCO_district_manager">{{__('CCO District Manager')}}</option>
                                                         <option value="CCO_supervisor">{{__('CCO Supervisor')}}</option>
-                                                        <option value="cleaner">{{__('Cleaner')}}</option>
+                                                        <!-- <option value="cleaner">{{__('Cleaner')}}</option> -->
                                                         <option value="cleaner_supervisor">{{__('Cleaner Supervisor')}}</option>
                                                         <option value="coordinator">{{__('Coordinator')}}</option>
                                                         <option value="cost_accountant">{{__('Cost Accountant')}}</option>
@@ -491,25 +525,25 @@
                                                         <option value="designer">{{__('Designer')}}</option>
                                                         <option value="director_of_operation">{{__('Director of Operation')}}</option>
                                                         <option value="district_manager_operation">{{__('District Manager Operation')}}</option>
-                                                        <option value="driver">{{__('Driver')}}</option>
+                                                        <!-- <option value="driver">{{__('Driver')}}</option> -->
                                                         <option value="duty_manager">{{__('Duty Manager')}}</option>
                                                         <option value="engineer">{{__('Engineer')}}</option>
-                                                        <option value="fish_service_associate">{{__('Fish Service Associate')}}</option>
-                                                        <option value="forklift">{{__('Forklift')}}</option>
-                                                        <option value="front_end_associate">{{__('Front End Associate')}}</option>
+                                                        <!-- <option value="fish_service_associate">{{__('Fish Service Associate')}}</option> -->
+                                                        <!-- <option value="forklift">{{__('Forklift')}}</option> -->
+                                                        <!-- <option value="front_end_associate">{{__('Front End Associate')}}</option> -->
                                                         <option value="hr_specialist">{{__('HR Specialist')}}</option>
-                                                        <option value="laborer">{{__('Laborer')}}</option>
-                                                        <option value="laundry_official">{{__('Laundry official')}}</option>
-                                                        <option value="machine_operator">{{__('Machine Operator')}}</option>
+                                                        <!-- <option value="laborer">{{__('Laborer')}}</option> -->
+                                                        <!-- <option value="laundry_official">{{__('Laundry official')}}</option> -->
+                                                        <!-- <option value="machine_operator">{{__('Machine Operator')}}</option> -->
                                                         <option value="manager">{{__('Manager')}}</option>
                                                         <option value="merchandiser">{{__('Merchandiser')}}</option>
                                                         <option value="nursing">{{__('Nursing')}}</option>
-                                                        <option value="operator">{{__('Operator')}}</option>
+                                                        <!-- <option value="operator">{{__('Operator')}}</option> -->
                                                         <option value="payroll_coordinator">{{__('Payroll coordinator')}}</option>
                                                         <option value="produce_service_associate">{{__('Produce Service Associate')}}</option>
                                                         <option value="production_line">{{__('Production line')}}</option>
                                                         <option value="quality_officer">{{__('Quality officer')}}</option>
-                                                        <option value="receiver">{{__('Receiver')}}</option>
+                                                        <!-- <option value="receiver">{{__('Receiver')}}</option> -->
                                                         <option value="receptionist">{{__('Receptionist')}}</option>
                                                         <option value="recruitment_coordinator">{{__('Recruitment coordinator')}}</option>
                                                         <option value="regional_operation_manager">{{__('Regional Operation Manager')}}</option>
@@ -519,7 +553,7 @@
                                                         <option value="security_guard">{{__('Security Guard')}}</option>
                                                         <option value="security_supervisor">{{__('Security Supervisor')}}</option>
                                                         <option value="shift_leader">{{__('Shift Leader')}}</option>
-                                                        <option value="stocker">{{__('Stocker')}}</option>
+                                                        <!-- <option value="stocker">{{__('Stocker')}}</option> -->
                                                         <option value="store_manager">{{__('Store Manager')}}</option>
                                                         <option value="student_counsellor">{{__('Student Counsellor')}}</option>
                                                         <option value="system_administrator">{{__('System Administrator')}}</option>
@@ -537,8 +571,8 @@
                                         <select class="form-control" id="sectorSelect">
                                                 <option value=""></option>
                                                 <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
-                                                <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option>
-                                                <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option>
+                                                <!-- <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option> -->
+                                                <!-- <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option> -->
                                                 <option value="air_transport">{{__('Air Transport')}}</option>
                                                 <option value="bakeries_and_bread_trade">{{__('Bakeries and Bread Trade')}}</option>
                                                 <option value="building_and_construction_for_government_projects">{{__('Building and Construction for Government Projects')}}</option>
@@ -723,6 +757,7 @@ import Layout from '../Layouts/Layout'
                     socialBeneficiary: '',
                     beenUnemployed: '',
                     martialStatus: '',
+                    jobRole: '',
                     role: '',
                     sector: '',
                     educationMajor: '',
@@ -741,7 +776,7 @@ import Layout from '../Layouts/Layout'
         },
         methods: {
             validatePersonalInformation: function(){
-               
+
                 this.showLoader = true;
 
                 this.personalInformation.educationMajor = $("#educationMajor").val();
@@ -881,6 +916,7 @@ import Layout from '../Layouts/Layout'
             //         });
             // },
             validateEducation: function(){
+                this.personalInformation.jobRole = $("#jobRoleSelect").val();
                 this.personalInformation.role = $("#roleSelect").val();
                 this.personalInformation.sector = $("#sectorSelect").val();
                  this.showLoader = true;
@@ -905,7 +941,8 @@ import Layout from '../Layouts/Layout'
                 .then(response => {
                     if(response.data.success){
                        this.showUnemployedForm = false;
-                       if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'school' ||
+                       if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'primary' ||
+                        this.personalInformation.qualification == 'high_school' ||
                                 this.personalInformation.beenUnemployed == 'less_than_3_months'){
                                 this.showLoader = true;
                                 axios.post('/application-rejected', this.personalInformation)
@@ -923,7 +960,7 @@ import Layout from '../Layouts/Layout'
                                 this.applicationAccepted = true;
                             }
                         // this.showSocialForm = false;
-                        
+
                         // this.uploadDocuments = true;
                         this.errors = [];
 

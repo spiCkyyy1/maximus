@@ -14,7 +14,7 @@ class JobSeeker extends Model
 
     protected $fillable = ['title','first_name', 'middle_name', 'last_name', 'martial_status', 'mobile', 'email', 'city',
     'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
-    'unemployed', 'reviewed', 'status', 'role', 'sector', 'education_major', 'education_field', 'cv', 'degree_certificate', 'gosi_evidence'];
+    'unemployed', 'reviewed', 'status','job_role', 'role', 'sector', 'education_major', 'education_field', 'cv', 'degree_certificate', 'gosi_evidence'];
 
     protected $appends = ['readiness_weighted_score', 'evaluation_weighted_score', 'best_competency', 'worst_competency', 'answered_competencies'];
 
