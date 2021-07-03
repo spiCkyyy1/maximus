@@ -27,16 +27,24 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
     public function collection()
     {
         if($this->status == 'all')
-            return JobSeeker::all();
+            return JobSeeker::get(['id', 'title','first_name', 'middle_name', 'last_name', 'martial_status', 'mobile', 'email', 'city',
+            'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
+            'unemployed', 'reviewed', 'status','created_at', 'updated_at','role', 'sector','job_role', 'education_major', 'education_field']);
 
         if($this->status == 'selected')
-            return JobSeeker::where('status', 1)->get();
+            return JobSeeker::where('status', 1)->get(['id', 'title','first_name', 'middle_name', 'last_name', 'martial_status', 'mobile', 'email', 'city',
+            'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
+            'unemployed', 'reviewed', 'status','created_at', 'updated_at','role', 'sector','job_role', 'education_major', 'education_field']);
 
         if($this->status == 'rejected')
-            return JobSeeker::where('status', 0)->get();
+            return JobSeeker::where('status', 0)->get(['id', 'title','first_name', 'middle_name', 'last_name', 'martial_status', 'mobile', 'email', 'city',
+            'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
+            'unemployed', 'reviewed', 'status','created_at', 'updated_at','role', 'sector','job_role', 'education_major', 'education_field']);
 
         if($this->status == 'reviewed')
-            return JobSeeker::where('reviewed', 1)->get();
+            return JobSeeker::where('reviewed', 1)->get(['id', 'title','first_name', 'middle_name', 'last_name', 'martial_status', 'mobile', 'email', 'city',
+            'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
+            'unemployed', 'reviewed', 'status','created_at', 'updated_at','role', 'sector','job_role', 'education_major', 'education_field']);
     }
 
     public function headings(): array
@@ -66,11 +74,12 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
             'Updated At',
             'Role',
             'Sector',
+            'Job Role',
             'Education Major',
             'Education Field',
-            'CV',
-            'Degree certificate',
-            'Gosi evidence',
+            // 'CV',
+            // 'Degree certificate',
+            // 'Gosi evidence',
             'Readiness Assessment',
             'Evaluation Assessment',
             'Best Competencies',

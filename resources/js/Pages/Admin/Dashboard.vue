@@ -252,10 +252,7 @@
 															<td >{{jobSeeker.full_time_employment}}</td>
 															<td >{{jobSeeker.on_job_training}}</td>
 															<td >{{jobSeeker.social_benficiary}}</td>
-                                                            <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
-                                                            <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
-                                                            <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
-                                                            <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td>
+                                                            <td >{{jobSeeker.unemployed}}</td>
 															<td v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                                             <td  v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
                                                             <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
@@ -333,10 +330,7 @@
 															<td >{{jobSeeker.full_time_employment}}</td>
 															<td >{{jobSeeker.on_job_training}}</td>
 															<td >{{jobSeeker.social_benficiary}}</td>
-                                                            <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
-                                                            <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
-                                                            <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
-                                                            <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td>
+                                                            <td>{{jobSeeker.unemployed }}</td>
 															<td  v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                                             <td    v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
                                                             <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>
@@ -412,10 +406,11 @@
 															<td >{{jobSeeker.full_time_employment}}</td>
 															<td >{{jobSeeker.on_job_training}}</td>
 															<td >{{jobSeeker.social_benficiary}}</td>
-                                                            <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
+                                                            <td >{{jobSeeker.unemployed}}</td>
+                                                            <!-- <td v-if="jobSeeker.unemployed == 'never_worked'">Never Worked</td>
                                                             <td v-if="jobSeeker.unemployed == 'less_than_3_months'">Less Than 3 Months</td>
                                                             <td v-if="jobSeeker.unemployed == 'more_than_3_months'">More than 3 months</td>
-                                                            <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td>
+                                                            <td v-if="jobSeeker.unemployed == 'N/A'">N/A</td> -->
 															<td v-if="jobSeeker.readiness_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Readiness Assessment')">{{jobSeeker.readiness_weighted_score}}%</a></td>
                                                             <td  v-if="jobSeeker.readiness_weighted_score == 'N/A'">{{jobSeeker.readiness_weighted_score}}</td>
                                                             <td v-if="jobSeeker.evaluation_weighted_score != 'N/A'"><a href="javascript:;"  @click="openAssessmentModal(jobSeeker.id, 'Evaluation Assessment')">{{jobSeeker.evaluation_weighted_score}}%</a></td>

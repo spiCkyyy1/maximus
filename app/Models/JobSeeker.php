@@ -86,7 +86,7 @@ class JobSeeker extends Model
         if(is_null($value)){
             return 'N/A';
         }
-        return $value;
+        return ucwords(str_replace("_", " ", $value));
     }
 
 
