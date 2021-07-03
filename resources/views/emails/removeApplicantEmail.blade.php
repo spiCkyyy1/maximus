@@ -191,9 +191,9 @@
 																			<td>
 																				<div class="contentEditableContainer contentTextEditable">
 																					<div class="contentEditable" style="text-align: left; color: white;">
-																						<h1 style="color: white;">You have not given the assessment test, please proceed to the website and find out eligibility again.</h1>
+																						<h1 style="color: white;">Thank you for your interest in a program with Maximus Gulf. You have an incomplete application. Please follow the below link to complete your application.</h1>
                                                                                         <br>
-                                                                                    <a href="{{route('landing')}}" as="button" class="btn btn-info">Maximus</a>
+                                                                                    <a href="{{route('jobSeeker')}}" as="button" class="btn btn-info">Click here</a>
 																					</div>
 																				</div>
 																			</td>

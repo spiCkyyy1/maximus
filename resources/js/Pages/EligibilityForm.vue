@@ -47,7 +47,7 @@
                               </div>
                               <h6>{{__('thankyou_register')}}</h6>
                                 <p class="font-md">
-                                    {{__('completed_registration_passed')}}
+                                    {{__('completed_registration_rejected')}}
                                 </p>
                                 <p class="font-md">
                                     {{__('member_contact_other_program')}}
@@ -66,6 +66,7 @@
                                              <option value="ms">{{__('ms')}}</option>
                                              <option value="miss">{{__('miss')}}</option>
                                              <option value="mrs">{{__('mrs')}}</option>
+                                             <option value="mr">{{__('mr')}}</option>
                                           </select>
                                        </div>
                                        <div class="form-text small text-danger" v-if="errors.firstName">{{ __(errors.title[0]) }}</div>
@@ -167,6 +168,8 @@
                                         <label class="custom-label">{{__('highest_level_of_education')}} *</label>
                                         <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.qualification">
+                                                <option value="bachelors">{{__('bachelor')}}</option>
+                                                <option value="cannotreadnwrite">{{__('cannotreadnwrite')}}</option>
                                                 <option value="school">{{__('school')}}</option>
                                                 <option value="bachelors">{{__('bachelor')}}</option>
                                                 <option value="masters">{{__('master')}}</option>
@@ -344,6 +347,13 @@
                                         <div class="form-text small text-danger" v-if="errors.jobTraining">{{ __(errors.jobTraining[0]) }}</div>
                                        </div>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="agreed" id="termsNcondition" v-model="personalInformation.agreed">
+                                    <label class="form-check-label" for="termsNcondition">
+                                       By clicking submit you accept the terms & conditions and data approval share as part of the recruitment process.
+                                    </label>
+                                    <div class="form-text small text-danger" v-if="errors.agreed">{{ __(errors.agreed[0]) }}</div>
+                                 </div>
                               <div class="text-center mt-5">
                                  <button type="button" class="btn btn-primary" @click="validatePersonalInformation">{{__('submit')}}</button>
                               </div>
@@ -611,7 +621,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="card wow fadeInRight" v-if="uploadDocuments">
+                        <!-- <div class="card wow fadeInRight" v-if="uploadDocuments">
                             <div>
                                 <h6 class="mb-5">Upload Files</h6>
                                 <div class="form-group">
@@ -639,7 +649,7 @@
                                     <button type="button" class="btn btn-primary" @click="uploadFiles">Submit</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                      </div>
 
@@ -719,7 +729,8 @@ import Layout from '../Layouts/Layout'
                     educationField: '',
                     cv: '',
                     degreeCertificate: '',
-                    gosiEvidence: ''
+                    gosiEvidence: '',
+                    agreed: false
                 },
                 uploadCvText: 'Upload CV',
                 uploadDegree: 'Upload Degree Certificate ',
@@ -730,6 +741,7 @@ import Layout from '../Layouts/Layout'
         },
         methods: {
             validatePersonalInformation: function(){
+               
                 this.showLoader = true;
 
                 this.personalInformation.educationMajor = $("#educationMajor").val();
@@ -892,9 +904,27 @@ import Layout from '../Layouts/Layout'
                 axios.post('/save-unemployment', this.personalInformation)
                 .then(response => {
                     if(response.data.success){
+                       this.showUnemployedForm = false;
+                       if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'school' ||
+                                this.personalInformation.beenUnemployed == 'less_than_3_months'){
+                                this.showLoader = true;
+                                axios.post('/application-rejected', this.personalInformation)
+                                .then(response => {
+                                    if(response.data.success){
+                                          //   this.uploadDocuments = false;
+                                       this.applicationRejected = true;
+
+                                    }
+                                    this.showLoader = false;
+                                }).catch(error => {
+                                    console.log(error);
+                                });
+                            }else{
+                                this.applicationAccepted = true;
+                            }
                         // this.showSocialForm = false;
-                        this.showUnemployedForm = false;
-                        this.uploadDocuments = true;
+                        
+                        // this.uploadDocuments = true;
                         this.errors = [];
 
                     }

@@ -104,7 +104,8 @@ class FrontendController extends Controller
             'socialBeneficiary.required' => 'Please select any option',
             'educationMajor.required_unless' => 'Please select any option',
             'educationField.required_unless' => 'Please select any option',
-            'qualification.required' => 'Please select your qualification'
+            'qualification.required' => 'Please select your qualification',
+            'agreed.accepted' => 'Please accept the terms & conditions'
         ];
 
         $validator = Validator::make($request->all(),[
@@ -123,7 +124,8 @@ class FrontendController extends Controller
             'educationField' => 'required_unless:qualification,school',
             'employment' => 'required',
             'socialBeneficiary' => 'required',
-            'jobTraining' => 'required'
+            'jobTraining' => 'required',
+            'agreed' => 'accepted'
         ], $messages);
 
         if($validator->fails()){
