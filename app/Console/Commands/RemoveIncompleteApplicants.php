@@ -52,7 +52,7 @@ class RemoveIncompleteApplicants extends Command
                 Mail::to($jobSeeker->email)->send(new RemoveApplicants());
                 JobSeeker::find($jobSeeker->id)->delete();
                 ReadinessAssessment::where('job_seeker_id', $jobSeeker->id)->delete();
-                Storage::deleteDirectory('public/'.$jobSeeker->id);
+                // Storage::deleteDirectory('public/'.$jobSeeker->id);
             }
         }
     }

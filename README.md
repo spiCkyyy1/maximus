@@ -36,6 +36,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - php artisan db:seed --class=AdminSeeder
 - php artisan db:seed --class=CitiesSeeder
 - php artisan db:seed --class=RegionSeeder
+- php artisan storage:link
 
 
 ## Learning Laravel
