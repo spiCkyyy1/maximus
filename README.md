@@ -21,6 +21,23 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## After Cloning Steps
+
+- cp ./.env.example /project-destination/.env
+- sudo nano .env
+- APP_ENV=Production, APP_DEBUG=False, APP_NAME=Maximus
+- Change database settings. Change Email Settings. 
+- Save and close file.
+- composer install
+- php artisan key:generate
+- npm install
+- npm run prod
+- php artisan migrate
+- php artisan db:seed --class=AdminSeeder
+- php artisan db:seed --class=CitiesSeeder
+- php artisan db:seed --class=RegionSeeder
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
