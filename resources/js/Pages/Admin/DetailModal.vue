@@ -93,6 +93,13 @@
                         </div>
                         <div class="text-right" v-else>N/A</div>
 					</li> -->
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+						<div class="text-left">Message Sent</div>
+						<div class="text-right">
+							<div class="badge badge-grd-success" v-if="jobSeeker.message_sent">Success</div>
+							<div class="badge badge-grd-danger" v-else>Failed</div>
+						</div>
+					</li>
 					<li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Application Status</div>
 						<div class="text-right">

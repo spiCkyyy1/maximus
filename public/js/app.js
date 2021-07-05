@@ -28448,7 +28448,7 @@ var _hoisted_56 = {
 
 var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "text-left"
-}, "Application Status", -1
+}, "Message Sent", -1
 /* HOISTED */
 );
 
@@ -28457,9 +28457,30 @@ var _hoisted_58 = {
 };
 var _hoisted_59 = {
   key: 0,
-  "class": "badge badge-grd-danger"
+  "class": "badge badge-grd-success"
 };
 var _hoisted_60 = {
+  key: 1,
+  "class": "badge badge-grd-danger"
+};
+var _hoisted_61 = {
+  "class": "list-group-item d-flex align-items-center justify-content-between"
+};
+
+var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "text-left"
+}, "Application Status", -1
+/* HOISTED */
+);
+
+var _hoisted_63 = {
+  "class": "text-right"
+};
+var _hoisted_64 = {
+  key: 0,
+  "class": "badge badge-grd-danger"
+};
+var _hoisted_65 = {
   key: 1,
   "class": "badge badge-grd-success"
 };
@@ -28503,7 +28524,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_51, "N/A"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_52, [_hoisted_53, $props.jobSeeker.martial_status != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.humanize($props.jobSeeker.martial_status)), 1
   /* TEXT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_55, "N/A"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">CV</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.cv != null\">\n                            <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.cv\" download target=\"_blank\">{{jobSeeker.cv}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li>\n                    <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">Degree Certificate</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.degree_certificate != null\">\n                        <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.degree_certificate\" download target=\"_blank\">{{jobSeeker.degree_certificate}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li>\n                    <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">GOSI Evidence</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.gosi_evidence != null\">\n                            <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.gosi_evidence\" download target=\"_blank\">{{jobSeeker.gosi_evidence}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_56, [_hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_58, [$props.jobSeeker.status == 'Rejected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_59, "Rejected")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.jobSeeker.status == 'Selected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_60, "Selected")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])], 8
+  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_55, "N/A"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">CV</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.cv != null\">\n                            <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.cv\" download target=\"_blank\">{{jobSeeker.cv}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li>\n                    <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">Degree Certificate</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.degree_certificate != null\">\n                        <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.degree_certificate\" download target=\"_blank\">{{jobSeeker.degree_certificate}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li>\n                    <li class=\"list-group-item d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div class=\"text-left\">GOSI Evidence</div>\n\t\t\t\t\t\t<div class=\"text-right\" v-if=\"jobSeeker.gosi_evidence != null\">\n                            <a :href=\"storageUrl + jobSeeker.id + '/' + jobSeeker.id+'-'+jobSeeker.gosi_evidence\" download target=\"_blank\">{{jobSeeker.gosi_evidence}}</a>\n                        </div>\n                        <div class=\"text-right\" v-else>N/A</div>\n\t\t\t\t\t</li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_56, [_hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_58, [$props.jobSeeker.message_sent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_59, "Success")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_60, "Failed"))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_61, [_hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_63, [$props.jobSeeker.status == 'Rejected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_64, "Rejected")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.jobSeeker.status == 'Selected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_65, "Selected")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])], 8
   /* PROPS */
   , ["show"])]);
 }

@@ -132,6 +132,36 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
 
+        $cURLConnection = curl_init();
+
+        curl_setopt($cURLConnection, CURLOPT_URL, 'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/GetNewToken/67B964763E754DD8BDACCDAEDE0D70BC');
+        curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($cURLConnection);
+        curl_close($cURLConnection);
+
+        $token = json_decode($response);
+
+        $phpCurlConnection = curl_init();
+
+        //formating the mobile number
+        $mobile = $request->mobile;
+        if(substr($mobile, 0, 4) == "+966"){
+            $mobile = substr_replace($mobile, '0', 0, 4);
+        }
+        if(substr($mobile, 0, 5) == "00966"){
+            $mobile = substr_replace($mobile, '0', 0, 5);
+        }
+
+        curl_setopt($phpCurlConnection, CURLOPT_URL,"https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/$request->nin/$mobile/-/
+        $request->firstName/$request->midddleName/$request->surName/$request->gender/
+        $request->city/$request->dob/$request->email/-/-/-/-/-/$request->qualification/$token/67B964763E754DD8BDACCDAEDE0D70BC");
+        curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
+        $apiResponse = curl_exec($phpCurlConnection);
+        curl_close($phpCurlConnection);
+        // $apiResponse - available data from the API request
+        $jsonArrayResponse = json_decode($apiResponse);
+
         $jobSeekerId = JobSeeker::create([
             'title' => $request->title,
             'first_name' => $request->firstName,
@@ -149,7 +179,8 @@ class FrontendController extends Controller
             'education_field' => ($request->qualification != 'high_school') ? $request->educationField : null,
             'full_time_employment' => $request->employment,
             'social_benficiary' => $request->socialBeneficiary,
-            'on_job_training' => $request->jobTraining
+            'on_job_training' => $request->jobTraining,
+            'message_sent' => ($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)) ? 0 : 1
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);

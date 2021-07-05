@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
 use App\Models\JobSeeker;
 use App\Models\ReadinessAssessment;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -120,57 +121,15 @@ Route::get('/admin/register', [AuthController::class, 'register'])->name('regist
 Route::get('/admin/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
 
 Route::get('/test', function(){
+    return 'test';
+});
 
-    // $cURLConnection = curl_init();
-
-    // curl_setopt($cURLConnection, CURLOPT_URL, 'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/GetNewToken/67B964763E754DD8BDACCDAEDE0D70BC');
-    // curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-
-    // $response = curl_exec($cURLConnection);
-    // curl_close($cURLConnection);
-
-    // $token = json_decode($response);
-
-    // $parameters = array(
-    //     'NIN' => '3125469781',
-    //     'Phone' => '0500000000',
-    //     'refid' => '-',
-    //     'fname' => 'hi',
-    //     'mname' => '',
-    //     'lname' => 'bye',
-    //     'gender' => 'male',
-    //     'city' => 'city',
-    //     'dob' => '31122005',
-    //     'email' => 'test@test.com',
-    //     'Interest01' => '-',
-    //     'Interest02' => '-',
-    //     'Interest03' => '-',
-    //     'LanguageLevel' => '-',
-    //     'Neighborhood' => '-',
-    //     'Education' => '-',
-    //     'tokenID' => $token,
-    //     'projectID' => '67B964763E754DD8BDACCDAEDE0D70BC'
-    // );
-    // return $token;
-
-    // $cURLConnection = curl_init();
-    // curl_setopt($cURLConnection, CURLOPT_URL,"https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/");
-    // curl_setopt($cURLConnection, CURLOPT_POST, count($parameters));
-    // curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-    // curl_setopt($cURLConnection, CURLOPT_POSTFIELDS,
-    //     http_build_query($parameters));
-    // curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-
-    // $apiResponse = curl_exec($cURLConnection);
-    // curl_close($cURLConnection);
-
-    // // $apiResponse - available data from the API request
-    // $jsonArrayResponse = json_decode($apiResponse);
-    // return $apiResponse;
-
-
-
-    // return $jsonArrayResponse;
+Route::get('/clear/cache', function(){
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    return 'Cache Cleared';
 });
 
 // Route::inertia('/eligibility-form', 'EligibilityForm')->name('jobSeeker');
