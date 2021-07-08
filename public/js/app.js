@@ -21892,7 +21892,16 @@ __webpack_require__.r(__webpack_exports__);
               console.log(error);
             });
           } else {
-            _this4.applicationAccepted = true;
+            _this4.showLoader = true;
+            axios.post('/application-accepted', _this4.personalInformation).then(function (response) {
+              if (response.data.success) {
+                _this4.applicationAccepted = true;
+              }
+
+              _this4.showLoader = false;
+            })["catch"](function (error) {
+              console.log(error);
+            });
           } // this.showSocialForm = false;
           // this.uploadDocuments = true;
 

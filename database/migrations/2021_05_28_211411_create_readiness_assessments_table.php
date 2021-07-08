@@ -16,7 +16,7 @@ class CreateReadinessAssessmentsTable extends Migration
         Schema::create('readiness_assessments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('job_seeker_id');
-            $table->foreign('job_seeker_id')->references('id')->on('job_seekers');
+            $table->foreign('job_seeker_id')->references('id')->on('job_seekers')->onDelete('cascade');
             $table->text('question')->nullable()->default(null);
             $table->text('answer')->nullable()->default(null);
             $table->float('weighted_score')->nullable()->default(null);

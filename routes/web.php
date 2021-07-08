@@ -30,6 +30,8 @@ Route::middleware('setLocale')->group(function () {
 
 Route::post('/employer-form', [FrontendController::class, 'employerForm'])->name('employerForm');
 
+Route::post('/application-accepted', [FrontendController::class, 'applicationAccepted'])->name('applicationAccepted');
+
 Route::post('/application-rejected', [FrontendController::class, 'applicationRejected'])->name('applicationRejected');
 
 Route::post('/save-personal-information', [FrontendController::class, 'savePersonalInformation'])->name('savePersonalInformation');

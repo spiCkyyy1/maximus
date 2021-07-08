@@ -208,17 +208,6 @@ class FrontendController extends Controller
 
     }
 
-    public function applicationRejected(Request $request){
-
-        $jobSeeker = JobSeeker::find($request->id);
-
-        $jobSeeker->status = 0;
-
-        $jobSeeker->save();
-
-        return response()->json(['success' => 'Application Rejected.']);
-    }
-
     // public function saveQualification(Request $request){
     //     $messages = [
     //         'qualification.required' => 'Please select your qualification'
@@ -326,8 +315,33 @@ class FrontendController extends Controller
         $jobSeeker->unemployed = $request->beenUnemployed;
         $jobSeeker->status = 1;
         $jobSeeker->save();
-        // Mail::to($request->email)->send(new JobSeekerEmail($request->id));
         return response()->json(['success' => 'Unemployment Status Saved']);
+    }
+
+    public function applicationAccepted(Request $request){
+
+        $jobSeeker = JobSeeker::find($request->id);
+
+        $jobSeeker->status = 1;
+
+        $jobSeeker->save();
+
+        Mail::to($request->email)->send(new JobSeekerEmail($request->id));
+
+        return response()->json(['success' => 'Application Rejected.']);
+    }
+
+    public function applicationRejected(Request $request){
+
+        $jobSeeker = JobSeeker::find($request->id);
+
+        $jobSeeker->status = 0;
+
+        $jobSeeker->save();
+
+        Mail::to($request->email)->send(new JobSeekerEmail($request->id));
+
+        return response()->json(['success' => 'Application Rejected.']);
     }
 
     public function assessmentTest($id){

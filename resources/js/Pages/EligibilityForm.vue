@@ -957,7 +957,17 @@ import Layout from '../Layouts/Layout'
                                     console.log(error);
                                 });
                             }else{
-                                this.applicationAccepted = true;
+                               this.showLoader = true;
+                               axios.post('/application-accepted', this.personalInformation)
+                                .then(response => {
+                                    if(response.data.success){
+                                       this.applicationAccepted = true;
+                                    }
+                                    this.showLoader = false;
+                                }).catch(error => {
+                                    console.log(error);
+                                });
+                                
                             }
                         // this.showSocialForm = false;
 

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\JobSeeker;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -32,6 +33,12 @@ class JobSeekerEmail extends Mailable
     {
         // ->from('OJTREG@maximusgulf.com')
         // ->subject('Maximus Gulf')
-        return $this->from('OJTREG@maximusgulf.com')->view('emails.jobseekeremail');
+        $jobSeeker = JobSeeker::find($this->id);
+        if($jobSeeker->status == 0){
+            return $this->view('emails.jobseekerrejectedemail');
+        }else{
+            return $this->view('emails.jobseekeremail');
+        }
+        
     }
 }
