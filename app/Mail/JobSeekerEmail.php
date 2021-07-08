@@ -33,7 +33,7 @@ class JobSeekerEmail extends Mailable
     {
         // ->from('OJTREG@maximusgulf.com')
         // ->subject('Maximus Gulf')
-        if($this->jobSeeker->status == 0){
+        if($this->jobSeeker->status == 'Rejected'){
             return $this->view('emails.jobseekerrejectedemail');
         }else{
             return $this->view('emails.jobseekeremail');
