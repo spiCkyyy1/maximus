@@ -21879,34 +21879,43 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.success) {
           _this4.showUnemployedForm = false;
 
-          if (_this4.personalInformation.gender == 'male' || _this4.personalInformation.qualification == 'primary' || _this4.personalInformation.qualification == 'high_school' || _this4.personalInformation.beenUnemployed == 'less_than_3_months') {
-            _this4.showLoader = true;
-            axios.post('/application-rejected', _this4.personalInformation).then(function (response) {
-              if (response.data.success) {
-                //   this.uploadDocuments = false;
-                _this4.applicationRejected = true;
-              }
+          if (response.data.success == 'Application Rejected') {
+            _this4.applicationRejected = true;
+          }
 
-              _this4.showLoader = false;
-            })["catch"](function (error) {
-              console.log(error);
-            });
-          } else {
-            _this4.showLoader = true;
-            axios.post('/application-accepted', _this4.personalInformation).then(function (response) {
-              if (response.data.success) {
-                _this4.applicationAccepted = true;
-              }
+          if (response.data.success == 'Application Accepted') {
+            _this4.applicationAccepted = true;
+          } //      if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'primary' ||
+          //       this.personalInformation.qualification == 'high_school' ||
+          //               this.personalInformation.beenUnemployed == 'less_than_3_months'){
+          //               this.showLoader = true;
+          //               axios.post('/application-rejected', this.personalInformation)
+          //               .then(response => {
+          //                   if(response.data.success){
+          //                         //   this.uploadDocuments = false;
+          //                      this.applicationRejected = true;
+          //                   }
+          //                   this.showLoader = false;
+          //               }).catch(error => {
+          //                   console.log(error);
+          //               });
+          //           }else{
+          //              this.showLoader = true;
+          //              axios.post('/application-accepted', this.personalInformation)
+          //               .then(response => {
+          //                   if(response.data.success){
+          //                      this.applicationAccepted = true;
+          //                   }
+          //                   this.showLoader = false;
+          //               }).catch(error => {
+          //                   console.log(error);
+          //               });
+          //           }
+          //       // this.showSocialForm = false;
+          //       // this.uploadDocuments = true;
+          //       this.errors = [];
+          //   }
 
-              _this4.showLoader = false;
-            })["catch"](function (error) {
-              console.log(error);
-            });
-          } // this.showSocialForm = false;
-          // this.uploadDocuments = true;
-
-
-          _this4.errors = [];
         }
 
         if (response.data.errors) {

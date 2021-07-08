@@ -941,39 +941,47 @@ import Layout from '../Layouts/Layout'
                 .then(response => {
                     if(response.data.success){
                        this.showUnemployedForm = false;
-                       if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'primary' ||
-                        this.personalInformation.qualification == 'high_school' ||
-                                this.personalInformation.beenUnemployed == 'less_than_3_months'){
-                                this.showLoader = true;
-                                axios.post('/application-rejected', this.personalInformation)
-                                .then(response => {
-                                    if(response.data.success){
-                                          //   this.uploadDocuments = false;
-                                       this.applicationRejected = true;
+                       if(response.data.success == 'Application Rejected'){
+                          this.applicationRejected = true;
+                       }
 
-                                    }
-                                    this.showLoader = false;
-                                }).catch(error => {
-                                    console.log(error);
-                                });
-                            }else{
-                               this.showLoader = true;
-                               axios.post('/application-accepted', this.personalInformation)
-                                .then(response => {
-                                    if(response.data.success){
-                                       this.applicationAccepted = true;
-                                    }
-                                    this.showLoader = false;
-                                }).catch(error => {
-                                    console.log(error);
-                                });
+                       if(response.data.success == 'Application Accepted'){
+                          this.applicationAccepted = true;
+                       }
+                  //      if(this.personalInformation.gender == 'male' || this.personalInformation.qualification == 'primary' ||
+                  //       this.personalInformation.qualification == 'high_school' ||
+                  //               this.personalInformation.beenUnemployed == 'less_than_3_months'){
+                  //               this.showLoader = true;
+                  //               axios.post('/application-rejected', this.personalInformation)
+                  //               .then(response => {
+                  //                   if(response.data.success){
+                  //                         //   this.uploadDocuments = false;
+                  //                      this.applicationRejected = true;
+
+                  //                   }
+                  //                   this.showLoader = false;
+                  //               }).catch(error => {
+                  //                   console.log(error);
+                  //               });
+                  //           }else{
+                  //              this.showLoader = true;
+                  //              axios.post('/application-accepted', this.personalInformation)
+                  //               .then(response => {
+                  //                   if(response.data.success){
+                  //                      this.applicationAccepted = true;
+                  //                   }
+                  //                   this.showLoader = false;
+                  //               }).catch(error => {
+                  //                   console.log(error);
+                  //               });
                                 
-                            }
-                        // this.showSocialForm = false;
+                  //           }
+                  //       // this.showSocialForm = false;
 
-                        // this.uploadDocuments = true;
-                        this.errors = [];
+                  //       // this.uploadDocuments = true;
+                  //       this.errors = [];
 
+                  //   }
                     }
                     if(response.data.errors){
                             this.errors = response.data.errors;

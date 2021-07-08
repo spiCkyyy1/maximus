@@ -195,7 +195,7 @@
 																						<br>
 																						<p style="color: white;">You have successfully completed the registration and passed the eligibility for the OJT program.</p>
                                                                                         <p style="color: white;">A member of the team will contact you with regards to the next steps of welcoming you on the program.</p>
-                                                                                    <a href="{{route('assessmentTest', $id)}}" as="button" class="btn btn-info" style="margin-left: 30%; color: white">Take your Assessment Test</a>
+                                                                                    <a href="{{route('assessmentTest', $jobSeeker->id)}}" as="button" class="btn btn-info" style="margin-left: 30%; color: white">Take your Assessment Test</a>
 																					</div>
 																				</div>
 																			</td>

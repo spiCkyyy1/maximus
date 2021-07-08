@@ -313,9 +313,22 @@ class FrontendController extends Controller
         }
         $jobSeeker = JobSeeker::find($request->id);
         $jobSeeker->unemployed = $request->beenUnemployed;
-        $jobSeeker->status = 1;
-        $jobSeeker->save();
-        return response()->json(['success' => 'Unemployment Status Saved']);
+
+
+        if($request->gender == 'male' || $request->qualification == 'primary' || $request->qualification == 'high_school' ||
+         $request->beenUnemployed == 'less_than_3_months'){
+             $jobSeeker->status = 0;
+             $jobSeeker->save();
+             Mail::to($request->email)->send(new JobSeekerEmail($jobSeeker));
+             return response()->json(['success' => 'Application Rejected']);
+        }else{
+            $jobSeeker->status = 1;
+            $jobSeeker->save();
+             Mail::to($request->email)->send(new JobSeekerEmail($jobSeeker));
+             return response()->json(['success' => 'Application Accepted']);
+        }
+
+        // return response()->json(['success' => 'Unemployment Status Saved']);
     }
 
     public function applicationAccepted(Request $request){

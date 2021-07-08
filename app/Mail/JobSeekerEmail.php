@@ -18,10 +18,10 @@ class JobSeekerEmail extends Mailable
      * @return void
      */
 
-     public $id;
-    public function __construct($id)
+     public $jobSeeker;
+    public function __construct(JobSeeker $jobSeeker)
     {
-        $this->id = $id;
+        $this->jobSeeker = $jobSeeker;
     }
 
     /**
@@ -33,8 +33,7 @@ class JobSeekerEmail extends Mailable
     {
         // ->from('OJTREG@maximusgulf.com')
         // ->subject('Maximus Gulf')
-        $jobSeeker = JobSeeker::find($this->id);
-        if($jobSeeker->status == 0){
+        if($this->jobSeeker->status == 0){
             return $this->view('emails.jobseekerrejectedemail');
         }else{
             return $this->view('emails.jobseekeremail');
