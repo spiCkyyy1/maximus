@@ -154,11 +154,13 @@ class FrontendController extends Controller
             $mobile = substr_replace($mobile, '0', 0, 5);
         }
 
+        $dob = str_replace("-", "", $request->dob);
+
         $middleName = (!is_null($request->middleName)) ? $request->middleName : '-';
 
         curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/
         '.$request->firstName.'/'.$middleName.'/'.$request->surName.'/-/
-        '.$request->city.'/'.$request->dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
+        '.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
         curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
         $apiResponse = curl_exec($phpCurlConnection);
         curl_close($phpCurlConnection);
@@ -166,7 +168,7 @@ class FrontendController extends Controller
         $jsonArrayResponse = json_decode($apiResponse);
 
         $msgSent = 1;
-        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)){
+        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1"){
             $msgSent = 0;
         }
 
