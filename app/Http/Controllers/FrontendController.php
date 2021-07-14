@@ -158,17 +158,18 @@ class FrontendController extends Controller
 
         $middleName = (!is_null($request->middleName)) ? $request->middleName : '-';
 
-        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/
-        '.$request->firstName.'/'.$middleName.'/'.$request->surName.'/-/
-        '.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
+        $gender = ($request->title == 'mr') ? 'Male' : 'Female';
+
+        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.$request->firstName.'/'.$middleName.'/'.$request->surName.'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
         curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
         $apiResponse = curl_exec($phpCurlConnection);
         curl_close($phpCurlConnection);
         // $apiResponse - available data from the API request
         $jsonArrayResponse = json_decode($apiResponse);
 
+
         $msgSent = 1;
-        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1"){
+        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-5" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)){
             $msgSent = 0;
         }
 
