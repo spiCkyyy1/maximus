@@ -21728,6 +21728,8 @@ __webpack_require__.r(__webpack_exports__);
       this.personalInformation.educationMajor = $("#educationMajor").val();
       this.personalInformation.educationField = $("#educationField").val();
       axios.post('/save-personal-information', this.personalInformation).then(function (response) {
+        console.log(response);
+
         if (response.data.success) {
           _this.personalInformation.id = response.data.success;
           _this.showPersonalInformationForm = false;

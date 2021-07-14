@@ -784,6 +784,7 @@ import Layout from '../Layouts/Layout'
 
                 axios.post('/save-personal-information', this.personalInformation)
                 .then(response => {
+                   console.log(response);
 
                     if(response.data.success){
                         this.personalInformation.id = response.data.success;

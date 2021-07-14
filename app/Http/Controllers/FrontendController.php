@@ -105,7 +105,8 @@ class FrontendController extends Controller
             'educationMajor.required_unless' => 'Please select any option',
             'educationField.required_unless' => 'Please select any option',
             'qualification.required' => 'Please select your qualification',
-            'agreed.accepted' => 'Please accept the terms & conditions'
+            'agreed.accepted' => 'Please accept the terms & conditions',
+            'nin.unique' => 'Please enter unique NIN numbers'
         ];
 
         $validator = Validator::make($request->all(),[
@@ -117,7 +118,7 @@ class FrontendController extends Controller
             'email' => 'required|email|unique:job_seekers,email',
             'city' => 'required',
             'region' => 'required',
-            'nin' => 'required|min:10|max:10',
+            'nin' => 'required|min:10|max:10|unique:job_seekers,nin',
             'dob' => 'required',
             'qualification' => 'required',
             'educationMajor' => 'required_unless:qualification,high_school',
@@ -153,14 +154,21 @@ class FrontendController extends Controller
             $mobile = substr_replace($mobile, '0', 0, 5);
         }
 
-        curl_setopt($phpCurlConnection, CURLOPT_URL,"https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/$request->nin/$mobile/-/
-        $request->firstName/$request->midddleName/$request->surName/$request->gender/
-        $request->city/$request->dob/$request->email/-/-/-/-/-/$request->qualification/$token/67B964763E754DD8BDACCDAEDE0D70BC");
+        $middleName = (!is_null($request->middleName)) ? $request->middleName : '-';
+
+        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/
+        '.$request->firstName.'/'.$middleName.'/'.$request->surName.'/-/
+        '.$request->city.'/'.$request->dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
         curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
         $apiResponse = curl_exec($phpCurlConnection);
         curl_close($phpCurlConnection);
         // $apiResponse - available data from the API request
         $jsonArrayResponse = json_decode($apiResponse);
+
+        $msgSent = 1;
+        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)){
+            $msgSent = 0;
+        }
 
         $jobSeekerId = JobSeeker::create([
             'title' => $request->title,
@@ -180,7 +188,7 @@ class FrontendController extends Controller
             'full_time_employment' => $request->employment,
             'social_benficiary' => $request->socialBeneficiary,
             'on_job_training' => $request->jobTraining,
-            'message_sent' => ($jsonArrayResponse == "-15" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)) ? 0 : 1
+            'message_sent' => $msgSent
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);
