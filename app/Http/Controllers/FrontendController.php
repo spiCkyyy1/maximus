@@ -9,6 +9,7 @@ use App\Models\Employer;
 use App\Models\JobSeeker;
 use App\Models\ReadinessAssessment;
 use App\Models\Region;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -154,11 +155,11 @@ class FrontendController extends Controller
             $mobile = substr_replace($mobile, '0', 0, 5);
         }
 
-        $dob = str_replace("-", "", $request->dob);
-
         $middleName = (!is_null($request->middleName)) ? $request->middleName : '-';
 
         $gender = ($request->title == 'mr') ? 'Male' : 'Female';
+
+        $dob = Carbon::parse($request->dob)->format('dmY');
 
         curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.$request->firstName.'/'.$middleName.'/'.$request->surName.'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
         curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
