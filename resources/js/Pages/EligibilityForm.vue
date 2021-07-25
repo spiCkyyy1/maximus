@@ -355,7 +355,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="agreed" id="termsNcondition" v-model="personalInformation.agreed">
                                     <label class="form-check-label" for="termsNcondition">
-                                       By clicking submit you accept the terms & conditions and data approval share as part of the recruitment process.
+                                       {{ __('click_terms_condition') }}
                                     </label>
                                     <div class="form-text small text-danger" v-if="errors.agreed">{{ __(errors.agreed[0]) }}</div>
                                  </div>
@@ -477,6 +477,7 @@
                                         <div class="select-picker">
                                             <select class="form-control" id="jobRoleSelect">
                                                 <option value=""></option>
+                                                <option value="any"> {{ __('any') }} </option>
                                                 <option value="medical_and_nursing">{{__('Medical and Nursing')}}</option>
                                                 <option value="engineering">{{__('Engineering')}}</option>
                                                 <option value="teaching">{{__('Teaching')}}</option>
@@ -506,6 +507,7 @@
                                         <div class="select-picker">
                                             <select class="form-control" id="roleSelect">
                                                         <option value=""></option>
+                                                        <option value="any"> {{ __('any') }} </option>
                                                         <option value="accountant">{{__('Accountant')}}</option>
                                                         <option value="admin">{{__('Admin')}}</option>
                                                         <option value="assistant_store_manager">{{__('Assistant Store manager')}}</option>
@@ -570,6 +572,7 @@
                                     <div class="select-picker">
                                         <select class="form-control" id="sectorSelect">
                                                 <option value=""></option>
+                                                <option value="any"> {{ __('any') }} </option>
                                                 <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
                                                 <!-- <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option> -->
                                                 <!-- <option value="agriculture_fishing_and_grazing_horses">{{__('Agriculture Fishing and Grazing Horses')}}</option> -->

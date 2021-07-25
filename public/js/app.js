@@ -33048,14 +33048,10 @@ var _hoisted_242 = {
 var _hoisted_243 = {
   "class": "form-check"
 };
-
-var _hoisted_244 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_244 = {
   "class": "form-check-label",
   "for": "termsNcondition"
-}, " By clicking submit you accept the terms & conditions and data approval share as part of the recruitment process. ", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_245 = {
   key: 0,
   "class": "form-text small text-danger"
@@ -33116,426 +33112,435 @@ var _hoisted_260 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 );
 
 var _hoisted_261 = {
-  value: "medical_and_nursing"
+  value: "any"
 };
 var _hoisted_262 = {
-  value: "engineering"
+  value: "medical_and_nursing"
 };
 var _hoisted_263 = {
-  value: "teaching"
+  value: "engineering"
 };
 var _hoisted_264 = {
-  value: "call_center"
+  value: "teaching"
 };
 var _hoisted_265 = {
-  value: "operations"
+  value: "call_center"
 };
 var _hoisted_266 = {
-  value: "human_resource"
+  value: "operations"
 };
 var _hoisted_267 = {
-  value: "finance"
+  value: "human_resource"
 };
 var _hoisted_268 = {
-  value: "transportations"
+  value: "finance"
 };
 var _hoisted_269 = {
-  value: "procurement"
+  value: "transportations"
 };
 var _hoisted_270 = {
-  value: "designing"
+  value: "procurement"
 };
 var _hoisted_271 = {
-  value: "marketing"
+  value: "designing"
 };
 var _hoisted_272 = {
-  value: "security_and_safety"
+  value: "marketing"
 };
 var _hoisted_273 = {
-  value: "IT"
+  value: "security_and_safety"
 };
 var _hoisted_274 = {
-  value: "sales"
+  value: "IT"
 };
 var _hoisted_275 = {
-  value: "premises_maintenance"
+  value: "sales"
 };
 var _hoisted_276 = {
-  value: "legal"
+  value: "premises_maintenance"
 };
 var _hoisted_277 = {
-  value: "PR_Communications"
+  value: "legal"
 };
 var _hoisted_278 = {
-  value: "business_development"
+  value: "PR_Communications"
 };
 var _hoisted_279 = {
-  value: "reaserch_development"
+  value: "business_development"
 };
 var _hoisted_280 = {
-  value: "customer_service"
+  value: "reaserch_development"
 };
 var _hoisted_281 = {
+  value: "customer_service"
+};
+var _hoisted_282 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_282 = {
+var _hoisted_283 = {
   "class": "form-group mb-5"
 };
-var _hoisted_283 = {
+var _hoisted_284 = {
   "class": "custom-label"
 };
-var _hoisted_284 = {
+var _hoisted_285 = {
   "class": "select-picker"
 };
-var _hoisted_285 = {
+var _hoisted_286 = {
   "class": "form-control",
   id: "roleSelect"
 };
 
-var _hoisted_286 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_287 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: ""
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_287 = {
-  value: "accountant"
-};
 var _hoisted_288 = {
-  value: "admin"
+  value: "any"
 };
 var _hoisted_289 = {
-  value: "assistant_store_manager"
+  value: "accountant"
 };
 var _hoisted_290 = {
-  value: "cashier"
+  value: "admin"
 };
 var _hoisted_291 = {
-  value: "CCO_district_manager"
+  value: "assistant_store_manager"
 };
 var _hoisted_292 = {
-  value: "CCO_supervisor"
+  value: "cashier"
 };
 var _hoisted_293 = {
-  value: "cleaner_supervisor"
+  value: "CCO_district_manager"
 };
 var _hoisted_294 = {
-  value: "coordinator"
+  value: "CCO_supervisor"
 };
 var _hoisted_295 = {
-  value: "cost_accountant"
+  value: "cleaner_supervisor"
 };
 var _hoisted_296 = {
-  value: "customer_services"
+  value: "coordinator"
 };
 var _hoisted_297 = {
-  value: "data_entry"
+  value: "cost_accountant"
 };
 var _hoisted_298 = {
-  value: "deli_service_associate"
+  value: "customer_services"
 };
 var _hoisted_299 = {
-  value: "designer"
+  value: "data_entry"
 };
 var _hoisted_300 = {
-  value: "director_of_operation"
+  value: "deli_service_associate"
 };
 var _hoisted_301 = {
-  value: "district_manager_operation"
+  value: "designer"
 };
 var _hoisted_302 = {
-  value: "duty_manager"
+  value: "director_of_operation"
 };
 var _hoisted_303 = {
-  value: "engineer"
+  value: "district_manager_operation"
 };
 var _hoisted_304 = {
-  value: "hr_specialist"
+  value: "duty_manager"
 };
 var _hoisted_305 = {
-  value: "manager"
+  value: "engineer"
 };
 var _hoisted_306 = {
-  value: "merchandiser"
+  value: "hr_specialist"
 };
 var _hoisted_307 = {
-  value: "nursing"
+  value: "manager"
 };
 var _hoisted_308 = {
-  value: "payroll_coordinator"
+  value: "merchandiser"
 };
 var _hoisted_309 = {
-  value: "produce_service_associate"
+  value: "nursing"
 };
 var _hoisted_310 = {
-  value: "production_line"
+  value: "payroll_coordinator"
 };
 var _hoisted_311 = {
-  value: "quality_officer"
+  value: "produce_service_associate"
 };
 var _hoisted_312 = {
-  value: "receptionist"
+  value: "production_line"
 };
 var _hoisted_313 = {
-  value: "recruitment_coordinator"
+  value: "quality_officer"
 };
 var _hoisted_314 = {
-  value: "regional_operation_manager"
+  value: "receptionist"
 };
 var _hoisted_315 = {
-  value: "sales_person"
+  value: "recruitment_coordinator"
 };
 var _hoisted_316 = {
-  value: "secretary"
+  value: "regional_operation_manager"
 };
 var _hoisted_317 = {
-  value: "section_manager"
+  value: "sales_person"
 };
 var _hoisted_318 = {
-  value: "security_guard"
+  value: "secretary"
 };
 var _hoisted_319 = {
-  value: "security_supervisor"
+  value: "section_manager"
 };
 var _hoisted_320 = {
-  value: "shift_leader"
+  value: "security_guard"
 };
 var _hoisted_321 = {
-  value: "store_manager"
+  value: "security_supervisor"
 };
 var _hoisted_322 = {
-  value: "student_counsellor"
+  value: "shift_leader"
 };
 var _hoisted_323 = {
-  value: "system_administrator"
+  value: "store_manager"
 };
 var _hoisted_324 = {
-  value: "teacher"
+  value: "student_counsellor"
 };
 var _hoisted_325 = {
-  value: "technician"
+  value: "system_administrator"
 };
 var _hoisted_326 = {
-  value: "VP_of_operation"
+  value: "teacher"
 };
 var _hoisted_327 = {
-  value: "waiter"
+  value: "technician"
 };
 var _hoisted_328 = {
+  value: "VP_of_operation"
+};
+var _hoisted_329 = {
+  value: "waiter"
+};
+var _hoisted_330 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_329 = {
+var _hoisted_331 = {
   "class": "form-group mb-5"
 };
-var _hoisted_330 = {
+var _hoisted_332 = {
   "class": "custom-label"
 };
-var _hoisted_331 = {
+var _hoisted_333 = {
   "class": "select-picker"
 };
-var _hoisted_332 = {
+var _hoisted_334 = {
   "class": "form-control",
   id: "sectorSelect"
 };
 
-var _hoisted_333 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+var _hoisted_335 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
   value: ""
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_334 = {
-  value: "accommodation_and_tourism"
-};
-var _hoisted_335 = {
-  value: "air_transport"
-};
 var _hoisted_336 = {
-  value: "bakeries_and_bread_trade"
+  value: "any"
 };
 var _hoisted_337 = {
-  value: "building_and_construction_for_government_projects"
+  value: "accommodation_and_tourism"
 };
 var _hoisted_338 = {
-  value: "building_and_construction"
+  value: "air_transport"
 };
 var _hoisted_339 = {
-  value: "business_advisory_services"
+  value: "bakeries_and_bread_trade"
 };
 var _hoisted_340 = {
-  value: "cement_industry"
+  value: "building_and_construction_for_government_projects"
 };
 var _hoisted_341 = {
-  value: "ceramics_granite_and_bricks"
+  value: "building_and_construction"
 };
 var _hoisted_342 = {
-  value: "collection_offices_and_real_estate_services"
+  value: "business_advisory_services"
 };
 var _hoisted_343 = {
-  value: "communications"
+  value: "cement_industry"
 };
 var _hoisted_344 = {
-  value: "electricity_gas_and_water"
+  value: "ceramics_granite_and_bricks"
 };
 var _hoisted_345 = {
-  value: "farmers_fishermen_and_shepherds"
+  value: "collection_offices_and_real_estate_services"
 };
 var _hoisted_346 = {
-  value: "financial_institutions"
+  value: "communications"
 };
 var _hoisted_347 = {
-  value: "gas_stations"
+  value: "electricity_gas_and_water"
 };
 var _hoisted_348 = {
-  value: "gold_and_jewellery_trade"
+  value: "farmers_fishermen_and_shepherds"
 };
 var _hoisted_349 = {
-  value: "government_facilities_services_offices"
+  value: "financial_institutions"
 };
 var _hoisted_350 = {
-  value: "health_services"
+  value: "gas_stations"
 };
 var _hoisted_351 = {
-  value: "information_technology"
+  value: "gold_and_jewellery_trade"
 };
 var _hoisted_352 = {
-  value: "insurance_and_business_services"
+  value: "government_facilities_services_offices"
 };
 var _hoisted_353 = {
-  value: "international_schools"
+  value: "health_services"
 };
 var _hoisted_354 = {
-  value: "kindergartens"
+  value: "information_technology"
 };
 var _hoisted_355 = {
-  value: "laboratories"
+  value: "insurance_and_business_services"
 };
 var _hoisted_356 = {
-  value: "maintenance_and_cleaning_contracts_and_operating"
+  value: "international_schools"
 };
 var _hoisted_357 = {
-  value: "manufacturing"
+  value: "kindergartens"
 };
 var _hoisted_358 = {
-  value: "mining_and_quarrying"
+  value: "laboratories"
 };
 var _hoisted_359 = {
-  value: "nutrition_services"
+  value: "maintenance_and_cleaning_contracts_and_operating"
 };
 var _hoisted_360 = {
-  value: "oil_and_gas_extraction"
+  value: "manufacturing"
 };
 var _hoisted_361 = {
-  value: "other"
+  value: "mining_and_quarrying"
 };
 var _hoisted_362 = {
-  value: "passenger_and_goods_transport_outside_cities"
+  value: "nutrition_services"
 };
 var _hoisted_363 = {
-  value: "personal_services"
+  value: "oil_and_gas_extraction"
 };
 var _hoisted_364 = {
-  value: "petrochemical_coal_and_rubber"
+  value: "other"
 };
 var _hoisted_365 = {
-  value: "pharmacies_and_drug_stores"
+  value: "passenger_and_goods_transport_outside_cities"
 };
 var _hoisted_366 = {
-  value: "print_and_electronic_publishing"
+  value: "personal_services"
 };
 var _hoisted_367 = {
-  value: "private_employment_offices"
+  value: "petrochemical_coal_and_rubber"
 };
 var _hoisted_368 = {
-  value: "private_recruitment_offices"
+  value: "pharmacies_and_drug_stores"
 };
 var _hoisted_369 = {
-  value: "ready_mix_cement"
+  value: "print_and_electronic_publishing"
 };
 var _hoisted_370 = {
-  value: "road_transport_of_goods_within_cities"
+  value: "private_employment_offices"
 };
 var _hoisted_371 = {
-  value: "road_transport_of_passengers_within_cities"
+  value: "private_recruitment_offices"
 };
 var _hoisted_372 = {
-  value: "Sanitation companies_operating_under_government_contracts"
+  value: "ready_mix_cement"
 };
 var _hoisted_373 = {
-  value: "saudi_schools_for_boys_and_girls"
+  value: "road_transport_of_goods_within_cities"
 };
 var _hoisted_374 = {
-  value: "saudi_schools_for_boys"
+  value: "road_transport_of_passengers_within_cities"
 };
 var _hoisted_375 = {
-  value: "saudi_schools_for_girls"
+  value: "Sanitation companies_operating_under_government_contracts"
 };
 var _hoisted_376 = {
-  value: "security_guards"
+  value: "saudi_schools_for_boys_and_girls"
 };
 var _hoisted_377 = {
-  value: "shipping"
+  value: "saudi_schools_for_boys"
 };
 var _hoisted_378 = {
-  value: "small_business_entities"
+  value: "saudi_schools_for_girls"
 };
 var _hoisted_379 = {
-  value: "social_and_group_services"
+  value: "security_guards"
 };
 var _hoisted_380 = {
-  value: "storage"
+  value: "shipping"
 };
 var _hoisted_381 = {
-  value: "transporting_goods_outside_cities"
+  value: "small_business_entities"
 };
 var _hoisted_382 = {
-  value: "universities_colleges_and_training_institutions"
+  value: "social_and_group_services"
 };
 var _hoisted_383 = {
-  value: "wholesale_and_retail_trade"
+  value: "storage"
 };
 var _hoisted_384 = {
-  value: "workshops_and_maintenance_shops"
+  value: "transporting_goods_outside_cities"
 };
 var _hoisted_385 = {
+  value: "universities_colleges_and_training_institutions"
+};
+var _hoisted_386 = {
+  value: "wholesale_and_retail_trade"
+};
+var _hoisted_387 = {
+  value: "workshops_and_maintenance_shops"
+};
+var _hoisted_388 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_386 = {
+var _hoisted_389 = {
   "class": "text-center mt-5"
 };
-var _hoisted_387 = {
+var _hoisted_390 = {
   key: 5,
   "class": "card wow fadeInRight"
 };
-var _hoisted_388 = {
+var _hoisted_391 = {
   "class": "check_radio mt-4 mb-5"
 };
-var _hoisted_389 = {
-  "class": "radio text-left mb-3"
-};
-var _hoisted_390 = {
-  "for": "c91"
-};
-var _hoisted_391 = {
-  "class": "radio text-left mb-3"
-};
 var _hoisted_392 = {
-  "for": "c101"
+  "class": "radio text-left mb-3"
 };
 var _hoisted_393 = {
-  "class": "radio text-left mb-3"
+  "for": "c91"
 };
 var _hoisted_394 = {
-  "for": "c102"
+  "class": "radio text-left mb-3"
 };
 var _hoisted_395 = {
+  "for": "c101"
+};
+var _hoisted_396 = {
+  "class": "radio text-left mb-3"
+};
+var _hoisted_397 = {
+  "for": "c102"
+};
+var _hoisted_398 = {
   key: 0,
   "class": "form-text small text-danger"
 };
-var _hoisted_396 = {
+var _hoisted_399 = {
   "class": "text-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -34064,7 +34069,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.personalInformation.agreed]]), _hoisted_244, $data.errors.agreed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_245, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.agreed[0])), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.personalInformation.agreed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_244, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('click_terms_condition')), 1
+      /* TEXT */
+      ), $data.errors.agreed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_245, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.agreed[0])), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_246, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
@@ -34112,241 +34119,247 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"card wow fadeInRight\" v-if=\"showQualificationForm\">\n                           <div>\n                              <h6>{{__('highest_level_of_education')}}</h6>\n                              <div class=\"check_radio mt-4 mb-5\">\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"oa1\" value=\"school\" v-model=\"personalInformation.qualification\">\n                                    <label for=\"oa1\">{{__('school')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"oa2\" value=\"bachelors\" v-model=\"personalInformation.qualification\">\n                                    <label for=\"oa2\">{{__('bachelor')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"oa3\" value=\"masters\" v-model=\"personalInformation.qualification\">\n                                    <label for=\"oa3\">{{__('master')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"oa4\" value=\"doctoral\" v-model=\"personalInformation.qualification\">\n                                    <label for=\"oa4\">{{__('doctoral')}}</label>\n                                 </div>\n                                 <div class=\"form-text small text-danger\" v-if=\"errors.qualification\">{{ __(errors.qualification[0]) }}</div>\n                              </div>\n                              <div class=\"text-center\">\n                                 <button type=\"button\" class=\"btn btn-primary\" @click=\"saveQualification\">{{__('submit')}}</button>\n                              </div>\n                           </div>\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"card wow fadeInRight\"  v-if=\"showEmploymentForm\">\n                           <div>\n                              <h6>{{__('full_time_employment')}}</h6>\n                              <div class=\"check_radio mt-4 mb-5\">\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c5\" value=\"yes\" v-model=\"personalInformation.employment\">\n                                    <label for=\"c5\">{{__('yes')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c6\" value=\"no\" v-model=\"personalInformation.employment\">\n                                    <label for=\"c6\">{{__('no')}}</label>\n                                 </div>\n                                 <div class=\"form-text small text-danger\" v-if=\"errors.employment\">{{ __(errors.employment[0]) }}</div>\n                              </div>\n\n                              <div class=\"text-center\">\n                                 <button type=\"button\" class=\"btn btn-primary\" @click=\"saveEmployment\">{{__('submit')}}</button>\n                              </div>\n                           </div>\n                        </div>\n                        <div class=\"card wow fadeInRight\" v-if=\"showOnJobForm\">\n                           <div>\n                              <h6>{{__('ojt_training')}}</h6>\n                              <div class=\"check_radio mt-4 mb-5\">\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c7\" value=\"yes\" v-model=\"personalInformation.jobTraining\">\n                                    <label for=\"c7\">{{__('yes')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c8\" value=\"no\" v-model=\"personalInformation.jobTraining\">\n                                    <label for=\"c8\">{{__('no')}}</label>\n                                 </div>\n                                 <div class=\"form-text small text-danger\" v-if=\"errors.jobTraining\">{{ __(errors.jobTraining[0]) }}</div>\n                              </div>\n                              <div class=\"text-center\">\n                                 <button type=\"button\" class=\"btn btn-primary\" @click=\"saveJobTraining\">{{__('submit')}}</button>\n                              </div>\n                           </div>\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"card wow fadeInRight\" v-if=\"showSocialForm\">\n                           <div>\n                              <h6>{{__('active_social')}} </h6>\n                              <div class=\"check_radio mt-4 mb-5\">\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c9\"  value=\"yes\"  v-model=\"personalInformation.socialBeneficiary\">\n                                    <label for=\"c9\">{{__('yes')}}</label>\n                                 </div>\n                                 <div class=\"radio text-left mb-3\">\n                                    <input type=\"radio\" id=\"c10\" value=\"no\"   v-model=\"personalInformation.socialBeneficiary\">\n                                    <label for=\"c10\">{{__('no')}}</label>\n                                 </div>\n                                 <div class=\"form-text small text-danger\" v-if=\"errors.socialBeneficiary\">{{ __(errors.socialBeneficiary[0]) }}</div>\n                              </div>\n                              <div class=\"text-center\">\n                                 <button type=\"button\" class=\"btn btn-primary\" @click=\"saveSocial\">{{__('submit')}}</button>\n                              </div>\n                           </div>\n                        </div> "), $data.showEducationForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_255, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_256, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_257, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Job Role')) + " *", 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_258, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_259, [_hoisted_260, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_261, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Medical and Nursing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_258, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_259, [_hoisted_260, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_261, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('any')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_262, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Engineering')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_262, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Medical and Nursing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_263, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Teaching')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_263, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Engineering')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_264, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Call center')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_264, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Teaching')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_265, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Operations')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_265, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Call center')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_266, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Human resource')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_266, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Operations')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_267, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Finance')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_267, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Human resource')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_268, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Transportations')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_268, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Finance')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_269, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Procurement')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_269, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Transportations')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_270, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Designing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_270, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Procurement')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_271, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Marketing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_271, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Designing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_272, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security and safety')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_272, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Marketing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_273, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('IT')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_273, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security and safety')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_274, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sales')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_274, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('IT')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_275, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Premises & maintenance')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_275, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sales')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_276, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Legal')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_276, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Premises & maintenance')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_277, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('PR & Communications')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_277, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Legal')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_278, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Business Development')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_278, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('PR & Communications')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_279, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Reaserch & Development')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_279, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Business Development')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_280, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Customer service')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_280, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Reaserch & Development')), 1
       /* TEXT */
-      )]), $data.errors.jobRole ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_281, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.jobRole[0])), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_281, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Customer service')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_282, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_283, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Role Preference')) + " *", 1
+      )]), $data.errors.jobRole ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_282, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.jobRole[0])), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_284, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_285, [_hoisted_286, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_287, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Accountant')), 1
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_283, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_284, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Role Preference')) + " *", 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_288, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Admin')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_285, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_286, [_hoisted_287, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_288, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('any')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_289, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Assistant Store manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_289, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Accountant')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"baker_associate\">{{__('Baker Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"baker\">{{__('Baker')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"butcher\">{{__('Butcher')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_290, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cashier')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_290, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Admin')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_291, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('CCO District Manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_291, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Assistant Store manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_292, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('CCO Supervisor')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"baker_associate\">{{__('Baker Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"baker\">{{__('Baker')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"butcher\">{{__('Butcher')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_292, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cashier')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"cleaner\">{{__('Cleaner')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_293, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cleaner Supervisor')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_293, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('CCO District Manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_294, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Coordinator')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_294, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('CCO Supervisor')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_295, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cost Accountant')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"cleaner\">{{__('Cleaner')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_295, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cleaner Supervisor')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_296, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Customer services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_296, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Coordinator')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_297, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Data Entry')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_297, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cost Accountant')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_298, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Deli Service Associate')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_298, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Customer services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_299, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Designer')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_299, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Data Entry')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_300, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Director of Operation')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_300, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Deli Service Associate')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_301, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('District Manager Operation')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_301, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Designer')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"driver\">{{__('Driver')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_302, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Duty Manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_302, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Director of Operation')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_303, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Engineer')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_303, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('District Manager Operation')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"fish_service_associate\">{{__('Fish Service Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"forklift\">{{__('Forklift')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"front_end_associate\">{{__('Front End Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_304, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('HR Specialist')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"driver\">{{__('Driver')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_304, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Duty Manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"laborer\">{{__('Laborer')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"laundry_official\">{{__('Laundry official')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"machine_operator\">{{__('Machine Operator')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_305, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_305, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Engineer')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_306, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Merchandiser')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"fish_service_associate\">{{__('Fish Service Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"forklift\">{{__('Forklift')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"front_end_associate\">{{__('Front End Associate')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_306, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('HR Specialist')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_307, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Nursing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"laborer\">{{__('Laborer')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"laundry_official\">{{__('Laundry official')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"machine_operator\">{{__('Machine Operator')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_307, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"operator\">{{__('Operator')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_308, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Payroll coordinator')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_308, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Merchandiser')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_309, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Produce Service Associate')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_309, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Nursing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_310, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Production line')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"operator\">{{__('Operator')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_310, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Payroll coordinator')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_311, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Quality officer')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_311, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Produce Service Associate')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"receiver\">{{__('Receiver')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_312, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Receptionist')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_312, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Production line')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_313, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Recruitment coordinator')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_313, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Quality officer')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_314, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Regional Operation Manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"receiver\">{{__('Receiver')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_314, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Receptionist')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_315, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sales person')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_315, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Recruitment coordinator')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_316, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Secretary')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_316, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Regional Operation Manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_317, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Secretary')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_317, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sales person')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_318, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Guard')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_318, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Secretary')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_319, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Supervisor')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_319, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Secretary')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_320, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Shift Leader')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_320, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Guard')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"stocker\">{{__('Stocker')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_321, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Store Manager')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_321, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Supervisor')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_322, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Student Counsellor')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_322, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Shift Leader')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_323, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('System Administrator')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"stocker\">{{__('Stocker')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_323, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Store Manager')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_324, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Teacher')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_324, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Student Counsellor')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_325, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Technician')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_325, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('System Administrator')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_326, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('VP of operation')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_326, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Teacher')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_327, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Waiter')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_327, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Technician')), 1
       /* TEXT */
-      )]), $data.errors.role ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_328, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.role[0])), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_328, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('VP of operation')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_329, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_330, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sector Preference')) + " *", 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_329, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Waiter')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_331, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_332, [_hoisted_333, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_334, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Accommodation and Tourism')), 1
+      )]), $data.errors.role ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_330, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.role[0])), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"agriculture_and_livestock_production\">{{__('Agriculture and Livestock Production')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"agriculture_fishing_and_grazing_horses\">{{__('Agriculture Fishing and Grazing Horses')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_335, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Air Transport')), 1
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_331, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_332, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sector Preference')) + " *", 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_336, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Bakeries and Bread Trade')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_333, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", _hoisted_334, [_hoisted_335, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_336, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('any')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_337, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Building and Construction for Government Projects')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_337, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Accommodation and Tourism')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_338, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Building and Construction')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"agriculture_and_livestock_production\">{{__('Agriculture and Livestock Production')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <option value=\"agriculture_fishing_and_grazing_horses\">{{__('Agriculture Fishing and Grazing Horses')}}</option> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_338, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Air Transport')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_339, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Business Advisory Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_339, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Bakeries and Bread Trade')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_340, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cement Industry')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_340, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Building and Construction for Government Projects')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_341, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Ceramics Granite and Bricks')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_341, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Building and Construction')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_342, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Collection Offices and Real Estate Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_342, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Business Advisory Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_343, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Communications')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_343, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Cement Industry')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_344, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Electricity Gas and Water')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_344, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Ceramics Granite and Bricks')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_345, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Farmers Fishermen and Shepherds (Private)')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_345, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Collection Offices and Real Estate Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_346, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Financial Institutions')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_346, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Communications')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_347, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Gas Stations')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_347, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Electricity Gas and Water')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_348, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Gold and Jewellery Trade')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_348, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Farmers Fishermen and Shepherds (Private)')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_349, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Government Facilities Services Offices')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_349, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Financial Institutions')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_350, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Health Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_350, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Gas Stations')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_351, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Information Technology')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_351, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Gold and Jewellery Trade')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_352, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Insurance and Business Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_352, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Government Facilities Services Offices')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_353, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('International Schools')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_353, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Health Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_354, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Kindergartens')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_354, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Information Technology')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_355, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Laboratories')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_355, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Insurance and Business Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_356, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Maintenance and Cleaning Contracts and Operating')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_356, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('International Schools')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_357, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Manufacturing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_357, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Kindergartens')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_358, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Mining and Quarrying')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_358, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Laboratories')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_359, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Nutrition Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_359, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Maintenance and Cleaning Contracts and Operating')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_360, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Oil and Gas Extraction')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_360, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Manufacturing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_361, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Other')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_361, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Mining and Quarrying')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_362, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Passenger and Goods Transport Outside Cities')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_362, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Nutrition Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_363, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Personal Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_363, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Oil and Gas Extraction')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_364, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Petrochemical Coal and Rubber')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_364, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Other')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_365, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Pharmacies and Drug Stores')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_365, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Passenger and Goods Transport Outside Cities')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_366, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Print and Electronic Publishing')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_366, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Personal Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_367, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Private Employment Offices')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_367, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Petrochemical Coal and Rubber')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_368, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Private Recruitment Offices')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_368, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Pharmacies and Drug Stores')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_369, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Ready Mix Cement')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_369, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Print and Electronic Publishing')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_370, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Road Transport of Goods within Cities')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_370, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Private Employment Offices')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_371, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Road Transport of Passengers within Cities')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_371, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Private Recruitment Offices')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_372, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sanitation Companies Operating Under Government Contracts')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_372, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Ready Mix Cement')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_373, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Boys and Girls')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_373, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Road Transport of Goods within Cities')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_374, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Boys')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_374, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Road Transport of Passengers within Cities')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_375, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Girls')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_375, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Sanitation Companies Operating Under Government Contracts')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_376, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Guards')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_376, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Boys and Girls')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_377, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Shipping')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_377, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Boys')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_378, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Small Business Entities (Not More Than 9 Employees)')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_378, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Saudi Schools for Girls')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_379, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Social and Group Services')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_379, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Security Guards')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_380, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Storage')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_380, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Shipping')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_381, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Transporting Goods Outside Cities')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_381, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Small Business Entities (Not More Than 9 Employees)')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_382, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Universities Colleges and Training Institutions')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_382, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Social and Group Services')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_383, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Wholesale and Retail Trade')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_383, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Storage')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_384, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Workshops and Maintenance Shops')), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_384, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Transporting Goods Outside Cities')), 1
       /* TEXT */
-      )]), $data.errors.sector ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_385, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.sector[0])), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_385, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Universities Colleges and Training Institutions')), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_386, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_386, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Wholesale and Retail Trade')), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", _hoisted_387, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('Workshops and Maintenance Shops')), 1
+      /* TEXT */
+      )]), $data.errors.sector ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_388, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.sector[0])), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_389, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
         "class": "btn btn-primary",
         onClick: _cache[21] || (_cache[21] = function () {
@@ -34354,9 +34367,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('submit')), 1
       /* TEXT */
-      )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showUnemployedForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_387, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('long_unemployed')), 1
+      )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showUnemployedForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_390, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('long_unemployed')), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_388, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_389, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_391, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_392, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
         id: "c91",
         value: "never_worked",
@@ -34365,9 +34378,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_390, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('never_worked')), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_393, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('never_worked')), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_391, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_394, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
         id: "c101",
         value: "less_than_3_months",
@@ -34376,9 +34389,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_392, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('less_than_3')), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_395, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('less_than_3')), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_393, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_396, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "radio",
         id: "c102",
         value: "more_than_3_months",
@@ -34387,11 +34400,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_394, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('more_than_3')), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelRadio, $data.personalInformation.beenUnemployed]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_397, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__('more_than_3')), 1
       /* TEXT */
-      )]), $data.errors.beenUnemployed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_395, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.beenUnemployed[0])), 1
+      )]), $data.errors.beenUnemployed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_398, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__($data.errors.beenUnemployed[0])), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_396, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_399, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         type: "button",
         "class": "btn btn-primary",
         onClick: _cache[25] || (_cache[25] = function () {
