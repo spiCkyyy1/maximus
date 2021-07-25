@@ -96,7 +96,7 @@
                     <li class="list-group-item d-flex align-items-center justify-content-between">
 						<div class="text-left">Message Sent</div>
 						<div class="text-right">
-							<div class="badge badge-grd-success" v-if="jobSeeker.message_sent">Success</div>
+							<div class="badge badge-grd-success" v-if="jobSeeker.message_sent == 1">Success</div>
 							<div class="badge badge-grd-danger" v-else>Failed</div>
 						</div>
 					</li>
