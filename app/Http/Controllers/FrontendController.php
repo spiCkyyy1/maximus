@@ -155,13 +155,13 @@ class FrontendController extends Controller
             $mobile = substr_replace($mobile, '0', 0, 5);
         }
 
-        $middleName = (!is_null($request->middleName)) ? $request->middleName : '-';
+        $middleName = (!is_null($request->middleName)) ? utf8_encode($request->middleName) : '-';
 
         $gender = ($request->title == 'mr') ? 'Male' : 'Female';
 
         $dob = Carbon::parse($request->dob)->format('dmY');
 
-        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.$request->firstName.'/'.$middleName.'/'.$request->surName.'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
+        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.utf8_encode($request->firstName).'/'.$middleName.'/'.utf8_encode($request->surName).'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
         curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
         $apiResponse = curl_exec($phpCurlConnection);
         curl_close($phpCurlConnection);
