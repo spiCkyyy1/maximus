@@ -109,14 +109,14 @@
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('mobile_no')}} *</label>
-                                       <input type="text" class="form-control" v-model="personalInformation.mobile">
+                                       <input type="text" :class="['form-control', isNumberValid()]"  v-model="personalInformation.mobile">
                                        <div class="form-text small text-danger" v-if="errors.mobile">{{ __(errors.mobile[0]) }}</div>
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                        <label class="custom-label">{{__('email_addresss')}} *</label>
-                                       <input type="email" class="form-control" v-model="personalInformation.email">
+                                       <input type="email" :class="['form-control', valdateEmal()]" v-model="personalInformation.email">
                                        <div class="form-text small text-danger" v-if="errors.email">{{ __(errors.email[0]) }}</div>
                                     </div>
                                  </div>
@@ -149,7 +149,7 @@
                                   <div class="col-sm-6">
                                       <div class="form-group">
                                             <label class="custom-label">{{__('nin')}} *</label>
-                                            <input type="text" class="form-control" v-model="personalInformation.nin">
+                                            <input type="text" :class="['form-control', ninValidity()]" v-model="personalInformation.nin">
                                             <div class="form-text small text-danger" v-if="errors.nin">{{ __(errors.nin[0]) }}</div>
                                         </div>
                                   </div>
@@ -187,7 +187,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Major')}} *</label>
-                                            <div class="select-picker">
+                                            <div class="select-option">
                                                 <select class="form-control" id="educationMajor">
                                                     <option value=""></option>
                                                     <option value="administration_and_management">{{__('Administration and Management')}}</option>
@@ -211,7 +211,7 @@
                                     <div class="col-sm-6" v-if="personalInformation.qualification != 'high_school'">
                                         <div class="form-group">
                                             <label class="custom-label">{{__('Education Field')}} *</label>
-                                            <div class="select-picker">
+                                            <div class="select-option">
                                                 <select class="form-control" id="educationField">
                                                     <option value=""></option>
                                                     <option value="accounting">{{__('Accounting')}}</option>
@@ -325,6 +325,7 @@
                                         <label class="custom-label">{{__('full_time_employment')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.employment">
+                                             <option value="">{{__('choose_option')}}</option>
                                              <option value="yes">{{__('yes')}}</option>
                                              <option value="no">{{__('no')}}</option>
                                           </select>
@@ -335,6 +336,7 @@
                                         <label class="custom-label">{{__('active_social')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.socialBeneficiary">
+                                             <option value="">{{__('choose_option')}}</option>
                                              <option value="yes">{{__('yes')}}</option>
                                              <option value="no">{{__('no')}}</option>
                                           </select>
@@ -346,6 +348,7 @@
                                     <label class="custom-label">{{__('ojt_training')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.jobTraining">
+                                             <option value="">{{__('choose_option')}}</option>
                                              <option value="yes">{{__('yes')}}</option>
                                              <option value="no">{{__('no')}}</option>
                                           </select>
@@ -774,7 +777,8 @@ import Layout from '../Layouts/Layout'
                 uploadDegree: 'Upload Degree Certificate ',
                 uploadGosi: 'GOSI Evidence',
                 errors: {},
-                showLoader: false
+                showLoader: false,
+                emailFormatError: ''
             }
         },
         methods: {
@@ -1049,6 +1053,18 @@ import Layout from '../Layouts/Layout'
                     }).catch(error => {
                         console.log(error);
                     })
+            },
+            valdateEmal: function(){
+               let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/;
+                return (this.personalInformation.email == "")? "" : (emailReg.test(this.personalInformation.email)) ? 'is-valid' : 'is-invalid';
+            },
+            isNumberValid: function(){
+               let numberReg = /^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/;
+               return (this.personalInformation.mobile == "")? "" : (numberReg.test(this.personalInformation.mobile)) ? 'is-valid' : 'is-invalid';
+            },
+            ninValidity: function(){
+               let ninRegex = /^\d{10}$/;
+                              return (this.personalInformation.nin == "")? "" : (ninRegex.test(this.personalInformation.nin)) ? 'is-valid' : 'is-invalid'; 
             }
         }
     }
