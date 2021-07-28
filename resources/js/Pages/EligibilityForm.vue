@@ -63,6 +63,7 @@
                                        <label class="custom-label">{{__('title')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.title">
+                                             <option value="">{{__('choose_option')}}</option>
                                              <option value="ms">{{__('ms')}}</option>
                                              <option value="miss">{{__('miss')}}</option>
                                              <option value="mrs">{{__('mrs')}}</option>
@@ -98,6 +99,7 @@
                                        <label class="custom-label">{{__('marital_status')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.martialStatus">
+                                             <option value="">{{__('choose_option')}}</option>
                                             <option value="married">{{__('married')}}</option>
                                             <option value="divorced">{{__('divorced')}}</option>
                                             <option value="single">{{__('single')}}</option>
@@ -127,6 +129,7 @@
                                        <label class="custom-label">{{__('city')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.city">
+                                             <option value="">{{__('choose_option')}}</option>
                                                 <option v-for="(city, k) in cities" :key="k" :value="city.value">{{__(city.text)}}</option>
                                             </select>
                                           <div class="form-text small text-danger" v-if="errors.city">{{ __(errors.city[0]) }}</div>
@@ -138,6 +141,7 @@
                                        <label class="custom-label">{{__('region')}} *</label>
                                        <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.region">
+                                             <option value="">{{__('choose_option')}}</option>
                                             <option v-for="(region, k) in regions" :key="k" :value="region.value">{{__(region.text)}}</option>
                                             </select>
                                           <div class="form-text small text-danger" v-if="errors.region">{{ __(errors.region[0]) }}</div>
@@ -168,6 +172,7 @@
                                         <label class="custom-label">{{__('highest_level_of_education')}} *</label>
                                         <div class="select-option">
                                           <select class="form-control" v-model="personalInformation.qualification">
+                                             <option value="">{{__('choose_option')}}</option>
                                                 <option value="bachelors">{{__('bachelor')}}</option>
                                                 <!-- <option value="cannotreadnwrite">{{__('cannotreadnwrite')}}</option> -->
                                                 <option value="diploma">{{__('diploma')}}</option>
@@ -189,7 +194,7 @@
                                             <label class="custom-label">{{__('Education Major')}} *</label>
                                             <div class="select-option">
                                                 <select class="form-control" id="educationMajor">
-                                                    <option value=""></option>
+                                                   <option value="">{{__('choose_option')}}</option>
                                                     <option value="administration_and_management">{{__('Administration and Management')}}</option>
                                                     <option value="arts">{{__('Arts')}}</option>
                                                     <option value="basic_programmes_and_qualifications">{{__('Basic programmes and qualifications')}}</option>
@@ -213,7 +218,7 @@
                                             <label class="custom-label">{{__('Education Field')}} *</label>
                                             <div class="select-option">
                                                 <select class="form-control" id="educationField">
-                                                    <option value=""></option>
+                                                   <option value="">{{__('choose_option')}}</option>
                                                     <option value="accounting">{{__('Accounting')}}</option>
                                                     <option value="aerospace_engineering">{{__('Aerospace Engineering')}}</option>
                                                     <option value="agriculture_economics">{{__('Agriculture Economics')}}</option>
@@ -477,9 +482,9 @@
                            <div>
                                <div class="form-group mb-5">
                                         <label class="custom-label">{{__('Job Role')}} *</label>
-                                        <div class="select-picker">
+                                        <div class="select-option">
                                             <select class="form-control" id="jobRoleSelect">
-                                                <option value=""></option>
+                                               <option value="">{{__('choose_option')}}</option>
                                                 <option value="any"> {{ __('any') }} </option>
                                                 <option value="medical_and_nursing">{{__('Medical and Nursing')}}</option>
                                                 <option value="engineering">{{__('Engineering')}}</option>
@@ -507,9 +512,9 @@
                                 </div>
                                <div class="form-group mb-5">
                                         <label class="custom-label">{{__('Role Preference')}} *</label>
-                                        <div class="select-picker">
+                                        <div class="select-option">
                                             <select class="form-control" id="roleSelect">
-                                                        <option value=""></option>
+                                               <option value="">{{__('choose_option')}}</option>
                                                         <option value="any"> {{ __('any') }} </option>
                                                         <option value="accountant">{{__('Accountant')}}</option>
                                                         <option value="admin">{{__('Admin')}}</option>
@@ -572,9 +577,9 @@
                                 </div>
                                 <div class="form-group mb-5">
                                     <label class="custom-label">{{__('Sector Preference')}} *</label>
-                                    <div class="select-picker">
+                                    <div class="select-option">
                                         <select class="form-control" id="sectorSelect">
-                                                <option value=""></option>
+                                           <option value="">{{__('choose_option')}}</option>
                                                 <option value="any"> {{ __('any') }} </option>
                                                 <option value="accommodation_and_tourism">{{__('Accommodation and Tourism')}}</option>
                                                 <!-- <option value="agriculture_and_livestock_production">{{__('Agriculture and Livestock Production')}}</option> -->
