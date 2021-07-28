@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Mail\RemoveApplicants;
 use App\Models\JobSeeker;
 use App\Models\ReadinessAssessment;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use DB;
 use Illuminate\Support\Facades\Mail;
@@ -44,7 +45,7 @@ class RemoveIncompleteApplicants extends Command
      */
     public function handle()
     {
-        $jobSeekers = JobSeeker::where('status', 1)->get();
+        $jobSeekers = JobSeeker::where('status', 1)->whereDate('created_at', '<=', Carbon::now()->subMinutes(15)->toDateTimeString())->get();
 
         foreach ($jobSeekers as $jobSeeker) {
 

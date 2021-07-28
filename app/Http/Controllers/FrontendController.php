@@ -135,47 +135,6 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
 
-        $cURLConnection = curl_init();
-
-        curl_setopt($cURLConnection, CURLOPT_URL, 'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/GetNewToken/67B964763E754DD8BDACCDAEDE0D70BC');
-        curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($cURLConnection);
-        curl_close($cURLConnection);
-
-        $token = json_decode($response);
-
-        $phpCurlConnection = curl_init();
-
-        //formating the mobile number
-        $mobile = $request->mobile;
-        if(substr($mobile, 0, 4) == "+966"){
-            $mobile = substr_replace($mobile, '0', 0, 4);
-        }
-        if(substr($mobile, 0, 5) == "00966"){
-            $mobile = substr_replace($mobile, '0', 0, 5);
-        }
-
-        $middleName = (!is_null($request->middleName)) ? urlencode($request->middleName) : '-';
-
-        $gender = ($request->title == 'mr') ? 'Male' : 'Female';
-
-        $dob = Carbon::parse($request->dob)->format('dmY');
-
-        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.urlencode($request->firstName).'/'.$middleName.'/'.urlencode($request->surName).'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
-        curl_setopt($phpCurlConnection, CURLOPT_HTTPHEADER, array("Content-Type: text/xml;charset=utf-8"));
-        curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
-        $apiResponse = curl_exec($phpCurlConnection);
-        curl_close($phpCurlConnection);
-        // $apiResponse - available data from the API request
-        $jsonArrayResponse = json_decode($apiResponse);
-
-
-        $msgSent = 1;
-        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-5" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)){
-            $msgSent = 0;
-        }
-
         $jobSeekerId = JobSeeker::create([
             'title' => $request->title,
             'first_name' => $request->firstName,
@@ -194,7 +153,7 @@ class FrontendController extends Controller
             'full_time_employment' => $request->employment,
             'social_benficiary' => $request->socialBeneficiary,
             'on_job_training' => $request->jobTraining,
-            'message_sent' => $msgSent
+            'message_sent' => 0
         ])->id;
 
         return response()->json(['success' => $jobSeekerId]);
@@ -349,7 +308,50 @@ class FrontendController extends Controller
 
         $jobSeeker = JobSeeker::find($request->id);
 
+        $cURLConnection = curl_init();
+
+        curl_setopt($cURLConnection, CURLOPT_URL, 'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/GetNewToken/67B964763E754DD8BDACCDAEDE0D70BC');
+        curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($cURLConnection);
+        curl_close($cURLConnection);
+
+        $token = json_decode($response);
+
+        $phpCurlConnection = curl_init();
+
+        //formating the mobile number
+        $mobile = $request->mobile;
+        if(substr($mobile, 0, 4) == "+966"){
+            $mobile = substr_replace($mobile, '0', 0, 4);
+        }
+        if(substr($mobile, 0, 5) == "00966"){
+            $mobile = substr_replace($mobile, '0', 0, 5);
+        }
+
+        $middleName = (!is_null($request->middleName)) ? urlencode($request->middleName) : '-';
+
+        $gender = ($request->title == 'mr') ? 'Male' : 'Female';
+
+        $dob = Carbon::parse($request->dob)->format('dmY');
+
+        curl_setopt($phpCurlConnection, CURLOPT_URL,'https://smstool_ojt.maximusgulf.com/api/ExtSinatra/RClient/'.$request->nin.'/'.$mobile.'/-/'.urlencode($request->firstName).'/'.$middleName.'/'.urlencode($request->surName).'/'.$gender.'/'.$request->city.'/'.$dob.'/'.$request->email.'/-/-/-/-/-/'.$request->qualification.'/'.$token.'/67B964763E754DD8BDACCDAEDE0D70BC');
+        curl_setopt($phpCurlConnection, CURLOPT_HTTPHEADER, array("Content-Type: text/xml;charset=utf-8"));
+        curl_setopt($phpCurlConnection, CURLOPT_RETURNTRANSFER, true);
+        $apiResponse = curl_exec($phpCurlConnection);
+        curl_close($phpCurlConnection);
+        // $apiResponse - available data from the API request
+        $jsonArrayResponse = json_decode($apiResponse);
+
+
+        $msgSent = 1;
+        if($jsonArrayResponse == "-15" || $jsonArrayResponse == "-5" || $jsonArrayResponse == "-100" || $jsonArrayResponse == "-1" || is_null($jsonArrayResponse)){
+            $msgSent = 0;
+        }
+
         $jobSeeker->status = 1;
+
+        $jobSeeker->message_sent = $msgSent;
 
         $jobSeeker->save();
 
