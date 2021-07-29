@@ -171,9 +171,12 @@
                               <tbody>
                                  <tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
                                     <td>{{jobSeeker.id}}</td>
-                                    <td >
-                                       <div class="avatar avatar-sm">
+                                    <td>
+                                       <div class="avatar avatar-sm" v-if="jobSeeker.gender == 'male'">
                                           <img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
+                                       </div>
+                                                         <div class="avatar avatar-sm" v-else>
+                                          <img src="/admin/img/icons/avatar-fm.png" class="avatar-img rounded-circle" alt="...">
                                        </div>
                                     </td>
                                     <td class="strong"><a href="javascript:;" @click="modalOpen(jobSeeker, $event)">{{jobSeeker.first_name}} {{jobSeeker.middle_name}} {{jobSeeker.last_name}}</a> </td>

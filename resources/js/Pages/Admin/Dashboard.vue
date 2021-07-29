@@ -235,7 +235,7 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
+																<div class="avatar avatar-sm" v-if="jobSeeker.gender == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
                                                                 <div class="avatar avatar-sm" v-else>
@@ -313,7 +313,7 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
+																<div class="avatar avatar-sm" v-if="jobSeeker.gender == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
                                                                 <div class="avatar avatar-sm" v-else>
@@ -389,7 +389,7 @@
 														<tr v-for="(jobSeeker, k) in jobSeekers.data" :key="k">
 															<td>{{jobSeeker.id}}</td>
 															<td >
-																<div class="avatar avatar-sm" v-if="jobSeeker.geneder == 'male'">
+																<div class="avatar avatar-sm" v-if="jobSeeker.gender == 'male'">
 																	<img src="/admin/img/icons/avatar.png" class="avatar-img rounded-circle" alt="...">
 																</div>
                                                                 <div class="avatar avatar-sm" v-else>
