@@ -107,19 +107,35 @@ class JobSeeker extends Model
     }
 
     public function getRoleAttribute($value){
-        return ucwords(str_replace("_", " ", $value));
+        if(!is_null($value)){
+            return ucwords(str_replace("_", " ", $value));
+        }
+        return 'N/A';
+        
     }
 
     public function getSectorAttribute($value){
-        return ucwords(str_replace("_", " ", $value));
+        if(!is_null($value)){
+            return ucwords(str_replace("_", " ", $value));
+        }
+        return 'N/A';
+        
     }
 
     public function getEducationMajorAttribute($value){
-        return ucwords(str_replace("_", " ", $value));
+        if(!is_null($value)){
+            return ucwords(str_replace("_", " ", $value));
+        }
+        return 'N/A';
+        
     }
 
     public function getEducationFieldAttribute($value){
-        return ucwords(str_replace("_", " ", $value));
+        if(!is_null($value)){
+            return ucwords(str_replace("_", " ", $value));
+        }
+        return 'N/A';
+        
     }
 
     public function getCreatedAtAttribute($value){

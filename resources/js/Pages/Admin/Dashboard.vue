@@ -582,6 +582,7 @@ export default {
             this.getPaginatedData(this.currentPage);
         },
         modalOpen: function(jobSeeker, event) {
+			console.log(jobSeeker);
             this.jobSeeker = jobSeeker;
             this.showModal = true;
       },
