@@ -31,22 +31,22 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
         //     'region', 'nin', 'dob', 'gender', 'qualification', 'full_time_employment', 'on_job_training', 'social_benficiary',
         //     'unemployed', 'reviewed', 'status','created_at', 'updated_at','role', 'sector','job_role', 'education_major', 'education_field']);
         if($this->status == 'all')
-            return JobSeeker::get(['nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
+            return JobSeeker::get(['id', 'nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
             'region', 'qualification', 'education_major', 'education_field', 'sector','role','job_role',
             'unemployed','created_at']);
 
         if($this->status == 'selected')
-            return JobSeeker::where('status', 1)->get(['nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
+            return JobSeeker::where('status', 1)->get(['id', 'nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
             'region', 'qualification', 'education_major', 'education_field', 'sector','role','job_role',
             'unemployed','created_at']);
 
         if($this->status == 'rejected')
-            return JobSeeker::where('status', 0)->get(['nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
+            return JobSeeker::where('status', 0)->get(['id','nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
             'region', 'qualification', 'education_major', 'education_field', 'sector','role','job_role',
             'unemployed','created_at']);
 
         if($this->status == 'reviewed')
-            return JobSeeker::where('reviewed', 1)->get(['nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
+            return JobSeeker::where('reviewed', 1)->get(['id','nin','first_name', 'middle_name', 'last_name', 'gender', 'dob', 'mobile','email', 'city',
             'region', 'qualification', 'education_major', 'education_field', 'sector','role','job_role',
             'unemployed','created_at']);
     }
@@ -54,7 +54,7 @@ class JobSeekersExport implements FromCollection, WithHeadings, ShouldAutoSize, 
     public function headings(): array
     {
         return [
-            // 'ID',
+            'ID',
             // 'Title',
             'NIN',
             'First Name',
