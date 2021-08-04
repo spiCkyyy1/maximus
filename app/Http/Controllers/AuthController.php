@@ -128,6 +128,14 @@ class AuthController extends Controller
         if($request->filter['review'] != ''){
             $jobSeekers = $jobSeekers->where('reviewed', $request->filter['review']);
         }
+        
+        if($request->filter['assessmentTest'] != '' && $request->filter['assessmentTest'] == 1){
+            $jobSeekers = $jobSeekers->whereHas('readinessAssessment');
+        }
+
+        if($request->filter['assessmentTest'] != '' && $request->filter['assessmentTest'] == 0){
+            $jobSeekers = $jobSeekers->doesntHave('readinessAssessment');
+        }
 
         $jobSeekers = $jobSeekers->with('readinessAssessment');
         $jobSeekers = $jobSeekers->orderBy('id', 'DESC');
