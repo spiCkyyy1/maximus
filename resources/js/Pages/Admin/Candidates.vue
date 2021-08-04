@@ -122,6 +122,18 @@
                                  </div>
                               </div>
                            </div>
+                           <div class="col-sm-6 col-md-4">
+											<div class="form-group">
+												<label class="custom-label">Assessment Test</label>
+												<div class="select-picker">
+													<select class="form-control" v-model="filter.assessmentTest">
+                                          <option value="" disabled>---</option>
+														<option value="1">Solved</option>
+														<option value="0">Not Solved</option>
+													</select>
+												</div>
+											</div>
+										</div>
                         </div>
                      </div>
                      <div class="card-footer">
@@ -267,6 +279,7 @@ export default {
                 socialBeneficiary: '',
                 unEmployed: '',
                 review: '',
+                assessmentTest: '',
                 limit: ''
             },
             dataLoaded: false,
@@ -356,6 +369,7 @@ export default {
                 socialBeneficiary: '',
                 unEmployed: '',
                 review: '',
+                assessmentTest: '',
                 limit: ''
             };
 

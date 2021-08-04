@@ -20368,6 +20368,7 @@ __webpack_require__.r(__webpack_exports__);
         socialBeneficiary: '',
         unEmployed: '',
         review: '',
+        assessmentTest: '',
         limit: ''
       },
       dataLoaded: false,
@@ -20463,6 +20464,7 @@ __webpack_require__.r(__webpack_exports__);
         socialBeneficiary: '',
         unEmployed: '',
         review: '',
+        assessmentTest: '',
         limit: ''
       };
       this.dataLoaded = false;
@@ -26323,119 +26325,155 @@ var _hoisted_79 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_80 = {
-  "class": "card-footer"
+  "class": "col-sm-6 col-md-4"
 };
 var _hoisted_81 = {
+  "class": "form-group"
+};
+
+var _hoisted_82 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "class": "custom-label"
+}, "Assessment Test", -1
+/* HOISTED */
+);
+
+var _hoisted_83 = {
+  "class": "select-picker"
+};
+
+var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+  value: "",
+  disabled: ""
+}, "---", -1
+/* HOISTED */
+);
+
+var _hoisted_85 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+  value: "1"
+}, "Solved", -1
+/* HOISTED */
+);
+
+var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+  value: "0"
+}, "Not Solved", -1
+/* HOISTED */
+);
+
+var _hoisted_87 = {
+  "class": "card-footer"
+};
+var _hoisted_88 = {
   "class": "row align-items-center"
 };
-var _hoisted_82 = {
+var _hoisted_89 = {
   "class": "col-auto ml-auto"
 };
 
-var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_90 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-refresh fa-lg fa-r"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Reset");
+var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Reset");
 
-var _hoisted_85 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-layers fa-lg fa-r"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Apply filter");
+var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Apply filter");
 
-var _hoisted_87 = {
+var _hoisted_94 = {
   key: 1,
   "class": "card table-card"
 };
-var _hoisted_88 = {
+var _hoisted_95 = {
   "class": "card-header"
 };
-var _hoisted_89 = {
+var _hoisted_96 = {
   "class": "row align-items-center"
 };
-var _hoisted_90 = {
+var _hoisted_97 = {
   "class": "col"
 };
-var _hoisted_91 = {
+var _hoisted_98 = {
   key: 0,
   "class": "title"
 };
 
-var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_99 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-people"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Job Seekers");
+var _hoisted_100 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Job Seekers");
 
-var _hoisted_94 = {
+var _hoisted_101 = {
   key: 1,
   "class": "title"
 };
 
-var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_102 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-people"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Selected Candidates");
+var _hoisted_103 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Selected Candidates");
 
-var _hoisted_97 = {
+var _hoisted_104 = {
   key: 2,
   "class": "title"
 };
 
-var _hoisted_98 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-people"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_99 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Rejected Candidates");
+var _hoisted_106 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Rejected Candidates");
 
-var _hoisted_100 = {
+var _hoisted_107 = {
   key: 3,
   "class": "title"
 };
 
-var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_108 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-people"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_102 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Reviewed Candidates");
+var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Reviewed Candidates");
 
-var _hoisted_103 = {
+var _hoisted_110 = {
   "class": "col-auto"
 };
 
-var _hoisted_104 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_111 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "icon-doc fa-lg fa-r"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_105 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Export");
+var _hoisted_112 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Export");
 
-var _hoisted_106 = {
+var _hoisted_113 = {
   "class": "card-body"
 };
-var _hoisted_107 = {
+var _hoisted_114 = {
   "class": "table-responsive"
 };
-var _hoisted_108 = {
+var _hoisted_115 = {
   "class": "table table-hover"
 };
 
-var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
+var _hoisted_116 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
   width: "55px"
 }, "#"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("th", {
   width: "50px"
@@ -26447,12 +26485,12 @@ var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 /* HOISTED */
 );
 
-var _hoisted_110 = {
+var _hoisted_117 = {
   key: 0,
   "class": "avatar avatar-sm"
 };
 
-var _hoisted_111 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_118 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: "/admin/img/icons/avatar.png",
   "class": "avatar-img rounded-circle",
   alt: "..."
@@ -26460,12 +26498,12 @@ var _hoisted_111 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 /* HOISTED */
 );
 
-var _hoisted_112 = {
+var _hoisted_119 = {
   key: 1,
   "class": "avatar avatar-sm"
 };
 
-var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_120 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: "/admin/img/icons/avatar-fm.png",
   "class": "avatar-img rounded-circle",
   alt: "..."
@@ -26473,80 +26511,80 @@ var _hoisted_113 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 /* HOISTED */
 );
 
-var _hoisted_114 = {
+var _hoisted_121 = {
   "class": "strong"
 };
-var _hoisted_115 = {
-  "class": "badge badge-soft-info"
-};
-var _hoisted_116 = {
-  key: 0
-};
-var _hoisted_117 = {
-  key: 1
-};
-var _hoisted_118 = {
-  key: 2
-};
-var _hoisted_119 = {
-  key: 3
-};
-var _hoisted_120 = {
-  key: 4
-};
-var _hoisted_121 = {
-  key: 5
-};
 var _hoisted_122 = {
-  key: 6
+  "class": "badge badge-soft-info"
 };
 var _hoisted_123 = {
-  key: 7
+  key: 0
 };
 var _hoisted_124 = {
-  key: 8
+  key: 1
 };
 var _hoisted_125 = {
-  key: 9
+  key: 2
 };
 var _hoisted_126 = {
-  "class": "badge badge-soft-info"
+  key: 3
 };
 var _hoisted_127 = {
-  key: 10
+  key: 4
 };
 var _hoisted_128 = {
-  key: 11
+  key: 5
 };
 var _hoisted_129 = {
-  "class": "badge badge-soft-info"
+  key: 6
 };
 var _hoisted_130 = {
-  key: 12
+  key: 7
 };
 var _hoisted_131 = {
+  key: 8
+};
+var _hoisted_132 = {
+  key: 9
+};
+var _hoisted_133 = {
+  "class": "badge badge-soft-info"
+};
+var _hoisted_134 = {
+  key: 10
+};
+var _hoisted_135 = {
+  key: 11
+};
+var _hoisted_136 = {
+  "class": "badge badge-soft-info"
+};
+var _hoisted_137 = {
+  key: 12
+};
+var _hoisted_138 = {
   key: 0
 };
 
-var _hoisted_132 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_139 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "fas fa-eye",
   title: "Reviewed"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_133 = {
+var _hoisted_140 = {
   key: 1
 };
 
-var _hoisted_134 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+var _hoisted_141 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
   "class": "fas fa-eye-slash",
   title: "Unreviewed"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_135 = {
+var _hoisted_142 = {
   key: 0,
   "class": "h-100"
 };
@@ -26614,39 +26652,46 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, [_hoisted_77, _hoisted_78, _hoisted_79], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.filter.review]])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_82, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.filter.review]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_80, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_81, [_hoisted_82, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_83, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
+        "class": "form-control",
+        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+          return $data.filter.assessmentTest = $event;
+        })
+      }, [_hoisted_84, _hoisted_85, _hoisted_86], 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.filter.assessmentTest]])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         "class": "btn btn-sm btn-default",
         title: "Reset Filter",
-        onClick: _cache[8] || (_cache[8] = function () {
+        onClick: _cache[9] || (_cache[9] = function () {
           return $options.resetFilter && $options.resetFilter.apply($options, arguments);
         })
-      }, [_hoisted_83, _hoisted_84]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+      }, [_hoisted_90, _hoisted_91]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
         "class": "btn btn-sm btn-primary ml-1",
         title: "Apply Filter",
-        onClick: _cache[9] || (_cache[9] = function ($event) {
+        onClick: _cache[10] || (_cache[10] = function ($event) {
           return $options.getPaginatedData($data.currentPage);
         })
-      }, [_hoisted_85, _hoisted_86])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.dataLoaded && $data.jobSeekers.data.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_90, [$props.all ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_91, [_hoisted_92, _hoisted_93])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.selected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_94, [_hoisted_95, _hoisted_96])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.rejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_97, [_hoisted_98, _hoisted_99])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.reviewed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_100, [_hoisted_101, _hoisted_102])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_103, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+      }, [_hoisted_92, _hoisted_93])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.dataLoaded && $data.jobSeekers.data.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_94, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_95, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_96, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_97, [$props.all ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_98, [_hoisted_99, _hoisted_100])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.selected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_101, [_hoisted_102, _hoisted_103])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.rejected ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_104, [_hoisted_105, _hoisted_106])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.reviewed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_107, [_hoisted_108, _hoisted_109])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
         href: "javascript:;",
         "class": "btn btn-primary ml-1",
-        onClick: _cache[10] || (_cache[10] = function () {
+        onClick: _cache[11] || (_cache[11] = function () {
           return $options.excelDownload && $options.excelDownload.apply($options, arguments);
         })
-      }, [_hoisted_104, _hoisted_105])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_106, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_107, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("table", _hoisted_108, [_hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.jobSeekers.data, function (jobSeeker, k) {
+      }, [_hoisted_111, _hoisted_112])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_113, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("table", _hoisted_115, [_hoisted_116, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.jobSeekers.data, function (jobSeeker, k) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("tr", {
           key: k
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.id), 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.gender == 'male' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_110, [_hoisted_111])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_112, [_hoisted_113]))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.gender == 'male' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_117, [_hoisted_118])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_119, [_hoisted_120]))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", _hoisted_121, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
             return $options.modalOpen(jobSeeker, $event);
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.first_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.middle_name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.last_name), 9
         /* TEXT, PROPS */
-        , ["onClick"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_115, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.gender), 1
+        , ["onClick"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_122, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.gender), 1
         /* TEXT */
-        )]), jobSeeker.qualification == 'school' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_116, "School")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'bachelors' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_117, "Bachelor's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'masters' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_118, "Master's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'doctoral' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_119, "Doctoral Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_120, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.full_time_employment), 1
+        )]), jobSeeker.qualification == 'school' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_123, "School")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'bachelors' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_124, "Bachelor's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'masters' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_125, "Master's Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == 'doctoral' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_126, "Doctoral Degree")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.qualification == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_127, "N/A")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.full_time_employment), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.on_job_training), 1
         /* TEXT */
@@ -26654,64 +26699,64 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.unemployed), 1
         /* TEXT */
-        ), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_121, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        ), jobSeeker.readiness_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
             return $options.openAssessmentModal(jobSeeker.id, 'Readiness Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score) + "%", 9
         /* TEXT, PROPS */
-        , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_122, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score), 1
+        , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.readiness_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_129, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.readiness_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_123, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_130, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
             return $options.openAssessmentModal(jobSeeker.id, 'Evaluation Assessment');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score) + "%", 9
         /* TEXT, PROPS */
-        , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_124, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
+        , ["onClick"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.evaluation_weighted_score == 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_131, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.evaluation_weighted_score), 1
         /* TEXT */
-        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_125, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_126, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.best_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_132, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
             return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 9
         /* TEXT, PROPS */
-        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_127, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_134, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.best_competency), 1
         /* TEXT */
-        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_128, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_129, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        )])), jobSeeker.worst_competency != 'N/A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_136, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
           href: "javascript:;",
           onClick: function onClick($event) {
             return $options.openAssessmentModal(jobSeeker.id, 'Competencies');
           }
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 9
         /* TEXT, PROPS */
-        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_130, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
+        , ["onClick"])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("td", _hoisted_137, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(jobSeeker.worst_competency), 1
         /* TEXT */
-        )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_131, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+        )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("td", null, [jobSeeker.reviewed == 'Unreviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_138, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
             id: jobSeeker.id,
             review: 1
           })
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_132];
+            return [_hoisted_139];
           }),
           _: 2
           /* DYNAMIC */
 
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
-        , ["href"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.reviewed == 'Reviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_133, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
+        , ["href"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), jobSeeker.reviewed == 'Reviewed' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_140, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertiaLink, {
           href: _ctx.route('reviewJobSeeker', {
             id: jobSeeker.id,
             review: 0
           })
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [_hoisted_134];
+            return [_hoisted_141];
           }),
           _: 2
           /* DYNAMIC */
@@ -26727,7 +26772,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onGetPaginatedDataByUrl: $options.getPaginatedDataByUrl
       }, null, 8
       /* PROPS */
-      , ["metaData", "onGetPaginatedData", "onGetPaginatedDataByUrl"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), $data.dataLoaded && $data.jobSeekers.data.length == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_135, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_not_found)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_detail_modal, {
+      , ["metaData", "onGetPaginatedData", "onGetPaginatedDataByUrl"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), $data.dataLoaded && $data.jobSeekers.data.length == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_142, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_not_found)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), $data.showModal ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_detail_modal, {
         key: 0,
         show: $data.showModal,
         jobSeeker: $data.jobSeeker,
